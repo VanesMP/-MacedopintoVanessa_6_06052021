@@ -1,0 +1,636 @@
+    /****************** typo *****************************/
+    
+    @font-face {
+        font-family: 'Roboto';
+        src: url("Roboto\Roboto-Black.ttf") format('truetype');
+        src: url("Roboto\Roboto-Bold.ttf") format('truetype');
+        src: url("Roboto\Roboto-Light.ttf") format('truetype');
+        src: url("Roboto\Roboto-Medium.ttf") format('truetype');
+        src: url("Roboto\Roboto-Regular.ttf") format('truetype');
+        src: url("Roboto\Roboto-Thin.ttf") format('truetype');
+    }
+    
+    @font-face {
+        font-family: 'Shrikhand';
+        src: url("Shrikhand\Shrikhand-Regular.ttf") format('truetype');
+    }
+    /************ Body ****************/
+    
+    $primaire: #9356DC;
+    $secondaire: #FF79DA;
+    $tertiaire:#99E2D0;
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto';
+        text-overflow: ellipsis;
+    }
+    
+    input,
+    button,
+    form {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    
+    a,
+    .btn,
+    form {
+        cursor: pointer;
+        text-decoration: none;
+        color: currentColor;
+    }
+    /************ STYLE : Header **************/
+    
+    header {
+        width: 85%;
+        height: 200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+    
+    .logo {
+        background: white;
+        width: 30%;
+        margin: auto;
+    }
+    
+    .logoHeader {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .return {
+        width: 63px;
+        font-size: 1.8em;
+    }
+    /************ MEDIA QUERIES TABLETTE : Header **************/
+    
+    @media all and (min-width: 421px) and (max-width: 770px) {
+        header {
+            width: 81%;
+            height: 140px;
+            align-items: flex-end;
+        }
+        .return {
+            width: 80px;
+            height: 73px;
+        }
+        .fa-arrow-left:before {
+            font-size: 1em;
+        }
+        .logo {
+            width: 70%;
+            height: 140px;
+        }
+        .logoHeader {
+            width: 85%;
+            margin-top: 11%;
+        }
+    }
+    /************ MEDIA QUERIES MOBILE : Header **************/
+    
+    @media all and (max-width: 420px) {
+        header {
+            width: 81%;
+            height: 80px;
+            align-items: flex-end;
+        }
+        .return {
+            width: 80px;
+            height: 55px;
+        }
+        .fa-arrow-left:before {
+            font-size: 0.7em;
+        }
+        .logo {
+            width: 70%;
+            height: 80px;
+        }
+        .logoHeader {
+            width: 85%;
+            margin-top: 11%;
+        }
+    }
+    /************ SECTION : carte du restaurants **************/
+    
+    .imageFond {
+        width: 100%;
+        height: 325px;
+        object-fit: cover;
+        object-position: 0% 57%;
+    }
+    
+    .nomResto {
+        font: 1.8em Shrikhand;
+    }
+    
+    .fa-heart:before {
+        font-size: 1.6em;
+    }
+    
+    .heart {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 2%;
+        background-image: url("../../icone/heart-regular.svg");
+        &:hover {
+            background-image: url("../../icone/heart-solid.svg");
+            transition: 1s steps(6, end);
+        }
+    }
+    
+    .carte {
+        width: 100%;
+        height: 735px;
+        background-color: #f6f6f6;
+        border-radius: 35px 35px 0px 0px;
+        margin-top: -3%;
+        position: sticky;
+    }
+    
+    .carte4 {
+        @extend .carte;
+        height: 815px;
+    }
+    
+    .enteteMenu {
+        width: 90%;
+        height: 50px;
+        margin: auto;
+        padding-top: 27px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+    
+    .box {
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    
+    .boxMenu {
+        width: 30%;
+    }
+    
+    .menu {
+        margin: auto;
+        margin-top: 2%;
+        width: 100%;
+        height: 315px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .menu4 {
+        @extend .menu;
+        height: 400px;
+    }
+    
+    .titre {
+        text-transform: uppercase;
+        font: 300 1.2em Roboto;
+        border-bottom: 3px solid $tertiaire;
+        width: 12%;
+        margin-top: 9%;
+    }
+    
+    .boxRepas1,
+    .boxRepas2,
+    .boxRepas3,
+    .boxRepas4 {
+        width: 100%;
+        height: 85px;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0px 12px 15px #d2d0d099;
+        cursor: pointer;
+        overflow: hidden;
+        animation: transition 0.5s ease-in-out 1s both, opacity 1s ease-in-out 2s;
+    }
+    
+    .boxRepas1 {
+        animation-delay: 1s;
+    }
+    
+    .boxRepas2 {
+        animation-delay: 1.25s;
+    }
+    
+    .boxRepas3 {
+        animation-delay: 1.5s;
+    }
+    
+    .boxRepas4 {
+        animation-delay: 1.75s;
+    }
+    
+    @keyframes transition {
+        0% {
+            margin-bottom: -10px;
+            opacity: 0;
+        }
+        100% {
+            margin-bottom: 0;
+            opacity: 1;
+        }
+    }
+    
+    .choix {
+        background-color: $tertiaire;
+        border-radius: 0px 20px 20px 0px;
+        display: none;
+        text-align: center;
+        animation: check 0.5s ease-out 0s 1 forwards;
+    }
+    
+    @keyframes check {
+        from {
+            width: 0px;
+        }
+        to {
+            width: 120px;
+        }
+    }
+    
+    .fa-check-circle {
+        font-size: 2.2em;
+        color: white;
+        margin-top: 26px;
+    }
+    
+    .boxRepas:hover>.choix {
+        display: block;
+    }
+    
+    .boxRepas:hover .fa-check-circle {
+        animation: rotate 0.3s linear 0s 1 forwards;
+    }
+    
+    @keyframes rotate {
+        from {
+            transform: rotate(75deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    .boxText {
+        width: 100%;
+        height: 65px;
+        margin-left: 21px;
+        margin-right: 21px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+    
+    .text {
+        width: 75%;
+        line-height: 50%;
+    }
+    
+    .intitule,
+    .prix {
+        font: 700 1.1em Roboto;
+    }
+    
+    .soustitre {
+        font: 300 1em Roboto;
+    }
+    
+    .intitule,
+    .soustitre {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+    }
+    /************ MEDIA QUERIES TABLETTE : Section **************/
+    
+    @media all and (min-width: 421px) and (max-width: 770px) {
+        .box {
+            width: 95%;
+            flex-direction: column;
+        }
+        .boxMenu {
+            width: 100%;
+        }
+        .imageFond {
+            height: 380px;
+        }
+        .nomResto {
+            font: 2.2em Shrikhand;
+        }
+        .fa-heart:before {
+            font-size: 1.6em;
+        }
+        .heart {
+            width: 40px;
+            height: 40px;
+        }
+        .carte {
+            height: 1825px;
+            margin-top: -5%;
+        }
+        .carte4 {
+            height: 1980px;
+        }
+        .enteteMenu {
+            width: 78%;
+            height: 100px;
+            padding-top: 13px;
+            align-items: flex-end;
+        }
+        .menu {
+            width: 73%;
+            height: 380px;
+        }
+        .menu4 {
+            margin-top: 3%;
+            height: 515px;
+        }
+        .titre {
+            font: 200 1.7em Roboto;
+            width: 9%;
+            margin-left: 5%;
+            margin-top: 7%;
+        }
+        .boxRepas1,
+        .boxRepas2,
+        .boxRepas3,
+        .boxRepas4 {
+            height: 105px;
+        }
+        .fa-check-circle {
+            font-size: 2.5em;
+            margin-top: 30px;
+        }
+        .boxText {
+            height: 80px;
+        }
+        .intitule,
+        .prix {
+            font: 700 1.5em Roboto;
+        }
+        .soustitre {
+            font: 300 1.2em Roboto;
+        }
+        @keyframes check {
+            from {
+                width: 0px;
+            }
+            to {
+                width: 150px;
+            }
+        }
+    }
+    /************ MEDIA QUERIES MOBILE : Section **************/
+    
+    @media all and (max-width: 420px) {
+        .box {
+            width: 90%;
+            flex-direction: column;
+        }
+        .boxMenu {
+            width: 100%;
+        }
+        .imageFond {
+            height: 250px;
+        }
+        .nomResto {
+            font: 1.7em Shrikhand;
+        }
+        .fa-heart:before {
+            font-size: 1.6em;
+        }
+        .heart {
+            width: 30px;
+            height: 30px;
+        }
+        .carte {
+            height: 1415px;
+            margin-top: -10%;
+        }
+        .carte4 {
+            height: 1495px;
+        }
+        .enteteMenu {
+            width: 88%;
+            align-items: flex-end;
+        }
+        .menu {
+            width: 100%;
+            height: 300px;
+        }
+        .menu4 {
+            margin-top: 3%;
+            height: 405px;
+        }
+        .titre {
+            margin-left: 5%;
+        }
+        .boxRepas1,
+        .boxRepas2,
+        .boxRepas3,
+        .boxRepas4 {
+            height: 80px;
+        }
+        .text {
+            width: 75%;
+            line-height: 50%;
+        }
+        .intitule,
+        .prix {
+            font: 700 1.1em Roboto;
+        }
+        .fa-check-circle {
+            font-size: 2.1em;
+            margin-top: 23px;
+        }
+    }
+    /************ SECTION : le bouton pour commander **************/
+    
+    .boxBtnCommand {
+        width: 25%;
+        margin: auto;
+        margin-top: 5%;
+    }
+    
+    .command {
+        width: 100%;
+        height: 68px;
+        border-radius: 35px;
+        box-shadow: 0px 8px 23px #c9c9c9;
+        background: linear-gradient(to bottom right, $secondaire, $primaire);
+        color: white;
+        font-size: 1.4em;
+        &:hover {
+            box-shadow: 0px 12px 15px #a29fa7;
+            background: linear-gradient(to bottom right, #ff8ade, #a26ae7);
+        }
+    }
+    /************ MEDIA QUERIES TABLETTE : Section : le bouton pour commander **************/
+    
+    @media all and (min-width: 421px) and (max-width: 770px) {
+        .boxBtnCommand {
+            width: 45%;
+            margin-top: 9%;
+        }
+        .command {
+            height: 80px;
+            font-size: 1.6em;
+        }
+    }
+    /************ MEDIA QUERIES MOBILE : Section : le bouton pour commander **************/
+    
+    @media all and (max-width: 420px) {
+        .boxBtnCommand {
+            width: 50%;
+            margin-top: 13%;
+        }
+        .command {
+            height: 60px;
+            font-size: 1.2em;
+        }
+    }
+    /************ STYLE : Footer **************/
+    
+    footer {
+        width: 100%;
+        height: 320px;
+        background-color: #353535;
+    }
+    
+    .textFooter {
+        width: 84%;
+        line-height: 2.2em;
+        padding-top: 4%;
+        margin: auto;
+    }
+    
+    .textUniquement {
+        padding-top: 2%;
+    }
+    
+    .logoFooter {
+        filter: invert(100%);
+        width: 15%;
+    }
+    
+    .proposer,
+    .partenaire {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .textProposer {
+        margin-left: 17px;
+    }
+    
+    .textPartenaire {
+        margin-left: 10px;
+    }
+    
+    .fa-utensils:before {
+        font-size: 1.5em;
+        color: white;
+    }
+    
+    .fa-hands-helping:before {
+        font-size: 1.3em;
+        color: white;
+    }
+    
+    .textProposer,
+    .textPartenaire,
+    .mention,
+    .contact {
+        color: white;
+        font-size: 1.2em;
+    }
+    /************ MEDIA QUERIES TABLETTE : Footer **************/
+    
+    @media all and (min-width: 421px) and (max-width: 770px) {
+        footer {
+            height: 310px;
+        }
+        .textFooter {
+            padding-top: 7%;
+        }
+        .logoFooter {
+            width: 40%;
+        }
+        .proposer,
+        .partenaire {
+            justify-content: space-between;
+        }
+        .proposer {
+            width: 40%;
+        }
+        .partenaire {
+            width: 33%;
+        }
+        .fa-utensils:before {
+            font-size: 1.5em;
+        }
+        .fa-hands-helping:before {
+            font-size: 1.3em;
+        }
+        .textProposer,
+        .textPartenaire,
+        .mention,
+        .contact {
+            font-size: 1.3em;
+        }
+    }
+    /*********** MEDIA QUERIES MOBILE : Footer *****************/
+    
+    @media all and (max-width: 420px) {
+        footer {
+            height: 235px;
+        }
+        .textFooter {
+            line-height: 1.9em;
+            padding-top: 8%;
+        }
+        .logoFooter {
+            width: 40%;
+        }
+        .proposer,
+        .partenaire {
+            justify-content: space-between;
+        }
+        .proposer {
+            width: 65%;
+        }
+        .partenaire {
+            width: 54%;
+        }
+        .fa-utensils:before {
+            font-size: 1.1em;
+        }
+        .textProposer,
+        .textPartenaire,
+        .mention,
+        .contact {
+            font-size: 1.1em;
+        }
+    }
