@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style-index.css">
+
+    <title>FishEye</title>
+</head>
+<script type="application/json" src="./data.json">
+    var mydata = JSON.parse(data);
+    console.log({
+        mydata
+    });
+    console.log(data);
+</script>
+<script type="text/javascript" src="./index-script.js">
+    var mydata = JSON.parse(data);
+    console.log(data);
+</script>
+
+<body>
+    <!--- Invisible sauf si interaction. Apparait quand l’utilisateur descend sur la page. Redirige vers le contenu de main. Role: link --->
+    <div class="btn-contenu" aria-label="bouton qui ramene vers le contenu de la page" role="link">
+        <p class="text-btn-contenu">Passer au contenu</p>
+    </div>
+
+    <header>
+        <div id="logo" aria-label="logo lien vers la page d'accueil" role="image link">
+            <a href="./index.html" alt="FishEye Home page"></a>
+        </div>
+
+        <nav aria-label="navigation-main" role="links navigation">
+            <ul>
+                <li class="tag" id="portrait" aria-label="link tag portrait" role="link">#Portrait</li>
+                <li class="tag" id="art" aria-label="link tag art" role="link">#Art</li>
+                <li class="tag" id="fashion" aria-label="link tag fashion" role="link">#Fashion</li>
+                <li class="tag" id="architecture" aria-label="link tag architecture" role="link">#Architecture</li>
+                <li class="tag" id="travel" aria-label="link tag travel" role="link">#Travel</li>
+                <li class="tag" id="sport" aria-label="link tag sport" role="link">#Sport</li>
+                <li class="tag" id="animals" aria-label="link tag animals" role="link">#Animals</li>
+                <li class="tag" id="event" aria-label="link tag event" role="link">#Event</li>
+            </ul>
+        </nav>
+
+        <h1>Nos photographes</h1>
+    </header>
+
+    <main>
+
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+/* typographie de la page */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* couleurs utilisées pour la page */
+
+$primary-dark: #901C1C;
+$primary-medium: #D3573C;
+$white: #FFFFFF;
+$black: #000000;
+$secondary-lightgrey: #FAFAFA;
+$secondary-grey: #525252;
+$inner-border: #c4c4c4;
+
+/* style general de la page */
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+    background: #FFFFFF;
+}
+
+
+/* style du bouton "Passer au contenu" */
+
+.btn-contenu {
+    display: none;
+    width: 170px;
+    height: 30px;
+    left: 633px;
+    top: 6px;
+    background: #DB8876;
+    border-radius: 5px;
+    color: $black;
+    text-align: center;
+    font: 18px bold 'DM Sans';
+    line-height: 23px;
+}
+
+.text-btn-contenu {
+    color: $black;
+    text-align: center;
+    font: bold 18px 'DM Sans';
+}
+
+
+/* style du header */
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 157px;
+    left: 7px;
+    top: 6px;
+    margin: 0;
+    padding: 0;
+}
+
+#logo {
+    position: absolute;
+    background: url('./Sample-Photos/logo.svg');
+    width: 200px;
+    height: 50px;
+    left: 100px;
+    top: 42px;
+}
+
+.tag {
+    position: absolute;
+    height: 22px;
+    top: 58px;
+    color: $primary-dark;
+    border: 0.5px solid $inner-border;
+    box-sizing: border-box;
+    border-radius: 11px;
+    font: 500 12px 'DM Sans';
+    line-height: 20.62px;
+    text-align: center;
+}
+
+#portrait {
+    width: 68px;
+    left: 386px;
+}
+
+#art {
+    width: 41px;
+    left: 459px;
+}
+
+#fashion {
+    width: 68px;
+    left: 505px;
+}
+
+#architecture {
+    width: 92px;
+    left: 578px;
+}
+
+#travel {
+    width: 58px;
+    left: 675px;
+}
+
+#sport {
+    width: 55px;
+    left: 738px;
+}
+
+#animals {
+    width: 65px;
+    left: 798px;
+}
+
+#event {
+    width: 63px;
+    left: 868px;
+}
+
+h1 {
+    position: absolute;
+    width: 324px;
+    height: 47px;
+    left: 1017px;
+    top: 44px;
+    font: normal 400 38px 'DM Sans';
+    line-height: 47px;
+    color: $primary-dark;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* style du main */
