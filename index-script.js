@@ -2,16 +2,13 @@
 
 fetch('fisheyeData.json')
     .then(response => {
-        if (!response.ok) {
-            throw new Error("HTTP error " + response.status);
-        }
         return response.json();
     })
     .then(json => {
-        console.log(json);
+        console.log(json.photographers[2]);
     })
     .catch(function() {
-        this.dataError = true;
+
     })
 
 //Ajouter les données JSON à la page, 1: recuperer l' élément section. 2:parcourir chaque objet de notre objet JSON. 3: ajouter chaque objet à sa propre div dans le Html
