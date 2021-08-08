@@ -15,10 +15,10 @@ fetch('fisheyeData.json')
     })
 
 //Ajouter les données JSON à la page, 1: recuperer l' élément section. 2:parcourir chaque objet de notre objet JSON. 3: ajouter chaque objet à sa propre div dans le Html
-function appendData(photographer) {
+/*function appendData(json) {
     var mainContainer = document.getElementById("pattern-photographers");
-    for (var i = 0; i < photographer.length; i++) {
-        var div = document.createElement('div').textContent = photographer[i].name;
+    for (var i = 0; i < photographers.length; i++) {
+        var div = document.createElement('div').textContent = photographers[i].name;
         mainContainer.appendChild(div);
     }
-}
+}*/
