@@ -11,11 +11,37 @@ fetch('fisheyeData.json')
 
     })
 
-//Ajouter les données JSON à la page, 1: recuperer l' élément section. 2:parcourir chaque objet de notre objet JSON. 3: ajouter chaque objet à sa propre div dans le Html
-/*function appendData(json) {
-    var mainContainer = document.getElementById("pattern-photographers");
-    for (var i = 0; i < photographers.length; i++) {
-        var div = document.createElement('div').textContent = photographers[i].name;
-        mainContainer.appendChild(div);
+//afficher tous les photographes selon le modele photographe
+function gestionPhotographer(photographers) {
+    photographers.forEach(photograph => {
+        addPhotographer(photograph);
+    });
+
+}
+
+// creer un modele photographe
+function addPhotographer(photographer) {
+
+    var mySection = document.getElementById('photographerContainer');
+    var myImage = document.createElement('img').innerHTML = photographer.portrait; //portrait
+    var myH2 = document.createElement('h2').innerHTML = photographer.name; //name
+    var myH3 = document.createElement('h3').innerHTML = photographer.city + photographer.country; //city+country
+    var mySlogan = document.createElement('p').innerHTML = photographer.tagline; //tagline
+    var myPrice = document.createElement('p').innerHTML = photographer.price; //price
+    var myTagList = document.createElement('ul') //tags
+
+    var listTag = photographer.tags;
+    for (var i = 0; i < listTag.length; i++) {
+        var tags = document.createElement('li').innerHTML = listTag[i];
+        myTagList.appendChild(tags);
     }
-}*/
+
+    mySection.appendChild(myImage);
+    mySection.appendChild(myH2);
+    mySection.appendChild(myH3);
+    mySection.appendChild(mySlogan);
+    mySection.appendChild(myPrice);
+    mySection.appendChild(myTagList)
+
+    main.appendChild(mySection);
+}
