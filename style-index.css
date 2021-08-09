@@ -126,5 +126,18 @@ h1 {
 }
 
 /* style du main */
+/* style modele photographe */
+h2 {
+  position: absolute;
+  left: 10.5%;
+  right: 10%;
+  top: 70.97%;
+  bottom: 13.87%;
+  font: normal normal 36px "DM Sans";
+  line-height: 47px;
+  /* identical to box height */
+  text-align: center;
+  color: #D3573C;
+}
 
 /*# sourceMappingURL=style-index.css.map */

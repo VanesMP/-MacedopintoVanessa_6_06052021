@@ -5,13 +5,29 @@ fetch('fisheyeData.json')
         return response.json();
     })
     .then(json => {
-        return json.gestionPhotographer(photographers);
+        console.log(json.photographers[2]);
     })
     .catch(function() {
 
     })
 
-//afficher tous les photographes selon le modele photographe
+//List de tags a selctionner
+function navigationTags(tags) {
+    var nav = document.getElementById('navagationMain');
+
+    var tags = document.createElement('ul');
+    tags.classList.add("tag");
+
+    for (var i = 0; i < tags.length; i++) {
+        var tag = document.createElement('li');
+        tag.innerHTML = "#" + tags[i];
+        tags.appendChild(tag);
+    }
+
+    nav.appendChild(tags);
+}
+
+//afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
     photographers.forEach(photograph => {
         addPhotographer(photograph);
@@ -22,26 +38,61 @@ function gestionPhotographer(photographers) {
 // creer un modele photographe
 function addPhotographer(photographer) {
 
-    var mySection = document.getElementById('photographerContainer');
-    var myImage = document.createElement('img').innerHTML = photographer.portrait; //portrait
-    var myH2 = document.createElement('h2').innerHTML = photographer.name; //name
-    var myH3 = document.createElement('h3').innerHTML = photographer.city + photographer.country; //city+country
-    var mySlogan = document.createElement('p').innerHTML = photographer.tagline; //tagline
-    var myPrice = document.createElement('p').innerHTML = photographer.price; //price
-    var myTagList = document.createElement('ul') //tags
+
+    var myElement = document.createElement('div'); //container pour tous les elements
+
+    var myImage = document.createElement('img');
+    myImage.textContent = photographer.portrait; //portrait
+
+    var myH2 = document.createElement('h2');
+    myH2.innerHTML = photographer.name; //name
+    myH2.classList.add("h2");
+
+    var myH3 = document.createElement('h3');
+    myH3.innerHTML = photographer.city + "," + photographer.country; //city+country
+
+    var mySlogan = document.createElement('p');
+    mySlogan.innerHTML = photographer.tagline; //tagline
+
+    var myPrice = document.createElement('p');
+    myPrice.innerHTML = photographer.price; //price
+
+    var myTagList = document.createElement('ul'); //tags
 
     var listTag = photographer.tags;
     for (var i = 0; i < listTag.length; i++) {
-        var tags = document.createElement('li').innerHTML = listTag[i];
+        var tags = document.createElement('li');
+        tags.innerHTML = "#" + listTag[i];
         myTagList.appendChild(tags);
     }
 
-    mySection.appendChild(myImage);
-    mySection.appendChild(myH2);
-    mySection.appendChild(myH3);
-    mySection.appendChild(mySlogan);
-    mySection.appendChild(myPrice);
-    mySection.appendChild(myTagList)
 
-    main.appendChild(mySection);
+    console.log(myElement)
+    myElement.appendChild(myImage);
+    myElement.appendChild(myH2);
+    myElement.appendChild(myH3);
+    myElement.appendChild(mySlogan);
+    myElement.appendChild(myPrice);
+    myElement.appendChild(myTagList)
+
+    var mySection = document.getElementById('containerPhotographers')
+    mySection.innerText = "lol";
+
 }
+
+//test en local
+function recupMimi() {
+    let mimi = {
+        "name": "Mimi Keel",
+        "id": 243,
+        "city": "London",
+        "country": "UK",
+        "tags": ["portrait", "events", "travel", "animals"],
+        "tagline": "Voir le beau dans le quotidien",
+        "price": 400,
+        "portrait": "MimiKeel.jpg"
+    }
+    addPhotographer(mimi);
+}
+
+recupMimi();
