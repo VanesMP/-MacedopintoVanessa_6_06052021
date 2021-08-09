@@ -58,6 +58,7 @@ function addPhotographer(photographer) {
     myPrice.innerHTML = photographer.price; //price
 
     var myTagList = document.createElement('ul'); //tags
+    myTagList.classList.add("tag");
 
     var listTag = photographer.tags;
     for (var i = 0; i < listTag.length; i++) {
