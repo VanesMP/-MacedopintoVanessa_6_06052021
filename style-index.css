@@ -58,59 +58,46 @@ header {
   top: 42px;
 }
 
-.tag {
-  position: absolute;
-  height: 22px;
-  top: 58px;
-  color: #901C1C;
-  border: 0.5px solid #c4c4c4;
-  box-sizing: border-box;
-  border-radius: 11px;
-  font: 500 12px "DM Sans";
-  line-height: 20.62px;
-  text-align: center;
-}
-
+/*
 #portrait {
-  width: 68px;
-  left: 386px;
+    width: 68px;
+    left: 386px;
 }
 
 #art {
-  width: 41px;
-  left: 459px;
+    width: 41px;
+    left: 459px;
 }
 
 #fashion {
-  width: 68px;
-  left: 505px;
+    width: 68px;
+    left: 505px;
 }
 
 #architecture {
-  width: 92px;
-  left: 578px;
+    width: 92px;
+    left: 578px;
 }
 
 #travel {
-  width: 58px;
-  left: 675px;
+    width: 58px;
+    left: 675px;
 }
 
 #sport {
-  width: 55px;
-  left: 738px;
+    width: 55px;
+    left: 738px;
 }
 
 #animals {
-  width: 65px;
-  left: 798px;
+    width: 65px;
+    left: 798px;
 }
 
 #event {
-  width: 63px;
-  left: 868px;
-}
-
+    width: 63px;
+    left: 868px;
+}*/
 h1 {
   position: absolute;
   width: 324px;
@@ -127,7 +114,23 @@ h1 {
 
 /* style du main */
 /* style modele photographe */
-h2 {
+.containerOne {
+  position: absolute;
+  width: 200px;
+  height: 310px;
+  left: 100px;
+  top: 202px;
+}
+
+.portraitOne {
+  position: absolute;
+  left: -81%;
+  right: -82%;
+  top: -25%;
+  bottom: -54%;
+}
+
+.nameOne {
   position: absolute;
   left: 10.5%;
   right: 10%;
@@ -138,6 +141,66 @@ h2 {
   /* identical to box height */
   text-align: center;
   color: #D3573C;
+}
+
+.localisationOne {
+  position: absolute;
+  left: 33.5%;
+  right: 33%;
+  top: 86.13%;
+  bottom: 8.39%;
+  font: normal normal 13px "DM Sans";
+  line-height: 17px;
+  text-align: center;
+  color: #901C1C;
+}
+
+.sloganOne {
+  position: absolute;
+  width: 137px;
+  height: 13px;
+  left: 32px;
+  top: 287px;
+  font: normal normal 10px "DM Sans";
+  line-height: 13px;
+  text-align: center;
+  color: #000000;
+}
+
+.priceOne {
+  position: absolute;
+  width: 45px;
+  height: 12px;
+  left: 78px;
+  top: 303px;
+  font: normal normal 9px "DM Sans";
+  line-height: 12px;
+  text-align: center;
+  color: #757575;
+}
+
+.tagsOne {
+  position: absolute;
+  display: flex;
+  width: 356px;
+  height: 22px;
+  left: -79px;
+  top: 323px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tag {
+  width: fit-content;
+  padding: 0 8px;
+  margin: 0 1%;
+  color: #901C1C;
+  border: 0.5px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 11px;
+  font: 700 12px "DM Sans";
+  line-height: 20.62px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style-index.css.map */

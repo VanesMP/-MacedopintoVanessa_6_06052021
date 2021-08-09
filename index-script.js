@@ -41,35 +41,39 @@ function addPhotographer(photographer) {
     //container pour le container des elements (dans section)
 
     var myElement = document.createElement('div'); //container pour tous les elements
+    myElement.classList.add("containerOne")
 
     var myImage = document.createElement('img');
-    myImage.textContent = photographer.portrait; //portrait
+    myImage.innerHTML = photographer.portrait; //portrait
+    myImage.classList.add("portraitOne")
 
     var myH2 = document.createElement('h2');
     myH2.innerHTML = photographer.name; //name
-    myH2.classList.add("h2");
+    myH2.classList.add("nameOne");
 
     var myH3 = document.createElement('h3');
     myH3.innerHTML = photographer.city + "," + photographer.country; //city+country
+    myH3.classList.add("localisationOne")
 
     var mySlogan = document.createElement('p');
     mySlogan.innerHTML = photographer.tagline; //tagline
+    mySlogan.classList.add("sloganOne")
 
     var myPrice = document.createElement('p');
-    myPrice.innerHTML = photographer.price; //price
+    myPrice.innerHTML = photographer.price + "€/jour"; //price
+    myPrice.classList.add("priceOne")
 
     var myTagList = document.createElement('ul'); //tags
-    myTagList.classList.add("tag");
+    myTagList.classList.add("tagsOne");
 
     var listTag = photographer.tags;
     for (var i = 0; i < listTag.length; i++) {
         var tags = document.createElement('li');
         tags.innerHTML = "#" + listTag[i];
+        tags.classList.add("tag");
         myTagList.appendChild(tags);
     }
 
-
-    console.log(myElement)
     myElement.appendChild(myImage);
     myElement.appendChild(myH2);
     myElement.appendChild(myH3);
@@ -77,8 +81,9 @@ function addPhotographer(photographer) {
     myElement.appendChild(myPrice);
     myElement.appendChild(myTagList)
 
-    var mySection = document.getElementById('containerPhotographers')
-    console.log(mySection)
+    var mySection = document.getElementById('containerPhotographers');
+    mySection.appendChild(myElement);
+    console.log(mySection);
 
 }
 
@@ -92,9 +97,10 @@ function recupMimi() {
         "tags": ["portrait", "events", "travel", "animals"],
         "tagline": "Voir le beau dans le quotidien",
         "price": 400,
-        "portrait": "MimiKeel.jpg"
+        "portrait": "Portrait_Nora.jpg"
     }
     addPhotographer(mimi);
 }
 
 recupMimi();
+addPhotographer();
