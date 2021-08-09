@@ -38,6 +38,7 @@ function gestionPhotographer(photographers) {
 // creer un modele photographe
 function addPhotographer(photographer) {
 
+    //container pour le container des elements (dans section)
 
     var myElement = document.createElement('div'); //container pour tous les elements
 
@@ -77,7 +78,7 @@ function addPhotographer(photographer) {
     myElement.appendChild(myTagList)
 
     var mySection = document.getElementById('containerPhotographers')
-    mySection.innerText = "lol";
+    console.log(mySection)
 
 }
 
