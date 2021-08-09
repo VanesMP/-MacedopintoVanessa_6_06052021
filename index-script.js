@@ -13,7 +13,7 @@ fetch('fisheyeData.json')
 
 //List de tags a selctionner
 function navigationTags(tags) {
-    var nav = document.getElementById('navagationMain');
+    var nav = document.getElementById('#navagationMain');
 
     var tags = document.createElement('ul');
     tags.classList.add("tag");
