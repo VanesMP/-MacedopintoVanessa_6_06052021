@@ -6,7 +6,7 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log(json.photographers);
-        gestionPhotographer(photographers)
+        gestionPhotographer(json.photographers)
     })
     .catch(function() {
 
@@ -27,6 +27,7 @@ function navigationTags(tags) {
 
     nav.appendChild(tags);
 }
+navigationTags();
 
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
@@ -123,5 +124,5 @@ function recupMimi() {
     }
     addPhotographer(mimi);
 }
-
+recupMimi();
 addPhotographer();
