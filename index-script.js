@@ -6,6 +6,7 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log(json.photographers);
+        addPhotographer();
     })
     .catch(function() {
 
