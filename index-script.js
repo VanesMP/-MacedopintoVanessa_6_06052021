@@ -37,15 +37,15 @@ function gestionPhotographer(photographers) {
 }
 
 // creer un modele photographe
-function addPhotographer(photographer) {
+function addPhotographer(jsonPhotographer) {
 
-    //container pour le container des elements (dans section)
+    var photographer = jsonPhotographer['photographers'];
 
     var myElement = document.createElement('div'); //container pour tous les elements
     myElement.classList.add("containerOne")
 
     var myImage = document.createElement('img');
-    //myImage.innerHTML = photographer.portrait; //portrait
+    myImage.innerHTML = photographer.portrait; //portrait
     myImage.classList.add("portraitOne")
 
     var myH2 = document.createElement('h2');
