@@ -44,7 +44,7 @@ function addPhotographer(photographer) {
     myElement.classList.add("containerOne")
 
     var myImage = document.createElement('img');
-    myImage.innerHTML = photographer.portrait; //portrait
+    //myImage.innerHTML = photographer.portrait; //portrait
     myImage.classList.add("portraitOne")
 
     var myH2 = document.createElement('h2');
