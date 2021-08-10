@@ -60,7 +60,7 @@ class photographerItems {
 
 //creer un modele photographe
 
-function addPhotographer(jsonPhotographer) {
+function addPhotographer(photographer) {
 
     var myElement = document.createElement('div'); //container pour tous les elements
     myElement.classList.add("containerOne")
