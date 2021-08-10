@@ -6,7 +6,7 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log(json.photographers);
-        addPhotographer();
+        gestionPhotographer(photographers)
     })
     .catch(function() {
 
@@ -36,10 +36,31 @@ function gestionPhotographer(photographers) {
 
 }
 
-// creer un modele photographe
-function addPhotographer(jsonPhotographer) {
+/*création des elements Html
+var myElement = document.createElement('div'); //container pour tous les elements
+var myImage = document.createElement('img'); //portrait
+var myH2 = document.createElement('h2'); //name
+var myH3 = document.createElement('h3'); //city+country
+var mySlogan = document.createElement('p'); //tagline
+var myPrice = document.createElement('p'); //price
+var myTagList = document.createElement('ul'); //tags
 
-    var photographer = jsonPhotographer['photographers'];
+// utilisation de la methode constructor pour créer et initialiser l' objet photographers
+class photographerItems {
+    constructor(portrait, name, city, country, tagline, price, tags){
+        this.portarit = portrait;
+        this.name = name;
+        this.city = city;
+        this.country = country;
+        this.tagline = tagline;
+        this.price = price;
+        this.tags = tags;
+    }
+}*/
+
+//creer un modele photographe
+
+function addPhotographer(jsonPhotographer) {
 
     var myElement = document.createElement('div'); //container pour tous les elements
     myElement.classList.add("containerOne")
@@ -103,5 +124,4 @@ function recupMimi() {
     addPhotographer(mimi);
 }
 
-recupMimi();
 addPhotographer();
