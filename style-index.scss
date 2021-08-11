@@ -1,81 +1,83 @@
-/* typographie de la page */
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
-
-/* couleurs utilisées pour la page */
-
-$primary-dark: #901C1C;
-$primary-medium: #D3573C;
-$white: #FFFFFF;
-$black: #000000;
-$secondary-lightgrey: #FAFAFA;
-$secondary-grey: #525252;
-$inner-border: #c4c4c4;
-$color-price: #757575;
-
-/* style general de la page */
-
-* {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-body {
-    font-family: 'DM Sans', sans-serif;
-    position: relative;
-    width: 1440px;
-    height: 1024px;
-    background: #FFFFFF;
-}
-
-
-/* style du bouton "Passer au contenu" */
-
-.btn-contenu {
-    display: none;
-    width: 170px;
-    height: 30px;
-    left: 633px;
-    top: 6px;
-    background: #DB8876;
-    border-radius: 5px;
-    color: $black;
-    text-align: center;
-    font: 18px bold 'DM Sans';
-    line-height: 23px;
-}
-
-.text-btn-contenu {
-    color: $black;
-    text-align: center;
-    font: bold 18px 'DM Sans';
-}
-
-
-/* style du header */
-
-header {
-    position: absolute;
-    width: 100%;
-    height: 157px;
-    left: 7px;
-    top: 6px;
-    margin: 0;
-    padding: 0;
-}
-
-#logo {
-    position: absolute;
-    background: url('./Sample-Photos/logo.svg');
-    width: 200px;
-    height: 50px;
-    left: 100px;
-    top: 42px;
-}
-
-
-/*
+    /* typographie de la page */
+    
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+    /* couleurs utilisées pour la page */
+    
+    $primary-dark: #901C1C;
+    $primary-medium: #D3573C;
+    $white: #FFFFFF;
+    $black: #000000;
+    $secondary-lightgrey: #FAFAFA;
+    $secondary-grey: #525252;
+    $inner-border: #c4c4c4;
+    $color-price: #757575;
+    /* style general de la page */
+    
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    body {
+        font-family: 'DM Sans', sans-serif;
+        position: relative;
+        width: 1440px;
+        height: 1024px;
+        background: #FFFFFF;
+    }
+    /* style du bouton "Passer au contenu" */
+    
+    .btn-contenu {
+        display: none;
+        width: 170px;
+        height: 30px;
+        left: 633px;
+        top: 6px;
+        background: #DB8876;
+        border-radius: 5px;
+        color: $black;
+        text-align: center;
+        font: 18px bold 'DM Sans';
+        line-height: 23px;
+    }
+    
+    .text-btn-contenu {
+        color: $black;
+        text-align: center;
+        font: bold 18px 'DM Sans';
+    }
+    /* style du header */
+    
+    header {
+        width: 70%;
+        height: 157px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    #logo {
+        background: url('./Sample-Photos/logo.svg');
+        width: 200px;
+        height: 50px;
+    }
+    /* style de la barre de navigation */
+    
+    #navigationMain {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-items: center;
+        width: 658px;
+        justify-content: space-evenly;
+        float: left;
+    }
+    /*
 #portrait {
     width: 68px;
     left: 386px;
@@ -115,112 +117,101 @@ header {
     width: 63px;
     left: 868px;
 }*/
-
-h1 {
-    position: absolute;
-    width: 324px;
-    height: 47px;
-    left: 1017px;
-    top: 44px;
-    font: normal 400 38px 'DM Sans';
-    line-height: 47px;
-    color: $primary-dark;
-    white-space: nowrap;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* style du main */
-
-
-/* style modele photographe */
-
-.containerOne {
-    position: absolute;
-    width: 200px;
-    height: 310px;
-    left: 100px;
-    top: 202px;
-}
-
-.portraitOne {
-    position: absolute;
-    left: -81%;
-    right: -82%;
-    top: -25%;
-    bottom: -54%;
-}
-
-.nameOne {
-    position: absolute;
-    left: 10.5%;
-    right: 10%;
-    top: 70.97%;
-    bottom: 13.87%;
-    font: normal normal 36px 'DM Sans';
-    line-height: 47px;
-    /* identical to box height */
-    text-align: center;
-    color: $primary-medium;
-}
-
-.localisationOne {
-    position: absolute;
-    left: 33.5%;
-    right: 33%;
-    top: 86.13%;
-    bottom: 8.39%;
-    font: normal normal 13px 'DM Sans';
-    line-height: 17px;
-    text-align: center;
-    color: $primary-dark;
-}
-
-.sloganOne {
-    position: absolute;
-    width: 137px;
-    height: 13px;
-    left: 32px;
-    top: 287px;
-    font: normal normal 10px 'DM Sans';
-    line-height: 13px;
-    text-align: center;
-    color: $black;
-}
-
-.priceOne {
-    position: absolute;
-    width: 45px;
-    height: 12px;
-    left: 78px;
-    top: 303px;
-    font: normal normal 9px 'DM Sans';
-    line-height: 12px;
-    text-align: center;
-    color: $color-price;
-}
-
-.tagsOne {
-    position: absolute;
-    display: flex;
-    width: 356px;
-    height: 22px;
-    left: -79px;
-    top: 323px;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.tag {
-    width: fit-content;
-    padding: 0 8px;
-    margin: 0 1%;
-    color: $primary-dark;
-    border: 0.5px solid $inner-border;
-    box-sizing: border-box;
-    border-radius: 11px;
-    font: 700 12px 'DM Sans';
-    line-height: 20.62px;
-    text-align: center;
-}
+    /* style du main */
+    
+    h1 {
+        position: absolute;
+        width: 324px;
+        height: 47px;
+        left: 1017px;
+        top: 44px;
+        font: normal 400 38px 'DM Sans';
+        line-height: 47px;
+        color: $primary-dark;
+        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+    }
+    /* style modele photographe */
+    
+    .containerOne {
+        width: 200px;
+        height: 310px;
+    }
+    
+    .portraitOne {
+        width: 526px;
+        height: 358px;
+    }
+    
+    .nameOne {
+        position: absolute;
+        left: 10.5%;
+        right: 10%;
+        top: 70.97%;
+        bottom: 13.87%;
+        font: normal normal 36px 'DM Sans';
+        line-height: 47px;
+        text-align: center;
+        color: $primary-medium;
+    }
+    
+    .localisationOne {
+        position: absolute;
+        left: 33.5%;
+        right: 33%;
+        top: 86.13%;
+        bottom: 8.39%;
+        font: normal normal 13px 'DM Sans';
+        line-height: 17px;
+        text-align: center;
+        color: $primary-dark;
+    }
+    
+    .sloganOne {
+        position: absolute;
+        width: 137px;
+        height: 13px;
+        left: 32px;
+        top: 287px;
+        font: normal normal 10px 'DM Sans';
+        line-height: 13px;
+        text-align: center;
+        color: $black;
+    }
+    
+    .priceOne {
+        position: absolute;
+        width: 45px;
+        height: 12px;
+        left: 78px;
+        top: 303px;
+        font: normal normal 9px 'DM Sans';
+        line-height: 12px;
+        text-align: center;
+        color: $color-price;
+    }
+    
+    .tagsOne {
+        position: absolute;
+        display: flex;
+        width: 356px;
+        height: 22px;
+        left: -79px;
+        top: 323px;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .tag {
+        width: fit-content;
+        padding: 0 8px;
+        margin: 0 1%;
+        color: $primary-dark;
+        border: 0.5px solid $inner-border;
+        box-sizing: border-box;
+        border-radius: 11px;
+        font: 700 12px 'DM Sans';
+        line-height: 20.62px;
+        text-align: center;
+    }
