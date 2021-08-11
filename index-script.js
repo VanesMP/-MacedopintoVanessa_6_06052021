@@ -12,7 +12,7 @@ fetch('fisheyeData.json')
 
     })
 
-//List de tags a selctionner
+/*List de tags a selctionner
 function navigationTags(tags) {
     var nav = document.getElementById('#navagationMain');
 
@@ -27,7 +27,7 @@ function navigationTags(tags) {
 
     nav.appendChild(tags);
 }
-navigationTags();
+navigationTags();*/
 
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
