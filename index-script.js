@@ -14,7 +14,7 @@ fetch('fisheyeData.json')
 
 /*List de tags a selctionner
 function navigationTags(tags) {
-    var nav = document.getElementById('#navagationMain');
+    var nav = document.getElementById('#navigationMain');
 
     var tags = document.createElement('ul');
     tags.classList.add("tag");
@@ -23,9 +23,8 @@ function navigationTags(tags) {
         var tag = document.createElement('li');
         tag.innerHTML = "#" + tags[i];
         tags.appendChild(tag);
+        nav.appendChild(tags);
     }
-
-    nav.appendChild(tags);
 }
 navigationTags();*/
 
@@ -37,18 +36,9 @@ function gestionPhotographer(photographers) {
 
 }
 
-/*création des elements Html
-var myElement = document.createElement('div'); //container pour tous les elements
-var myImage = document.createElement('img'); //portrait
-var myH2 = document.createElement('h2'); //name
-var myH3 = document.createElement('h3'); //city+country
-var mySlogan = document.createElement('p'); //tagline
-var myPrice = document.createElement('p'); //price
-var myTagList = document.createElement('ul'); //tags
-
-// utilisation de la methode constructor pour créer et initialiser l' objet photographers
+/* utilisation de la methode constructor pour créer et initialiser l' objet photographers
 class photographerItems {
-    constructor(portrait, name, city, country, tagline, price, tags){
+    constructor(portrait, name, city, country, tagline, price, tags) {
         this.portarit = portrait;
         this.name = name;
         this.city = city;
@@ -57,7 +47,7 @@ class photographerItems {
         this.price = price;
         this.tags = tags;
     }
-}*/
+} */
 
 //creer un modele photographe
 
@@ -70,7 +60,7 @@ function addPhotographer(photographer) {
 
     var myImage = document.createElement('img');
     myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
-    myImage.alt = phtotgrapher.alt; //alt
+    myImage.alt = phototgrapher.alt; //alt
     myImage.classList.add("portraitOne")
 
     var myH2 = document.createElement('h2');
