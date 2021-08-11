@@ -67,7 +67,8 @@ function addPhotographer(photographer) {
     myElement.classList.add("containerOne")
 
     var myImage = document.createElement('img');
-    myImage.src = photographer.portrait; //portrait
+    myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
+    myImage.alt = phtotgrapher.alt; //alt
     myImage.classList.add("portraitOne")
 
     var myH2 = document.createElement('h2');
