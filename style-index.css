@@ -149,7 +149,9 @@ h1 {
 .portraitOne {
   width: 200px;
   height: 200px;
-  background: center/cover;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 4px 12px #c4c4c4;
 }
 
 .nameOne {
