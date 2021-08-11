@@ -141,8 +141,9 @@ h1 {
 }
 
 .portraitOne {
-  width: 526px;
-  height: 358px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .nameOne {
