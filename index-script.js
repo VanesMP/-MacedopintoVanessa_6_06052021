@@ -60,7 +60,7 @@ function addPhotographer(photographer) {
 
     var myImage = document.createElement('img');
     myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
-    myImage.alt = phototgrapher.alt; //alt
+    myImage.alt = photographer.alt; //alt
     myImage.classList.add("portraitOne")
 
     var myH2 = document.createElement('h2');
