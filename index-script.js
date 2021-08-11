@@ -57,6 +57,7 @@ function addPhotographer(photographer) {
     myElement.classList.add("containerOne")
 
     var mylinkPhotographer = document.createElement('a');
+    mylinkPhotographer.classList.add("containerPortraitOne");
 
     var myImage = document.createElement('img');
     myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
@@ -104,7 +105,7 @@ function addPhotographer(photographer) {
 
 }
 
-//test en local
+/*test en local
 function recupMimi() {
     let mimi = {
         "name": "Mimi Keel",
@@ -119,4 +120,4 @@ function recupMimi() {
     addPhotographer(mimi);
 }
 recupMimi();
-addPhotographer();
+addPhotographer();*/
