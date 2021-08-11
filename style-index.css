@@ -4,6 +4,7 @@
 /* couleurs utilisées pour la page */
 /* style general de la page */
 * {
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -12,9 +13,10 @@
 body {
   font-family: "DM Sans", sans-serif;
   position: relative;
-  width: 1440px;
+  width: auto;
   height: 1024px;
   background: #FFFFFF;
+  margin: 2% 5%;
 }
 
 /* style du bouton "Passer au contenu" */
@@ -48,6 +50,7 @@ header {
   align-content: center;
   align-items: center;
   justify-content: space-between;
+  float: left;
 }
 
 #logo {
@@ -61,11 +64,8 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-content: center;
-  align-items: center;
-  width: 658px;
+  width: 655px;
   justify-content: space-evenly;
-  float: left;
 }
 
 /*
@@ -109,24 +109,35 @@ header {
     left: 868px;
 }*/
 /* style du main */
+main {
+  width: auto;
+}
+
 h1 {
-  position: absolute;
   width: 324px;
   height: 47px;
-  left: 1017px;
-  top: 44px;
+  float: right;
   font: normal 400 38px "DM Sans";
-  line-height: 47px;
+  line-height: 61px;
   color: #901C1C;
   white-space: nowrap;
-  margin: 0;
+  margin: 3% 0% 3% 4%;
   padding: 0;
+}
+
+#containerPhotographers {
+  width: auto;
+  clear: both;
 }
 
 /* style modele photographe */
 .containerOne {
-  width: 200px;
-  height: 310px;
+  width: 25%;
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .portraitOne {
@@ -135,60 +146,37 @@ h1 {
 }
 
 .nameOne {
-  position: absolute;
-  left: 10.5%;
-  right: 10%;
-  top: 70.97%;
-  bottom: 13.87%;
   font: normal normal 36px "DM Sans";
-  line-height: 47px;
   text-align: center;
   color: #D3573C;
 }
 
 .localisationOne {
-  position: absolute;
-  left: 33.5%;
-  right: 33%;
-  top: 86.13%;
-  bottom: 8.39%;
   font: normal normal 13px "DM Sans";
-  line-height: 17px;
   text-align: center;
   color: #901C1C;
 }
 
 .sloganOne {
-  position: absolute;
   width: 137px;
   height: 13px;
-  left: 32px;
-  top: 287px;
   font: normal normal 10px "DM Sans";
-  line-height: 13px;
   text-align: center;
   color: #000000;
 }
 
 .priceOne {
-  position: absolute;
   width: 45px;
   height: 12px;
-  left: 78px;
-  top: 303px;
   font: normal normal 9px "DM Sans";
-  line-height: 12px;
   text-align: center;
   color: #757575;
 }
 
 .tagsOne {
-  position: absolute;
   display: flex;
   width: 356px;
   height: 22px;
-  left: -79px;
-  top: 323px;
   flex-direction: row;
   justify-content: center;
 }
