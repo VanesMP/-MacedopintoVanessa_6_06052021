@@ -66,6 +66,8 @@ function addPhotographer(photographer) {
     var myElement = document.createElement('div'); //container pour tous les elements
     myElement.classList.add("containerOne")
 
+    var mylinkPhotographer = document.createElement('a');
+
     var myImage = document.createElement('img');
     myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
     myImage.alt = phtotgrapher.alt; //alt
@@ -98,8 +100,9 @@ function addPhotographer(photographer) {
         myTagList.appendChild(tags);
     }
 
-    myElement.appendChild(myImage);
-    myElement.appendChild(myH2);
+    mylinkPhotographer.appendChild(myImage);
+    mylinkPhotographer.appendChild(myH2);
+    myElement.appendChild(mylinkPhotographer);
     myElement.appendChild(myH3);
     myElement.appendChild(mySlogan);
     myElement.appendChild(myPrice);
