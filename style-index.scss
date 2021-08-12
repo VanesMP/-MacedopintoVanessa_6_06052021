@@ -52,7 +52,7 @@
     /* style du header */
     
     header {
-        width: 70%;
+        width: 65%;
         height: 157px;
         display: flex;
         flex-direction: row;
@@ -150,6 +150,9 @@
     #containerPhotographers {
         width: auto;
         clear: both;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
     }
     /* style modele photographe */
     
@@ -178,7 +181,7 @@
     
     .nameOne {
         font: normal normal 36px 'DM Sans';
-        text-align: center;
+        width: max-content;
         color: $primary-medium;
     }
     
