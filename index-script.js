@@ -7,7 +7,6 @@ fetch('fisheyeData.json')
     .then(json => {
         console.log(json.photographers);
         gestionPhotographer(json.photographers)
-        navigationTags(json.photographer.tags);
     })
     .catch(function() {
 
