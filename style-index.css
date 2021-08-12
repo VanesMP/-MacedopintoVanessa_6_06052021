@@ -64,8 +64,20 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 655px;
+  width: 589px;
   justify-content: space-evenly;
+}
+
+.tag {
+  width: fit-content;
+  padding: 0 8px;
+  color: #901C1C;
+  border: 0.5px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 11px;
+  font: 700 12px "DM Sans";
+  line-height: 20.62px;
+  text-align: center;
 }
 
 /*
@@ -167,7 +179,7 @@ h1 {
 }
 
 .sloganOne {
-  width: 137px;
+  width: max-content;
   height: 13px;
   font: normal normal 10px "DM Sans";
   text-align: center;
@@ -190,7 +202,7 @@ h1 {
   justify-content: center;
 }
 
-.tag {
+.tagPersonnel {
   width: fit-content;
   padding: 0 8px;
   margin: 0 1%;

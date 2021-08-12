@@ -87,7 +87,7 @@ function addPhotographer(photographer) {
     for (var i = 0; i < listTag.length; i++) {
         var tags = document.createElement('li');
         tags.innerHTML = "#" + listTag[i];
-        tags.classList.add("tag");
+        tags.classList.add("tagPersonnel");
         myTagList.appendChild(tags);
     }
 
