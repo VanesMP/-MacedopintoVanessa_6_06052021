@@ -13,18 +13,9 @@ fetch('fisheyeData.json')
     })
 
 //List de tags a selctionner
-function navigationTags(tags) {
-    var nav = document.getElementById('#navigationMain');
+function navigationTags(tag) {
 
-    var tags = document.createElement('ul');
-    tags.classList.add("tag");
 
-    for (var i = 0; i < tags.length; i++) {
-        var tag = document.createElement('li');
-        tag.innerHTML = "#" + photographer.tags[i];
-        tags.appendChild(tag);
-        nav.appendChild(tags);
-    }
 }
 navigationTags();
 

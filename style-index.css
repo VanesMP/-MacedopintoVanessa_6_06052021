@@ -80,47 +80,6 @@ header {
   text-align: center;
 }
 
-/*
-#portrait {
-    width: 68px;
-    left: 386px;
-}
-
-#art {
-    width: 41px;
-    left: 459px;
-}
-
-#fashion {
-    width: 68px;
-    left: 505px;
-}
-
-#architecture {
-    width: 92px;
-    left: 578px;
-}
-
-#travel {
-    width: 58px;
-    left: 675px;
-}
-
-#sport {
-    width: 55px;
-    left: 738px;
-}
-
-#animals {
-    width: 65px;
-    left: 798px;
-}
-
-#event {
-    width: 63px;
-    left: 868px;
-}*/
-/* style du main */
 main {
   width: auto;
 }
