@@ -7,12 +7,13 @@ fetch('fisheyeData.json')
     .then(json => {
         console.log(json.photographers);
         gestionPhotographer(json.photographers)
+        navigationTags(json.photographer.tags);
     })
     .catch(function() {
 
     })
 
-/*List de tags a selctionner
+//List de tags a selctionner
 function navigationTags(tags) {
     var nav = document.getElementById('#navigationMain');
 
@@ -21,12 +22,12 @@ function navigationTags(tags) {
 
     for (var i = 0; i < tags.length; i++) {
         var tag = document.createElement('li');
-        tag.innerHTML = "#" + tags[i];
+        tag.innerHTML = "#" + photographer.tags[i];
         tags.appendChild(tag);
         nav.appendChild(tags);
     }
 }
-navigationTags();*/
+navigationTags();
 
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
