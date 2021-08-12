@@ -13,6 +13,7 @@ fetch('fisheyeData.json')
     })
 
 //List de tags a selctionner
+// ajouter un eventListener au click sur un tag et afficher uniquement les photographer qui ont ce tag dans leur données.
 function navigationTags(tag) {
 
 
