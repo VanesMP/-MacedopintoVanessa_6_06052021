@@ -28,19 +28,6 @@ function gestionPhotographer(photographers) {
 
 }
 
-/* utilisation de la methode constructor pour créer et initialiser l' objet photographers
-class photographerItems {
-    constructor(portrait, name, city, country, tagline, price, tags) {
-        this.portarit = portrait;
-        this.name = name;
-        this.city = city;
-        this.country = country;
-        this.tagline = tagline;
-        this.price = price;
-        this.tags = tags;
-    }
-} */
-
 //creer un modele photographe
 
 function addPhotographer(photographer) {
