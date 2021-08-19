@@ -20,6 +20,10 @@
         list-style-type: none;
     }
     
+    a {
+        cursor: default;
+    }
+    
     body {
         font-family: 'DM Sans', sans-serif;
         position: relative;
@@ -67,6 +71,7 @@
         background: url('./Sample-Photos/logo.svg');
         width: 200px;
         height: 50px;
+        cursor: pointer;
     }
     /* style de la barre de navigation */
     
