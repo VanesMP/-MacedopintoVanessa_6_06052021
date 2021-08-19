@@ -16,39 +16,39 @@ fetch('fisheyeData.json')
 // ajouter un eventListener pour chaque tag (et afficher uniquement les photographer qui ont ce tag dans leur données)
 var btnPortrait = document.getElementById('portrait');
 btnPortrait.addEventListener('click', function(event) {
-    eventTag(btnPortrait);
+    filterByTag(btnPortrait);
 });
 var btnArt = document.getElementById('art');
 btnArt.addEventListener('click', function(event) {
-    eventTag(btnArt);
+    filterByTag(btnArt);
 });
 var btnFashion = document.getElementById('fashion');
 btnFashion.addEventListener('click', function(event) {
-    eventTag(btnFashion);
+    filterByTag(btnFashion);
 });
 var btnArchitecture = document.getElementById('architecture');
 btnArchitecture.addEventListener('click', function(event) {
-    eventTag(btnArchitecture);
+    filterByTag(btnArchitecture);
 });
 var btnTravel = document.getElementById('travel');
 btnTravel.addEventListener('click', function(event) {
-    eventTag(btnTravel);
+    filterByTag(btnTravel);
 });
 var btnSport = document.getElementById('sport');
 btnSport.addEventListener('click', function(event) {
-    eventTag(btnSport);
+    filterByTag(btnSport);
 });
 var btnAnimals = document.getElementById('animals');
 btnAnimals.addEventListener('click', function(event) {
-    eventTag(btnAnimals);
+    filterByTag(btnAnimals);
 });
 var btnEvent = document.getElementById('event');
 btnEvent.addEventListener('click', function(event) {
-    eventTag(btnEvent);
+    filterByTag(btnEvent);
 });
 
 
-function eventTag(tag) {
+function filterByTag(tag) {
     laDeselection();
     laSelection(tag);
 }
