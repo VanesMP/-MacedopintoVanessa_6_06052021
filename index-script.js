@@ -13,11 +13,13 @@ fetch('fisheyeData.json')
     })
 
 //List de tags a selctionner
-// ajouter un eventListener au click sur un tag et afficher uniquement les photographer qui ont ce tag dans leur données.
-function navigationTags(tag) {
+// ajouter un eventListener pour chaque tag (et afficher uniquement les photographer qui ont ce tag dans leur données)
+var btnPortrait = document.getElementById('portrait');
+btnPortrait.addEventListener('click', function(event) {
+    alert('Tu as sélectionné "Portrait');
+});
 
-
-}
+function navigationTags(tag) {}
 navigationTags();
 
 //afficher tous les photographes selon le modele
