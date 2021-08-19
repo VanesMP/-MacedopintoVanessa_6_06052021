@@ -15,28 +15,38 @@ fetch('fisheyeData.json')
 //List de tags a selctionner
 // ajouter un eventListener pour chaque tag (et afficher uniquement les photographer qui ont ce tag dans leur données)
 var btnPortrait = document.getElementById('portrait');
-btnPortrait.addEventListener('click', alert('toto'));
-
+btnPortrait.addEventListener('click', function(event) {
+    eventTag(btnPortrait);
+});
 var btnArt = document.getElementById('art');
-btnArt.addEventListener('click', eventTag(btnArt));
-
+btnArt.addEventListener('click', function(event) {
+    eventTag(btnArt);
+});
 var btnFashion = document.getElementById('fashion');
-btnFashion.addEventListener('click', eventTag(btnFashion));
-
+btnFashion.addEventListener('click', function(event) {
+    eventTag(btnFashion);
+});
 var btnArchitecture = document.getElementById('architecture');
-btnArchitecture.addEventListener('click', eventTag(btnArchitecture));
-
+btnArchitecture.addEventListener('click', function(event) {
+    eventTag(btnArchitecture);
+});
 var btnTravel = document.getElementById('travel');
-btnTravel.addEventListener('click', eventTag(btnTravel));
-
+btnTravel.addEventListener('click', function(event) {
+    eventTag(btnTravel);
+});
 var btnSport = document.getElementById('sport');
-btnSport.addEventListener('click', eventTag(btnSport));
-
+btnSport.addEventListener('click', function(event) {
+    eventTag(btnSport);
+});
 var btnAnimals = document.getElementById('animals');
-btnAnimals.addEventListener('click', eventTag(btnAnimals));
-
+btnAnimals.addEventListener('click', function(event) {
+    eventTag(btnAnimals);
+});
 var btnEvent = document.getElementById('event');
-btnEvent.addEventListener('click', eventTag(btnEvent));
+btnEvent.addEventListener('click', function(event) {
+    eventTag(btnEvent);
+});
+
 
 function eventTag(tag) {
     laDeselection();
@@ -44,8 +54,6 @@ function eventTag(tag) {
 }
 
 function laSelection(tag) {
-    console.log(tag)
-    console.log(tag.classList)
     tag.classList.add("tagSelect");
 }
 
@@ -55,6 +63,10 @@ function laDeselection() {
         tagsSelection[i].classList.remove("tagSelect")
     }
 };
+
+function showPhotographerByTag(tag) {
+    var tagByPhotographers = photo
+}
 
 
 //afficher tous les photographes selon le modele
