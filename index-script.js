@@ -15,42 +15,47 @@ fetch('fisheyeData.json')
 //List de tags a selctionner
 // ajouter un eventListener pour chaque tag (et afficher uniquement les photographer qui ont ce tag dans leur données)
 var btnPortrait = document.getElementById('portrait');
-btnPortrait.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Portrait"');
-});
+btnPortrait.addEventListener('click', alert('toto'));
+
 var btnArt = document.getElementById('art');
-btnArt.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Art"');
-});
+btnArt.addEventListener('click', eventTag(btnArt));
+
 var btnFashion = document.getElementById('fashion');
-btnFashion.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Fashion"');
-});
+btnFashion.addEventListener('click', eventTag(btnFashion));
+
 var btnArchitecture = document.getElementById('architecture');
-btnArchitecture.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Architecture"');
-});
+btnArchitecture.addEventListener('click', eventTag(btnArchitecture));
+
 var btnTravel = document.getElementById('travel');
-btnTravel.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Travel"');
-});
+btnTravel.addEventListener('click', eventTag(btnTravel));
+
 var btnSport = document.getElementById('sport');
-btnSport.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Sport"');
-});
+btnSport.addEventListener('click', eventTag(btnSport));
+
 var btnAnimals = document.getElementById('animals');
-btnAnimals.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Animals"');
-});
+btnAnimals.addEventListener('click', eventTag(btnAnimals));
+
 var btnEvent = document.getElementById('event');
-btnEvent.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Event"');
-});
+btnEvent.addEventListener('click', eventTag(btnEvent));
 
+function eventTag(tag) {
+    laDeselection();
+    laSelection(tag);
+}
 
+function laSelection(tag) {
+    console.log(tag)
+    console.log(tag.classList)
+    tag.classList.add("tagSelect");
+}
 
-function navigationTags(tag) {}
-navigationTags();
+function laDeselection() {
+    var tagsSelection = document.querySelectorAll('.tag');
+    for (let i = 0; i < tagsSelection.length; i++) {
+        tagsSelection[i].classList.remove("tagSelect")
+    }
+};
+
 
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {

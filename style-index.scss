@@ -96,6 +96,12 @@
         cursor: pointer;
     }
     
+    .tagSelect {
+        border: 0.5px solid $primary-medium;
+        color: #FFFFFF;
+        background-color: $primary-medium;
+    }
+    
     main {
         width: auto;
     }
