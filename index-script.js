@@ -16,8 +16,38 @@ fetch('fisheyeData.json')
 // ajouter un eventListener pour chaque tag (et afficher uniquement les photographer qui ont ce tag dans leur données)
 var btnPortrait = document.getElementById('portrait');
 btnPortrait.addEventListener('click', function(event) {
-    alert('Tu as sélectionné "Portrait');
+    alert('Tu as sélectionné "Portrait"');
 });
+var btnArt = document.getElementById('art');
+btnArt.addEventListener('click', function(event) {
+    alert('Tu as sélectionné "Art"');
+});
+var btnFashion = document.getElementById('fashion');
+btnFashion.addEventListener('click', function(event) {
+    alert('Tu as sélectionné "Fashion"');
+});
+var btnArchitecture = document.getElementById('architecture');
+btnArchitecture.addEventListener('click', function(event) {
+    alert('Tu as sélectionné "Architecture"');
+});
+var btnTravel = document.getElementById('travel');
+btnTravel.addEventListener('click', function(event) {
+    alert('Tu as sélectionné "Travel"');
+});
+var btnSport = document.getElementById('sport');
+btnSport.addEventListener('click', function(event) {
+    alert('Tu as sélectionné "Sport"');
+});
+var btnAnimals = document.getElementById('animals');
+btnAnimals.addEventListener('click', function(event) {
+    alert('Tu as sélectionné "Animals"');
+});
+var btnEvent = document.getElementById('event');
+btnEvent.addEventListener('click', function(event) {
+    alert('Tu as sélectionné "Event"');
+});
+
+
 
 function navigationTags(tag) {}
 navigationTags();
