@@ -28,30 +28,42 @@
         font-family: 'DM Sans', sans-serif;
         position: relative;
         width: auto;
-        height: 1024px;
+        min-height: 1104px;
         background: #FFFFFF;
-        margin: 2% 5%;
+        margin: 1% 5%;
     }
     /* style du bouton "Passer au contenu" */
     
-    .btn-contenu {
-        display: none;
-        width: 170px;
-        height: 30px;
-        left: 633px;
-        top: 6px;
+    .btnContenu {
+        position: fixed;
+        width: 173px;
+        height: 31px;
         background: #DB8876;
         border-radius: 5px;
-        color: $black;
-        text-align: center;
-        font: 18px bold 'DM Sans';
-        line-height: 23px;
+        margin-top: 0;
+        padding-top: 5px;
+        left: 43%;
+        cursor: pointer;
     }
     
-    .text-btn-contenu {
+    .textBtnContenu {
         color: $black;
-        text-align: center;
         font: bold 18px 'DM Sans';
+        margin: 6px;
+        text-decoration: none;
+    }
+    
+    .animationVisibility {
+        animation: fadein 2s;
+    }
+    
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
     /* style du header */
     
@@ -81,6 +93,7 @@
         flex-wrap: nowrap;
         width: 589px;
         justify-content: space-evenly;
+        margin: 0px 30px;
     }
     
     .tag {
@@ -140,6 +153,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        cursor: pointer;
     }
     
     .portraitOne {

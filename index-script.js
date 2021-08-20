@@ -1,3 +1,17 @@
+//Invisible sauf si interaction. 
+//Apparait quand l’utilisateur descend sur la page & Redirige vers le contenu de main. 
+//Etape 1: fixer l'élement au scroll
+const returnNav = document.querySelector('.btnContenu');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY < 75) {
+        returnNav.style.display = 'none';
+    } else {
+        returnNav.style.display = 'block';
+        returnNav.classList.add('animationVisibility');
+    }
+})
+
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 
 fetch('fisheyeData.json')
@@ -51,6 +65,7 @@ btnEvent.addEventListener('click', function(event) {
 function filterByTag(tag) {
     laDeselection();
     laSelection(tag);
+
 }
 
 function laSelection(tag) {
@@ -64,10 +79,11 @@ function laDeselection() {
     }
 };
 
-function showPhotographerByTag(tag) {
-    var tagByPhotographers = photo
-}
 
+var tagByPhotographers = document.querySelectorAll('.tagPersonnel');
+for (var i = 0; i < tagByPhotographers.length; i++) {
+    console.log(tagByPhotographers[i])
+};
 
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
@@ -133,19 +149,76 @@ function addPhotographer(photographer) {
 
 }
 
-/*test en local
+//test en local
 function recupMimi() {
-    let mimi = {
-        "name": "Mimi Keel",
-        "id": 243,
-        "city": "London",
-        "country": "UK",
-        "tags": ["portrait", "events", "travel", "animals"],
-        "tagline": "Voir le beau dans le quotidien",
-        "price": 400,
-        "portrait": "Portrait_Nora.jpg"
-    }
-    addPhotographer(mimi);
+    let json = [{
+            "name": "Mimi Keel",
+            "id": 243,
+            "city": "London",
+            "country": "UK",
+            "tags": ["portrait", "events", "travel", "animals"],
+            "tagline": "Voir le beau dans le quotidien",
+            "price": 400,
+            "portrait": "MimiKeel.jpg",
+            "alt": " "
+        },
+        {
+            "name": "Ellie-Rose Wilkens",
+            "id": 930,
+            "city": "Paris",
+            "country": "France",
+            "tags": ["sports", "architecture"],
+            "tagline": "Capturer des compositions complexes",
+            "price": 250,
+            "portrait": "EllieRoseWilkens.jpg",
+            "alt": " "
+        },
+        {
+            "name": "Tracy Galindo",
+            "id": 82,
+            "city": "Montreal",
+            "country": "Canada",
+            "tags": ["art", "fashion", "events"],
+            "tagline": "Photographe freelance",
+            "price": 500,
+            "portrait": "TracyGalindo.jpg",
+            "alt": " "
+        },
+        {
+            "name": "Nabeel Bradford",
+            "id": 527,
+            "city": "Mexico City",
+            "country": "Mexico",
+            "tags": ["travel", "portrait"],
+            "tagline": "Toujours aller de l'avant",
+            "price": 350,
+            "portrait": "NabeelBradford.jpg",
+            "alt": " "
+        },
+        {
+            "name": "Rhode Dubois",
+            "id": 925,
+            "city": "Barcelona",
+            "country": "Spain",
+            "tags": ["sport", "fashion", "events", "animals"],
+            "tagline": "Je crée des souvenirs",
+            "price": 275,
+            "portrait": "RhodeDubois.jpg",
+            "alt": " "
+        },
+        {
+            "name": "Marcel Nikolic",
+            "id": 195,
+            "city": "Berlin",
+            "country": "Germany",
+            "tags": ["travel", "architecture"],
+            "tagline": "Toujours à la recherche de LA photo",
+            "price": 300,
+            "portrait": "MarcelNikolic.jpg",
+            "alt": " "
+        }
+    ]
+    gestionPhotographer(json);
 }
 recupMimi();
-addPhotographer();*/
+addPhotographer();
