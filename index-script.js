@@ -4,11 +4,11 @@
 const returnNav = document.querySelector('.btnContenu');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY < 75) {
-        returnNav.style.display = 'none';
-    } else {
+    if (window.scrollY >= 75) {
         returnNav.style.display = 'block';
         returnNav.classList.add('animationVisibility');
+    } else {
+        returnNav.style.display = 'none';
     }
 })
 
