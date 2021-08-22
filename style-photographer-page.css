@@ -162,6 +162,11 @@ header {
   margin: auto;
 }
 
+.headerForm {
+  display: flex;
+  align-items: baseline;
+}
+
 .titleFormBox {
   padding-bottom: 22px;
 }
@@ -172,7 +177,7 @@ header {
 }
 
 .formDataSimple {
-  width: 599px;
+  width: 580px;
   height: 62px;
   border-radius: 5px;
   background-color: #FFFFFF;
@@ -183,7 +188,7 @@ header {
 }
 
 .formDataDouble {
-  width: 599px;
+  width: 580px;
   height: 170px;
   border-radius: 5px;
   background-color: #FFFFFF;
@@ -217,10 +222,13 @@ header {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
-.close {
-  width: 40px;
-  height: 40px;
-  background: url("./Sample-Photos/close_white_24dp.svg");
+#close {
+  width: 48px;
+  height: 48px;
+  background-image: url("./Sample-Photos/close_white_24dp.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style-photographer-page.css.map */

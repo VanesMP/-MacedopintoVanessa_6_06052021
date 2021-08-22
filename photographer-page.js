@@ -55,13 +55,20 @@ function showProfil(photographer) {
 
 }
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
-var btn = document.getElementById('btnContactMe');
-btn.addEventListener('click', function(event) {
+var btnOpen = document.getElementById('btnContactMe');
+btnOpen.addEventListener('click', function(event) {
     var modale = document.getElementById('modale');
     modale.style.display = 'block';
 });
 
 //Fermeture du formulaire avec un eventListener sur la croix 
+var btnClose = document.getElementById('close');
+btnClose.addEventListener('click', function(event) {
+    var modale = document.getElementById('modale');
+    modale.style.display = 'none';
+})
+
+//Gestion des entree du formulaire   
 
 //test en local
 function recupMimi() {
