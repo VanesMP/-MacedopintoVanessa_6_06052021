@@ -14,6 +14,12 @@ a {
   cursor: default;
 }
 
+input,
+label {
+  border: none;
+  background: none;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   position: relative;
@@ -134,6 +140,87 @@ header {
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0px 4px 12px #c4c4c4;
+}
+
+/* style du formulaire de contact */
+#modale {
+  display: none;
+}
+
+.containerForm {
+  position: fixed;
+  display: flex;
+  margin-left: 23%;
+  width: 669px;
+  height: 880px;
+  border-radius: 5px;
+  background-color: #db8875;
+}
+
+.formBody {
+  width: 589px;
+  margin: auto;
+}
+
+.titleFormBox {
+  padding-bottom: 22px;
+}
+
+.titleForm {
+  font: normal 400 60px "DM Sans";
+  color: #000000;
+}
+
+.formDataSimple {
+  width: 599px;
+  height: 62px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  color: #901C1C;
+  font-size: 25px;
+  outline-style: none;
+  padding: 0px 5px;
+}
+
+.formDataDouble {
+  width: 599px;
+  height: 170px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  color: #901C1C;
+  font-size: 25px;
+  outline-style: none;
+  padding: 0px 5px;
+}
+
+.textForm {
+  font: normal 400 32px "DM Sans";
+  color: #312e2e;
+}
+
+#btnSubmit {
+  width: 170px;
+  height: 69px;
+  margin-top: 18px;
+  border-radius: 5px;
+  background: #901C1C;
+  font: normal 700 20px "DM Sans";
+  color: #FFFFFF;
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+#btnSubmit:hover {
+  background-color: #D3573C;
+}
+#btnSubmit:active {
+  background-color: #D3573C;
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.close {
+  width: 40px;
+  height: 40px;
+  background: url("./Sample-Photos/close_white_24dp.svg");
 }
 
 /*# sourceMappingURL=style-photographer-page.css.map */

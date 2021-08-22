@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style-photographer-page.css">
     <script src="./fisheyeData.json"></script>
-
     <title>FishEye</title>
 </head>
 
@@ -19,14 +18,59 @@
         </a>
     </header>
     <main>
+        <!-- Le profil du photographe -->
         <section id="partOne">
             <div id="identity"></div>
+            <!-- Le bouton de contact -->
             <form id="btnContactMe" action="formContact" method="post">
                 <label for="contact"></label>
-                <input id="contactMe" type="button" value="Contactez-moi" name="formContactPhotographer" accesskey="c">
+                <input id="contactMe" type="button" value="Contactez-moi" name="formContactPhotographer" accesskey="c" />
             </form>
+
+
             <div id="photoProfil"></div>
         </section>
+
+        <!-- Le formulaire à compléter pour contacter le photographe -->
+        <div id="modale">
+            <div class="containerForm">
+                <div class="formBody">
+                    <div class="headerForm">
+                        <div class="titleFormBox">
+                            <h1 class="titleForm">Contactez-moi</h1>
+                            <p class="titleForm">Mimi Keel</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="close"></span>
+                    </div>
+                    <form class="form" name="contactForm" action="index.html" method="get" onsubmit="validate()">
+                        <div>
+                            <label class="textForm" for="first">Prénom</label>
+                            <input class="formDataSimple" type="text" id="first" name="first" accesskey="p" />
+                        </div>
+
+                        <div>
+                            <label class="textForm" for="last">Nom</label>
+                            <input class="formDataSimple" type="text" id="last" name="last" accesskey="n" />
+                        </div>
+
+                        <div>
+                            <label class="textForm" for="email">Email</label>
+                            <input class="formDataSimple" type="email" id="email" name="email" accesskey="e" />
+                        </div>
+
+                        <div>
+                            <label class="textForm" for="message">Votre message</label>
+                            <input class="formDataDouble" type="text" id="message" name="message" accesskey="m" />
+                        </div>
+                    </form>
+
+                    <!-- Le bouton Submit -->
+                    <input id="btnSubmit" type="submit" value="Envoyer" accesskey="s" />
+                </div>
+            </div>
+        </div>
 
         <section id="partTwo">
         </section>

@@ -54,7 +54,14 @@ function showProfil(photographer) {
     myImage.classList.add("portraitOne")*/
 
 }
+//Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
+var btn = document.getElementById('btnContactMe');
+btn.addEventListener('click', function(event) {
+    var modale = document.getElementById('modale');
+    modale.style.display = 'block';
+});
 
+//Fermeture du formulaire avec un eventListener sur la croix 
 
 //test en local
 function recupMimi() {
