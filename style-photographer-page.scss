@@ -116,20 +116,17 @@
     /* style partie 1 : le bouton de contact */
     
     #btnContactMe {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
         height: 280px;
     }
     
     #contactMe {
         width: 170px;
         height: 69px;
-        margin: 29px 0px 0px 14px;
-        background-color: $primary-dark;
-        color: $white;
-        border-radius: 5px;
+        margin: 29px 0px 0px 65px;
         font: normal bold 20px 'DM Sans';
+        color: $white;
+        background-color: $primary-dark;
+        border-radius: 5px;
         box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
         &:hover {
             background-color: $primary-medium;
