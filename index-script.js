@@ -104,7 +104,7 @@ function addPhotographer(photographer) {
     mylinkPhotographer.classList.add("containerPortraitOne");
 
     var myImage = document.createElement('img');
-    myImage.src = "./Sample-Photos/Photographers-ID-Photos/"; //portrait
+    myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
     myImage.alt = photographer.alt; //alt
     myImage.classList.add("portraitOne")
 
