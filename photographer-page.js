@@ -68,7 +68,52 @@ btnClose.addEventListener('click', function(event) {
     modale.style.display = 'none';
 })
 
-//Gestion des entree du formulaire   
+//Gestion de l' envoi du formulaire, avec la function validate()
+function validate() {
+    var prenom = document.getElementById("first").value;
+    var nom = document.getElementById("last").value;
+    var mail = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    if (prenom != "" && nom != "" && mail != "" && message != "") {
+        alert('Message envoyé!')
+        return true;
+    } else {
+        event.preventDefault();
+        alert("Tous les champs de saisie sont obligatoires!");
+        return false;
+    }
+}
+
+//Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
+
+function showLikeAndPrice(photographer) {
+
+    var boxTextLikeAndPrice = document.createElement('div');
+    boxTextLikeAndPrice.classList.add('boxText');
+
+    var boxLike = document.createElement('div');
+    boxLike.classList.add('boxLike');
+
+    var like = document.createElement('p');
+    like.innerHTML = "297 081";
+
+    var heart = document.createElement('img');
+    heart.src = "./Sample-Photos/heart.svg";
+    heart.classList.add('heart');
+
+    var price = document.createElement('p');
+    price.innerHTML = photographer.price + "€ / jour";
+    price.classList.add('textPrice');
+
+    var boxLikeAndPrice = document.getElementById('boxLikeAndPrice');
+
+    boxLike.appendChild(like);
+    boxLike.appendChild(heart);
+    boxTextLikeAndPrice.appendChild(boxLike);
+    boxTextLikeAndPrice.appendChild(price);
+    boxLikeAndPrice.appendChild(boxTextLikeAndPrice);
+
+}
 
 //test en local
 function recupMimi() {
@@ -83,5 +128,6 @@ function recupMimi() {
         portrait: "MimiKeel.jpg"
     }
     showProfil(json);
+    showLikeAndPrice(json);
 }
 recupMimi();

@@ -14,7 +14,7 @@
 <body>
     <header>
         <a href="./index.html">
-            <img id="logo" src="./Sample-Photos/logo.svg" alt="logo lien vers la page d'accueil">
+            <img id="logo" src="./Sample-Photos/logo.svg" alt="Fisheye Home page">
         </a>
     </header>
     <main>
@@ -44,35 +44,47 @@
                             <span id="close"></span>
                         </div>
                     </div>
-                    <form class="form" name="contactForm" action="index.html" method="get" onsubmit="validate()">
+                    <form class="form" name="contactForm" action="./photographer-page.html" method="get" onsubmit="validate()">
                         <div>
                             <label class="textForm" for="first">Prénom</label>
                             <input class="formDataSimple" type="text" id="first" name="first" accesskey="p" />
                         </div>
-
                         <div>
                             <label class="textForm" for="last">Nom</label>
                             <input class="formDataSimple" type="text" id="last" name="last" accesskey="n" />
                         </div>
-
                         <div>
                             <label class="textForm" for="email">Email</label>
                             <input class="formDataSimple" type="email" id="email" name="email" accesskey="e" />
                         </div>
-
                         <div>
                             <label class="textForm" for="message">Votre message</label>
-                            <input class="formDataDouble" type="textarea" id="message" name="message" accesskey="m" />
+                            <textarea class="formDataDouble" type="textarea" rows="5" cols="33" id="message" name="message" accesskey="m"></textarea>
                         </div>
-                    </form>
 
-                    <!-- Le bouton Submit -->
-                    <input id="btnSubmit" type="submit" value="Envoyer" accesskey="s" />
+                        <!-- Le bouton Submit -->
+                        <input id="btnSubmit" type="submit" value="Envoyer" accesskey="s" />
+                    </form>
                 </div>
             </div>
         </div>
 
+        <nav id="navigationMedia">
+            <div class="trierPar">
+                <p class="textTrierPar">Trier par</p>
+            </div>
+            <div class="menuDeroulant">
+                <ul class="menu">
+                    <li class="choixClassement popularite">Popularité</li>
+                    <li class="choixClassement date">Date</li>
+                    <li class="choixClassement titre">Titre</li>
+                </ul>
+            </div>
+        </nav>
+
         <section id="partTwo">
+
+            <div id="boxLikeAndPrice"></div>
         </section>
     </main>
 
