@@ -149,6 +149,8 @@ function addPhotographer(photographer) {
 
 }
 
+//function pour les liens vers la page personnel de chaque photographe
+
 //test en local
 function recupMimi() {
     let json = [{

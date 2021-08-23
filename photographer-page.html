@@ -69,22 +69,20 @@
             </div>
         </div>
 
+        <!-- La navigation pour trier -->
         <nav id="navigationMedia">
             <label for="listbox" class="trierPar">Trier par</label>
-            <select name="listbox" id="choixTri">
-                <option value="popularite">Popularité</option>
-                <option value="date">Date</option>
-                <option value="titre">Titre</option>
+            <select name="listbox" class="dropdown">
+                <option class="dropdownElement" value="popularite">Popularité</option>
+                <option class="dropdownElement" value="date">Date</option>
+                <option class="dropdownElement" value="titre">Titre</option>
             </select>
-            </div>
         </nav>
 
-        <section id="partTwo">
-
-            <div id="boxLikeAndPrice"></div>
-        </section>
     </main>
-
+    <section id="boxBasDePage">
+        <div id="boxLikeAndPrice"></div>
+    </section>
     <script src="./photographer-page.js"></script>
 </body>
 
