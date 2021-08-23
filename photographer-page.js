@@ -44,15 +44,15 @@ function showProfil(photographer) {
     identity.appendChild(myH2);
     identity.appendChild(myH3);
     identity.appendChild(mySlogan);
-    identity.appendChild(myTagList)
+    identity.appendChild(myTagList);
 
-    console.log(identity);
+    var myphotoProfil = document.getElementById('photoProfil');
+    var photo = document.createElement('img');
+    //mymyphotoProfil.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
+    photo.src = "./Sample-Photos/Photographers-ID-Photos/MimiKeel.jpg"
+    photo.classList.add("portraitOne");
 
-    /*var myImage = document.createElement('img');
-    myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
-    myImage.alt = photographer.alt; //alt
-    myImage.classList.add("portraitOne")*/
-
+    myphotoProfil.appendChild(photo);
 }
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
 var btnOpen = document.getElementById('btnContactMe');
