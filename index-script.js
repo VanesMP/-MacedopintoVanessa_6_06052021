@@ -104,7 +104,7 @@ function addPhotographer(photographer) {
     mylinkPhotographer.classList.add("containerPortraitOne");
 
     var myImage = document.createElement('img');
-    myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
+    myImage.src = "./Sample-Photos/Photographers-ID-Photos/"; //portrait
     myImage.alt = photographer.alt; //alt
     myImage.classList.add("portraitOne")
 
@@ -150,7 +150,7 @@ function addPhotographer(photographer) {
 }
 
 //function pour les liens vers la page personnel de chaque photographe
-
+function lien()
 //test en local
 function recupMimi() {
     let json = [{
