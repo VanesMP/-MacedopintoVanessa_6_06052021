@@ -79,11 +79,11 @@ function laDeselection() {
     }
 };
 
-
+/*
 var tagByPhotographers = document.querySelectorAll('.tagPersonnel');
 for (var i = 0; i < tagByPhotographers.length; i++) {
     console.log(tagByPhotographers[i])
-};
+};*/
 
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
@@ -101,6 +101,7 @@ function addPhotographer(photographer) {
     myElement.classList.add("containerOne")
 
     var mylinkPhotographer = document.createElement('a');
+    mylinkPhotographer.href = "photographer-page.html" + photographer.id; // lien par ID
     mylinkPhotographer.classList.add("containerPortraitOne");
 
     var myImage = document.createElement('img');
@@ -150,12 +151,12 @@ function addPhotographer(photographer) {
 }
 
 /*function pour les liens vers la page personnel de chaque photographe
-var clickLien = document.getElementsByClassName('containerPortraitOne');
-clickLien.addEventListener('click', showPagePhotographer());
+var lienPhotograph = document.querySelectorAll('a.containerPortraitOne');
+lienPhotograph.addEventListener('click', show());
 
-function showPagePhotographer() {
-    console.log("lien");
-}*/
+function show() {
+    alert('ok')
+};*/
 
 //test en local
 

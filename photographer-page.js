@@ -48,7 +48,7 @@ function showProfil(photographer) {
 
     var myphotoProfil = document.getElementById('photoProfil');
     var photo = document.createElement('img');
-    //mymyphotoProfil.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
+    //myphotoProfil.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
     photo.src = "./Sample-Photos/Photographers-ID-Photos/MimiKeel.jpg"
     photo.classList.add("portraitOne");
 
@@ -83,6 +83,23 @@ function validate() {
         return false;
     }
 }
+
+/*Création de la partie media
+function showMedia(medias) {
+
+    var containerMedia = document.createElement('div');
+
+    var boxMedia = document.createElement('div');
+    var media = document.createElement('img');
+    media.innerHTML = 
+
+    var titreMedia = document.createElement('h3');
+
+    var nbrLike = document.createElement('div');
+    var nbr = document.createElement('p');
+    var iconHeart = document.createElement('div');
+
+}*/
 
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
 

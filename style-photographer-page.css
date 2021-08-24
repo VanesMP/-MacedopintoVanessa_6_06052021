@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+  text-decoration: none;
 }
 
 a {
@@ -278,6 +279,11 @@ header {
 .dropdownElement {
   width: 170px;
   height: 56px;
+}
+
+/* style partie deux : les medias */
+#partTwo {
+  width: 100%;
 }
 
 /* style box de bas de page*/
