@@ -157,7 +157,8 @@ function showPagePhotographer() {
     console.log("lien");
 }*/
 
-/*test en local
+//test en local
+
 function recupMimi() {
     let json = [{
             "name": "Mimi Keel",
@@ -229,4 +230,4 @@ function recupMimi() {
     gestionPhotographer(json);
 }
 recupMimi();
-addPhotographer();*/
+addPhotographer();
