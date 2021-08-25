@@ -61,7 +61,7 @@ btnEvent.addEventListener('click', function(event) {
     filterByTag(btnEvent);
 });
 
-
+// Ajout d'un style à la selection d' un tag dans la barre de navigation
 function filterByTag(tag) {
     laDeselection();
     laSelection(tag);
@@ -79,12 +79,6 @@ function laDeselection() {
     }
 };
 
-/*
-var tagByPhotographers = document.querySelectorAll('.tagPersonnel');
-for (var i = 0; i < tagByPhotographers.length; i++) {
-    console.log(tagByPhotographers[i])
-};*/
-
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
     photographers.forEach(photograph => {
@@ -94,14 +88,13 @@ function gestionPhotographer(photographers) {
 }
 
 //creer un modele photographe
-
 function addPhotographer(photographer) {
 
     var myElement = document.createElement('div'); //container pour tous les elements
     myElement.classList.add("containerOne")
 
     var mylinkPhotographer = document.createElement('a');
-    mylinkPhotographer.href = "photographer-page.html"; // lien 
+    mylinkPhotographer.href = "photographer-page.html" + photographer.id; // lien 
     mylinkPhotographer.classList.add("containerPortraitOne");
 
     var myImage = document.createElement('img');
@@ -150,13 +143,14 @@ function addPhotographer(photographer) {
 
 }
 
-/*function pour les liens vers la page personnel de chaque photographe
+//Lien vers la page personnelle de chaque photographe
 var lienPhotograph = document.querySelectorAll('a.containerPortraitOne');
 lienPhotograph.addEventListener('click', show());
 
 function show() {
     alert('ok')
-};*/
+};
+
 
 //test en local
 

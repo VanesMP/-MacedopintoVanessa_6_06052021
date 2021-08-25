@@ -1,5 +1,11 @@
-//Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
+/*Création de la balise
+var js = document.createElement(script);
+js.type = text / javascript;
+js.src = index.js;
+//Ajout de la balise dans la page
+document.body.appendChild(js);*/
 
+//Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 fetch('fisheyeData.json')
     .then(response => {
         return response.json();
@@ -13,7 +19,6 @@ fetch('fisheyeData.json')
     })
 
 //creer un modele photographe
-
 function showProfil(photographer) {
 
     var myH2 = document.createElement('h2');
