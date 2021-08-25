@@ -126,6 +126,7 @@ header {
 #contactMe {
   width: 170px;
   height: 69px;
+  cursor: pointer;
   margin-top: 29px;
   font: normal bold 20px "DM Sans";
   color: #FFFFFF;
@@ -279,17 +280,54 @@ header {
   font: normal 700 18px "DM Sans";
   border-radius: 5px;
   text-align: start;
-  margin-left: 25px;
+  margin-left: 20px;
+  width: 105px;
+}
+
+.arrow {
+  width: 37px;
+  height: 33px;
+  background-image: url(./Sample-Photos/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: turnDown 0.5s both;
+}
+
+.alignarrow {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
 }
 
 .dropdownElement {
   width: 170px;
   height: 56px;
+  cursor: pointer;
   background-color: #911c1c;
   border: none;
   border-bottom: 2px solid white;
 }
+.dropdownElement:hover .arrow {
+  animation: turnUp 0.5s both;
+}
 
+@keyframes turnDown {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+@keyframes turnUp {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
 .visibilityHover {
   display: none;
 }
