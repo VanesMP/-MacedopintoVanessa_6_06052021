@@ -300,7 +300,7 @@
         background-image: url(./Sample-Photos/arrow.svg);
         background-repeat: no-repeat;
         background-size: cover;
-        animation: turnDown 0.5s both;
+        animation: turnDown both;
     }
     
     .alignarrow {
@@ -318,7 +318,7 @@
         border: none;
         border-bottom: 2px solid white;
         &:hover .arrow {
-            animation: turnUp 0.5s both;
+            animation: turnUp both;
         }
     }
     
