@@ -20,7 +20,8 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log(json.photographers);
-        gestionPhotographer(json.photographers)
+        gestionPhotographer(json.photographers);
+        showId(json.photographers)
     })
     .catch(function() {
 
@@ -94,7 +95,7 @@ function addPhotographer(photographer) {
     myElement.classList.add("containerOne")
 
     var mylinkPhotographer = document.createElement('a');
-    mylinkPhotographer.href = "photographer-page.html" + photographer.id; // lien 
+    mylinkPhotographer.href = "photographer-page.html"; // lien 
     mylinkPhotographer.classList.add("containerPortraitOne");
 
     var myImage = document.createElement('img');
@@ -144,13 +145,23 @@ function addPhotographer(photographer) {
 }
 
 //Lien vers la page personnelle de chaque photographe
-var lienPhotograph = document.querySelectorAll('a.containerPortraitOne');
-lienPhotograph.addEventListener('click', show());
+/*var lienPhotograph = document.querySelectorAll('a.containerPortraitOne');
+lienPhotograph.addEventListener('click', show());*/
 
-function show() {
-    alert('ok')
+/*function listAttribId(photographer) {
+    var idPhotographer = photographer.id;
+    if (idPhotographer.hasAttributes()) {
+        var attribId = idPhotographer.attributes;
+        for (var i = 0; i < attribId.length; i++) {
+            console.log(attribId);
+        }
+    }
+};*/
+function showId(photographers) {
+    photographers.forEach(photograph => {
+        console.log(photograph.id)
+    })
 };
-
 
 //test en local
 
@@ -223,6 +234,7 @@ function recupMimi() {
         }
     ]
     gestionPhotographer(json);
+    showId(json);
 }
 recupMimi();
 addPhotographer();
