@@ -97,6 +97,7 @@ function addPhotographer(photographer) {
     var mylinkPhotographer = document.createElement('a');
     mylinkPhotographer.classList.add("containerPortraitOne"); // lien
     mylinkPhotographer.setAttribute('href', 'photographer-page.html?id=' + photographer.id + photographer.name);
+    mylinkPhotographer.setAttribute('id', photographer.id)
     console.log(mylinkPhotographer)
 
     var myImage = document.createElement('img');
