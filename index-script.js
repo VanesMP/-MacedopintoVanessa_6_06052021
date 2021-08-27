@@ -95,8 +95,9 @@ function addPhotographer(photographer) {
     myElement.classList.add("containerOne")
 
     var mylinkPhotographer = document.createElement('a');
-    mylinkPhotographer.href = "photographer-page.html"; // lien 
-    mylinkPhotographer.classList.add("containerPortraitOne");
+    mylinkPhotographer.classList.add("containerPortraitOne"); // lien
+    mylinkPhotographer.setAttribute('href', 'photographer-page.html?id=' + photographer.id + photographer.name);
+    console.log(mylinkPhotographer)
 
     var myImage = document.createElement('img');
     myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
@@ -143,25 +144,6 @@ function addPhotographer(photographer) {
     console.log(mySection);
 
 }
-
-//Lien vers la page personnelle de chaque photographe
-/*var lienPhotograph = document.querySelectorAll('a.containerPortraitOne');
-lienPhotograph.addEventListener('click', show());*/
-
-/*function listAttribId(photographer) {
-    var idPhotographer = photographer.id;
-    if (idPhotographer.hasAttributes()) {
-        var attribId = idPhotographer.attributes;
-        for (var i = 0; i < attribId.length; i++) {
-            console.log(attribId);
-        }
-    }
-};*/
-function showId(photographers) {
-    photographers.forEach(photograph => {
-        console.log(photograph.id)
-    })
-};
 
 //test en local
 
