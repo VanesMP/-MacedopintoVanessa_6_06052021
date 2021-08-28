@@ -1,12 +1,3 @@
-/*Création de la balise
-var js = document.createElement(script);
-js.type = text / javascript;
-js.src = index.js;
-//Ajout de la balise dans la page
-document.body.appendChild(js);*/
-const params = (new URL(window.location)).searchParams;
-const pageId = parseInt(params.get('id'), 10);
-
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 fetch('fisheyeData.json')
     .then(response => {
@@ -14,7 +5,6 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log(json.photographers);
-        var photographer = data.photographers.find((p) => p.id === pageId)
         showProfil(photographer);
     })
     .catch(function() {
