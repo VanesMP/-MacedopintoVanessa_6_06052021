@@ -6,11 +6,22 @@ fetch('fisheyeData.json')
     .then(json => {
         console.log(json.photographers);
         showProfil(photographer);
+        findProfilById(json.photographer)
     })
     .catch(function() {
 
     })
-
+    //Affichage du photographe grace a son Id dans l' url
+function findProfilById(photographer) {
+    var params = (new URL(document.location)).searchParams;
+    var pageId = parseInt(params.get('id'));
+    if (pageId === photographer.id) {
+        return
+    } else {
+        console.log('echec')
+    }
+    console.log(pageId)
+}
 //creer un modele photographe
 function showProfil(photographer) {
 
@@ -132,17 +143,29 @@ function showLikeAndPrice(photographer) {
 
 //test en local
 function recupMimi() {
-    let json = {
-        name: "Mimi Keel",
-        id: 243,
-        city: "London",
-        country: "UK",
-        tags: ["portrait", "events", "travel", "animals"],
-        tagline: "Voir le beau dans le quotidien",
-        price: 400,
-        portrait: "MimiKeel.jpg"
-    }
+    let json = [{
+            name: "Mimi Keel",
+            id: 243,
+            city: "London",
+            country: "UK",
+            tags: ["portrait", "events", "travel", "animals"],
+            tagline: "Voir le beau dans le quotidien",
+            price: 400,
+            portrait: "MimiKeel.jpg"
+        },
+        {
+            name: "Ellie-Rose Wilkens",
+            id: 930,
+            city: "Paris",
+            country: "France",
+            tags: ["sports", "architecture"],
+            tagline: "Capturer des compositions complexes",
+            price: 250,
+            portrait: "EllieRoseWilkens.jpg"
+        }
+    ]
     showProfil(json);
     showLikeAndPrice(json);
+    findProfilById(json)
 }
 recupMimi();
