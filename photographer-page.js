@@ -5,7 +5,7 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log(json.photographers);
-        showProfil(json.photographer);
+
         findProfilById(json.photographer)
     })
     .catch(function() {
@@ -16,7 +16,7 @@ function findProfilById(photographer) {
     var params = (new URL(document.location)).searchParams;
     var pageId = parseInt(params.get('id'));
     if (pageId === photographer.id) {
-        return
+        return showProfil(photographer)
     } else {
         console.log('echec')
     }
