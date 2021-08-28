@@ -158,6 +158,5 @@ function recupMimi() {
 
     showProfil(json);
     showLikeAndPrice(json);
-    console.log(json.toString());
 }
 recupMimi();
