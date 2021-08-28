@@ -14,6 +14,13 @@ fetch('fisheyeData.json')
 var params = (new URL(window.location)).searchParams;
 var pageId = parseInt(params.get('id'));
 
+function appear() {
+    if (pageId === photographer.id) {
+        console.log('true')
+    } else {
+        console.log('wrong')
+    }
+}
 console.log(pageId)
 
 //creer un modele photographe
