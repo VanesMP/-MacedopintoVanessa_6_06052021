@@ -21,7 +21,7 @@ fetch('fisheyeData.json')
     .then(json => {
         console.log(json.photographers);
         gestionPhotographer(json.photographers);
-        showId(json.photographers)
+
     })
     .catch(function() {
 
@@ -217,7 +217,7 @@ function recupMimi() {
         }
     ]
     gestionPhotographer(json);
-    showId(json);
+
 }
 recupMimi();
 addPhotographer();
