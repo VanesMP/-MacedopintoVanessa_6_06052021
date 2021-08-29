@@ -1,5 +1,5 @@
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
-fetch('fisheyeData.json?id=243')
+fetch('fisheyeData.json')
     .then(response => {
         return response.json();
     })
@@ -147,21 +147,3 @@ function showLikeAndPrice(photographer) {
     boxLikeAndPrice.appendChild(boxTextLikeAndPrice);
 
 }
-
-//test en local
-function recupMimi() {
-    let json = {
-        name: "Mimi Keel",
-        id: 243,
-        city: "London",
-        country: "UK",
-        tags: ["portrait", "events", "travel", "animals"],
-        tagline: "Voir le beau dans le quotidien",
-        price: 400,
-        portrait: "MimiKeel.jpg"
-    }
-
-    showProfil(json);
-    showLikeAndPrice(json);
-}
-recupMimi();
