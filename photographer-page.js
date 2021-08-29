@@ -19,8 +19,6 @@ function findPhotographer(photographers, pageId) {
     for (let i = 0; i < photographers.length; i++) {
         if (pageId === photographers[i].id) {
             return photographers[i];
-        } else {
-            alert('Erreur de chargement')
         }
     }
 }
