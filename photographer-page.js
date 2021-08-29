@@ -21,7 +21,7 @@ function appear(photographers) {
 
     for (let i = 0; i < photographers.length; i++) {
         if (pageId === photographers[i].id) {
-            return photographers[i].id;
+            return photographers[i];
         } else {
             console.log('wrong')
         }
