@@ -67,9 +67,10 @@ function showProfil(photographer) {
     identity.appendChild(mySlogan);
     identity.appendChild(myTagList);
 
-    var myphotoProfil = document.createElement('img');
-    myphotoProfil.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
-    myphotoProfil.classList.add("portraitOne");
+    var myphotoProfil = document.createElement('div');
+    var photo = document.createElement('img');
+    photo.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
+    photo.classList.add("portraitOne");
 
     myphotoProfil.appendChild(photo);
 }
