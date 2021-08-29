@@ -67,7 +67,7 @@ function showProfil(photographer) {
     identity.appendChild(mySlogan);
     identity.appendChild(myTagList);
 
-    var myphotoProfil = document.createElement('div');
+    var myphotoProfil = document.getElementById('photoProfil');
     var photo = document.createElement('img');
     myphotoProfil.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
     photo.classList.add("portraitOne");
