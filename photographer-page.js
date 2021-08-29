@@ -6,18 +6,15 @@ fetch('fisheyeData.json')
     .then(json => {
         console.log(json.photographers);
         console.log("photographer : " + json.photographer);
-        appear(json.photographers)
-        showProfil(json.photographers);
+        onloadPhotographer(json.photographers);
 
     })
     .catch(function() {
 
     })
     //Affichage du photographe grace a son Id dans l' url
-var params = (new URL(window.location)).searchParams;
-var pageId = parseInt(params.get('id'));
 
-function appear(photographers) {
+function findPhotographer(photographers, pageId) {
 
     for (let i = 0; i < photographers.length; i++) {
         if (pageId === photographers[i].id) {
@@ -27,7 +24,17 @@ function appear(photographers) {
         }
     }
 }
-console.log(pageId)
+
+
+function onloadPhotographer(photographers) {
+    var params = (new URL(window.location)).searchParams;
+    var pageId = parseInt(params.get('id'));
+
+    var found = findPhotographer(photographers, pageId);
+    showProfil(found)
+
+    console.log(pageId)
+}
 
 //creer un modele photographe
 function showProfil(photographer) {
