@@ -67,11 +67,9 @@ function showProfil(photographer) {
     identity.appendChild(mySlogan);
     identity.appendChild(myTagList);
 
-    var myphotoProfil = document.getElementById('photoProfil');
-    var photo = document.createElement('img');
+    var myphotoProfil = document.createElement('img');
     myphotoProfil.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
-    photo.src = "./Sample-Photos/Photographers-ID-Photos/MimiKeel.jpg"
-    photo.classList.add("portraitOne");
+    myphotoProfil.classList.add("portraitOne");
 
     myphotoProfil.appendChild(photo);
 }
