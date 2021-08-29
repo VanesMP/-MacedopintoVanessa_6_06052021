@@ -20,12 +20,12 @@ function findPhotographer(photographers, pageId) {
         if (pageId === photographers[i].id) {
             return photographers[i];
         } else {
-            console.log('wrong')
+            alert('Erreur de chargement')
         }
     }
 }
 
-
+//Methode qui a l ouverture dee la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes l' id qui correspondant a celui dans l' url, 3: crée les elements htlm en y inserant les donnees
 function onloadPhotographer(photographers) {
     var params = (new URL(window.location)).searchParams;
     var pageId = parseInt(params.get('id'));
@@ -71,7 +71,7 @@ function showProfil(photographer) {
 
     var myphotoProfil = document.getElementById('photoProfil');
     var photo = document.createElement('img');
-    //myphotoProfil.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
+    myphotoProfil.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
     photo.src = "./Sample-Photos/Photographers-ID-Photos/MimiKeel.jpg"
     photo.classList.add("portraitOne");
 
