@@ -5,7 +5,7 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log("photographers : " + json.photographers);
-        console.log(appear(photographer) + json.photographer);
+        console.log("photographer : " + json.pageId);
         showProfil(json.photographer);
         appear(json.photographer)
     })
