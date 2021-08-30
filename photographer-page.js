@@ -7,9 +7,7 @@ fetch('fisheyeData.json')
         console.log(json.photographers);
         console.log(json.media);
         onloadPhotographer(json.photographers, json.media);
-        showLikeAndPrice(json.photographer);
-        var totalall = show(json.media)
-        console.log(totalall);
+        showLikeAndPrice(json.photographers);
     })
     .catch(function() {
 
@@ -17,13 +15,12 @@ fetch('fisheyeData.json')
 
 //Test
 function show(media) {
-
     media.forEach(media => {
-
         console.log(media.title)
     })
     return total
 };
+
 //Affichage du photographe grace a son Id dans l' url
 
 function findPhotographer(photographers, pageId) {
@@ -56,7 +53,8 @@ function onloadPhotographer(photographers) {
     var foundM = findMediaPhotographer(media, pageId);
     showMedia(foundM);
 
-
+    var totalall = show(json.media)
+    console.log(totalall);
 }
 
 //creer d'un modele photographe
