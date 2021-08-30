@@ -5,8 +5,9 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log(json.photographers);
-        onloadPhotographer(json.photographers);
-        showLikeAndPrice(json.photographer)
+        console.log(json.media);
+        onloadPhotographer(json.photographers, json.media);
+        showLikeAndPrice(json.photographer, json.media);
     })
     .catch(function() {
 
@@ -17,14 +18,13 @@ function findPhotographer(photographers, pageId) {
 
     for (let i = 0; i < photographers.length; i++) {
         if (pageId === photographers[i].id) {
+            console.log(photographers[i])
             return photographers[i];
         }
     }
 }
 
 function findMediaPhotographer(media, pageId) {
-    var params = (new URL(window.location)).searchParams;
-    var pageId = parseInt(params.get('id'));
 
     for (let i = 0; i < media.photographerId.length; i++) {
         if (pageId === media.photographerId[i]) {
@@ -38,6 +38,7 @@ function onloadPhotographer(photographers) {
     var params = (new URL(window.location)).searchParams;
     var pageId = parseInt(params.get('id'));
 
+
     var found = findPhotographer(photographers, pageId);
     showProfil(found)
     console.log(pageId)
@@ -45,7 +46,7 @@ function onloadPhotographer(photographers) {
     findMediaPhotographer(media.photographerId, pageId);
 }
 
-//creer un modele photographe
+//creer d'un modele photographe
 function showProfil(photographer) {
 
     var myH2 = document.createElement('h2');
@@ -86,6 +87,48 @@ function showProfil(photographer) {
 
     myphotoProfil.appendChild(photo);
 }
+
+//MEDIA
+// Création du modèle media des photographes
+function showMedia(media) {
+
+    var myContainerMedia = document.createElement('div');
+    myContainerMedia.classList.add("containerMedia");
+
+    var myBoxMedia = document.createElement('div');
+    myBoxMedia.classList.add("boxMedia");
+    var myMedia = document.createElement('img');
+    myMedia.classList.add("media");
+    media.src = "./Sample-Photos/" + media.photographerId;
+
+    myBoxMedia.appendChild(myMedia);
+
+    var myTitreMedia = document.createElement('h4');
+    myTitreMedia.innerHTML = media.title;
+    myTitreMedia.classList.add("titreMedia");
+
+    var myNbrLike = document.createElement('div');
+    myNbrLike.classList.add("nbrLike");
+    var myNbr = document.createElement('p');
+    myNbr.innerHTML = '12';
+    myNbr.classList.add("nbr");
+    var myIconHeart = document.createElement('div');
+    myIconHeart.src = "./Sample-Photos/heart.svg";
+    myIconHeart.classList.add("iconHeart");
+
+    myNbrLike.appendChild(myNbr);
+    myNbrLike.appendChild(myIconHeart);
+
+    var mySectionTwo = document.getElementById('partTwo');
+
+    mySectionTwo.appendChild(myContainerMedia);
+    mySectionTwo.appendChild(myBoxMedia);
+    mySectionTwo.appendChild(myTitreMedia);
+    mySectionTwo.appendChild(myNbrLike);
+
+}
+
+//FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
 var btnOpen = document.getElementById('btnContactMe');
 btnOpen.addEventListener('click', function(event) {
@@ -115,23 +158,6 @@ function validate() {
         return false;
     }
 }
-
-/*Création de la partie media
-function showMedia(medias) {
-
-    var containerMedia = document.createElement('div');
-
-    var boxMedia = document.createElement('div');
-    var media = document.createElement('img');
-    media.innerHTML = 
-
-    var titreMedia = document.createElement('h3');
-
-    var nbrLike = document.createElement('div');
-    var nbr = document.createElement('p');
-    var iconHeart = document.createElement('div');
-
-}*/
 
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
 
