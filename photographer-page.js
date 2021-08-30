@@ -53,7 +53,7 @@ function onloadPhotographer(photographers) {
     var foundM = findMediaPhotographer(media, pageId);
     showMedia(foundM);
 
-    var totalall = show(json.media)
+    var totalall = show(media)
     console.log(totalall);
 }
 
