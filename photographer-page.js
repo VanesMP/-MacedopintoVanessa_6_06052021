@@ -22,7 +22,7 @@ function findPhotographer(photographers, pageId) {
     }
 }
 
-function findMediaPhotographer(media, pageId) {
+function findMediaPhotographer(photographerId, pageId) {
     var params = (new URL(window.location)).searchParams;
     var pageId = parseInt(params.get('id'));
 
@@ -32,6 +32,7 @@ function findMediaPhotographer(media, pageId) {
         }
     }
 }
+findMediaPhotographer(photographerId, pageId);
 
 //Methode qui a l ouverture dee la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes l' id qui correspondant a celui dans l' url, 3: crée les elements htlm en y inserant les donnees
 function onloadPhotographer(photographers) {
