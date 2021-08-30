@@ -8,11 +8,23 @@ fetch('fisheyeData.json')
         console.log(json.media);
         onloadPhotographer(json.photographers, json.media);
         showLikeAndPrice(json.photographer, json.media);
+        var totalall = show(media)
+        console.log(totalall);
     })
     .catch(function() {
 
     })
-    //Affichage du photographe grace a son Id dans l' url
+
+//Test
+function show(media) {
+
+    media.forEach(media => {
+
+        console.log(media.title)
+    })
+    return total
+};
+//Affichage du photographe grace a son Id dans l' url
 
 function findPhotographer(photographers, pageId) {
 
@@ -43,7 +55,7 @@ function onloadPhotographer(photographers) {
     showProfil(foundP);
     var foundM = findMediaPhotographer(media, pageId);
     showMedia(foundM);
-    console.log(foundM);
+
 
 }
 
