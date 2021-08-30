@@ -5,7 +5,7 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         console.log(json.photographers);
-        console.log(json.media.photographerId);
+        console.log(json.media);
         onloadPhotographer(json.photographers, json.media);
         showLikeAndPrice(json.photographer, json.media);
     })
@@ -26,7 +26,7 @@ function findPhotographer(photographers, pageId) {
 
 function findMediaPhotographer(media, pageId) {
 
-    for (let i = 0; i < media.photographerId.length; i++) {
+    for (let i = 0; i < media.length; i++) {
         if (pageId === media.photographerId[i]) {
             console.log(media.photographerId[i])
         }
@@ -37,13 +37,14 @@ function findMediaPhotographer(media, pageId) {
 function onloadPhotographer(photographers) {
     var params = (new URL(window.location)).searchParams;
     var pageId = parseInt(params.get('id'));
-
-
-    var found = findPhotographer(photographers, pageId);
-    showProfil(found)
     console.log(pageId)
 
-    findMediaPhotographer(media.photographerId, pageId);
+    var foundP = findPhotographer(photographers, pageId);
+    showProfil(foundP);
+    var foundM = findMediaPhotographer(media, pageId);
+    showMedia(foundM);
+    console.log(foundM);
+
 }
 
 //creer d'un modele photographe
