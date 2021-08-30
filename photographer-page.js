@@ -7,7 +7,7 @@ fetch('fisheyeData.json')
         console.log(json.photographers);
         console.log(json.media);
         onloadPhotographer(json.photographers, json.media);
-        showLikeAndPrice(json.photographer, json.media);
+        showLikeAndPrice(json.photographer);
         var totalall = show(json.media)
         console.log(totalall);
     })
