@@ -176,7 +176,7 @@ function showLikeAndPrice(photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
-    like.innerHTML = totalLike(media);
+    like.innerHTML = totalAll;
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
@@ -204,3 +204,5 @@ function totalLike(media) {
     console.log(total)
     return total
 }
+var totalAll = totalLike(media);
+console.log(totalAll);
