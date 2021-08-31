@@ -8,7 +8,6 @@ fetch('fisheyeData.json')
         console.log(json.media);
         console.log(json.media.photographerId);
         onloadPhotographer(json.photographers, json.media);
-        showLikeAndPrice(json.photographers);
 
     })
     .catch(function() {
@@ -47,6 +46,7 @@ function onloadPhotographer(photographers) {
 
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
+    showLikeAndPrice(foundP);
     var foundM = findMediaPhotographer(media, pageId);
     showMedia(foundM);
 
