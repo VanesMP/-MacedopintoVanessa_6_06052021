@@ -14,10 +14,8 @@ fetch('fisheyeData.json')
 
     })
 
-
-
 //Affichage du photographe grace a son Id dans l' url
-
+//partie profil
 function findPhotographer(photographers, pageId) {
 
     for (let i = 0; i < photographers.length; i++) {
@@ -27,18 +25,19 @@ function findPhotographer(photographers, pageId) {
         }
     }
 }
-
-function findMediaPhotographer(media, pageId) {
-
-    for (let i = 0; i < media.length; i++) {
-        if (pageId === media.photographerId) {
-            console.log(media)
-            return media;
-        }
-    }
+//partie medias
+function findMedia() {
+    var mediaByPhotographer = media
+        .filter((media) => media.photographerId === paramID)
+        .map((media) => media.image || media.video)
+    return mediaByPhotographer
 }
 
-//Methode qui a l ouverture dee la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes l' id qui correspondant a celui dans l' url, 3: crée les elements htlm en y inserant les donnees
+var apercuFindMedia = findMedia(photographerId);
+console.log(apercuFindMedia)
+
+//Methode qui a l ouverture, appelle toutes les fonctions. de la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes,
+// l' id qui correspondant a celui dans l' url, 3: crée les elements htlm en y inserant les donnees 4: afficher les informations voulues
 function onloadPhotographer(photographers) {
     var params = (new URL(window.location)).searchParams;
     var pageId = parseInt(params.get('id'));
@@ -47,8 +46,9 @@ function onloadPhotographer(photographers) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
     showLikeAndPrice(foundP);
-    var foundM = findMediaPhotographer(media, pageId);
+    var foundM = findMedia(media, photographerId);
     showMedia(foundM);
+    //totalLike(foundM)
 
 }
 //PROFIL
@@ -204,5 +204,5 @@ function totalLike(media) {
     console.log(total)
     return total
 }
-var totalAll = totalLike(media);
-console.log(totalAll);
+/*var totalAll = totalLike(media);
+console.log(totalAll);*/
