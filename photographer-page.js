@@ -186,7 +186,7 @@ function showLikeAndPrice(photographer) {
     price.innerHTML = photographer.price + "€ / jour";
     price.classList.add('textPrice');
 
-    var boxLikeAndPrice = document.getElementById('boxLikeAndPrice');
+    var boxLikeAndPrice = document.getElementById('boxBasDePage');
 
     boxLike.appendChild(like);
     boxLike.appendChild(heart);
@@ -194,4 +194,5 @@ function showLikeAndPrice(photographer) {
     boxTextLikeAndPrice.appendChild(price);
     boxLikeAndPrice.appendChild(boxTextLikeAndPrice);
 
+    console.log(boxLikeAndPrice)
 }
