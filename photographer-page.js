@@ -9,18 +9,13 @@ fetch('fisheyeData.json')
         console.log(json.media.photographerId);
         onloadPhotographer(json.photographers, json.media);
         showLikeAndPrice(json.photographers);
-        show(json.media)
+
     })
     .catch(function() {
 
     })
 
-//Test
-function show(media) {
-    media.forEach(media => {
-        console.log(media.title)
-    })
-};
+
 
 //Affichage du photographe grace a son Id dans l' url
 
