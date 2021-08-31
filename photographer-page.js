@@ -51,7 +51,7 @@ function onloadPhotographer(photographers) {
     showMedia(foundM);
 
 }
-
+//PROFIL
 //creer d'un modele photographe
 function showProfil(photographer) {
 
@@ -165,8 +165,8 @@ function validate() {
     }
 }
 
+//LIKE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-
 function showLikeAndPrice(photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
@@ -176,7 +176,9 @@ function showLikeAndPrice(photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
-    like.innerHTML = "297 081";
+    var totalAll = totalLike(media);
+    console.log(totalAll);
+    like.innerHTML = totalAll;
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
@@ -195,3 +197,13 @@ function showLikeAndPrice(photographer) {
     boxLikeAndPrice.appendChild(boxTextLikeAndPrice);
 
 }
+//création de la méthode pour calculer le nombre de like total depuis le json.
+function totalLike(media) {
+    var total = 0;
+    media.forEach(media => {
+        total = total + media.likes
+        console.log(media.tags)
+    })
+    console.log(total)
+    return total
+};
