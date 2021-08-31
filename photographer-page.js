@@ -28,7 +28,7 @@ function findPhotographer(photographers, pageId) {
 //partie medias
 function findMedia() {
     var mediaByPhotographer = media
-        .filter((media) => media.photographerId === paramID)
+        .filter((media) => media.photographerId === pageId)
         .map((media) => media.image || media.video)
     return mediaByPhotographer
 }
