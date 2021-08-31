@@ -43,7 +43,7 @@ function onloadPhotographer(photographers) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
     showLikeAndPrice(foundP);
-    var foundM = findMedia(media, photographerId);
+    var foundM = findMedia(media, pageId);
     showMedia(foundM);
     //totalLike(foundM)
 
