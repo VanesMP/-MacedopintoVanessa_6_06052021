@@ -6,7 +6,6 @@ fetch('fisheyeData.json')
     .then(json => {
         console.log(json.photographers);
         console.log(json.media);
-        console.log(json.media.photographerId);
         onloadPhotographer(json.photographers, json.media);
 
     })
@@ -20,7 +19,7 @@ function findPhotographer(photographers, pageId) {
 
     for (let i = 0; i < photographers.length; i++) {
         if (pageId === photographers[i].id) {
-            console.log(photographers[i].name)
+            console.log(photographers[i].name);
             return photographers[i];
         }
     }
@@ -29,12 +28,10 @@ function findPhotographer(photographers, pageId) {
 function findMedia() {
     var mediaByPhotographer = media
         .filter((media) => media.photographerId === pageId)
-        .map((media) => media.image || media.video)
-    return mediaByPhotographer
+        .map((media) => media.image || media.video);
+    return mediaByPhotographer;
 }
 
-var apercuFindMedia = findMedia(photographerId);
-console.log(apercuFindMedia)
 
 //Methode qui a l ouverture, appelle toutes les fonctions. de la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes,
 // l' id qui correspondant a celui dans l' url, 3: crée les elements htlm en y inserant les donnees 4: afficher les informations voulues
@@ -46,7 +43,7 @@ function onloadPhotographer(photographers) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
     showLikeAndPrice(foundP);
-    var foundM = findMedia(media, photographerId);
+    var foundM = findMedia(media, pageId);
     showMedia(foundM);
     //totalLike(foundM)
 
