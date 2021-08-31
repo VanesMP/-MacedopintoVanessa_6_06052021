@@ -27,7 +27,7 @@ function findPhotographer(photographers, pageId) {
 
     for (let i = 0; i < photographers.length; i++) {
         if (pageId === photographers[i].id) {
-            console.log(photographers[i])
+            console.log(photographers[i].name)
             return photographers[i];
         }
     }
@@ -38,6 +38,7 @@ function findMediaPhotographer(media, pageId) {
     for (let i = 0; i < media.length; i++) {
         if (pageId === media.photographerId[i]) {
             console.log(media.photographerId[i])
+            return media.photographerId[i];
         }
     }
 }
