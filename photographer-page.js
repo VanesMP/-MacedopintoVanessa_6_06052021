@@ -112,7 +112,8 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.setAttribute('src', './Sample-Photos/' + pageId + media.title);
+    myMedia.setAttribute('src', './Sample-Photos/' + media + pageId); // les medias n apparaissent pas ?? ./Sample-Photos/82Animals_Wild_Horses_in_the_mountains.mp4 ne fonctionne pas.
+    //  ==> remplacer les arguments par leur valeur pour voir ce que ca donne
     myBoxMedia.appendChild(myMedia);
 
     var myTitreMedia = document.createElement('h4');
