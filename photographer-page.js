@@ -112,7 +112,7 @@ function showMedia(media, photographer) { //manque les photograph pour le nom po
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.src = "./Sample-Photos/" + photographer.name;
+    myMedia.src = "./Sample-Photos/" + media.photographerId;
 
     myBoxMedia.appendChild(myMedia);
 
