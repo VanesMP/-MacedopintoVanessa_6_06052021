@@ -30,9 +30,12 @@ function findMedia(media, pageId) {
         var mediaByPhotographer = media
             .filter((media) => media.photographerId === pageId)
             .map((media) => media.image || media.video)
+        console.log(media.title)
         return mediaByPhotographer;
     }
 };
+var apercuFindMedia = findMedia(pageId);
+console.log(apercuFindMedia)
 
 
 //Methode qui a l ouverture, appelle toutes les fonctions. de la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes,
@@ -205,5 +208,5 @@ function totalLike(media) {
     console.log(total)
     return total
 }
-var totalAll = totalLike(media);
-console.log(totalAll);
+//var totalAll = totalLike(media);
+//console.log(totalAll);
