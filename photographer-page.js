@@ -103,7 +103,7 @@ function showProfil(photographer) {
 
 //MEDIA
 // Création du modèle des media des photographes
-function showMedia(media, photographer) { //manque les photograph pour le nom pour le repertoire ligne 105
+function showMedia(media, photographers) { //manque les photograph pour le nom pour le repertoire ligne 105
 
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
@@ -112,7 +112,7 @@ function showMedia(media, photographer) { //manque les photograph pour le nom po
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.setAttribute('src', './Sample-Photos/' + media.photographerId);
+    myMedia.setAttribute('src', './Sample-Photos/' + photographers.name);
     myBoxMedia.appendChild(myMedia);
 
     var myTitreMedia = document.createElement('h4');
