@@ -28,7 +28,7 @@ function findPhotographer(photographers, pageId) {
 function findMedia(media, pageId) {
     var mediaByPhotographer = media
         .filter((media) => media.photographerId === pageId)
-    console.log(media)
+    console.log(mediaByPhotographer)
     return mediaByPhotographer;
 };
 
@@ -47,7 +47,9 @@ function onloadPhotographer(photographers, media) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
 
-    findMedia(media, pageId);
+    var apercuFindMedia = findMedia(media, pageId);
+    console.log(apercuFindMedia)
+
     showMedia(media, photographers);
 
     //showLikeAndPrice(foundP);
