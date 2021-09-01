@@ -28,7 +28,8 @@ function findPhotographer(photographers, pageId) {
 function findMedia(media, pageId) {
     var mediaByPhotographer = media
         .filter((media) => media.photographerId === pageId)
-    console.log(mediaByPhotographer)
+        .forEach((media) => showMedia(media, photographers));
+    console.log(mediaByPhotographer);
     return mediaByPhotographer;
 };
 
@@ -50,14 +51,10 @@ function onloadPhotographer(photographers, media) {
     var apercuFindMedia = findMedia(media, pageId);
     console.log(apercuFindMedia)
 
-    media.forEach(media => {
-        showMedia(media, photographers);
-    })
-
     //showLikeAndPrice(foundP);
     //totalLike(foundM)
-
 }
+
 //PROFIL
 //creer d'un modele photographe
 function showProfil(photographer) {
