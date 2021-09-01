@@ -29,7 +29,6 @@ function findMedia(media, pageId) {
     var mediaByPhotographer = media
         .filter((media) => media.photographerId === pageId)
         .forEach((media) => showMedia(media, photographers));
-    console.log(mediaByPhotographer);
     return mediaByPhotographer;
 };
 
