@@ -30,7 +30,7 @@ function findMedia(media, pageId) {
         var mediaByPhotographer = media
             .filter((media) => media.photographerId === pageId)
             .map((media) => media.image || media.video)
-        return mediaByPhotographer;
+        console.log(mediaByPhotographer);
     }
 };
 
