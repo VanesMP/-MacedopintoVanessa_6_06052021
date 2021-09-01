@@ -26,17 +26,19 @@ function findPhotographer(photographers, pageId) {
 }
 //partie medias
 function findMedia(media, pageId) {
-    for (let i = 0; i < media.length; i++) {
-        var mediaByPhotographer = media
-            .filter((media) => media.photographerId === pageId)
-            .map((media) => media.image || media.video)
-        console.log(media.title)
-        return mediaByPhotographer;
-    }
+    var mediaByPhotographer = media
+        .filter((media) => media.photographerId === pageId)
+    console.log(media.title)
+    return mediaByPhotographer;
 };
 
-//Methode qui a l ouverture, appelle toutes les fonctions. de la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes,
-// l' id qui correspondant a celui dans l' url, 3: crée les elements htlm en y inserant les donnees 4: afficher les informations voulues
+//Methode qui a l ouverture, appelle toutes les fonctions. de la page 
+//1: trouve l' id aui est dans l url,
+//2: cherche dans le tableau des photographes,l' id qui correspondant a celui dans l' url et renvoyer le photographe
+//3 : faire apparaitre en html les informations du photographe
+// 4: cherche dans les medias tous les medias du photographe
+// 5: pour chaque media du photographes on les fait apparaitre dans le html qui a ete créé 
+//
 function onloadPhotographer(photographers, media) {
     var params = (new URL(window.location)).searchParams;
     var pageId = parseInt(params.get('id'));
@@ -44,11 +46,11 @@ function onloadPhotographer(photographers, media) {
 
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
-    showLikeAndPrice(foundP);
 
     findMedia(media, pageId);
     showMedia(photographers, media);
 
+    //showLikeAndPrice(foundP);
     //totalLike(foundM)
 
 }
