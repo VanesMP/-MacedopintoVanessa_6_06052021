@@ -45,7 +45,7 @@ function onloadPhotographer(photographers, media) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
     showLikeAndPrice(foundP);
-    var foundM = findMedia(media, photographerId);
+    var foundM = findMedia(media, pageId);
     showMedia(foundM);
     console.log(foundM)
         //totalLike(foundM)
