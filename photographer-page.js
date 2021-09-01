@@ -45,10 +45,11 @@ function onloadPhotographer(photographers, media) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
     showLikeAndPrice(foundP);
-    var foundM = findMedia(media, pageId);
-    showMedia(foundM);
-    console.log(foundM)
-        //totalLike(foundM)
+
+    findMedia(media, pageId);
+    showMedia(photographers, media);
+
+    //totalLike(foundM)
 
 }
 //PROFIL
@@ -176,7 +177,7 @@ function showLikeAndPrice(photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
-    like.innerHTML = totalAll;
+    like.innerHTML = totalLike(media);
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
@@ -204,5 +205,5 @@ function totalLike(media) {
     console.log(total)
     return total
 }
-/*var totalAll = totalLike(media);
-console.log(totalAll);*/
+var totalAll = totalLike(media);
+console.log(totalAll);
