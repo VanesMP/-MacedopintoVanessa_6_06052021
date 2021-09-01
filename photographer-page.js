@@ -28,7 +28,7 @@ function findPhotographer(photographers, pageId) {
 function findMedia(media, pageId) {
     var mediaByPhotographer = media
         .filter((media) => media.photographerId === pageId)
-        .forEach((media) => showMedia(media, photographers));
+    console.log(mediaByPhotographer)
     return mediaByPhotographer;
 };
 
@@ -47,13 +47,17 @@ function onloadPhotographer(photographers, media) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
 
-    var apercuFindMedia = findMedia(media, pageId);
+    var apercuFindMedia = findMedia(media, pageId)
+        .forEach(media => {
+            showMedia(media, photographers);
+        });
     console.log(apercuFindMedia)
+
 
     //showLikeAndPrice(foundP);
     //totalLike(foundM)
-}
 
+}
 //PROFIL
 //creer d'un modele photographe
 function showProfil(photographer) {
