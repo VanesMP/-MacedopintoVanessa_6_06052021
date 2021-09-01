@@ -26,11 +26,13 @@ function findPhotographer(photographers, pageId) {
 }
 //partie medias
 function findMedia(media, pageId) {
-    var mediaByPhotographer = media
-        .filter((media) => media.photographerId === pageId)
-        .map((media) => media.image || media.video);
-    return mediaByPhotographer;
-}
+    for (let i = 0; i < media.length; i++) {
+        var mediaByPhotographer = media
+            .filter((media) => media.photographerId === pageId)
+            .map((media) => media.image || media.video)
+        return mediaByPhotographer;
+    }
+};
 
 
 //Methode qui a l ouverture, appelle toutes les fonctions. de la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes,
@@ -93,7 +95,7 @@ function showProfil(photographer) {
 
 //MEDIA
 // Création du modèle media des photographes
-function showMedia(media) {
+function showMedia(media, photographer) { //manque les photograph pour le nom pour le repertoire ligne 105
 
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
@@ -102,7 +104,7 @@ function showMedia(media) {
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    media.src = "./Sample-Photos/" + media.photographerId;
+    myMedia.src = "./Sample-Photos/" + photographer.name;
 
     myBoxMedia.appendChild(myMedia);
 
