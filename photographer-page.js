@@ -34,9 +34,6 @@ function findMedia(media, pageId) {
         return mediaByPhotographer;
     }
 };
-var apercuFindMedia = findMedia(pageId);
-console.log(apercuFindMedia)
-
 
 //Methode qui a l ouverture, appelle toutes les fonctions. de la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes,
 // l' id qui correspondant a celui dans l' url, 3: crée les elements htlm en y inserant les donnees 4: afficher les informations voulues
