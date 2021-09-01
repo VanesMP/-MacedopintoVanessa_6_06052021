@@ -50,7 +50,9 @@ function onloadPhotographer(photographers, media) {
     var apercuFindMedia = findMedia(media, pageId);
     console.log(apercuFindMedia)
 
-    showMedia(media, photographers);
+    media.forEach(media => {
+        showMedia(media, photographers);
+    })
 
     //showLikeAndPrice(foundP);
     //totalLike(foundM)
@@ -100,7 +102,7 @@ function showProfil(photographer) {
 }
 
 //MEDIA
-// Création du modèle media des photographes
+// Création du modèle des media des photographes
 function showMedia(media, photographer) { //manque les photograph pour le nom pour le repertoire ligne 105
 
     var myContainerMedia = document.createElement('div');
