@@ -28,7 +28,7 @@ function findPhotographer(photographers, pageId) {
 function findMedia(media, pageId) {
     var mediaByPhotographer = media
         .filter((media) => media.photographerId === pageId)
-    console.log(media.title)
+    console.log(media)
     return mediaByPhotographer;
 };
 
@@ -48,7 +48,7 @@ function onloadPhotographer(photographers, media) {
     showProfil(foundP);
 
     findMedia(media, pageId);
-    showMedia(photographers, media);
+    showMedia(media, photographers);
 
     //showLikeAndPrice(foundP);
     //totalLike(foundM)
