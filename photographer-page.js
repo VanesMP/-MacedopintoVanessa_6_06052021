@@ -33,7 +33,7 @@ function findMedia(media, pageId) {
         console.log(mediaByPhotographer);
     }
 };
-
+findMedia(media, pageId)
 
 //Methode qui a l ouverture, appelle toutes les fonctions. de la page 1: trouve l' id aui est dans l url,2: cherche dans le tableau des photographes,
 // l' id qui correspondant a celui dans l' url, 3: crée les elements htlm en y inserant les donnees 4: afficher les informations voulues
@@ -45,7 +45,7 @@ function onloadPhotographer(photographers) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
     showLikeAndPrice(foundP);
-    var foundM = findMedia(media, pageId);
+    var foundM = findMedia(media, photographerId);
     showMedia(foundM);
     //totalLike(foundM)
 
