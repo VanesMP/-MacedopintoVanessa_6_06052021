@@ -112,7 +112,9 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.setAttribute('src', './Sample-Photos/' + pageId + media.title); // les medias n apparaissent pas ??
+    var prenom = recupNom()
+    console.log(prenom);
+    myMedia.setAttribute('src', './Sample-Photos/' + prenom); // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');
