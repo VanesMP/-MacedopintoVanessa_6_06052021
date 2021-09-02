@@ -47,8 +47,8 @@ function onloadPhotographer(photographers, media) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
 
-    var apercuFindMedia = findMedia(media, pageId)
-        .forEach(media => {
+    var apercuFindMedia = findMedia(media, photographerId)
+        .forEach((media) => {
             showMedia(media);
         });
     console.log(apercuFindMedia)
