@@ -346,7 +346,56 @@
     /* style partie deux : les medias */
     
     #partTwo {
-        width: 100%;
+        width: auto;
+        clear: both;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+    }
+    
+    .containerMedia {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .boxMedia {
+        width: 350px;
+        height: 300px;
+        border-radius: 5px;
+    }
+    
+    .media {
+        object-fit: cover;
+    }
+    
+    .boxTextMedia {
+        width: 350px;
+        height: 31px;
+    }
+    
+    .titreMedia {
+        width: 292px;
+        height: 31px;
+        font: normal 400 24px 'DM Sans';
+        color: $primary-dark;
+    }
+    
+    .nbrLike {
+        width: auto;
+        height: 31px;
+    }
+    
+    .nbr {
+        width: 22px;
+        height: 31px;
+        font: normal 500 24px 'DM Sans';
+        color: $primary-dark;
+    }
+    
+    .iconHeart {
+        width: 18px;
+        height: 18px;
+        background-color: $primary-dark;
     }
     /* style box de bas de page*/
     
