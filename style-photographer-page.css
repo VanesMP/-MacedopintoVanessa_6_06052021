@@ -364,7 +364,7 @@ header {
 }
 
 .titreMedia {
-  width: 292px;
+  width: 85%;
   height: 31px;
   font: normal 400 20px "DM Sans";
   color: #901C1C;
@@ -372,7 +372,7 @@ header {
 }
 
 .nbrLike {
-  width: 100% o;
+  width: 15%;
   height: 31px;
   display: flex;
   flex-direction: row;
@@ -390,7 +390,8 @@ header {
 .iconHeart {
   width: 20px;
   height: 20px;
-  background-color: #901C1C;
+  background-image: url("./Sample-Photos/heart.svg");
+  color: #901C1C;
 }
 
 /* style box de bas de page*/

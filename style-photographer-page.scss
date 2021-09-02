@@ -376,7 +376,7 @@
     }
     
     .titreMedia {
-        width: 292px;
+        width: 85%;
         height: 31px;
         font: normal 400 20px 'DM Sans';
         color: $primary-dark;
@@ -384,7 +384,7 @@
     }
     
     .nbrLike {
-        width: 100%o;
+        width: 15%;
         height: 31px;
         display: flex;
         flex-direction: row;
@@ -402,7 +402,8 @@
     .iconHeart {
         width: 20px;
         height: 20px;
-        background-color: $primary-dark;
+        background-image: url('./Sample-Photos/heart.svg');
+        color: $primary-dark;
     }
     /* style box de bas de page*/
     
