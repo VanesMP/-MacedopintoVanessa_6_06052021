@@ -54,12 +54,10 @@ function onloadPhotographer(photographers, media) {
     var myPrenom = recupNom(theGoodOnePhotograph)
     console.log(myPrenom);
     //4
-    var apercuFindMedia = findMedia(media, theGoodOnePhotograph)
+    findMedia(media, pageId)
         .forEach((media) => {
-            showMedia(media);
+            showMedia(media, myPrenom);
         });
-    console.log(apercuFindMedia)
-
 
 
     //showLikeAndPrice(foundP);
@@ -122,7 +120,7 @@ function recupNom(photograph) {
 //console.log(first[0]);
 
 // Création du modèle des media des photographes
-function showMedia(media) { //manque les photograph pour le nom pour le repertoire ligne 105
+function showMedia(media, prenom) { //manque les photograph pour le nom pour le repertoire ligne 105
 
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
