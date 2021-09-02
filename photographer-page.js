@@ -49,7 +49,7 @@ function onloadPhotographer(photographers, media) {
 
     var apercuFindMedia = findMedia(media, pageId)
         .forEach(media => {
-            showMedia(media, photographers);
+            showMedia(media);
         });
     console.log(apercuFindMedia)
 
@@ -114,7 +114,7 @@ console.log(prenom);
 //console.log(first[0]);
 
 // Création du modèle des media des photographes
-function showMedia(media, pageId) { //manque les photograph pour le nom pour le repertoire ligne 105
+function showMedia(media) { //manque les photograph pour le nom pour le repertoire ligne 105
 
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
@@ -123,7 +123,7 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.setAttribute('src', './Sample-Photos/' + prenom + media.title); // les medias n apparaissent pas ??
+    myMedia.setAttribute('src', './Sample-Photos/' + prenom + "/" + media.title); // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');
