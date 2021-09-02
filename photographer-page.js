@@ -103,15 +103,16 @@ function showProfil(photographer) {
 
 //MEDIA
 //Methode pour avoir le lien du fichier medias du photographe
-function recupNom(media) {
-    var leNom = media
-        .map((media) => media.name)
+function recupNom(photographer) {
+    var leNom = photographer
+        .map((photographers) => photographers.name)
     return leNom
 };
-var prenom = recupNom(media)
+var prenom = recupNom(photographer)
 console.log(prenom);
 //var first = prenom[1].split(' ');
 //console.log(first[0]);
+
 // Création du modèle des media des photographes
 function showMedia(media, pageId) { //manque les photograph pour le nom pour le repertoire ligne 105
 
