@@ -55,8 +55,8 @@ function onloadPhotographer(photographers, media) {
         });
     console.log(apercuFindMedia)
 
-    var prenom = recupNom(foundP)
-    console.log(prenom);
+    var myPrenom = recupNom(foundP)
+    console.log(myPrenom);
 
     //showLikeAndPrice(foundP);
     //totalLike(foundM)
@@ -107,11 +107,15 @@ function showProfil(photographer) {
 
 //MEDIA
 //Methode pour avoir le lien du fichier medias du photographe
-function recupNom(photographer, media) {
-    var leNom = photographer
-        .map((photographers) => photographers.name)
-    return leNom
-};
+function recupNom(media, pageId) {
+    var lePrenom = media
+        .filter((media) => media.photographerId === pageId)
+        .map((media) => media.name)
+
+    var prenom = lePrenom[0]
+        .split(' ')
+    return prenom[0]
+}
 //var first = prenom[1].split(' ');
 //console.log(first[0]);
 
