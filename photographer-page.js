@@ -47,12 +47,13 @@ function onloadPhotographer(photographers, media) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
 
+    var prenom = recupNom(photographers)
+    console.log(prenom);
     var apercuFindMedia = findMedia(media, photographerId)
         .forEach((media) => {
             showMedia(media);
         });
     console.log(apercuFindMedia)
-
 
     //showLikeAndPrice(foundP);
     //totalLike(foundM)
@@ -108,8 +109,6 @@ function recupNom(photographer) {
         .map((photographers) => photographers.name)
     return leNom
 };
-var prenom = recupNom(photographers)
-console.log(prenom);
 //var first = prenom[1].split(' ');
 //console.log(first[0]);
 
