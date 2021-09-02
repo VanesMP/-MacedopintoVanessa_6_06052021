@@ -38,21 +38,23 @@ function findMedia(media, pageId) {
 //3 : faire apparaitre en html les informations du photographe
 //3 bis: decouper le nom du photographe avec le photographe trouvé 
 // 4: cherche dans les medias tous les medias du photographe
-// 5: pour chaque media du photographes on les fait apparaitre dans le html qui a ete créé 
-//
+// 5: pour chaque media du photographes on les fait apparaitre dans le html qui a ete créé en utilisant la variable prenom pour retrouver le chemin du dossier
+
 function onloadPhotographer(photographers, media) {
+    //1
     var params = (new URL(window.location)).searchParams;
     var pageId = parseInt(params.get('id'));
     console.log(pageId)
-
+        //2
     var theGoodOnePhotograph = findPhotographer(photographers, pageId);
+    //3
     showProfil(theGoodOnePhotograph);
     console.log(theGoodOnePhotograph);
-
+    //3 bis
     var myPrenom = recupNom(theGoodOnePhotograph)
     console.log(myPrenom);
-
-    var apercuFindMedia = findMedia(media, photographerId)
+    //4
+    var apercuFindMedia = findMedia(media, theGoodOnePhotograph)
         .forEach((media) => {
             showMedia(media);
         });
