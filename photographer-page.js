@@ -102,6 +102,16 @@ function showProfil(photographer) {
 }
 
 //MEDIA
+//Methode pour avoir le lien du fichier medias du photographe
+function recupNom(media) {
+    var leNom = media
+        .map((media) => media.name)
+    return leNom
+};
+var prenom = recupNom(media)
+console.log(prenom);
+//var first = prenom[1].split(' ');
+//console.log(first[0]);
 // Création du modèle des media des photographes
 function showMedia(media, pageId) { //manque les photograph pour le nom pour le repertoire ligne 105
 
@@ -112,9 +122,7 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    var prenom = recupNom()
-    console.log(prenom);
-    myMedia.setAttribute('src', './Sample-Photos/' + prenom); // les medias n apparaissent pas ??
+    myMedia.setAttribute('src', './Sample-Photos/' + prenom + media.title); // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');
@@ -144,16 +152,6 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
     myContainerMedia.appendChild(myBoxTextMedia);
     mySectionTwo.appendChild(myContainerMedia);
 }
-//Methode pour avoir le lien du fichier medias du photographe
-function recupNom() {
-    var leNom = media
-        .map((media) => media.name)
-    return leNom
-};
-var prenom = recupNom()
-console.log(prenom);
-//var first = prenom[1].split(' ');
-//console.log(first[0]);
 
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
