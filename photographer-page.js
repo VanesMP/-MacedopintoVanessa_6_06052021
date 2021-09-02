@@ -116,6 +116,9 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
 
     myBoxMedia.appendChild(myMedia);
 
+    var myBoxTextMedia = document.createElement('div');
+    myBoxTextMedia.classList.add('boxTextMedia')
+
     var myTitreMedia = document.createElement('h4');
     myTitreMedia.innerHTML = media.title;
     myTitreMedia.classList.add("titreMedia");
@@ -131,14 +134,14 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
 
     myNbrLike.appendChild(myNbr);
     myNbrLike.appendChild(myIconHeart);
+    myBoxTextMedia.appendChild(myTitreMedia);
+    myBoxTextMedia.appendChild(myNbrLike);
 
     var mySectionTwo = document.getElementById('partTwo');
 
+    myContainerMediamySectionTwo.appendChild(myBoxMedia);
+    myContainerMedia.appendChild(myBoxTextMedia);
     mySectionTwo.appendChild(myContainerMedia);
-    mySectionTwo.appendChild(myBoxMedia);
-    mySectionTwo.appendChild(myTitreMedia);
-    mySectionTwo.appendChild(myNbrLike);
-
 }
 
 //FORMULAIRE
