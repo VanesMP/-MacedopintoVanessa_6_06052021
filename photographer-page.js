@@ -112,8 +112,7 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.setAttribute('src', './Sample-Photos/' + pageId + media.title); // les medias n apparaissent pas ?? ./Sample-Photos/82Animals_Wild_Horses_in_the_mountains.mp4 ne fonctionne pas.
-
+    myMedia.setAttribute('src', './Sample-Photos/' + pageId + media.title); // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');
@@ -143,6 +142,16 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
     myContainerMedia.appendChild(myBoxTextMedia);
     mySectionTwo.appendChild(myContainerMedia);
 }
+//Methode pour avoir le lien du fichier medias du photographe
+function recupNom() {
+    var leNom = media
+        .map((media) => media.name)
+    return leNom
+};
+var prenom = recupNom()
+console.log(prenom);
+//var first = prenom[1].split(' ');
+//console.log(first[0]);
 
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
