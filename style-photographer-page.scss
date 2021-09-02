@@ -403,9 +403,10 @@
     }
     
     .iconHeart {
-        width: 20px;
-        height: 20px;
+        width: 29px;
+        height: 28px;
         background-image: url('./Sample-Photos/heart.svg');
+        background-repeat: no-repeat;
         color: $primary-dark;
     }
     /* style box de bas de page*/
