@@ -123,7 +123,7 @@ function showMedia(media) { //manque les photograph pour le nom pour le repertoi
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.setAttribute('src', './Sample-Photos/' + prenom + "/" + media.title); // les medias n apparaissent pas ??
+    myMedia.src = `./Sample-Photos/${prenom}/${media.title}`; // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');
