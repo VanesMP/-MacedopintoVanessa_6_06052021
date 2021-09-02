@@ -108,7 +108,7 @@ function recupNom(photographer) {
         .map((photographers) => photographers.name)
     return leNom
 };
-var prenom = recupNom(photographer)
+var prenom = recupNom(photographers)
 console.log(prenom);
 //var first = prenom[1].split(' ');
 //console.log(first[0]);
@@ -123,6 +123,7 @@ function showMedia(media) { //manque les photograph pour le nom pour le repertoi
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
+    console.log("path : " + `./Sample-Photos/${prenom}/${media.title}`)
     myMedia.src = `./Sample-Photos/${prenom}/${media.title}`; // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
