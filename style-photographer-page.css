@@ -290,7 +290,7 @@ header {
   background-image: url(./Sample-Photos/arrow.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  animation: turnDown 0.5s both;
+  animation: turnDown both;
 }
 
 .alignarrow {
@@ -309,7 +309,7 @@ header {
   border-bottom: 2px solid white;
 }
 .dropdownElement:hover .arrow {
-  animation: turnUp 0.5s both;
+  animation: turnUp both;
 }
 
 @keyframes turnDown {
@@ -334,7 +334,56 @@ header {
 
 /* style partie deux : les medias */
 #partTwo {
-  width: 100%;
+  width: auto;
+  clear: both;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.containerMedia {
+  width: 350px;
+  height: 350px;
+}
+
+.boxMedia {
+  width: 350px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.media {
+  object-fit: cover;
+}
+
+.boxTextMedia {
+  width: 350px;
+  height: 31px;
+}
+
+.titreMedia {
+  width: 292px;
+  height: 31px;
+  font: normal 400 24px "DM Sans";
+  color: #901C1C;
+}
+
+.nbrLike {
+  width: auto;
+  height: 31px;
+}
+
+.nbr {
+  width: 22px;
+  height: 31px;
+  font: normal 500 24px "DM Sans";
+  color: #901C1C;
+}
+
+.iconHeart {
+  width: 18px;
+  height: 18px;
+  background-color: #901C1C;
 }
 
 /* style box de bas de page*/
