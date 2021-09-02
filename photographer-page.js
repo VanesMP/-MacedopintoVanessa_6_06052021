@@ -45,11 +45,11 @@ function onloadPhotographer(photographers, media) {
     var pageId = parseInt(params.get('id'));
     console.log(pageId)
 
-    var foundP = findPhotographer(photographers, pageId);
-    showProfil(foundP);
-    console.log(foundP);
+    var theGoodOnePhotograph = findPhotographer(photographers, pageId);
+    showProfil(theGoodOnePhotograph);
+    console.log(theGoodOnePhotograph);
 
-    var myPrenom = recupNom(media, foundP)
+    var myPrenom = recupNom(theGoodOnePhotograph)
     console.log(myPrenom);
 
     var apercuFindMedia = findMedia(media, photographerId)
@@ -109,12 +109,10 @@ function showProfil(photographer) {
 
 //MEDIA
 //Methode pour avoir le lien du fichier medias du photographe
-function recupNom(media, pageId) {
-    var lePrenom = media
-        .filter((media) => media.photographerId === pageId)
-        .map((media) => media.name)
+function recupNom(photograph) {
+    var leNomComplet = photograph.name
 
-    var prenom = lePrenom[0]
+    var prenom = leNomComplet
         .split(' ')
     return prenom[0]
 }
