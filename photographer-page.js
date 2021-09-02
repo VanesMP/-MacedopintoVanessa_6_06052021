@@ -33,9 +33,10 @@ function findMedia(media, pageId) {
 };
 
 //Methode qui a l ouverture, appelle toutes les fonctions. de la page 
-//1: trouve l' id aui est dans l url,
+//1: trouve l' id qui est dans l url,
 //2: cherche dans le tableau des photographes,l' id qui correspondant a celui dans l' url et renvoyer le photographe
 //3 : faire apparaitre en html les informations du photographe
+//3 bis: decouper le nom du photographe avec le photographe trouvé 
 // 4: cherche dans les medias tous les medias du photographe
 // 5: pour chaque media du photographes on les fait apparaitre dans le html qui a ete créé 
 //
@@ -46,6 +47,7 @@ function onloadPhotographer(photographers, media) {
 
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
+    console.log(foundP)
 
     var apercuFindMedia = findMedia(media, photographerId)
         .forEach((media) => {
@@ -53,7 +55,7 @@ function onloadPhotographer(photographers, media) {
         });
     console.log(apercuFindMedia)
 
-    var prenom = recupNom(photographers)
+    var prenom = recupNom(foundP)
     console.log(prenom);
 
     //showLikeAndPrice(foundP);
@@ -105,7 +107,7 @@ function showProfil(photographer) {
 
 //MEDIA
 //Methode pour avoir le lien du fichier medias du photographe
-function recupNom(photographer) {
+function recupNom(photographer, media) {
     var leNom = photographer
         .map((photographers) => photographers.name)
     return leNom
