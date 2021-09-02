@@ -139,7 +139,7 @@ function showMedia(media, pageId) { //manque les photograph pour le nom pour le 
 
     var mySectionTwo = document.getElementById('partTwo');
 
-    myContainerMediamySectionTwo.appendChild(myBoxMedia);
+    myContainerMedia.appendChild(myBoxMedia);
     myContainerMedia.appendChild(myBoxTextMedia);
     mySectionTwo.appendChild(myContainerMedia);
 }
