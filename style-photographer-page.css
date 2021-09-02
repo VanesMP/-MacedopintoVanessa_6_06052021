@@ -359,30 +359,37 @@ header {
 .boxTextMedia {
   width: 350px;
   height: 31px;
+  display: flex;
+  flex-direction: row;
 }
 
 .titreMedia {
   width: 292px;
   height: 31px;
-  font: normal 400 24px "DM Sans";
+  font: normal 400 20px "DM Sans";
   color: #901C1C;
+  white-space: nowrap;
 }
 
 .nbrLike {
-  width: auto;
+  width: 100% o;
   height: 31px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .nbr {
   width: 22px;
   height: 31px;
-  font: normal 500 24px "DM Sans";
+  font: normal 500 20px "DM Sans";
   color: #901C1C;
 }
 
 .iconHeart {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   background-color: #901C1C;
 }
 
