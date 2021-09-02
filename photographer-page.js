@@ -47,13 +47,14 @@ function onloadPhotographer(photographers, media) {
     var foundP = findPhotographer(photographers, pageId);
     showProfil(foundP);
 
-    var prenom = recupNom(photographers)
-    console.log(prenom);
     var apercuFindMedia = findMedia(media, photographerId)
         .forEach((media) => {
             showMedia(media);
         });
     console.log(apercuFindMedia)
+
+    var prenom = recupNom(photographers)
+    console.log(prenom);
 
     //showLikeAndPrice(foundP);
     //totalLike(foundM)
