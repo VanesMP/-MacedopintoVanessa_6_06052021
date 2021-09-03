@@ -116,8 +116,6 @@ function recupNom(photograph) {
         .split(' ')
     return prenom[0]
 }
-//var first = prenom[1].split(' ');
-//console.log(first[0]);
 
 // Création du modèle des media des photographes
 function showMedia(media, prenom) { //manque les photograph pour le nom pour le repertoire ligne 105
@@ -129,8 +127,7 @@ function showMedia(media, prenom) { //manque les photograph pour le nom pour le 
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    console.log("path : " + `./Sample-Photos/${prenom}/${media.image}`)
-    myMedia.src = `./Sample-Photos/${prenom}/${media.image}`; // les medias n apparaissent pas ??
+    myMedia.src = `./Sample-Photos/${prenom}`; // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');
@@ -143,7 +140,7 @@ function showMedia(media, prenom) { //manque les photograph pour le nom pour le 
     var myNbrLike = document.createElement('div');
     myNbrLike.classList.add("nbrLike");
     var myNbr = document.createElement('p');
-    myNbr.innerHTML = '12';
+    myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
     var myIconHeart = document.createElement('div');
     myIconHeart.src = "./Sample-Photos/heart.svg";
