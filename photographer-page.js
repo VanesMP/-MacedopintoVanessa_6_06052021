@@ -54,13 +54,13 @@ function onloadPhotographer(photographers, media) {
     //3bis
     var myPrenom = recupNom(theGoodOnePhotograph)
     console.log(myPrenom);
-    //4bis
+    /*//4bis
     var mediaVideo = mediaPhotoorVideo(theGoodOnePhotograph)
-    console.log(mediaVideo)
-        //4
+    console.log(mediaVideo)*/
+    //4
     findMedia(media, pageId)
         .forEach((media) => {
-            showMedia(media, myPrenom, mediaVideo);
+            showMedia(media, myPrenom);
         });
 
     //showLikeAndPrice(foundP);
@@ -119,6 +119,7 @@ function recupNom(photograph) {
         .split(' ')
     return prenom[0]
 }
+/*
 //Methode pour le media photo et video
 function mediaPhotoorVideo(media) {
     var leMedia = media
@@ -126,9 +127,9 @@ function mediaPhotoorVideo(media) {
         .map((media) => media.video)
     return leMedia
 }
-
+*/
 // Création du modèle des media des photographes
-function showMedia(media, prenom, leMedia) { //manque les photograph pour le nom pour le repertoire ligne 105
+function showMedia(media, prenom) { //manque les photograph pour le nom pour le repertoire ligne 105
 
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
@@ -137,9 +138,9 @@ function showMedia(media, prenom, leMedia) { //manque les photograph pour le nom
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.src = `./Sample-Photos/${prenom}/${leMedia}`; // les medias n apparaissent pas ??
+    myMedia.src = `./Sample-Photos/${prenom}/${media.image}||${media.video}`; // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
-    console.log(leMedia)
+
 
     var myBoxTextMedia = document.createElement('div');
     myBoxTextMedia.classList.add('boxTextMedia')
