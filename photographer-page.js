@@ -132,7 +132,7 @@ function mediaPhotoorVideo(media) {
 function showMedia(media, prenom) { //manque les photograph pour le nom pour le repertoire ligne 105
 
     var mediaGallery = document.createElement('div');
-    mediaGallery.classList.add("mediaGallery")
+    mediaGallery.classList.add("mediaGallery");
 
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
@@ -170,7 +170,8 @@ function showMedia(media, prenom) { //manque les photograph pour le nom pour le 
 
     myContainerMedia.appendChild(myBoxMedia);
     myContainerMedia.appendChild(myBoxTextMedia);
-    mySectionTwo.appendChild(myContainerMedia);
+    mediaGallery.appendChild(myContainerMedia);
+    mySectionTwo.appendChild(mediaGallery);
 }
 
 //FORMULAIRE
