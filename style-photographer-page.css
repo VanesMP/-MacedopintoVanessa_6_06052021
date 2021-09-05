@@ -341,7 +341,7 @@ header {
   width: 90%;
 }
 
-.mediaGallery {
+#mediaGallery {
   width: 90%;
   clear: both;
   display: grid;

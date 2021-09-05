@@ -129,10 +129,7 @@ function mediaPhotoorVideo(media) {
 }
 */
 // Création du modèle des media des photographes
-function showMedia(media, prenom) { //manque les photograph pour le nom pour le repertoire ligne 105
-
-    var mediaGallery = document.createElement('div');
-    mediaGallery.classList.add("mediaGallery");
+function showMedia(media, prenom) {
 
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
@@ -166,14 +163,13 @@ function showMedia(media, prenom) { //manque les photograph pour le nom pour le 
     myBoxTextMedia.appendChild(myTitreMedia);
     myBoxTextMedia.appendChild(myNbrLike);
 
-    var mySectionTwo = document.getElementById('partTwo');
+    var mediaGallery = document.getElementById('mediaGallery');
 
     myContainerMedia.appendChild(myBoxMedia);
     myContainerMedia.appendChild(myBoxTextMedia);
     mediaGallery.appendChild(myContainerMedia);
-    mySectionTwo.appendChild(mediaGallery);
-}
 
+}
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
 var btnOpen = document.getElementById('btnContactMe');
