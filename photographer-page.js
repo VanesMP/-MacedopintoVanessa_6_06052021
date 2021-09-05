@@ -138,7 +138,10 @@ function showMedia(media, prenom) { //manque les photograph pour le nom pour le 
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.src = `./Sample-Photos/${prenom}/${media.image}`; // les medias n apparaissent pas ??
+    var leMedia = media
+        .filter((media) => media.image === undefined)
+        .map((media) => media.video);
+    myMedia.src = `./Sample-Photos/${prenom}/${leMedia}`; // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
 
