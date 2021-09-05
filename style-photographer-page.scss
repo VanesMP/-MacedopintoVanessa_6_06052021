@@ -350,11 +350,11 @@
     /* style partie deux : les medias */
     
     #partTwo {
-        width: 90%;
+        width: 100%;
     }
     
     #mediaGallery {
-        width: 90%;
+        width: auto;
         clear: both;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
