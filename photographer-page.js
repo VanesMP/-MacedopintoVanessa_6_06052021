@@ -131,6 +131,9 @@ function mediaPhotoorVideo(media) {
 // Création du modèle des media des photographes
 function showMedia(media, prenom) { //manque les photograph pour le nom pour le repertoire ligne 105
 
+    var mediaGallery = document.createElement('div');
+    mediaGallery.classList.add("mediaGallery")
+
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
 
