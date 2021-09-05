@@ -338,10 +338,15 @@ header {
 
 /* style partie deux : les medias */
 #partTwo {
-  width: auto;
+  width: 90%;
+}
+
+.mediaGallery {
+  width: 90%;
   clear: both;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 5%;
   justify-items: center;
 }
 
