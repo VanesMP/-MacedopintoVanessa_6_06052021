@@ -38,6 +38,7 @@ function findMedia(media, pageId) {
 //3 : faire apparaitre en html les informations du photographe
 //3 bis: decouper le nom du photographe avec le photographe trouvé 
 // 4: cherche dans les medias tous les medias du photographe
+//4bis: on cherche dans les medias image ceux qui sont undifined pour cibler les medias videos et les faire apparaitre aussi.
 // 5: pour chaque media du photographes on les fait apparaitre dans le html qui a ete créé en utilisant la variable prenom pour retrouver le chemin du dossier
 
 function onloadPhotographer(photographers, media) {
@@ -50,15 +51,17 @@ function onloadPhotographer(photographers, media) {
     //3
     showProfil(theGoodOnePhotograph);
     console.log(theGoodOnePhotograph);
-    //3 bis
+    //3bis
     var myPrenom = recupNom(theGoodOnePhotograph)
     console.log(myPrenom);
-    //4
+    //4bis
+    var mediaVideo = mediaPhotoorVideo(theGoodOnePhotograph)
+    console.log(mediaVideo)
+        //4
     findMedia(media, pageId)
         .forEach((media) => {
-            showMedia(media, myPrenom);
+            showMedia(media, myPrenom, mediaVideo);
         });
-
 
     //showLikeAndPrice(foundP);
     //totalLike(foundM)
@@ -116,6 +119,13 @@ function recupNom(photograph) {
         .split(' ')
     return prenom[0]
 }
+//Methode pour le media photo et video
+function mediaPhotoorVideo(media) {
+    var leMedia = media
+        .filter((media) => media.image === undefined)
+        .map((media) => media.video)
+    return leMedia
+}
 
 // Création du modèle des media des photographes
 function showMedia(media, prenom) { //manque les photograph pour le nom pour le repertoire ligne 105
@@ -127,7 +137,7 @@ function showMedia(media, prenom) { //manque les photograph pour le nom pour le 
     myBoxMedia.classList.add("boxMedia");
     var myMedia = document.createElement('img');
     myMedia.classList.add("media");
-    myMedia.src = `./Sample-Photos/${prenom}`; // les medias n apparaissent pas ??
+    myMedia.src = `./Sample-Photos/${prenom}/${leMedia}`; // les medias n apparaissent pas ??
     myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');

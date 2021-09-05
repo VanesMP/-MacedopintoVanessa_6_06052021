@@ -380,7 +380,7 @@ header {
 }
 
 .nbrLike {
-  width: 15%;
+  width: 18%;
   height: 31px;
   display: flex;
   flex-direction: row;
@@ -389,17 +389,20 @@ header {
 }
 
 .nbr {
-  width: 22px;
-  height: 31px;
+  width: 50%;
+  height: 28px;
+  display: flex;
+  justify-content: flex-end;
   font: normal 500 20px "DM Sans";
   color: #901C1C;
 }
 
 .iconHeart {
-  width: 29px;
-  height: 28px;
+  width: 45%;
+  height: 23px;
   background-image: url("./Sample-Photos/heart.svg");
   background-repeat: no-repeat;
+  background-size: contain;
   color: #901C1C;
 }
 
