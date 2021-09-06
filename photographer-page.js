@@ -137,7 +137,7 @@ function showMedia(media, prenom) {
     var myBoxMedia = document.createElement('div');
     myBoxMedia.classList.add("boxMedia");
     // photo'img' ou video'video'
-    if (media.imaga === undefined) {
+    if (media.image === undefined) {
         var myMedia = document.createElement('video');
         myMedia.classList.add("mediaVideo");
         myMedia.src = `./Sample-Photos/${prenom}/${media.video}`
