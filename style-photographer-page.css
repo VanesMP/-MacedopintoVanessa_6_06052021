@@ -342,8 +342,8 @@ header {
 }
 
 #mediaGallery {
-  width: auto;
-  clear: both;
+  width: 100%;
+  height: 1234px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 5%;
