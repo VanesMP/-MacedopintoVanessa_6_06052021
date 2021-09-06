@@ -136,11 +136,18 @@ function showMedia(media, prenom) {
 
     var myBoxMedia = document.createElement('div');
     myBoxMedia.classList.add("boxMedia");
-    var myMedia = document.createElement('img');
-    myMedia.classList.add("media");
-    myMedia.src = `./Sample-Photos/${prenom}/${media.image}`; // les medias n apparaissent pas ??
-    myBoxMedia.appendChild(myMedia);
+    // photo'img' ou video'video'
+    if (media.imaga === undefined) {
+        var myMedia = document.createElement('video');
+        myMedia.classList.add("mediaVideo");
+        myMedia.src = `./Sample-Photos/${prenom}/${media.video}`
+    } else {
+        var myMedia = document.createElement('img');
+        myMedia.classList.add("mediaPhoto");
+        myMedia.src = `./Sample-Photos/${prenom}/${media.image}`
+    }
 
+    myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');
     myBoxTextMedia.classList.add('boxTextMedia')

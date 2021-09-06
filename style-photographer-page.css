@@ -361,7 +361,15 @@ header {
   border-radius: 5px;
 }
 
-.media {
+.mediaPhoto {
+  width: 350px;
+  height: 300px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.mediaVideo {
+  display: block;
   width: 350px;
   height: 300px;
   border-radius: 5px;
