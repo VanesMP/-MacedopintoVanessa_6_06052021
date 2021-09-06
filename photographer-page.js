@@ -138,16 +138,16 @@ function showMedia(media, prenom) {
     myBoxMedia.classList.add("boxMedia");
     // photo'img' ou video'video'
     if (media.image === undefined) {
-        var myMedia = document.createElement('video');
-        myMedia.classList.add("mediaVideo");
-        myMedia.src = `./Sample-Photos/${prenom}/${media.video}`
+        var myMediaVideo = document.createElement('video');
+        myMediaVideo.classList.add("mediaVideo");
+        myMediaVideo.src = `./Sample-Photos/${prenom}/${media.video}`
+        myBoxMedia.appendChild(myMediaVideo);
     } else {
-        var myMedia = document.createElement('img');
-        myMedia.classList.add("mediaPhoto");
-        myMedia.src = `./Sample-Photos/${prenom}/${media.image}`
+        var myMediaPhoto = document.createElement('img');
+        myMediaPhoto.classList.add("mediaPhoto");
+        myMediaPhoto.src = `./Sample-Photos/${prenom}/${media.image}`
+        myBoxMedia.appendChild(myMediaPhoto);
     }
-
-    myBoxMedia.appendChild(myMedia);
 
     var myBoxTextMedia = document.createElement('div');
     myBoxTextMedia.classList.add('boxTextMedia')
