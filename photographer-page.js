@@ -208,7 +208,7 @@ function showLikeAndPrice(resultPrice, photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
-    like.innerHTML = `${resultPrice}`;
+    like.innerHTML = resultPrice;
     console.log(like)
 
     var heart = document.createElement('img');
