@@ -37,8 +37,7 @@ function findMedia(media, pageId) {
 //2: cherche dans le tableau des photographes,l' id qui correspondant a celui dans l' url et renvoyer le photographe
 //3 : faire apparaitre en html les informations du photographe
 //3 bis: decouper le nom du photographe avec le photographe trouvé 
-// 4: cherche dans les medias tous les medias du photographe
-// 5: pour chaque media du photographes on les fait apparaitre dans le html qui a ete créé en utilisant la variable prenom pour retrouver le chemin du dossier
+// 4: cherche dans les medias tous les medias du photographe et faire apparaitre les infos contenus en utilisant la variable prenom pour retrouver le chemin du dossier
 
 function onloadPhotographer(photographers, media) {
     //1
@@ -56,10 +55,11 @@ function onloadPhotographer(photographers, media) {
     //4
     findMedia(media, pageId)
         .forEach((media) => {
-            showMedia(media, myPrenom);
+            showMedia(media, myPrenom)
+            showLikeAndPrice(media, myPrenom);
         });
 
-    showLikeAndPrice(media, theGoodOnePhotograh);
+    //showLikeAndPrice(media, theGoodOnePhotograh);
 
 }
 //PROFIL
