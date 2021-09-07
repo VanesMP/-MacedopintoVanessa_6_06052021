@@ -208,6 +208,8 @@ function showLikeAndPrice(resultPrice, photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
+    var resultPrice = totalLike(theGoodMedia);
+    console.log(resultPrice);
     like.innerHTML = resultPrice;
     console.log(like)
 
