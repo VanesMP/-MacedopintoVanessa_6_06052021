@@ -53,16 +53,12 @@ function onloadPhotographer(photographers, media) {
     var myPrenom = recupNom(theGoodOnePhotograph)
     console.log(myPrenom);
     //4
-    findMedia(media, pageId)
-        .forEach((media) => {
-            showMedia(media, myPrenom)
-                .forEach((media) => {
-                    total = total + media.likes
-                })
-        });
-
-
-
+    var theGoodMedia = findMedia(media, pageId)
+    theGoodMedia.forEach((media) => {
+        showMedia(media, myPrenom)
+    });
+    var resultLikeAndPrice = findMediaPrice(media, pageId);
+    console.log(resultLikeAndPrice)
 }
 //PROFIL
 //creer d'un modele photographe
@@ -236,3 +232,14 @@ function totalLike(media) {
     console.log(total)
     return total
 }*/
+function findMediaPrice(paramID) {
+    var totalPrice = 0;
+    var mediaByPrice = media
+        .filter((media) => media.photographerId === paramID)
+        .map(media => media.price)
+        .forEach((price) => totalPrice = totalPrice + price)
+
+    return totalPrice
+}
+var trouve = findMediaPrice()
+console.log(trouve)
