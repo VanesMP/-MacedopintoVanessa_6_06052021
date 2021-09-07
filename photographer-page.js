@@ -59,8 +59,8 @@ function onloadPhotographer(photographers, media) {
             showMedia(media, myPrenom);
         });
 
-    //showLikeAndPrice(foundP);
-    //totalLike(foundM)
+    showLikeAndPrice(foundP);
+    totalLike(foundM)
 
 }
 //PROFIL
@@ -235,5 +235,3 @@ function totalLike(media) {
     console.log(total)
     return total
 }
-var totalAll = totalLike(media);
-console.log(totalAll);
