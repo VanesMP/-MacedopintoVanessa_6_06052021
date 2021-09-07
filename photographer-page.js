@@ -199,7 +199,7 @@ function validate() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(resultPrice, photographer) {
+function showLikeAndPrice(total, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
@@ -208,7 +208,7 @@ function showLikeAndPrice(resultPrice, photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
-    like.innerHTML = `${resultPrice}`;
+    like.innerHTML = `${total}`;
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
@@ -227,15 +227,8 @@ function showLikeAndPrice(resultPrice, photographer) {
     boxLikeAndPrice.appendChild(boxTextLikeAndPrice);
 
 }
-/*création de la méthode pour calculer le nombre de like total depuis le json.
-function totalLike(media) {
-    var total = 0;
-    media.forEach((media) => {
-        total = total + media.likes
-    })
-    console.log(total)
-    return total
-}*/
+//création de la méthode pour calculer le nombre de like total 
+
 function totalLike(media) {
     var total = 0;
     media.forEach(media => {
