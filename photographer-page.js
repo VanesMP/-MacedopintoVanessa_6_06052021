@@ -209,6 +209,7 @@ function showLikeAndPrice(total, photographer) {
 
     var like = document.createElement('p');
     like.innerHTML = `${total}`;
+    console.log(like)
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
@@ -217,6 +218,7 @@ function showLikeAndPrice(total, photographer) {
     var price = document.createElement('p');
     price.innerHTML = photographer.price + "€ / jour";
     price.classList.add('textPrice');
+    console.log(price)
 
     var boxLikeAndPrice = document.getElementById('boxLikeAndPrice');
 
