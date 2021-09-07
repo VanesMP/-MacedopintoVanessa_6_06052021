@@ -59,9 +59,9 @@ function onloadPhotographer(photographers, media) {
             showMedia(media, myPrenom);
         });
 
-    showLikeAndPrice(theGoodOnePhotograph);
-    var totalAll = totalLike(media);
-    console.log(totalAll);
+    showLikeAndPrice(media, theGoodOnePhotograh);
+    var resultPrice = totalLike(media);
+    console.log(resultPrice);
 
 }
 //PROFIL
@@ -199,7 +199,7 @@ function validate() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(photographer) {
+function showLikeAndPrice(media, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
