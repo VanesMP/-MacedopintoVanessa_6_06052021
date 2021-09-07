@@ -58,11 +58,12 @@ function onloadPhotographer(photographers, media) {
         showMedia(media, myPrenom)
     });
 
+    var resultPrice = totalLike(theGoodMedia);
+    console.log(resultPrice);
     var resultBox = showLikeAndPrice(media, photographers);
     console.log("resultbox : " + resultBox)
-    var resultLikeAndPrice = findLikeAndPrice(media, pageId);
-    console.log(resultLikeAndPrice);
 }
+
 //PROFIL
 //creer d'un modele photographe
 function showProfil(photographer) {
@@ -198,7 +199,7 @@ function validate() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(media, photographer) {
+function showLikeAndPrice(photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
@@ -207,7 +208,7 @@ function showLikeAndPrice(media, photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
-    like.innerHTML = totalLike(media);
+    like.innerHTML = `${resultPrice}`;
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
@@ -235,12 +236,10 @@ function totalLike(media) {
     console.log(total)
     return total
 }*/
-function findLikeAndPrice(media, paramID) {
-    var totalPrice = 0;
-    var mediaByPrice = media
-        .filter((media) => media.photographerId === paramID)
-        .map(media => media.price)
-        .forEach((price) => totalPrice = totalPrice + price)
-
-    return totalPrice
-}
+function totalLike(media) {
+    var total = 0;
+    media.forEach(media => {
+        total = total + media.likes
+    })
+    return total
+};
