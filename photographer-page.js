@@ -59,8 +59,8 @@ function onloadPhotographer(photographers, media) {
     });
 
     var resultBox = showLikeAndPrice(media, photographers);
-    console.log(resultBox)
-    var resultLikeAndPrice = findMediaPrice(media, pageId);
+    console.log("resultbox : " + resultBox)
+    var resultLikeAndPrice = findLikeAndPrice(media, pageId);
     console.log(resultLikeAndPrice);
 }
 //PROFIL
@@ -235,7 +235,7 @@ function totalLike(media) {
     console.log(total)
     return total
 }*/
-function findMediaPrice(media, paramID) {
+function findLikeAndPrice(media, paramID) {
     var totalPrice = 0;
     var mediaByPrice = media
         .filter((media) => media.photographerId === paramID)
