@@ -38,7 +38,6 @@ function findMedia(media, pageId) {
 //3 : faire apparaitre en html les informations du photographe
 //3 bis: decouper le nom du photographe avec le photographe trouvé 
 // 4: cherche dans les medias tous les medias du photographe
-//4bis: on cherche dans les medias image ceux qui sont undifined pour cibler les medias videos et les faire apparaitre aussi.
 // 5: pour chaque media du photographes on les fait apparaitre dans le html qui a ete créé en utilisant la variable prenom pour retrouver le chemin du dossier
 
 function onloadPhotographer(photographers, media) {
@@ -54,9 +53,6 @@ function onloadPhotographer(photographers, media) {
     //3bis
     var myPrenom = recupNom(theGoodOnePhotograph)
     console.log(myPrenom);
-    /*//4bis
-    var mediaVideo = mediaPhotoorVideo(theGoodOnePhotograph)
-    console.log(mediaVideo)*/
     //4
     findMedia(media, pageId)
         .forEach((media) => {
@@ -119,15 +115,7 @@ function recupNom(photograph) {
         .split(' ')
     return prenom[0]
 }
-/*
-//Methode pour le media photo et video
-function mediaPhotoorVideo(media) {
-    var leMedia = media
-        .filter((media) => media.image === undefined)
-        .map((media) => media.video)
-    return leMedia
-}
-*/
+
 // Création du modèle des media des photographes
 function showMedia(media, prenom) {
 
@@ -208,7 +196,7 @@ function validate() {
     }
 }
 
-//LIKE
+//Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
 function showLikeAndPrice(photographer) {
 
@@ -247,5 +235,5 @@ function totalLike(media) {
     console.log(total)
     return total
 }
-//var totalAll = totalLike(media);
-//console.log(totalAll);
+var totalAll = totalLike(media);
+console.log(totalAll);
