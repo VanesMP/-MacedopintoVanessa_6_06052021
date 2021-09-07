@@ -236,5 +236,3 @@ function totalLike(media) {
     console.log(total)
     return total
 }
-var totalAll = totalLike(media);
-console.log(totalAll);
