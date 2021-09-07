@@ -56,10 +56,12 @@ function onloadPhotographer(photographers, media) {
     findMedia(media, pageId)
         .forEach((media) => {
             showMedia(media, myPrenom)
-            showLikeAndPrice(media, myPrenom);
+                .forEach((media) => {
+                    total = total + media.likes
+                })
         });
 
-    //showLikeAndPrice(media, theGoodOnePhotograh);
+
 
 }
 //PROFIL
@@ -225,7 +227,7 @@ function showLikeAndPrice(media, photographer) {
     boxLikeAndPrice.appendChild(boxTextLikeAndPrice);
 
 }
-//création de la méthode pour calculer le nombre de like total depuis le json.
+/*création de la méthode pour calculer le nombre de like total depuis le json.
 function totalLike(media) {
     var total = 0;
     media.forEach((media) => {
@@ -233,4 +235,4 @@ function totalLike(media) {
     })
     console.log(total)
     return total
-}
+}*/

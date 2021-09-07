@@ -110,7 +110,7 @@ function addPhotographer(photographer) {
     myH2.classList.add("nameOne");
 
     var myH3 = document.createElement('h3');
-    myH3.innerHTML = photographer.city + "," + photographer.country; //city+country
+    myH3.innerHTML = photographer.city + ", " + photographer.country; //city+country
     myH3.classList.add("localisationOne")
 
     var mySlogan = document.createElement('p');
