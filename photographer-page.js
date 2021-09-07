@@ -59,9 +59,7 @@ function onloadPhotographer(photographers, media) {
             showMedia(media, myPrenom);
         });
 
-    showLikeAndPrice(media, theGoodOnePhotograh);
-    var resultPrice = totalLike(media);
-    console.log(resultPrice);
+    showLikeAndPrice(theGoodOnePhotograh);
 
 }
 //PROFIL
@@ -199,7 +197,7 @@ function validate() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(media, photographer) {
+function showLikeAndPrice(photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
@@ -230,7 +228,7 @@ function showLikeAndPrice(media, photographer) {
 //création de la méthode pour calculer le nombre de like total depuis le json.
 function totalLike(media) {
     var total = 0;
-    media.forEach(media => {
+    media.forEach((media) => {
         total = total + media.likes
     })
     console.log(total)
