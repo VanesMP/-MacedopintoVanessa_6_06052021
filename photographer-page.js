@@ -232,7 +232,7 @@ function totalLike(media) {
     console.log(total)
     return total
 }*/
-function findMediaPrice(paramID) {
+function findMediaPrice(media, paramID) {
     var totalPrice = 0;
     var mediaByPrice = media
         .filter((media) => media.photographerId === paramID)
@@ -241,5 +241,3 @@ function findMediaPrice(paramID) {
 
     return totalPrice
 }
-var trouve = findMediaPrice()
-console.log(trouve)
