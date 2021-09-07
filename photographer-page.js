@@ -60,7 +60,8 @@ function onloadPhotographer(photographers, media) {
         });
 
     showLikeAndPrice(theGoodOnePhotograph);
-    //totalLike(foundM)
+    var totalAll = totalLike(media);
+    console.log(totalAll);
 
 }
 //PROFIL
