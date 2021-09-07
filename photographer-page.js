@@ -60,7 +60,7 @@ function onloadPhotographer(photographers, media) {
 
     var resultPrice = totalLike(theGoodMedia);
     console.log(resultPrice);
-    var resultBox = showLikeAndPrice(theGoodMedia);
+    var resultBox = showLikeAndPrice(theGoodMedia, photographers);
     console.log("resultbox : " + resultBox)
 }
 
@@ -199,7 +199,7 @@ function validate() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(photographer) {
+function showLikeAndPrice(resultPrice, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
