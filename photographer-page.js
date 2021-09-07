@@ -57,8 +57,11 @@ function onloadPhotographer(photographers, media) {
     theGoodMedia.forEach((media) => {
         showMedia(media, myPrenom)
     });
+
+    var resultBox = showLikeAndPrice(media, photographers);
+    console.log(resultBox)
     var resultLikeAndPrice = findMediaPrice(media, pageId);
-    console.log(resultLikeAndPrice)
+    console.log(resultLikeAndPrice);
 }
 //PROFIL
 //creer d'un modele photographe
@@ -199,7 +202,7 @@ function showLikeAndPrice(media, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
-
+    console.log()
     var boxLike = document.createElement('div');
     boxLike.classList.add('boxLike');
 
