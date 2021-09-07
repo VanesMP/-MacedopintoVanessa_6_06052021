@@ -59,7 +59,7 @@ function onloadPhotographer(photographers, media) {
             showMedia(media, myPrenom);
         });
 
-    showLikeAndPrice(theGoodOnePhotograh);
+    showLikeAndPrice(media, theGoodOnePhotograh);
 
 }
 //PROFIL
@@ -71,7 +71,7 @@ function showProfil(photographer) {
     myH2.classList.add("nameOne");
 
     var myH3 = document.createElement('h3');
-    myH3.innerHTML = photographer.city + "," + photographer.country; //city+country
+    myH3.innerHTML = photographer.city + ", " + photographer.country; //city+country
     myH3.classList.add("localisationOne");
 
     var mySlogan = document.createElement('p');
@@ -197,7 +197,7 @@ function validate() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(photographer) {
+function showLikeAndPrice(media, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
