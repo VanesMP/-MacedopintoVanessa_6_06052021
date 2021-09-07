@@ -452,14 +452,13 @@
     }
     
     .boxText {
-        width: 320px;
+        width: 90%;
         height: 60px;
         font: normal 500 24px 'DM Sans';
         color: $black;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: auto;
         align-items: center;
     }
     
