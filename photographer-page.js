@@ -199,7 +199,7 @@ function validate() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(total, photographer) {
+function showLikeAndPrice(resultPrice, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
@@ -208,7 +208,7 @@ function showLikeAndPrice(total, photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
-    like.innerHTML = `${total}`;
+    like.innerHTML = `${resultPrice}`;
     console.log(like)
 
     var heart = document.createElement('img');
