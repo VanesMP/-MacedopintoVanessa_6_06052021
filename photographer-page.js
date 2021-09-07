@@ -60,7 +60,7 @@ function onloadPhotographer(photographers, media) {
 
     var resultPrice = totalLike(theGoodMedia);
     console.log(resultPrice);
-    var resultBox = showLikeAndPrice(theGoodMedia, theGoodOnePhotograph);
+    var resultBox = showLikeAndPrice(resultPrice, theGoodOnePhotograph);
     console.log("resultbox : " + resultBox)
 }
 
