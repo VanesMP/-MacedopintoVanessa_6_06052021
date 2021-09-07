@@ -59,8 +59,8 @@ function onloadPhotographer(photographers, media) {
             showMedia(media, myPrenom);
         });
 
-    showLikeAndPrice(foundP);
-    totalLike(foundM)
+    showLikeAndPrice(theGoodOnePhotograph);
+    totalLike(theGoodOnePhotograph)
 
 }
 //PROFIL
