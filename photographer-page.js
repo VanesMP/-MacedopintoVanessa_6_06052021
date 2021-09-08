@@ -154,7 +154,7 @@ function showMedia(media, prenom) {
         clicks++;
         var moreMyNbr = myNbr.innerHTML = clicks;
         console.log(moreMyNbr) //-1 au second click
-        if (newMyNbr > myNbr) {
+        if (moreMyNbr > myNbr) {
             clicks--;
             var lessMyNbr = myNbr.innerHTML = clicks;
             console.log(lessMyNbr)
