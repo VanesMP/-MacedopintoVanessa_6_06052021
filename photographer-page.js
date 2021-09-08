@@ -149,7 +149,12 @@ function showMedia(media, prenom) {
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
-    myNbr.addEventListener('click', ajouteUnLike);
+    myNbr.addEventListener('click', () => {
+        var clicks = media.likes;
+        console.log(clicks)
+        clicks += 1;
+        document.getElementsByClassName("nbr").innerHTML = clicks;
+    });
 
     var myIconHeart = document.createElement('div');
     myIconHeart.src = "./Sample-Photos/heart.svg";
@@ -168,13 +173,13 @@ function showMedia(media, prenom) {
 
 }
 
-//Ajouter un like sous les photos aux click utilisateur. Possibilité de l'enlever? 
+/*Ajouter un like sous les photos aux click utilisateur. Possibilité de l'enlever? 
 function ajouteUnLike() {
     var clicks = media.likes;
     console.log(clicks)
     clicks += 1;
     document.getElementsByClassName("nbr").innerHTML = clicks;
-}
+}*/
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
 var btnOpen = document.getElementById('btnContactMe');
