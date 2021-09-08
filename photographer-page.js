@@ -153,7 +153,7 @@ function showMedia(media, prenom) {
         var clicks = media.likes;
         console.log(clicks)
         clicks += 1;
-        document.getElementsByClassName("nbr").textContent = clicks.value;
+        myNbr.textContent = clicks.value;
     });
 
     var myIconHeart = document.createElement('div');
