@@ -40,9 +40,12 @@
     body {
         font-family: 'DM Sans', sans-serif;
         width: auto;
-        height: 100%;
         background: #FFFFFF;
         margin: 1% 5%;
+    }
+    
+    main {
+        height: 2212px;
     }
     /* style du header */
     
@@ -354,7 +357,7 @@
     
     #mediaGallery {
         width: 100%;
-        height: 1315px;
+        height: 1742px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 5%;
@@ -435,17 +438,18 @@
     
     #boxBasDePage {
         position: fixed;
-        width: 361px;
+        width: 93%;
         height: 61px;
         margin-top: 237px;
-        margin-left: 840px;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
     }
     
     #boxLikeAndPrice {
         position: fixed;
         width: 361px;
         height: 61px;
-        margin-left: 35px;
         background-color: #DB8876;
         border-radius: 5px 5px 0px 0px;
     }
