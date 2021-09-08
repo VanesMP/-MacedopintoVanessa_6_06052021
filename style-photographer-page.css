@@ -31,7 +31,7 @@ body {
   font-family: "DM Sans", sans-serif;
   position: relative;
   width: auto;
-  min-height: 1104px;
+  height: 100%;
   background: #FFFFFF;
   margin: 1% 5%;
 }
@@ -400,6 +400,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .nbr {
