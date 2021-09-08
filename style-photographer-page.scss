@@ -434,10 +434,11 @@
     /* style box de bas de page*/
     
     #boxBasDePage {
-        float: right;
+        position: fixed;
         width: 361px;
         height: 61px;
         margin-top: 237px;
+        margin-left: 840px;
     }
     
     #boxLikeAndPrice {

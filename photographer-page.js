@@ -153,9 +153,9 @@ function showMedia(media, prenom) {
         if (clicks === media.likes) {
             console.log(clicks)
             clicks += 1;
-            myNbr.value = clicks; //-1 au second click
+            myNbr.innerHTML = clicks; //-1 au second click
         } else {
-            myNbr.value = media.likes
+            myNbr.innerHTML = media.likes
         }
     });
 
