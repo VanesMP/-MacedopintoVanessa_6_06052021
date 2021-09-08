@@ -150,12 +150,12 @@ function showMedia(media, prenom) {
     myNbr.classList.add("nbr");
     myNbr.addEventListener('click', () => { //+1 au premier click
         var clicks = media.likes;
-        if (clicks === media.likes) {
-            console.log(clicks)
-            clicks += 1;
-            myNbr.innerHTML = clicks; //-1 au second click
-        } else {
-            myNbr.innerHTML = media.likes
+        console.log(clicks)
+        clicks++;
+        myNbr.innerHTML = clicks; //-1 au second click
+        if (myNbr > clicks) {
+            clicks--;
+            myNbr.innerHTML = clicks;
         }
     });
 
