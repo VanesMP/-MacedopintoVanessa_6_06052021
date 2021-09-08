@@ -150,7 +150,7 @@ function showMedia(media, prenom) {
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
     myNbr.forEach((like => {
-        like.addEventListener('click', ajouteUnLike());
+        like.addEventListener('click', ajouteUnLike);
     }));
     var myIconHeart = document.createElement('div');
     myIconHeart.src = "./Sample-Photos/heart.svg";
