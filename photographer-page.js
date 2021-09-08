@@ -118,7 +118,6 @@ function recupNom(photograph) {
 
 // Création du modèle des media des photographes
 function showMedia(media, prenom) {
-
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
 
@@ -149,7 +148,7 @@ function showMedia(media, prenom) {
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
-    myNbr.addEventListener('click', () => {
+    myNbr.addEventListener('click', () => { //+1 au click
         var clicks = media.likes;
         console.log(clicks)
         clicks += 1;
@@ -170,7 +169,6 @@ function showMedia(media, prenom) {
     myContainerMedia.appendChild(myBoxMedia);
     myContainerMedia.appendChild(myBoxTextMedia);
     mediaGallery.appendChild(myContainerMedia);
-
 }
 
 /*Ajouter un like sous les photos aux click utilisateur. Possibilité de l'enlever? 

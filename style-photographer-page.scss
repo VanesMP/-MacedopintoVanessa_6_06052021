@@ -434,19 +434,17 @@
     /* style box de bas de page*/
     
     #boxBasDePage {
-        position: fixed;
-        width: 93%;
-        height: 80px;
-        margin-top: 221px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
+        float: right;
+        width: 361px;
+        height: 61px;
+        margin-top: 237px;
     }
     
     #boxLikeAndPrice {
         position: fixed;
         width: 361px;
         height: 61px;
+        margin-left: 35px;
         background-color: #DB8876;
         border-radius: 5px 5px 0px 0px;
     }
