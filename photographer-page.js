@@ -148,11 +148,15 @@ function showMedia(media, prenom) {
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
-    myNbr.addEventListener('click', () => { //+1 au click
+    myNbr.addEventListener('click', () => { //+1 au premier click
         var clicks = media.likes;
-        console.log(clicks)
-        clicks += 1;
-        myNbr.textContent = clicks;
+        if (clicks === media.likes) {
+            console.log(clicks)
+            clicks += 1;
+            myNbr.textContent = clicks; //-1 au second click
+        } else {
+            myNbr.textContent = media.likes
+        }
     });
 
     var myIconHeart = document.createElement('div');
