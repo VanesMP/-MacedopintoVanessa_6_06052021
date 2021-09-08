@@ -157,7 +157,6 @@ function showMedia(media, prenom) {
         if (myNbr > clicks) {
             clicks--;
             myNbr.innerHTML = clicks;
-            console.log(clicks)
         }
     });
 
