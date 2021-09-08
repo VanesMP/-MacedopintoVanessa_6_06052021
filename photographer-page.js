@@ -149,6 +149,9 @@ function showMedia(media, prenom) {
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
+    myNbr.forEach((like => {
+        like.addEventListener('click', ajouteUnLike());
+    }));
     var myIconHeart = document.createElement('div');
     myIconHeart.src = "./Sample-Photos/heart.svg";
     myIconHeart.classList.add("iconHeart");
@@ -164,6 +167,13 @@ function showMedia(media, prenom) {
     myContainerMedia.appendChild(myBoxTextMedia);
     mediaGallery.appendChild(myContainerMedia);
 
+}
+
+//Ajouter un like sous les photos aux click utilisateur. Possibilité de l'enlever? 
+function ajouteUnLike() {
+    var clicks = 0;
+    clicks += 1;
+    document.getElementsByClassName("nbr").innerHTML = clicks;
 }
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
