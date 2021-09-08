@@ -169,7 +169,7 @@ function showMedia(media, prenom) {
 }
 
 //Ajouter un like sous les photos aux click utilisateur. Possibilité de l'enlever? 
-function ajouteUnLike(media) {
+function ajouteUnLike() {
     var clicks = media.likes;
     console.log(clicks)
     clicks += 1;
