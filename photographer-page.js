@@ -149,9 +149,8 @@ function showMedia(media, prenom) {
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
-    myNbr.forEach((like => {
-        like.addEventListener('click', ajouteUnLike);
-    }));
+    myNbr.addEventListener('click', ajouteUnLike);
+
     var myIconHeart = document.createElement('div');
     myIconHeart.src = "./Sample-Photos/heart.svg";
     myIconHeart.classList.add("iconHeart");
