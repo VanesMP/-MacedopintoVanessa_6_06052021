@@ -152,11 +152,12 @@ function showMedia(media, prenom) {
         var clicks = media.likes;
         console.log(clicks)
         clicks++;
-        var newMyNbr = myNbr.innerHTML = clicks;
-        console.log(newMyNbr) //-1 au second click
+        var moreMyNbr = myNbr.innerHTML = clicks;
+        console.log(moreMyNbr) //-1 au second click
         if (newMyNbr > myNbr) {
             clicks--;
-            myNbr.innerHTML = clicks;
+            var lessMyNbr = myNbr.innerHTML = clicks;
+            console.log(lessMyNbr)
         }
     });
 
