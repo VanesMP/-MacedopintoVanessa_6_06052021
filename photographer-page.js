@@ -155,8 +155,8 @@ function showMedia(media, prenom) {
         console.log(media.likes)
         console.log(myNbr)
         if (moreLike > media.likes) {
-            myNbr.innerHTML = media.likes;
-            console.log(media.likes)
+            //myNbr.innerHTML = media.likes;
+            console.log("retirer un à : " + media.likes)
         }
         //var moreLikeAll = document.getElementByClassName('like')
         //console.log(moreLikeAll)
