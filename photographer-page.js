@@ -153,8 +153,7 @@ function showMedia(media, prenom) {
         console.log(moreLike);
         console.log(media.likes)
         if (moreLike > media.likes) {
-            moreLike - 1;
-            console.log(moreLike)
+            console.log(media.likes)
         }
         //var moreLikeAll = document.getElementByClassName('like')
         //console.log(moreLikeAll)
