@@ -150,9 +150,11 @@ function showMedia(media, prenom) {
     myNbr.classList.add("nbr");
     myNbr.addEventListener('click', () => { //+1 au premier click
         var moreLike = media.likes + 1;
+        myNbr.innerHTML = moreLike;
         console.log(moreLike);
         console.log(media.likes)
         if (moreLike > media.likes) {
+            myNbr.innerHTML = media.likes;
             console.log(media.likes)
         }
         //var moreLikeAll = document.getElementByClassName('like')
