@@ -58,9 +58,9 @@ function onloadPhotographer(photographers, media) {
         showMedia(media, myPrenom)
     });
 
-    var resultPrice = totalLike(theGoodMedia);
-    console.log(resultPrice);
-    showLikeAndPrice(resultPrice, theGoodOnePhotograph);
+    var resultLike = totalLike(theGoodMedia);
+    console.log(resultLike);
+    showLikeAndPrice(resultLike, theGoodOnePhotograph);
 }
 
 //PROFIL
@@ -151,15 +151,15 @@ function showMedia(media, prenom) {
     myNbr.addEventListener('click', () => { //+1 au premier click
         var clicks = media.likes + 1;
         console.log(clicks)
-
-        var moreMyNbr = myNbr.textContent = clicks;
-        console.log(moreMyNbr) //-1 au second click
+        var moreMyNbr = myNbr.innerHTML = clicks;
+        console.log(moreMyNbr)
+            /*-1 au second click
         if (moreMyNbr > media.likes) {
             var clicks = moreMyNbr - 1;
 
             var lessMyNbr = myNbr.innerHTML = clicks;
             console.log(lessMyNbr)
-        }
+        }*/
     });
 
     var myIconHeart = document.createElement('div');
@@ -218,7 +218,7 @@ function validate() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(resultPrice, photographer) {
+function showLikeAndPrice(resultLike, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
@@ -227,9 +227,16 @@ function showLikeAndPrice(resultPrice, photographer) {
     boxLike.classList.add('boxLike');
 
     var like = document.createElement('p');
-    like.innerHTML = resultPrice;
+    like.innerHTML = resultLike;
     like.classList.add('like')
     console.log(like)
+    var myNbr = document.querySelector('nbr')
+    myNbr.addEventListener('click', () => { //+1 au premier click
+        var clicks = like + 1;
+        console.log(clicks)
+        var moreLike = like.innerHTML = clicks;
+        console.log(moreLike)
+    });
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
