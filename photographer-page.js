@@ -155,18 +155,17 @@ function showMedia(media, prenom) {
         if (moreLike > media.likes) {
             console.log("il faut retirer un à :", media.likes)
         }
-        var moreLikeAll = document.querySelector('like')
-        console.log(moreLikeAll)
+        //var moreLikeAll = document.getElementByClassName('like')
+        //console.log(moreLikeAll)
+        //moreLikeAll + 1;
+        //console.log(moreLikeAll)
+        /*-1 au second click
+        if (moreMyNbr > media.likes) {
+            var clicks = moreMyNbr - 1;
 
-        moreLikeAll + 1;
-        console.log(moreLikeAll)
-            /*-1 au second click
-            if (moreMyNbr > media.likes) {
-                var clicks = moreMyNbr - 1;
-
-                var lessMyNbr = myNbr.innerHTML = clicks;
-                console.log(lessMyNbr)
-            }*/
+            var lessMyNbr = myNbr.innerHTML = clicks;
+            console.log(lessMyNbr)
+        }*/
     });
 
     var myIconHeart = document.createElement('div');
