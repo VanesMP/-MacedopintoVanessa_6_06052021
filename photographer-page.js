@@ -155,9 +155,9 @@ function showMedia(media, prenom) {
         var moreMyNbr = myNbr.innerHTML = clicks;
         console.log(moreMyNbr) //-1 au second click
         if (moreMyNbr > media.likes) {
-            var clicks = media.likes - 1;
+            var clicks = moreMyNbr - 1;
 
-            var lessMyNbr = moreMyNbr.innerHTML = clicks;
+            var lessMyNbr = myNbr.innerHTML = clicks;
             console.log(lessMyNbr)
         }
     });
