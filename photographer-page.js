@@ -151,8 +151,7 @@ function showMedia(media, prenom) {
     myNbr.addEventListener('click', () => { //+1 au premier click
         var clicks = document.querySelector('nbr');
         console.log(clicks)
-        clicks++;
-        moreMyNbr.innerHTML = clicks;
+        var moreMyNbr = clicks++;
         console.log(moreMyNbr) //-1 au second click
         if (moreMyNbr > media.likes) {
             var clicks = media.likes;
