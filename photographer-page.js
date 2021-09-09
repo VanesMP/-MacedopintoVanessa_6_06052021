@@ -152,6 +152,9 @@ function showMedia(media, prenom) {
         var moreLike = media.likes + 1;
         console.log(moreLike);
         console.log(media.likes)
+        if (moreLike > media.likes) {
+            console.log("il faut retirer un à :", media.likes)
+        }
         var moreLikeAll = document.querySelector('like')
         console.log(moreLikeAll)
 
