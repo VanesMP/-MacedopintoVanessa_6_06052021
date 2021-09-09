@@ -148,7 +148,7 @@ function showMedia(media, prenom) {
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
-    myNbr.addEventListener('change', () => { //+1 au premier click
+    myNbr.addEventListener('click', () => { //+1 au premier click
         var moreLike = media.likes + 1;
         myNbr.innerHTML = moreLike;
         console.log(moreLike);
