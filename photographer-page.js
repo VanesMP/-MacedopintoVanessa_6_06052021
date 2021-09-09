@@ -151,7 +151,7 @@ function showMedia(media, prenom) {
     myNbr.addEventListener('click', () => { //+1 au premier click
         var clicks = media.likes + 1;
         console.log(clicks)
-        var moreMyNbr = myNbr.innerHTML = clicks;
+        var moreMyNbr = myNbr.textContent = clicks;
         console.log(moreMyNbr)
             /*-1 au second click
         if (moreMyNbr > media.likes) {
@@ -230,13 +230,6 @@ function showLikeAndPrice(resultLike, photographer) {
     like.innerHTML = resultLike;
     like.classList.add('like')
     console.log(like)
-    var myNbr = document.querySelector('nbr')
-    myNbr.addEventListener('click', () => { //+1 au premier click
-        var clicks = like + 1;
-        console.log(clicks)
-        var moreLike = like.innerHTML = clicks;
-        console.log(moreLike)
-    });
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
