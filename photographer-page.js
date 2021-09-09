@@ -149,10 +149,11 @@ function showMedia(media, prenom) {
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
     myNbr.addEventListener('click', () => { //+1 au premier click
-        var moreLike = media.likes - 1;
+        var moreLike = media.likes + 1;
         console.log(moreLike);
         console.log(media.likes)
         if (moreLike > media.likes) {
+            media.likes - 1;
             console.log("il faut retirer un à :", media.likes)
         }
         //var moreLikeAll = document.getElementByClassName('like')
