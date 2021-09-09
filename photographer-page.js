@@ -153,21 +153,22 @@ function showMedia(media, prenom) {
         myNbr.innerHTML = moreLike;
         console.log(moreLike);
         console.log(media.likes)
-            /*if (moreLike > media.likes) {
-                //myNbr.innerHTML = media.likes;
-                console.log(media.likes)
-            }
-            //var moreLikeAll = document.getElementByClassName('like')
-            //console.log(moreLikeAll)
-            //moreLikeAll + 1;
-            //console.log(moreLikeAll)
-            /*-1 au second click
-            if (moreMyNbr > media.likes) {
-                var clicks = moreMyNbr - 1;
+        console.log(myNbr)
+        if (moreLike > media.likes) {
+            myNbr.innerHTML = media.likes;
+            console.log(media.likes)
+        }
+        //var moreLikeAll = document.getElementByClassName('like')
+        //console.log(moreLikeAll)
+        //moreLikeAll + 1;
+        //console.log(moreLikeAll)
+        /*-1 au second click
+        if (moreMyNbr > media.likes) {
+            var clicks = moreMyNbr - 1;
 
-                var lessMyNbr = myNbr.innerHTML = clicks;
-                console.log(lessMyNbr)
-            }*/
+            var lessMyNbr = myNbr.innerHTML = clicks;
+            console.log(lessMyNbr)
+        }*/
     });
 
     var myIconHeart = document.createElement('div');
