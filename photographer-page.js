@@ -152,13 +152,18 @@ function showMedia(media, prenom) {
         var moreLike = media.likes + 1;
         console.log(moreLike);
         console.log(media.likes)
-            /*-1 au second click
-        if (moreMyNbr > media.likes) {
-            var clicks = moreMyNbr - 1;
+        var moreLikeAll = document.querySelector('like')
+        console.log(moreLikeAll)
 
-            var lessMyNbr = myNbr.innerHTML = clicks;
-            console.log(lessMyNbr)
-        }*/
+        moreLikeAll + 1;
+        console.log(moreLikeAll)
+            /*-1 au second click
+            if (moreMyNbr > media.likes) {
+                var clicks = moreMyNbr - 1;
+
+                var lessMyNbr = myNbr.innerHTML = clicks;
+                console.log(lessMyNbr)
+            }*/
     });
 
     var myIconHeart = document.createElement('div');
