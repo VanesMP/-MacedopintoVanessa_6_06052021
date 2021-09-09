@@ -149,10 +149,9 @@ function showMedia(media, prenom) {
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
     myNbr.addEventListener('click', () => { //+1 au premier click
-        var clicks = media.likes + 1;
-        console.log(clicks)
-        var moreMyNbr = myNbr.textContent = clicks;
-        console.log(moreMyNbr)
+        var moreLike = media.likes + 1;
+        console.log(moreLike);
+        console.log(media.likes)
             /*-1 au second click
         if (moreMyNbr > media.likes) {
             var clicks = moreMyNbr - 1;
@@ -178,13 +177,6 @@ function showMedia(media, prenom) {
     mediaGallery.appendChild(myContainerMedia);
 }
 
-/*Ajouter un like sous les photos aux click utilisateur. Possibilité de l'enlever? 
-function ajouteUnLike() {
-    var clicks = media.likes;
-    console.log(clicks)
-    clicks += 1;
-    document.getElementsByClassName("nbr").innerHTML = clicks;
-}*/
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
 var btnOpen = document.getElementById('btnContactMe');
