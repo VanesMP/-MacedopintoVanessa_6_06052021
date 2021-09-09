@@ -152,7 +152,7 @@ function showMedia(media, prenom) {
         var clicks = media.likes + 1;
         console.log(clicks)
 
-        var moreMyNbr = myNbr.innerHTML = clicks;
+        var moreMyNbr = myNbr.textContent = clicks;
         console.log(moreMyNbr) //-1 au second click
         if (moreMyNbr > media.likes) {
             var clicks = moreMyNbr - 1;
