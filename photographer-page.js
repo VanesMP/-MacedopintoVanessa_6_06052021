@@ -226,10 +226,10 @@ function showLikeAndPrice(resultLike, photographer) {
     var boxLike = document.createElement('div');
     boxLike.classList.add('boxLike');
 
-    var like = document.createElement('p');
-    like.innerHTML = resultLike;
-    like.classList.add('like')
-    console.log(like)
+    var myLike = document.createElement('p');
+    myLike.innerHTML = resultLike;
+    myLike.classList.add('like')
+    console.log(myLike)
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
@@ -242,7 +242,7 @@ function showLikeAndPrice(resultLike, photographer) {
 
     var boxLikeAndPrice = document.getElementById('boxLikeAndPrice');
 
-    boxLike.appendChild(like);
+    boxLike.appendChild(myLike);
     boxLike.appendChild(heart);
     boxTextLikeAndPrice.appendChild(boxLike);
     boxTextLikeAndPrice.appendChild(price);
