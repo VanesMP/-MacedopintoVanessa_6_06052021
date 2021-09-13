@@ -235,7 +235,7 @@ function trierParPopularite(media) {
         var trieParPopularite = media
             .sort((a, b) => b.likes - a.likes)
         console.log('je trie par popularité : ', trieParPopularite)
-        return trieParPopularite
+        return populaire
     });
 }
 var orderAlphabetique = document.getElementById('titre');
