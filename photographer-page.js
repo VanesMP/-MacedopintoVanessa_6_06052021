@@ -252,7 +252,6 @@ function showLikeAndPrice(resultLike, photographer) {
 
 }
 //création de la méthode pour calculer le nombre de like total 
-
 function totalLike(media) {
     var total = 0;
     media.forEach(media => {

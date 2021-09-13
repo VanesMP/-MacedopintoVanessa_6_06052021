@@ -280,6 +280,12 @@ header {
 .dropdown:hover > .visibilityHover {
   display: block;
 }
+.dropdown:hover .arrow {
+  animation: turnUp both;
+}
+.dropdown:hover .lineWhite {
+  display: inline-block;
+}
 
 .textListBox {
   color: #FFFFFF;
@@ -306,16 +312,23 @@ header {
   align-items: center;
 }
 
+.lineWhite {
+  height: 1px;
+  width: 135px;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: top;
+  background-color: white;
+  border: none;
+  display: none;
+}
+
 .dropdownElement {
   width: 170px;
   height: 56px;
   cursor: pointer;
   background-color: #911c1c;
   border: none;
-  border-bottom: 2px solid white;
-}
-.dropdownElement:hover .arrow {
-  animation: turnUp both;
 }
 
 @keyframes turnDown {

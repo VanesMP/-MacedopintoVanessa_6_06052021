@@ -289,6 +289,12 @@
         &:hover>.visibilityHover {
             display: block;
         }
+        &:hover .arrow {
+            animation: turnUp both;
+        }
+        &:hover .lineWhite {
+            display: inline-block;
+        }
     }
     
     .textListBox {
@@ -316,16 +322,23 @@
         align-items: center;
     }
     
+    .lineWhite {
+        height: 1px;
+        width: 135px;
+        margin-left: auto;
+        margin-right: auto;
+        vertical-align: top;
+        background-color: white;
+        border: none;
+        display: none;
+    }
+    
     .dropdownElement {
         width: 170px;
         height: 56px;
         cursor: pointer;
         background-color: #911c1c;
         border: none;
-        border-bottom: 2px solid white;
-        &:hover .arrow {
-            animation: turnUp both;
-        }
     }
     
     @keyframes turnDown {
