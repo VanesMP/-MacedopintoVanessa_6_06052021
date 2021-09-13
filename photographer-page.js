@@ -62,7 +62,7 @@ function onloadPhotographer(photographers, media) {
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
 
-    var resulTrierPar = trierParPopularite(media);
+    var resulTrierPar = trierParPopularite(theGoodMedia);
     console.log(resulTrierPar)
 }
 
