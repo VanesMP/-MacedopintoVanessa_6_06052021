@@ -62,7 +62,7 @@ function onloadPhotographer(photographers, media) {
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
 
-    var resulTrierPar = trierPar(theGoodMedia);
+    var resulTrierPar = trierParPopularite(theGoodMedia);
     console.log(resulTrierPar)
 }
 
@@ -229,7 +229,7 @@ function validate() {
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
     //2 et 3
-function trierPar(media) {
+function trierParPopularite(media) {
     var populaire = document.getElementById('popularite');
     populaire.addEventListener('click', function() {
         var trieParPopularite = media
@@ -237,15 +237,16 @@ function trierPar(media) {
         console.log('je trie par popularité : ', trieParPopularite)
         return trieParPopularite
     });
-    var orderAlphabetique = document.getElementById('titre');
-    orderAlphabetique.addEventListener('click', function() {
-        console.log('je trie par ordre alphabétique')
-    });
-    var orderChrono = document.getElementById('date');
-    orderChrono.addEventListener('click', function() {
-        console.log('je trie par ordre chronologique')
-    });
 }
+var orderAlphabetique = document.getElementById('titre');
+orderAlphabetique.addEventListener('click', function() {
+    console.log('je trie par ordre alphabétique')
+});
+var orderChrono = document.getElementById('date');
+orderChrono.addEventListener('click', function() {
+    console.log('je trie par ordre chronologique')
+});
+
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
 function showLikeAndPrice(resultLike, photographer) {
