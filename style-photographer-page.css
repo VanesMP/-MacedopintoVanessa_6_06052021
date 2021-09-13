@@ -325,7 +325,7 @@ header {
 
 .dropdownElement {
   width: 170px;
-  height: 56px;
+  min-height: 56px;
   cursor: pointer;
   background-color: #911c1c;
   border: none;

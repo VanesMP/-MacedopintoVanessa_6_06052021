@@ -218,6 +218,29 @@ function validate() {
     }
 }
 
+//Barre de navigation de tri
+//1:Recuperer le choix de l' utilisateur pour le faire apparaitre en haut du dropdown
+//2:Ajouter un ecouteur d' evenement sur chacuns des choix
+//3:Appliquer les function de tri dans chaque ecouter d' evenement adequat
+var dropdown = document.getElementById('navigationMedia');
+console.log(dropdown)
+    //2 et 3
+var populaire = document.getElementById('popularite');
+populaire.addEventListener('click', function() {
+    var trieParPopularite = media
+        .sort((a, b) => b.likes - a.likes)
+    console.log('je trie par popularité : ', trieParPopularite)
+    return trieParPopularite
+});
+var orderAlphabetique = document.getElementById('titre');
+orderAlphabetique.addEventListener('click', function() {
+    console.log('je trie par ordre alphabétique')
+});
+var orderChrono = document.getElementById('date');
+orderChrono.addEventListener('click', function() {
+    console.log('je trie par ordre chronologique')
+});
+
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
 function showLikeAndPrice(resultLike, photographer) {
