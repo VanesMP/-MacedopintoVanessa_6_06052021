@@ -213,7 +213,7 @@ console.log(dropdown)
     //Ajout d' ecouteurs d'evenement au tri
     //1: Populaire
 var populaire = document.getElementById('popularite');
-populaire.addEventListener('click', trierParPopularite())
+populaire.addEventListener('click', trierParPopularite(media))
 
 function trierParPopularite(media) {
     var parPopularite = media
