@@ -236,9 +236,6 @@ console.log(dropdown)
 function trierParPopularite(media) {
     var parPopularite = media
         .sort((a, b) => b.likes - a.likes)
-    var mediaGallery = document.getElementById('mediaGallery');
-    var sectionTwo = document.getElementById('partTwo');
-    sectionTwo.removeChild(mediaGallery)
     console.log('je trie par popularité : ', parPopularite)
     return parPopularite;
 }
