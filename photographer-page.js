@@ -1,3 +1,8 @@
+//Ajout d' ecouteurs d'evenement au tri
+//1: Populaire
+var populaire = document.getElementById('popularite');
+populaire.addEventListener('click', trierParPopularite())
+
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 fetch('fisheyeData.json')
     .then(response => {
@@ -63,10 +68,7 @@ function onloadPhotographer(photographers, media) {
     var resultLike = totalLike(theGoodMedia);
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
-    //6
-    //trierParPopularite(theGoodMedia);
-    //var resultTrierPar = trierParPopularite(theGoodMedia);
-    //console.log(resultTrierPar)
+
 }
 
 //PROFIL
@@ -226,15 +228,11 @@ function validate() {
 
 //Barre de navigation de tri
 //1:Recuperer le choix de l' utilisateur pour le faire apparaitre en haut du dropdown
-//2:Ajouter un ecouteur d' evenement sur chacuns des choix
-//3:Appliquer les function de tri dans chaque ecouter d' evenement adequat
-//4: creation d'un focusout pour un reset??
+//2:Appliquer les function de tri dans chaque ecouter d' evenement adequat
+//3: creation d'un focusout pour un reset??
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
-    //2 et 3
-var populaire = document.getElementById('popularite');
-populaire.addEventListener('click', trierParPopularite())
-
+    //2
 function trierParPopularite(media) {
     var parPopularite = media
         .sort((a, b) => b.likes - a.likes)
