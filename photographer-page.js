@@ -58,13 +58,13 @@ function onloadPhotographer(photographers, media) {
     var theGoodMedia = findMedia(media, pageId)
     theGoodMedia.forEach((media) => {
         showMedia(media, myPrenom)
-        trierParPopularite(theGoodMedia);
     });
     //5
     var resultLike = totalLike(theGoodMedia);
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
     //6
+    trierParPopularite(theGoodMedia);
     //var resultTrierPar = trierParPopularite(theGoodMedia);
     //console.log(resultTrierPar)
 }
