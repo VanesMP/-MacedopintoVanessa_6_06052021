@@ -60,6 +60,8 @@ function onloadPhotographer(photographers, media) {
         showMedia(media, myPrenom)
     });
     //5
+    var resultTriPop = triPopularite(theGoodMedia);
+    console.log(resultTriPop);
     var resultLike = totalLike(theGoodMedia);
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
@@ -213,13 +215,15 @@ console.log(dropdown)
     //2
     //Ajout d' ecouteurs d'evenement au tri
     //1: Populaire
-var populaire = document.getElementById('popularite');
-populaire.addEventListener('click', function() {
-    var parPopularite = media
-        .sort((a, b) => b.likes - a.likes)
-    console.log('je trie par popularité : ', parPopularite)
-    return parPopularite;
-})
+function triPopularite(media) {
+    var orderPopularite = document.getElementById('popularite');
+    orderPopularite.addEventListener('click', function() {
+        var parPopularite = media
+            .sort((a, b) => b.likes - a.likes)
+        console.log('je trie par popularité : ')
+        return parPopularite;
+    });
+}
 
 var orderAlphabetique = document.getElementById('titre');
 orderAlphabetique.addEventListener('click', function() {
