@@ -7,7 +7,7 @@ fetch('fisheyeData.json')
         console.log(json.photographers);
         console.log(json.media);
         onloadPhotographer(json.photographers, json.media);
-
+        allMedias = json.media;
     })
     .catch(function() {
 
@@ -31,6 +31,8 @@ function findMedia(media, pageId) {
     console.log(mediaByPhotographer)
     return mediaByPhotographer;
 };
+//Creation varile qui contient tous les medias
+var allMedias = [];
 
 //Methode qui a l ouverture, appelle toutes les fonctions. de la page 
 //1: trouve l' id qui est dans l url,
@@ -60,8 +62,7 @@ function onloadPhotographer(photographers, media) {
         showMedia(media, myPrenom)
     });
     //5
-    var resultTriPop = triPopularite(theGoodMedia);
-    console.log(resultTriPop);
+
     var resultLike = totalLike(theGoodMedia);
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
@@ -215,14 +216,14 @@ console.log(dropdown)
     //2
     //Ajout d' ecouteurs d'evenement au tri
     //1: Populaire
+var orderPopularite = document.getElementById('popularite');
+orderPopularite.addEventListener('click', triPopularite(allMedias))
+
 function triPopularite(media) {
-    var orderPopularite = document.getElementById('popularite');
-    orderPopularite.addEventListener('click', function() {
-        var parPopularite = media
-            .sort((a, b) => b.likes - a.likes)
-        console.log('je trie par popularité : ')
-        return parPopularite;
-    });
+    var parPopularite = media
+        .sort((a, b) => b.likes - a.likes)
+    console.log('je trie par popularité : ', parPopularite)
+    return parPopularite;
 }
 
 var orderAlphabetique = document.getElementById('titre');
