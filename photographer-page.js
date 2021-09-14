@@ -1,8 +1,3 @@
-//Ajout d' ecouteurs d'evenement au tri
-//1: Populaire
-var populaire = document.getElementById('popularite');
-populaire.addEventListener('click', trierParPopularite(media))
-
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 fetch('fisheyeData.json')
     .then(response => {
@@ -17,6 +12,11 @@ fetch('fisheyeData.json')
     .catch(function() {
 
     })
+
+//Ajout d' ecouteurs d'evenement au tri
+//1: Populaire
+var populaire = document.getElementById('popularite');
+populaire.addEventListener('click', trierParPopularite(media))
 
 //Affichage du photographe grace a son Id dans l' url
 //partie profil
