@@ -210,17 +210,16 @@ function validate() {
 //3: creation d'un focusout pour un reset??
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
+    //2
     //Ajout d' ecouteurs d'evenement au tri
     //1: Populaire
 var populaire = document.getElementById('popularite');
-populaire.addEventListener('click', trierParPopularite(media))
-
-function trierParPopularite(media) {
+populaire.addEventListener('click', function() {
     var parPopularite = media
         .sort((a, b) => b.likes - a.likes)
     console.log('je trie par popularité : ', parPopularite)
     return parPopularite;
-}
+})
 
 var orderAlphabetique = document.getElementById('titre');
 orderAlphabetique.addEventListener('click', function() {
