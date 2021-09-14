@@ -232,7 +232,7 @@ function validate() {
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
     //2 et 3
-function trierParPopularite() {
+function trierParPopularite(media) {
     var populaire = document.getElementById('popularite');
     populaire.addEventListener('click', function() {
         var parPopularite = media
