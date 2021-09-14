@@ -225,15 +225,15 @@ function triPopularite(media) {
     console.log('je trie par popularité : ', parPopularite)
     return parPopularite;
 }
-
-var orderAlphabetique = document.getElementById('titre');
-orderAlphabetique.addEventListener('click', function() {
-    console.log('je trie par ordre alphabétique')
-});
 var orderChrono = document.getElementById('date');
 orderChrono.addEventListener('click', function() {
     console.log('je trie par ordre chronologique')
 });
+var orderAlphabetique = document.getElementById('titre');
+orderAlphabetique.addEventListener('click', function() {
+    console.log('je trie par ordre alphabétique')
+});
+
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
