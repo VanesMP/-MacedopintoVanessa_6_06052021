@@ -226,7 +226,7 @@ function validate() {
     }
 }
 
-//Barre de navigation de tri
+//BARRE DE NAVIGATION DE TRI
 //1:Recuperer le choix de l' utilisateur pour le faire apparaitre en haut du dropdown
 //2:Appliquer les function de tri dans chaque ecouter d' evenement adequat
 //3: creation d'un focusout pour un reset??
@@ -236,8 +236,11 @@ console.log(dropdown)
 function trierParPopularite(media) {
     var parPopularite = media
         .sort((a, b) => b.likes - a.likes)
+    var mediaGallery = document.getElementById('mediaGallery');
+    var sectionTwo = document.getElementById('partTwo');
+    sectionTwo.removeChild(mediaGallery)
     console.log('je trie par popularité : ', parPopularite)
-    return parPopularite
+    return parPopularite;
 }
 
 var orderAlphabetique = document.getElementById('titre');
