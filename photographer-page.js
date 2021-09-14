@@ -160,11 +160,10 @@ function showMedia(media, prenom) {
         var moreLike = media.likes + 1;
         myNbr.innerHTML = moreLike;
         console.log(moreLike);
-        var totalLikePlus = document.querySelector('like') //+1 au total
-        var miseAJourTotal = totalLikePlus + 1;
+        var totalLikePlus = totalLike(media) //+1 au total
+        totalLikePlus + 1;
 
         console.log(totalLikePlus)
-        console.log(miseAJourTotal)
     });
 
     var myIconHeart = document.createElement('div');
