@@ -156,27 +156,15 @@ function showMedia(media, prenom) {
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
-    myNbr.addEventListener('click', () => { //+1 au premier click
+    myNbr.addEventListener('click', () => { //+1 au click
         var moreLike = media.likes + 1;
         myNbr.innerHTML = moreLike;
         console.log(moreLike);
-        console.log(media.likes)
-        console.log(myNbr)
-        if (moreLike > media.likes) {
-            //myNbr.innerHTML = media.likes;
-            console.log("retirer un à : " + media.likes)
-        }
-        //var moreLikeAll = document.getElementByClassName('like')
-        //console.log(moreLikeAll)
-        //moreLikeAll + 1;
-        //console.log(moreLikeAll)
-        /*-1 au second click
-        if (moreMyNbr > media.likes) {
-            var clicks = moreMyNbr - 1;
+        var totalLikePlus = document.querySelector('like')
+        var miseAJourTotal = totalLikePlus + 1;
 
-            var lessMyNbr = myNbr.innerHTML = clicks;
-            console.log(lessMyNbr)
-        }*/
+        console.log(totalLikePlus)
+        console.log(miseAJourTotal)
     });
 
     var myIconHeart = document.createElement('div');
