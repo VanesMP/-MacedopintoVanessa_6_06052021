@@ -13,11 +13,6 @@ fetch('fisheyeData.json')
 
     })
 
-//Ajout d' ecouteurs d'evenement au tri
-//1: Populaire
-var populaire = document.getElementById('popularite');
-populaire.addEventListener('click', trierParPopularite())
-
 //Affichage du photographe grace a son Id dans l' url
 //partie profil
 function findPhotographer(photographers, pageId) {
@@ -160,10 +155,6 @@ function showMedia(media, prenom) {
         var moreLike = media.likes + 1;
         myNbr.innerHTML = moreLike;
         console.log(moreLike);
-        var totalLikePlus = totalLike(media) //+1 au total
-        totalLikePlus + 1;
-
-        console.log(totalLikePlus)
     });
 
     var myIconHeart = document.createElement('div');
@@ -219,7 +210,11 @@ function validate() {
 //3: creation d'un focusout pour un reset??
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
-    //2
+    //Ajout d' ecouteurs d'evenement au tri
+    //1: Populaire
+var populaire = document.getElementById('popularite');
+populaire.addEventListener('click', trierParPopularite())
+
 function trierParPopularite(media) {
     var parPopularite = media
         .sort((a, b) => b.likes - a.likes)
