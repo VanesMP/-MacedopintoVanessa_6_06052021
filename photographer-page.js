@@ -241,6 +241,7 @@ function trierParPopularite(media) {
         return parPopularite
     });
 }
+trierParPopularite(media)
 var orderAlphabetique = document.getElementById('titre');
 orderAlphabetique.addEventListener('click', function() {
     console.log('je trie par ordre alphabétique')
