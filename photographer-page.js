@@ -7,6 +7,7 @@ fetch('fisheyeData.json')
         console.log(json.photographers);
         console.log(json.media);
         onloadPhotographer(json.photographers, json.media);
+        trierParPopularite(theGoodMedia);
 
     })
     .catch(function() {
@@ -38,6 +39,8 @@ function findMedia(media, pageId) {
 //3 : faire apparaitre en html les informations du photographe
 //3 bis: decouper le nom du photographe avec le photographe trouvé 
 // 4: cherche dans les medias tous les medias du photographe et faire apparaitre les infos contenus en utilisant la variable prenom pour retrouver le chemin du dossier
+//5: afficher la box fixe avec le total de like et le tarif 
+//6: recuperer le retour des fonctions pour trier par Popularité, Date, Titre
 
 function onloadPhotographer(photographers, media) {
     //1
@@ -57,13 +60,13 @@ function onloadPhotographer(photographers, media) {
     theGoodMedia.forEach((media) => {
         showMedia(media, myPrenom)
     });
-
+    //5
     var resultLike = totalLike(theGoodMedia);
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
-
-    var resulTrierPar = trierParPopularite(theGoodMedia);
-    console.log(resulTrierPar)
+    //6
+    //var resultTrierPar = trierParPopularite(theGoodMedia);
+    //console.log(resultTrierPar)
 }
 
 //PROFIL
