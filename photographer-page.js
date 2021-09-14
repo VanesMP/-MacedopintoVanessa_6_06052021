@@ -7,7 +7,6 @@ fetch('fisheyeData.json')
         console.log(json.photographers);
         console.log(json.media);
         onloadPhotographer(json.photographers, json.media);
-        trierParPopularite(theGoodMedia);
 
     })
     .catch(function() {
@@ -59,6 +58,7 @@ function onloadPhotographer(photographers, media) {
     var theGoodMedia = findMedia(media, pageId)
     theGoodMedia.forEach((media) => {
         showMedia(media, myPrenom)
+        trierParPopularite(theGoodMedia);
     });
     //5
     var resultLike = totalLike(theGoodMedia);
