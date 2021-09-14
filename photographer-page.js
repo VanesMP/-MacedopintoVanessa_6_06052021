@@ -233,7 +233,7 @@ var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
     //2 et 3
 var populaire = document.getElementById('popularite');
-populaire.addEventListener('click', trierParPopularite)
+populaire.addEventListener('click', trierParPopularite())
 
 function trierParPopularite(media) {
     var parPopularite = media
