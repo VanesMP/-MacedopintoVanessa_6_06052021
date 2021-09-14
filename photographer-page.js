@@ -241,7 +241,7 @@ function trierParPopularite(media) {
         return parPopularite
     });
 }
-trierParPopularite()
+trierParPopularite(theGoodMedia)
 var orderAlphabetique = document.getElementById('titre');
 orderAlphabetique.addEventListener('click', function() {
     console.log('je trie par ordre alphabétique')
