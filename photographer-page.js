@@ -232,7 +232,7 @@ function validate() {
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
     //2 et 3
-function trierParPopularite(media) {
+function trierParPopularite() {
     var populaire = document.getElementById('popularite');
     populaire.addEventListener('click', function() {
         var parPopularite = media
@@ -241,7 +241,7 @@ function trierParPopularite(media) {
         return parPopularite
     });
 }
-trierParPopularite(media)
+trierParPopularite()
 var orderAlphabetique = document.getElementById('titre');
 orderAlphabetique.addEventListener('click', function() {
     console.log('je trie par ordre alphabétique')
