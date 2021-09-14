@@ -16,7 +16,7 @@ fetch('fisheyeData.json')
 //Ajout d' ecouteurs d'evenement au tri
 //1: Populaire
 var populaire = document.getElementById('popularite');
-populaire.addEventListener('click', trierParPopularite(media))
+populaire.addEventListener('click', trierParPopularite())
 
 //Affichage du photographe grace a son Id dans l' url
 //partie profil
