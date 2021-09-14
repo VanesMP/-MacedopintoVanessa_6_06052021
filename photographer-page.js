@@ -64,7 +64,7 @@ function onloadPhotographer(photographers, media) {
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
     //6
-    trierParPopularite(theGoodMedia);
+    //trierParPopularite(theGoodMedia);
     //var resultTrierPar = trierParPopularite(theGoodMedia);
     //console.log(resultTrierPar)
 }
@@ -232,14 +232,14 @@ function validate() {
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
     //2 et 3
+var populaire = document.getElementById('popularite');
+populaire.addEventListener('click', trierParPopularite)
+
 function trierParPopularite(media) {
-    var populaire = document.getElementById('popularite');
-    populaire.addEventListener('click', function() {
-        var parPopularite = media
-            .sort((a, b) => b.likes - a.likes)
-        console.log('je trie par popularité : ', parPopularite)
-        return parPopularite
-    });
+    var parPopularite = media
+        .sort((a, b) => b.likes - a.likes)
+    console.log('je trie par popularité : ', parPopularite)
+    return parPopularite
 }
 
 var orderAlphabetique = document.getElementById('titre');
