@@ -1,13 +1,14 @@
+//Creation varile qui contient tous les medias
+var theGoodMedia = [];
+var myPrenom = ' ';
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 fetch('fisheyeData.json')
     .then(response => {
         return response.json();
     })
     .then(json => {
-        console.log(json.photographers);
-        console.log(json.media);
         onloadPhotographer(json.photographers, json.media);
-        allMedias = json.media;
+
     })
     .catch(function() {
 
@@ -31,8 +32,6 @@ function findMedia(media, pageId) {
     console.log(mediaByPhotographer)
     return mediaByPhotographer;
 };
-//Creation varile qui contient tous les medias
-var allMedias = [];
 
 //Methode qui a l ouverture, appelle toutes les fonctions. de la page 
 //1: trouve l' id qui est dans l url,
@@ -42,11 +41,10 @@ var allMedias = [];
 // 4: cherche dans les medias tous les medias du photographe et faire apparaitre les infos contenus en utilisant la variable prenom pour retrouver le chemin du dossier
 //5: afficher la box fixe avec le total de like et le tarif 
 //6: recuperer le retour des fonctions pour trier par Popularité, Date, Titre
-
 function onloadPhotographer(photographers, media) {
     //1
     var params = (new URL(window.location)).searchParams;
-    var pageId = parseInt(params.get('id'));
+    pageId = parseInt(params.get('id'));
     console.log(pageId)
         //2
     var theGoodOnePhotograph = findPhotographer(photographers, pageId);
@@ -54,19 +52,17 @@ function onloadPhotographer(photographers, media) {
     showProfil(theGoodOnePhotograph);
     console.log(theGoodOnePhotograph);
     //3bis
-    var myPrenom = recupNom(theGoodOnePhotograph)
+    myPrenom = recupNom(theGoodOnePhotograph)
     console.log(myPrenom);
     //4
-    var theGoodMedia = findMedia(media, pageId)
+    theGoodMedia = findMedia(media, pageId)
     theGoodMedia.forEach((media) => {
         showMedia(media, myPrenom)
     });
     //5
-
     var resultLike = totalLike(theGoodMedia);
     console.log(resultLike);
     showLikeAndPrice(resultLike, theGoodOnePhotograph);
-
 }
 
 //PROFIL
@@ -116,14 +112,13 @@ function showProfil(photographer) {
 //Methode pour avoir le lien du fichier medias du photographe
 function recupNom(photograph) {
     var leNomComplet = photograph.name
-
     var prenom = leNomComplet
         .split(' ')
     return prenom[0]
 }
 
 // Création du modèle des media des photographes
-function showMedia(media, prenom) {
+function showMedia(media, myPrenom) {
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
 
@@ -133,12 +128,12 @@ function showMedia(media, prenom) {
     if (media.image === undefined) {
         var myMediaVideo = document.createElement('video');
         myMediaVideo.classList.add("mediaVideo");
-        myMediaVideo.src = `./Sample-Photos/${prenom}/${media.video}`
+        myMediaVideo.src = `./Sample-Photos/${myPrenom}/${media.video}`
         myBoxMedia.appendChild(myMediaVideo);
     } else {
         var myMediaPhoto = document.createElement('img');
         myMediaPhoto.classList.add("mediaPhoto");
-        myMediaPhoto.src = `./Sample-Photos/${prenom}/${media.image}`
+        myMediaPhoto.src = `./Sample-Photos/${myPrenom}/${media.image}`
         myBoxMedia.appendChild(myMediaPhoto);
     }
 
@@ -210,28 +205,59 @@ function validate() {
 //BARRE DE NAVIGATION DE TRI
 //1:Recuperer le choix de l' utilisateur pour le faire apparaitre en haut du dropdown
 //2:Appliquer les function de tri dans chaque ecouter d' evenement adequat
-//3: creation d'un focusout pour un reset??
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
     //2
-    //Ajout d' ecouteurs d'evenement au tri
-    //1: Populaire
+    // variable pour gerer la gallery media lors du tri
+var newGallery = document.getElementById('mediaGallery')
+    //2.1: Populaire
 var orderPopularite = document.getElementById('popularite');
-orderPopularite.addEventListener('click', triPopularite(allMedias))
-
-function triPopularite(media) {
-    var parPopularite = media
-        .sort((a, b) => b.likes - a.likes)
-    console.log('je trie par popularité : ', parPopularite)
-    return parPopularite;
-}
+orderPopularite.addEventListener('click',
+    function() {
+        var parPopularite = theGoodMedia
+            .sort((a, b) => b.likes - a.likes);
+        newGallery.innerHTML = " ";
+        parPopularite.forEach((media) => {
+            showMedia(media, myPrenom)
+        });
+    });
+//2.2: Date
 var orderChrono = document.getElementById('date');
-orderChrono.addEventListener('click', function() {
-    console.log('je trie par ordre chronologique')
-});
+orderChrono.addEventListener('click',
+    function() {
+        var parDate = theGoodMedia
+            .sort(function(a, b) {
+                if (a.date > b.date) {
+                    return 1;
+                }
+                if (a.date < b.date) {
+                    return -1;
+                }
+                return 0;
+            });
+        newGallery.innerHTML = " ";
+        parDate = theGoodMedia
+            .forEach((media) => {
+                showMedia(media, myPrenom)
+            });
+    });
+//2.3: Titre
 var orderAlphabetique = document.getElementById('titre');
 orderAlphabetique.addEventListener('click', function() {
-    console.log('je trie par ordre alphabétique')
+    var parTitre = theGoodMedia
+        .sort(function(a, b) {
+            if (a.title > b.title) {
+                return 1;
+            }
+            if (a.title < b.title) {
+                return -1;
+            }
+            return 0;
+        });
+    newGallery.innerHTML = " ";
+    parTitre.forEach((media) => {
+        showMedia(media, myPrenom)
+    });
 });
 
 
@@ -241,14 +267,12 @@ function showLikeAndPrice(resultLike, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
-    console.log()
     var boxLike = document.createElement('div');
     boxLike.classList.add('boxLike');
 
     var myLike = document.createElement('p');
     myLike.innerHTML = resultLike;
     myLike.classList.add('like')
-    console.log(myLike)
 
     var heart = document.createElement('img');
     heart.src = "./Sample-Photos/heart.svg";
@@ -257,7 +281,6 @@ function showLikeAndPrice(resultLike, photographer) {
     var price = document.createElement('p');
     price.innerHTML = photographer.price + "€ / jour";
     price.classList.add('textPrice');
-    console.log(price)
 
     var boxLikeAndPrice = document.getElementById('boxLikeAndPrice');
 

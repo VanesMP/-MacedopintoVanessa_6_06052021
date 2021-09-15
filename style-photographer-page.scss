@@ -286,9 +286,6 @@
         width: 170px;
         margin-left: 42px;
         position: relative;
-        &:hover>.visibilityHover {
-            display: block;
-        }
         &:hover .arrow {
             animation: turnUp both;
         }
@@ -339,6 +336,9 @@
         cursor: pointer;
         background-color: #911c1c;
         border: none;
+        &:hover>.visibilityHover {
+            display: block;
+        }
     }
     
     @keyframes turnDown {
