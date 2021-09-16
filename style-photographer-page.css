@@ -276,15 +276,13 @@ header {
   width: 170px;
   margin-left: 42px;
   position: relative;
+  z-index: 11;
 }
-.dropdown:hover > .visibilityHover {
+.dropdown:hover + .visibilityHover {
   display: block;
 }
 .dropdown:hover .arrow {
   animation: turnUp both;
-}
-.dropdown:hover .lineWhite {
-  display: inline-block;
 }
 
 .textListBox {
@@ -299,7 +297,7 @@ header {
 .arrow {
   width: 37px;
   height: 33px;
-  background-image: url(./Sample-Photos/arrow.svg);
+  background: url(./Sample-Photos/arrow.svg) center center/100% 100%;
   background-repeat: no-repeat;
   background-size: cover;
   animation: turnDown both;
@@ -312,13 +310,16 @@ header {
   align-items: center;
 }
 
+.textButton {
+  margin-top: 13px;
+}
+
 .lineWhite {
   height: 1px;
   width: 135px;
-  margin-left: auto;
-  margin-right: auto;
-  vertical-align: top;
+  right: 17px;
   background-color: white;
+  position: absolute;
   border: none;
   display: none;
 }
@@ -349,6 +350,9 @@ header {
 }
 .visibilityHover {
   display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* style partie deux : les medias */
@@ -363,6 +367,7 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 5%;
   justify-items: center;
+  z-index: 10;
 }
 
 .containerMedia {

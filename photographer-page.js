@@ -152,7 +152,6 @@ function showMedia(media, myPrenom) {
     myNbr.addEventListener('click', () => { //+1 au click
         var moreLike = media.likes + 1;
         myNbr.innerHTML = moreLike;
-        console.log(moreLike);
     });
 
     var myIconHeart = document.createElement('div');
@@ -203,8 +202,11 @@ function validate() {
 }
 
 //BARRE DE NAVIGATION DE TRI
-//1:Recuperer le choix de l' utilisateur pour le faire apparaitre en haut du dropdown
-//2:Appliquer les function de tri dans chaque ecouter d' evenement adequat
+//au click sur la fleche ouvrir le menu deroulant
+var arrowOpen = document.getElementsByClassName('arrow')
+console.log(arrowOpen)
+    //1:Recuperer le choix de l' utilisateur pour le faire apparaitre en haut du dropdown
+    //2:Appliquer les function de tri dans chaque ecouter d' evenement adequat
 var dropdown = document.getElementById('navigationMedia');
 console.log(dropdown)
     //2

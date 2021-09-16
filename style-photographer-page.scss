@@ -286,14 +286,12 @@
         width: 170px;
         margin-left: 42px;
         position: relative;
-        &:hover>.visibilityHover {
+        z-index: 11;
+        &:hover+.visibilityHover {
             display: block;
         }
         &:hover .arrow {
             animation: turnUp both;
-        }
-        &:hover .lineWhite {
-            display: inline-block;
         }
     }
     
@@ -309,7 +307,7 @@
     .arrow {
         width: 37px;
         height: 33px;
-        background-image: url(./Sample-Photos/arrow.svg);
+        background: url(./Sample-Photos/arrow.svg) center center/ 100% 100%;
         background-repeat: no-repeat;
         background-size: cover;
         animation: turnDown both;
@@ -322,13 +320,16 @@
         align-items: center;
     }
     
+    .textButton {
+        margin-top: 13px;
+    }
+    
     .lineWhite {
         height: 1px;
         width: 135px;
-        margin-left: auto;
-        margin-right: auto;
-        vertical-align: top;
+        right: 17px;
         background-color: white;
+        position: absolute;
         border: none;
         display: none;
     }
@@ -361,6 +362,9 @@
     
     .visibilityHover {
         display: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
     /* style partie deux : les medias */
     
@@ -375,6 +379,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         gap: 5%;
         justify-items: center;
+        z-index: 10;
     }
     
     .containerMedia {
