@@ -278,8 +278,11 @@ header {
   position: relative;
   z-index: 11;
 }
-.dropdown:hover + .visibilityHover {
+.dropdown:hover .visibilityHover {
   display: block;
+}
+.dropdown:hover .lineWhite {
+  display: inline-block;
 }
 .dropdown:hover .arrow {
   animation: turnUp both;
@@ -350,7 +353,6 @@ header {
 }
 .visibilityHover {
   display: none;
-  display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }

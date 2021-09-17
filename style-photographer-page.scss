@@ -287,8 +287,11 @@
         margin-left: 42px;
         position: relative;
         z-index: 11;
-        &:hover+.visibilityHover {
+        &:hover .visibilityHover {
             display: block;
+        }
+        &:hover .lineWhite {
+            display: inline-block;
         }
         &:hover .arrow {
             animation: turnUp both;
@@ -362,9 +365,8 @@
     
     .visibilityHover {
         display: none;
-        display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: flex-start; //=display flex parfait pour nettre en forme correct le separateur et le text!
     }
     /* style partie deux : les medias */
     
