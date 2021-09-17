@@ -1,6 +1,9 @@
 //Creation varile qui contient tous les medias
 var theGoodMedia = [];
 var myPrenom = ' ';
+var resultTotalLike = 0;
+var myLike = document.getElementsByClassName('like');
+
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 fetch('fisheyeData.json')
     .then(response => {
@@ -60,9 +63,9 @@ function onloadPhotographer(photographers, media) {
         showMedia(media, myPrenom)
     });
     //5
-    var resultLike = totalLike(theGoodMedia);
-    console.log(resultLike);
-    showLikeAndPrice(resultLike, theGoodOnePhotograph);
+    resultTotalLike = totalLike(theGoodMedia);
+    console.log(resultTotalLike);
+    showLikeAndPrice(resultTotalLike, theGoodOnePhotograph);
 }
 
 //PROFIL
@@ -152,6 +155,10 @@ function showMedia(media, myPrenom) {
     myNbr.addEventListener('click', () => { //+1 au click
         var moreLike = media.likes + 1;
         myNbr.innerHTML = moreLike;
+        console.log(myNbr);
+
+        myLike.innerHTML = resultTotalLike += 1;
+        console.log(resultTotalLike);
     });
 
     var myIconHeart = document.createElement('div');
@@ -265,15 +272,15 @@ orderAlphabetique.addEventListener('click', function() {
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
-function showLikeAndPrice(resultLike, photographer) {
+function showLikeAndPrice(resultTotalLike, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
     boxTextLikeAndPrice.classList.add('boxText');
     var boxLike = document.createElement('div');
     boxLike.classList.add('boxLike');
 
-    var myLike = document.createElement('p');
-    myLike.innerHTML = resultLike;
+    myLike = document.createElement('p');
+    myLike.innerHTML = resultTotalLike;
     myLike.classList.add('like')
 
     var heart = document.createElement('img');
@@ -295,9 +302,9 @@ function showLikeAndPrice(resultLike, photographer) {
 }
 //création de la méthode pour calculer le nombre de like total 
 function totalLike(media) {
-    var total = 0;
+    var resultLike = 0;
     media.forEach(media => {
-        total = total + media.likes
+        resultLike = resultLike + media.likes
     })
-    return total
+    return resultLike
 };
