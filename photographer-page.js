@@ -126,6 +126,9 @@ function showMedia(media, myPrenom) {
     myContainerMedia.classList.add("containerMedia");
 
     var myBoxMedia = document.createElement('div');
+    myBoxMedia.setAttribute(media.alt);
+    console.log(media.alt)
+    console.log(myBoxMedia)
     myBoxMedia.classList.add("boxMedia");
     // photo'img' ou video'video'
     if (media.image === undefined) {
@@ -155,10 +158,7 @@ function showMedia(media, myPrenom) {
     myNbr.addEventListener('click', () => { //+1 au click
         var moreLike = media.likes + 1;
         myNbr.innerHTML = moreLike;
-        console.log(myNbr);
-
         myLike.innerHTML = resultTotalLike += 1;
-        console.log(resultTotalLike);
     });
 
     var myIconHeart = document.createElement('div');
