@@ -11,7 +11,6 @@ fetch('fisheyeData.json')
     })
     .then(json => {
         onloadPhotographer(json.photographers, json.media);
-
     })
     .catch(function() {
 
@@ -126,20 +125,21 @@ function showMedia(media, myPrenom) {
     myContainerMedia.classList.add("containerMedia");
 
     var myBoxMedia = document.createElement('div');
-    myBoxMedia.setAttribute(media.alt);
-    console.log(media.alt)
-    console.log(myBoxMedia)
     myBoxMedia.classList.add("boxMedia");
     // photo'img' ou video'video'
     if (media.image === undefined) {
         var myMediaVideo = document.createElement('video');
         myMediaVideo.classList.add("mediaVideo");
-        myMediaVideo.src = `./Sample-Photos/${myPrenom}/${media.video}`
+        myMediaVideo.src = `./Sample-Photos/${myPrenom}/${media.video}`;
+        myMediaVideo.setAttribute("alt", media.alt);
+        console.log(myMediaVideo)
         myBoxMedia.appendChild(myMediaVideo);
     } else {
         var myMediaPhoto = document.createElement('img');
         myMediaPhoto.classList.add("mediaPhoto");
-        myMediaPhoto.src = `./Sample-Photos/${myPrenom}/${media.image}`
+        myMediaPhoto.src = `./Sample-Photos/${myPrenom}/${media.image}`;
+        myMediaPhoto.setAttribute("alt", media.alt);
+        console.log(myMediaPhoto)
         myBoxMedia.appendChild(myMediaPhoto);
     }
 
