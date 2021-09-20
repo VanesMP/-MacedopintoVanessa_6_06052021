@@ -126,6 +126,8 @@ function showMedia(media, myPrenom) {
 
     var myBoxMedia = document.createElement('div');
     myBoxMedia.classList.add("boxMedia");
+    myBoxMedia.addEventListener('click', factoryMedia);
+    console.log(myBoxMedia);
     // photo'img' ou video'video'
     if (media.image === undefined) {
         var myMediaVideo = document.createElement('video');
@@ -308,3 +310,9 @@ function totalLike(media) {
     })
     return resultLike
 };
+
+//LIGHTBOX
+//utilisation de la factory pattern
+function factoryMedia() {
+    console.log('open :D')
+}
