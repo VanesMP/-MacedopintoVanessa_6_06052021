@@ -531,7 +531,6 @@ header {
 .heart {
     width: 25px;
     height: 30px;
-    color: $black;
 }
 
 
@@ -557,9 +556,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: flex-start;
 }
 
 .imageNextPrev {
+    width: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -573,37 +574,30 @@ header {
     z-index: 18;
 }
 
-.buttonPrev,
-.buttonNext {
-    width: 66px;
-    height: auto;
-}
-
-.lightboxNext,
-.lightboxPrev {
+.buttonNext,
+.buttonPrev {
     background: url(./Sample-Photos/arrow_lightbox.svg) center center / 42px 42px no-repeat;
     width: 66px;
-    height: 100%;
+    height: auto;
     top: 0;
     right: 142px;
     z-index: 17;
 }
 
-.lightboxPrev {
-    //left: 166px;
+.buttonPrev {
     transform: rotate(180deg);
 }
 
-#lightbox button,
+.buttonNext,
+.buttonPrev,
 .buttonClose {
-    //position: fixed;
-    border: none;
     opacity: 0.7;
     cursor: pointer;
     transition: opacity 0.3s;
 }
 
-#lightbox button:hover,
+.buttonNext:hover,
+.buttonPrev:hover,
 .buttonClose:hover {
     opacity: 1;
 }

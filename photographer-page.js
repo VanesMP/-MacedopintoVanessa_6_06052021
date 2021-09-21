@@ -181,16 +181,15 @@ function showMedia(media, myPrenom) {
 
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
+var modale = document.getElementById('modale');
 var btnOpen = document.getElementById('btnContactMe');
 btnOpen.addEventListener('click', function(event) {
-    var modale = document.getElementById('modale');
     modale.style.display = 'block';
 });
 
 //Fermeture du formulaire avec un eventListener sur la croix 
 var btnClose = document.getElementById('close');
 btnClose.addEventListener('click', function(event) {
-    var modale = document.getElementById('modale');
     modale.style.display = 'none';
 })
 
@@ -286,7 +285,7 @@ function showLikeAndPrice(resultTotalLike, photographer) {
     myLike.classList.add('like')
 
     var heart = document.createElement('img');
-    heart.src = "./Sample-Photos/heart.svg";
+    heart.src = "./Sample-Photos/heartBlack.svg";
     heart.classList.add('heart');
 
     var price = document.createElement('p');
@@ -313,9 +312,14 @@ function totalLike(media) {
 
 //LIGHTBOX
 //utilisation de la factory pattern
+var myLightbox = document.getElementById('lightBoxContainer');
+var closeMyLightbox = document.querySelector('.buttonClose');
+closeMyLightbox.addEventListener('click', function() {
+    myLightbox.style.display = "none"
+})
+
 function factoryMedia() {
-    var myLightbox = document.getElementById('lightBoxContainer').style.display = 'block';
-    console.log(myLightbox)
+    myLightbox.style.display = 'block';
     console.log('open Lightbox')
         //modale.innerHTML = ' ';
 }
