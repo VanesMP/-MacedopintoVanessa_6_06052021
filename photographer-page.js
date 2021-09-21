@@ -314,5 +314,8 @@ function totalLike(media) {
 //LIGHTBOX
 //utilisation de la factory pattern
 function factoryMedia() {
-    console.log('open :D')
+    var myLightbox = document.getElementById('lightBoxContainer').style.display = 'block';
+    console.log(myLightbox)
+    console.log('open Lightbox')
+        //modale.innerHTML = ' ';
 }

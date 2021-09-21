@@ -1,517 +1,634 @@
-    /* typographie de la page */
-    
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
-    /* couleurs utilisées pour la page */
-    
-    $primary-dark: #901C1C;
-    $primary-medium: #D3573C;
-    $white: #FFFFFF;
-    $black: #000000;
-    $secondary-lightgrey: #FAFAFA;
-    $secondary-grey: #525252;
-    $inner-border: #c4c4c4;
-    $color-price: #757575;
-    /* style general de la page */
-    
-    * {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        text-decoration: none;
+/* typographie de la page */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* couleurs utilisées pour la page */
+
+$primary-dark: #901C1C;
+$primary-medium: #D3573C;
+$white: #FFFFFF;
+$black: #000000;
+$secondary-lightgrey: #FAFAFA;
+$secondary-grey: #525252;
+$inner-border: #c4c4c4;
+$color-price: #757575;
+
+/* style general de la page */
+
+* {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+a {
+    cursor: default;
+}
+
+input,
+label,
+textarea {
+    border: none;
+    background: none;
+}
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    width: auto;
+    background: #FFFFFF;
+    margin: 1% 5%;
+}
+
+main {
+    height: 2212px;
+}
+
+
+/* style du header */
+
+header {
+    width: 100%;
+    height: 157px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#logo {
+    background: url('./Sample-Photos/logo.svg');
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+/* style partie 1 : le profil du photographe */
+
+#partOne {
+    background-color: #FAFAFA;
+    width: 100%;
+    height: 350px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    align-items: center;
+    flex-direction: row;
+}
+
+#identity {
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 38px;
+    white-space: nowrap;
+}
+
+.portraitOne {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px $inner-border;
+}
+
+.nameOne {
+    font: normal normal 64px 'DM Sans';
+    color: $primary-medium;
+    margin-left: 9px;
+}
+
+.localisationOne {
+    font: normal normal 24px 'DM Sans';
+    color: $primary-dark;
+    margin-left: 9px;
+}
+
+.sloganOne {
+    width: max-content;
+    font: normal normal 18px 'DM Sans';
+    color: $secondary-grey;
+    margin-left: 9px;
+}
+
+.tagsOne {
+    display: flex;
+    width: 356px;
+    height: 22px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.tagPersonnel {
+    width: fit-content;
+    padding: 0 8px;
+    margin: 0px 5px 0px 0px;
+    color: $primary-dark;
+    border: 0.5px solid $inner-border;
+    box-sizing: border-box;
+    border-radius: 11px;
+    font: 700 18px 'DM Sans';
+    line-height: 20.62px;
+    text-align: center;
+}
+
+
+/* style partie 1 : le bouton de contact */
+
+#btnContactMe {
+    height: 280px;
+}
+
+#contactMe {
+    width: 170px;
+    height: 69px;
+    cursor: pointer;
+    margin-top: 29px;
+    font: normal bold 20px 'DM Sans';
+    color: $white;
+    background-color: $primary-dark;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
+    &:hover {
+        background-color: $primary-medium;
     }
-    
-    a {
-        cursor: default;
+    &:active {
+        background-color: $primary-medium;
+        box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
     }
-    
-    input,
-    label,
-    textarea {
-        border: none;
-        background: none;
+}
+
+
+/* style partie 1 : la photo de profil */
+
+#photoProfil {
+    height: 250px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.portraitOne {
+    width: 250px;
+    height: 250px;
+    margin-right: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px $inner-border;
+}
+
+
+/* style du formulaire de contact */
+
+#modale {
+    display: none;
+    position: fixed;
+    z-index: 14;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(229, 229, 229, .4);
+}
+
+.containerForm {
+    position: fixed;
+    z-index: 13;
+    display: flex;
+    left: 30%;
+    top: 4%;
+    width: 669px;
+    height: 880px;
+    border-radius: 5px;
+    background-color: #db8875;
+    box-shadow: 0 10px 25px rgb(17 17 17 / 50%);
+}
+
+.formBody {
+    width: 589px;
+    margin: auto;
+}
+
+.headerForm {
+    display: flex;
+    align-items: baseline;
+}
+
+.titleFormBox {
+    padding-bottom: 22px;
+}
+
+.titleForm {
+    font: normal 400 60px 'DM Sans';
+    color: $black;
+}
+
+.formDataSimple {
+    width: 580px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: $white;
+    color: $primary-dark;
+    font-size: 25px;
+    outline-style: none;
+    padding: 5px 5px;
+}
+
+.formDataDouble {
+    width: 580px;
+    height: 170px;
+    border-radius: 5px;
+    background-color: $white;
+    color: $primary-dark;
+    font-size: 25px;
+    outline-style: none;
+    padding: 5px 5px;
+}
+
+.textForm {
+    font: normal 400 30px 'DM Sans';
+    color: #1c1a1a;
+}
+
+#btnSubmit {
+    width: 170px;
+    height: 69px;
+    margin-top: 18px;
+    border-radius: 5px;
+    background: $primary-dark;
+    font: normal 700 20px 'DM Sans';
+    color: #FFFFFF;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
+    cursor: pointer;
+    &:hover {
+        background-color: $primary-medium;
     }
-    
-    input:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px white inset;
-        -webkit-box-shadow: 0 0 0px 1000px white inset;
+    &:active {
+        background-color: $primary-medium;
+        box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
     }
-    
-    body {
-        font-family: 'DM Sans', sans-serif;
-        width: auto;
-        background: #FFFFFF;
-        margin: 1% 5%;
-    }
-    
-    main {
-        height: 2212px;
-    }
-    /* style du header */
-    
-    header {
-        width: 100%;
-        height: 157px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    #logo {
-        background: url('./Sample-Photos/logo.svg');
-        width: 200px;
-        height: 50px;
-        cursor: pointer;
-    }
-    /* style partie 1 : le profil du photographe */
-    
-    #partOne {
-        background-color: #FAFAFA;
-        width: 100%;
-        height: 350px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-        align-items: center;
-        flex-direction: row;
-    }
-    
-    #identity {
-        height: 280px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        padding-left: 38px;
-        white-space: nowrap;
-    }
-    
-    .portraitOne {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0px 4px 12px $inner-border;
-    }
-    
-    .nameOne {
-        font: normal normal 64px 'DM Sans';
-        color: $primary-medium;
-        margin-left: 9px;
-    }
-    
-    .localisationOne {
-        font: normal normal 24px 'DM Sans';
-        color: $primary-dark;
-        margin-left: 9px;
-    }
-    
-    .sloganOne {
-        width: max-content;
-        font: normal normal 18px 'DM Sans';
-        color: $secondary-grey;
-        margin-left: 9px;
-    }
-    
-    .tagsOne {
-        display: flex;
-        width: 356px;
-        height: 22px;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-    
-    .tagPersonnel {
-        width: fit-content;
-        padding: 0 8px;
-        margin: 0px 5px 0px 0px;
-        color: $primary-dark;
-        border: 0.5px solid $inner-border;
-        box-sizing: border-box;
-        border-radius: 11px;
-        font: 700 18px 'DM Sans';
-        line-height: 20.62px;
-        text-align: center;
-    }
-    /* style partie 1 : le bouton de contact */
-    
-    #btnContactMe {
-        height: 280px;
-    }
-    
-    #contactMe {
-        width: 170px;
-        height: 69px;
-        cursor: pointer;
-        margin-top: 29px;
-        font: normal bold 20px 'DM Sans';
-        color: $white;
-        background-color: $primary-dark;
-        border-radius: 5px;
-        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
-        &:hover {
-            background-color: $primary-medium;
-        }
-        &:active {
-            background-color: $primary-medium;
-            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
-        }
-    }
-    /* style partie 1 : la photo de profil */
-    
-    #photoProfil {
-        height: 250px;
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    .portraitOne {
-        width: 250px;
-        height: 250px;
-        margin-right: 50px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0px 4px 12px $inner-border;
-    }
-    /* style du formulaire de contact */
-    
-    #modale {
-        display: none;
-        position: fixed;
-        z-index: 14;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgb(229, 229, 229, .4);
-    }
-    
-    .containerForm {
-        position: fixed;
-        z-index: 13;
-        display: flex;
-        left: 30%;
-        top: 4%;
-        width: 669px;
-        height: 880px;
-        border-radius: 5px;
-        background-color: #db8875;
-        box-shadow: 0 10px 25px rgb(17 17 17 / 50%);
-    }
-    
-    .formBody {
-        width: 589px;
-        margin: auto;
-    }
-    
-    .headerForm {
-        display: flex;
-        align-items: baseline;
-    }
-    
-    .titleFormBox {
-        padding-bottom: 22px;
-    }
-    
-    .titleForm {
-        font: normal 400 60px 'DM Sans';
-        color: $black;
-    }
-    
-    .formDataSimple {
-        width: 580px;
-        height: 50px;
-        border-radius: 5px;
-        background-color: $white;
-        color: $primary-dark;
-        font-size: 25px;
-        outline-style: none;
-        padding: 5px 5px;
-    }
-    
-    .formDataDouble {
-        width: 580px;
-        height: 170px;
-        border-radius: 5px;
-        background-color: $white;
-        color: $primary-dark;
-        font-size: 25px;
-        outline-style: none;
-        padding: 5px 5px;
-    }
-    
-    .textForm {
-        font: normal 400 30px 'DM Sans';
-        color: #1c1a1a;
-    }
-    
-    #btnSubmit {
-        width: 170px;
-        height: 69px;
-        margin-top: 18px;
-        border-radius: 5px;
-        background: $primary-dark;
-        font: normal 700 20px 'DM Sans';
-        color: #FFFFFF;
-        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
-        cursor: pointer;
-        &:hover {
-            background-color: $primary-medium;
-        }
-        &:active {
-            background-color: $primary-medium;
-            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
-        }
-    }
-    
-    #close {
-        width: 48px;
-        height: 48px;
-        background-image: url('./Sample-Photos/close_white_24dp.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
-    /* style barre de navigation déroulante */
-    
-    #navigationMedia {
-        width: 100%;
-        height: 95px;
-        margin-top: 25px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: row;
-    }
-    
-    .trierPar {
-        width: 74px;
-        height: 23px;
-        font: normal 700 18px 'DM Sans';
-        color: $black;
-        margin-top: 10px;
-    }
-    
-    .dropdown {
-        width: 170px;
-        margin-left: 42px;
-        position: relative;
-        z-index: 11;
-        &:hover .visibilityHover {
-            display: block;
-        }
-        &:hover .lineWhite {
-            display: inline-block;
-        }
-        &:hover .arrow {
-            animation: turnUp both;
-        }
-    }
-    
-    .textListBox {
-        color: $white;
-        font: normal 700 18px 'DM Sans';
-        border-radius: 5px;
-        text-align: start;
-        margin-left: 20px;
-        width: 105px;
-    }
-    
-    .arrow {
-        width: 37px;
-        height: 33px;
-        background: url(./Sample-Photos/arrow.svg) center center/ 100% 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        animation: turnDown both;
-    }
-    
-    .alignarrow {
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .textButton {
-        margin-top: 13px;
-    }
-    
-    .lineWhite {
-        height: 1px;
-        width: 135px;
-        right: 17px;
-        background-color: white;
-        position: absolute;
-        border: none;
-        display: none;
-    }
-    
-    .dropdownElement {
-        width: 170px;
-        min-height: 56px;
-        cursor: pointer;
-        background-color: #911c1c;
-        border: none;
-    }
-    
-    @keyframes turnDown {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(180deg);
-        }
-    }
-    
-    @keyframes turnUp {
-        from {
-            transform: rotate(180deg);
-        }
-        to {
-            transform: rotate(0deg);
-        }
-    }
-    
-    .visibilityHover {
-        display: none;
-        flex-direction: column;
-        justify-content: flex-start; //=display flex parfait pour nettre en forme correct le separateur et le text!
-    }
-    /* style partie deux : les medias */
-    
-    #partTwo {
-        width: 100%;
-    }
-    
-    #mediaGallery {
-        width: 100%;
-        height: 1742px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 5%;
-        justify-items: center;
-        z-index: 10;
-    }
-    
-    .containerMedia {
-        width: 350px;
-        height: 370px;
-    }
-    
-    .boxMedia {
-        width: 350px;
-        height: 300px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    .mediaPhoto {
-        width: 350px;
-        height: 300px;
-        border-radius: 5px;
-        object-fit: cover;
-        object-position: top;
-    }
-    
-    .mediaVideo {
+}
+
+#close {
+    width: 48px;
+    height: 48px;
+    background-image: url('./Sample-Photos/close_white_24dp.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+
+/* style barre de navigation déroulante */
+
+#navigationMedia {
+    width: 100%;
+    height: 95px;
+    margin-top: 25px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.trierPar {
+    width: 74px;
+    height: 23px;
+    font: normal 700 18px 'DM Sans';
+    color: $black;
+    margin-top: 10px;
+}
+
+.dropdown {
+    width: 170px;
+    margin-left: 42px;
+    position: relative;
+    z-index: 11;
+    &:hover .visibilityHover {
         display: block;
-        width: 350px;
-        height: 300px;
-        border-radius: 5px;
-        object-fit: cover;
     }
-    
-    .boxTextMedia {
-        width: 350px;
-        height: 31px;
-        display: flex;
-        flex-direction: row;
-        padding-top: 5px;
+    &:hover .lineWhite {
+        display: inline-block;
     }
-    
-    .titreMedia {
-        width: 85%;
-        height: 31px;
-        font: normal 400 20px 'DM Sans';
-        color: $primary-dark;
-        white-space: nowrap;
+    &:hover .arrow {
+        animation: turnUp both;
     }
-    
-    .nbrLike {
-        width: 18%;
-        height: 31px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        cursor: pointer;
+}
+
+.textListBox {
+    color: $white;
+    font: normal 700 18px 'DM Sans';
+    border-radius: 5px;
+    text-align: start;
+    margin-left: 20px;
+    width: 105px;
+}
+
+.arrow {
+    width: 37px;
+    height: 33px;
+    background: url(./Sample-Photos/arrow.svg) center center/ 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: turnDown both;
+}
+
+.alignarrow {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+}
+
+.textButton {
+    margin-top: 13px;
+}
+
+.lineWhite {
+    height: 1px;
+    width: 135px;
+    right: 17px;
+    background-color: white;
+    position: absolute;
+    border: none;
+    display: none;
+}
+
+.dropdownElement {
+    width: 170px;
+    min-height: 56px;
+    cursor: pointer;
+    background-color: #911c1c;
+    border: none;
+}
+
+@keyframes turnDown {
+    from {
+        transform: rotate(0deg);
     }
-    
-    .nbr {
-        width: 50%;
-        height: 28px;
-        display: flex;
-        justify-content: flex-end;
-        font: normal 500 20px "DM Sans";
-        color: #901C1C;
+    to {
+        transform: rotate(180deg);
     }
-    
-    .iconHeart {
-        width: 45%;
-        height: 23px;
-        background-image: url("./Sample-Photos/heart.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        color: #901C1C;
+}
+
+@keyframes turnUp {
+    from {
+        transform: rotate(180deg);
     }
-    /* style box de bas de page*/
-    
-    #boxBasDePage {
-        position: fixed;
-        width: 93%;
-        height: 61px;
-        margin-top: 237px;
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: row;
+    to {
+        transform: rotate(0deg);
     }
-    
-    #boxLikeAndPrice {
-        position: fixed;
-        width: 361px;
-        height: 61px;
-        background-color: #DB8876;
-        border-radius: 5px 5px 0px 0px;
+}
+
+.visibilityHover {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start; //=display flex parfait pour nettre en forme correct le separateur et le text!
+}
+
+
+/* style partie deux : les medias */
+
+#partTwo {
+    width: 100%;
+}
+
+#mediaGallery {
+    width: 100%;
+    height: 1742px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5%;
+    justify-items: center;
+    z-index: 10;
+}
+
+.containerMedia {
+    width: 350px;
+    height: 370px;
+}
+
+.boxMedia {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mediaPhoto {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.mediaVideo {
+    display: block;
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.boxTextMedia {
+    width: 350px;
+    height: 31px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+}
+
+.titreMedia {
+    width: 85%;
+    height: 31px;
+    font: normal 400 20px 'DM Sans';
+    color: $primary-dark;
+    white-space: nowrap;
+}
+
+.nbrLike {
+    width: 18%;
+    height: 31px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.nbr {
+    width: 50%;
+    height: 28px;
+    display: flex;
+    justify-content: flex-end;
+    font: normal 500 20px "DM Sans";
+    color: #901C1C;
+}
+
+.iconHeart {
+    width: 45%;
+    height: 23px;
+    background-image: url("./Sample-Photos/heart.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #901C1C;
+}
+
+
+/* style box de bas de page*/
+
+#boxBasDePage {
+    position: fixed;
+    width: 93%;
+    height: 61px;
+    margin-top: 237px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+#boxLikeAndPrice {
+    position: fixed;
+    width: 361px;
+    height: 61px;
+    background-color: #DB8876;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.boxText {
+    width: 90%;
+    height: 60px;
+    font: normal 500 24px 'DM Sans';
+    color: $black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxLike {
+    display: flex;
+    flex-direction: row;
+    width: 116px;
+}
+
+.like {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.textPrice {
+    width: 138px;
+}
+
+.heart {
+    width: 25px;
+    height: 30px;
+    color: $black;
+}
+
+
+/* style LIGHTBOX */
+
+#lightBoxContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 16;
+}
+
+#lightbox {
+    z-index: 17;
+    width: 1010px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 108px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.imageNextPrev {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttonClose {
+    position: fixed;
+    width: 66px;
+    height: 35px;
+    background: url(./Sample-Photos/close.svg) center center/42px 42px no-repeat;
+    z-index: 18;
+}
+
+.buttonPrev,
+.buttonNext {
+    width: 66px;
+    height: auto;
+}
+
+.lightboxNext,
+.lightboxPrev {
+    background: url(./Sample-Photos/arrow_lightbox.svg) center center / 42px 42px no-repeat;
+    width: 66px;
+    height: 100%;
+    top: 0;
+    right: 142px;
+    z-index: 17;
+}
+
+.lightboxPrev {
+    //left: 166px;
+    transform: rotate(180deg);
+}
+
+#lightbox button,
+.buttonClose {
+    //position: fixed;
+    border: none;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+#lightbox button:hover,
+.buttonClose:hover {
+    opacity: 1;
+}
+
+.lightboxGallery {
+    width: 63vw;
+    height: 77vh;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+//style des images
+.imgTest {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 100% 27%;
+    border-radius: 5px;
+}
+
+@keyframes lightboxIn {
+    from {
+        opacity: 0;
     }
-    
-    .boxText {
-        width: 90%;
-        height: 60px;
-        font: normal 500 24px 'DM Sans';
-        color: $black;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    to {
+        opacity: 1;
     }
-    
-    .boxLike {
-        display: flex;
-        flex-direction: row;
-        width: 116px;
-    }
-    
-    .like {
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    .textPrice {
-        width: 138px;
-    }
-    
-    .heart {
-        width: 25px;
-        height: 30px;
-        color: $black;
-    }
+}
