@@ -1,8 +1,10 @@
-//Creation varile qui contient tous les medias
+//Creation variables glabales
 var theGoodMedia = [];
 var myPrenom = ' ';
 var resultTotalLike = 0;
 var myLike = document.getElementsByClassName('like');
+var myBoxMedia = [];
+
 
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 fetch('fisheyeData.json')
@@ -310,16 +312,37 @@ function totalLike(media) {
     return resultLike
 };
 
-//LIGHTBOX
+//LIGHTBOXs
 //utilisation de la factory pattern
 var myLightbox = document.getElementById('lightBoxContainer');
+var placeMedia = document.querySelector('.lightboxGallery');
+
 var closeMyLightbox = document.querySelector('.buttonClose');
 closeMyLightbox.addEventListener('click', function() {
     myLightbox.style.display = "none"
 })
 
-function factoryMedia() {
+function factoryMedia(e) {
+    placeMedia.innerHTML = ' ';
+    //1.apparition de la lightbox
     myLightbox.style.display = 'block';
-    console.log('open Lightbox')
-        //modale.innerHTML = ' ';
+    //2.Affichage du media cliqué grace au chemin de l image
+    //Chemin de l image
+    var mediaClick = this.getElementsByClassName('mediaPhoto')[0];
+    mediaClick.classList.add('imgTest')
+    console.log(mediaClick);
+    console.log(mediaClick.src);
+    //inserer l image dans la lightbox grace au chemin
+    //utilisation d'un clone afin que l image ne disparaissent pas dans la galerie
+    var clone = mediaClick.cloneNode(true);
+    placeMedia.appendChild(clone);
+    console.log(placeMedia)
+
+    //4.fonctionnement de la fermeture de la lightbox
+    var closeMyLightbox = document.querySelector('.buttonClose');
+    closeMyLightbox.addEventListener('click', function() {
+            myLightbox.style.display = "none";
+        })
+        //5.Fonctionnement des fleches
+
 }
