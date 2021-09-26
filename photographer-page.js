@@ -3,8 +3,10 @@ var theGoodMedia = [];
 var myPrenom = ' ';
 var resultTotalLike = 0;
 var myLike = document.getElementsByClassName('like');
-var myBoxMedia = [];
 
+function getPhotographName() {
+    return this.myPrenom;
+}
 
 //Recuperer les donnees JSON avec la methode fetch() (creer une requête fetch)
 fetch('fisheyeData.json')
@@ -67,6 +69,8 @@ function onloadPhotographer(photographers, media) {
     resultTotalLike = totalLike(theGoodMedia);
     console.log(resultTotalLike);
     showLikeAndPrice(resultTotalLike, theGoodOnePhotograph);
+
+
 }
 
 //PROFIL
@@ -129,21 +133,20 @@ function showMedia(media, myPrenom) {
     var myBoxMedia = document.createElement('div');
     myBoxMedia.classList.add("boxMedia");
     myBoxMedia.addEventListener('click', factoryMedia);
-    console.log(myBoxMedia);
     // photo'img' ou video'video'
     if (media.image === undefined) {
         var myMediaVideo = document.createElement('video');
         myMediaVideo.classList.add("mediaVideo");
         myMediaVideo.src = `./Sample-Photos/${myPrenom}/${media.video}`;
         myMediaVideo.setAttribute("alt", media.alt);
-        console.log(myMediaVideo)
+        myMediaVideo.setAttribute("id", media.id)
         myBoxMedia.appendChild(myMediaVideo);
     } else {
         var myMediaPhoto = document.createElement('img');
         myMediaPhoto.classList.add("mediaPhoto");
         myMediaPhoto.src = `./Sample-Photos/${myPrenom}/${media.image}`;
         myMediaPhoto.setAttribute("alt", media.alt);
-        console.log(myMediaPhoto)
+        myMediaPhoto.setAttribute("id", media.id)
         myBoxMedia.appendChild(myMediaPhoto);
     }
 
@@ -156,6 +159,7 @@ function showMedia(media, myPrenom) {
 
     var myNbrLike = document.createElement('div');
     myNbrLike.classList.add("nbrLike");
+    myNbrLike.setAttribute('arial-label', 'likes');
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
@@ -314,35 +318,119 @@ function totalLike(media) {
 
 //LIGHTBOXs
 //utilisation de la factory pattern
+
 var myLightbox = document.getElementById('lightBoxContainer');
 var placeMedia = document.querySelector('.lightboxGallery');
 
-var closeMyLightbox = document.querySelector('.buttonClose');
-closeMyLightbox.addEventListener('click', function() {
-    myLightbox.style.display = "none"
-})
+function getPlacemedia() {
+    return this.placeMedia;
+}
 
-function factoryMedia(e) {
+//Fonctionnement de la lightbox
+function factoryMedia(media) {
+    //vider l'espace de la lightbox pour afficher l image choisit
     placeMedia.innerHTML = ' ';
-    //1.apparition de la lightbox
+
+    //Apparition de la lightbox
     myLightbox.style.display = 'block';
-    //2.Affichage du media cliqué grace au chemin de l image
+
+    //Affichage du media cliqué grace au chemin de l image
     //Chemin de l image
-    var mediaClick = this.getElementsByClassName('mediaPhoto')[0];
-    mediaClick.classList.add('imgTest')
+    var mediaClick = this.getElementsByClassName('mediaPhoto')[0]
+    mediaClick.classList.add('mediaStyle');
+    var url = mediaClick.src
     console.log(mediaClick);
-    console.log(mediaClick.src);
+    console.log("url : " + url);
+
     //inserer l image dans la lightbox grace au chemin
     //utilisation d'un clone afin que l image ne disparaissent pas dans la galerie
-    var clone = mediaClick.cloneNode(true);
-    placeMedia.appendChild(clone);
-    console.log(placeMedia)
+    var cloneMediaClick = mediaClick.cloneNode(true);
+    placeMedia.appendChild(cloneMediaClick);
 
-    //4.fonctionnement de la fermeture de la lightbox
+    //Fermeture de la lightbox
     var closeMyLightbox = document.querySelector('.buttonClose');
     closeMyLightbox.addEventListener('click', function() {
-            myLightbox.style.display = "none";
-        })
-        //5.Fonctionnement des fleches
+        myLightbox.style.display = "none";
+    });
+    //Fonctionnement des fleches
+    //Next
+    var suivant = document.querySelector('.buttonNext');
+    suivant.addEventListener('click', () => {
+        var lightboxGoodMedia = getTheGoodMedia();
+        console.log(this);
+        var findIdMediaClick = this.getElementsByClassName("mediaStyle")[0].getAttribute("id");
+        console.log(findIdMediaClick)
+        var goodIndex = findexIndexWithId(lightboxGoodMedia, findIdMediaClick);
+        console.log("goodIndex : " + goodIndex);
+
+        var newIndex = goodIndex + 1 <= lightboxGoodMedia.length ?
+            goodIndex + 1 :
+            0;
+        console.log(newIndex);
+        var newMedia = lightboxGoodMedia[newIndex];
+
+        //factory methode
+        var inPlaceMedia = getPlacemedia()
+        inPlaceMedia.innerHTML = ' ';
+        var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName());
+
+        const placeholder = document.createElement('div');
+        placeholder.innerHTML = selectionMedia.node;
+        inPlaceMedia.appendChild(
+            placeholder);
+
+    });
+
+    //Prev
+    var precedent = document.querySelector('.buttonPrev');
+    precedent.addEventListener('click', () => {
+        console.log('je passe au precedent')
+    })
+
+    function findexIndexWithId(medias, id) {
+        for (var i = 0; i < medias.length; i++) {
+            if (medias[i].id + '' === id + '') {
+                return i;
+            }
+        }
+    }
+
+    function getTheGoodMedia() {
+        return this.theGoodMedia
+
+    }
+
+
+
+}
+
+class MediaFactory {
+    static createMedia(media, photographName) {
+
+        if (media.image) {
+            return new Image(media, photographName);
+        } else {
+
+            return new Video(media, photographName);
+        }
+
+    }
+}
+
+class Image {
+    constructor(media, photographName) {
+        this.node = `<img id=${media.id} src="./Sample-Photos/${photographName}/${media.image}" alt="${media.alt}" class="mediaStyle">
+        <h4 class="lightboxTitle">${media.title}</h4>`;
+    }
+}
+
+class Video {
+    constructor(media, photographName) {
+        this.node = `<video id=${media.id} controls="" class="mediaStyle">
+        <source src="./Sample-Photos/${photographName}/${media.video}" type="video/mp4">
+        </video>
+        <h4 class="lightboxTitle">${media.title}</h4>`;
+
+    }
 
 }
