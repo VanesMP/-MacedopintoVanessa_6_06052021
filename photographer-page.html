@@ -73,11 +73,16 @@
         <!-- La navigation pour trier -->
         <nav id="navigationMedia">
             <label for="listbox" class="trierPar">Trier par</label>
-            <ul role="listbox" name="listbox" class="dropdown">
-                <button class="dropdownElement" id="popularite" type="button"><div class="alignarrow"><p class="textListBox">Popularité</p> <div class="arrow"></div></div></button>
-                <button class="dropdownElement visibilityHover" id="date" type="button"><div class="lineWhite"></div><p class="textListBox textButton">Date</p></button>
-                <button class="dropdownElement visibilityHover" id="titre" type="button"><div class="lineWhite"></div><p class="textListBox textButton">Titre</p></button>
-            </ul>
+            <div class="containerDropdown" role="menu">
+                <div id="arrow"></div>
+                <ul role="listbox" name="listbox" class="dropdown">
+                    <button class="dropdownElement" id="popularite" type="button" role="button"><p class="textListBox" id="valuePopularite">Popularité</p></button>
+                    <div class="lineWhite"></div>
+                    <button class="dropdownElement visibilityHover" id="date" type="button" role="button"><p class="textListBox" id="valueDate">Date</p></button>
+                    <div class="lineWhite"></div>
+                    <button class="dropdownElement visibilityHover" id="titre" type="button" role="button"><p class="textListBox" id="valueTitre">Titre</p></button>
+                </ul>
+            </div>
         </nav>
 
         <!-- l' affichage des photos et vidéos -->

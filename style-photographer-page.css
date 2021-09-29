@@ -273,6 +273,12 @@ header {
   flex-direction: row;
 }
 
+.containerDropdown {
+  position: absolute;
+  left: 109px;
+  top: 529px;
+}
+
 .trierPar {
   width: 74px;
   height: 23px;
@@ -291,7 +297,7 @@ header {
   display: block;
 }
 .dropdown:hover .lineWhite {
-  display: inline-block;
+  display: block;
 }
 .dropdown:hover .arrow {
   animation: turnUp both;
@@ -306,24 +312,20 @@ header {
   width: 105px;
 }
 
-.arrow {
-  width: 37px;
-  height: 33px;
+#arrow {
+  position: relative;
+  width: 33px;
+  height: 13px;
+  left: 165px;
+  top: 34px;
   background: url(./Sample-Photos/arrow.svg) center center/100% 100%;
   background-repeat: no-repeat;
   background-size: cover;
   animation: turnDown both;
+  z-index: 12;
 }
-
-.alignarrow {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-  align-items: center;
-}
-
-.textButton {
-  margin-top: 13px;
+#arrow:hover ~ .visibilityHover {
+  display: block;
 }
 
 .lineWhite {
@@ -362,7 +364,6 @@ header {
 }
 .visibilityHover {
   display: none;
-  flex-direction: column;
   justify-content: flex-start;
 }
 
@@ -398,7 +399,7 @@ header {
   height: 300px;
   border-radius: 5px;
   object-fit: cover;
-  object-position: top;
+  object-position: 62% 34%;
 }
 
 .mediaVideo {
@@ -462,6 +463,7 @@ header {
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
+  z-index: 8;
 }
 
 #boxLikeAndPrice {
@@ -529,7 +531,9 @@ header {
 }
 
 .imageNextPrev {
-  width: auto;
+  width: 100%;
+  height: 100%;
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -593,6 +597,14 @@ header {
 .lightboxTitle {
   font: normal 400 24px "DM Sans";
   color: #901C1C;
+}
+
+.lightboxTitleh4 {
+  font: normal 400 24px "DM Sans";
+  color: #901C1C;
+  width: 88%;
+  margin: auto;
+  margin-top: 4px;
 }
 
 /*# sourceMappingURL=style-photographer-page.css.map */
