@@ -143,6 +143,7 @@
         height: 69px;
         cursor: pointer;
         margin-top: 29px;
+        margin-left: 30px;
         font: normal bold 20px 'DM Sans';
         color: $white;
         background-color: $primary-dark;
@@ -283,42 +284,51 @@
         flex-direction: row;
     }
     
-    .containerDropdown {
-        position: absolute;
-        left: 109px;
-        top: 529px;
-    }
-    
     .trierPar {
-        width: 74px;
+        width: 90px;
         height: 23px;
         font: normal 700 18px 'DM Sans';
         color: $black;
-        margin-top: 10px;
+        margin-top: 20px;
+    }
+    
+    #popularite,
+    #date,
+    #titre {
+        border-radius: 5px;
     }
     
     .dropdown {
         width: 170px;
-        margin-left: 42px;
+        margin-left: 35px;
         position: relative;
         z-index: 11;
+        cursor: pointer;
         &:hover .visibilityHover {
             display: block;
         }
         &:hover .lineWhite {
             display: block;
         }
-        &:hover .arrow {
-            animation: turnUp both;
+        &:hover #arrow {
+            animation: turnUp 0.3s both;
+        }
+        &:hover #popularite {
+            border-radius: 5px 5px 0px 0px;
+        }
+        &:hover #titre {
+            border-radius: 0px 0px 5px 5px;
+        }
+        &:hover #date {
+            border-radius: 0px;
         }
     }
     
     .textListBox {
         color: $white;
         font: normal 700 18px 'DM Sans';
-        border-radius: 5px;
-        text-align: start;
         margin-left: 20px;
+        text-align: start;
         width: 105px;
     }
     
@@ -326,16 +336,14 @@
         position: relative;
         width: 33px;
         height: 13px;
-        left: 165px;
-        top: 34px;
+        left: 125px;
+        top: 36px;
         background: url(./Sample-Photos/arrow.svg) center center/100% 100%;
         background-repeat: no-repeat;
         background-size: cover;
-        animation: turnDown both;
+        animation: turnDown 0.3s both;
         z-index: 12;
-        &:hover~.visibilityHover {
-            display: block;
-        }
+        cursor: pointer;
     }
     
     .lineWhite {
@@ -350,7 +358,7 @@
     
     .dropdownElement {
         width: 170px;
-        min-height: 56px;
+        height: 56px;
         cursor: pointer;
         background-color: #911c1c;
         border: none;
@@ -358,25 +366,24 @@
     
     @keyframes turnDown {
         from {
-            transform: rotate(0deg);
+            transform: rotate(180deg);
         }
         to {
-            transform: rotate(180deg);
+            transform: rotate(0deg);
         }
     }
     
     @keyframes turnUp {
         from {
-            transform: rotate(180deg);
+            transform: rotate(0deg);
         }
         to {
-            transform: rotate(0deg);
+            transform: rotate(180deg);
         }
     }
     
     .visibilityHover {
         display: none;
-        justify-content: flex-start;
     }
     /* style partie deux : les medias */
     
@@ -446,6 +453,9 @@
         align-items: center;
         justify-content: space-around;
         cursor: pointer;
+        &:hover .iconHeart {
+            transform: scale(1.1);
+        }
     }
     
     .nbr {
@@ -469,9 +479,10 @@
     
     #boxBasDePage {
         position: fixed;
-        width: 93%;
+        width: 361px;
         height: 61px;
         margin-top: 237px;
+        margin-left: 72%;
         display: flex;
         justify-content: flex-end;
         flex-direction: row;

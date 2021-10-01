@@ -165,13 +165,15 @@ function showMedia(media, myPrenom) {
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add("nbr");
-    myNbr.addEventListener('click', () => { //+1 au click
-        var moreLike = media.likes += 1;
+    myNbrLike.addEventListener('click', () => { //+1 au click
+        var mediaLike = media.likes;
+        var moreLike = media.likes + 1;
         myNbr.innerHTML = moreLike;
         var moreLikeTotal = resultTotalLike += 1;
         myLike.innerHTML = moreLikeTotal;
+        /*console.log(mediaLike)
         console.log(moreLike)
-        console.log(moreLikeTotal)
+        console.log(moreLikeTotal)*/
     });
 
     var myIconHeart = document.createElement('div');
@@ -198,6 +200,7 @@ btnOpen.addEventListener('click', function(event) {
     modale.style.display = 'block';
 });
 
+
 //Fermeture du formulaire avec un eventListener sur la croix 
 var btnClose = document.getElementById('close');
 btnClose.addEventListener('click', function(event) {
@@ -221,12 +224,6 @@ function validate() {
 }
 
 //BARRE DE NAVIGATION DE TRI
-//au click sur la fleche ouvrir le menu deroulant
-var arrowDropdown = document.getElementById('arrow');
-arrowDropdown.addEventListener('click', () => {
-    console.log('ouvert')
-
-});
 //1:Recuperer le choix de l' utilisateur pour le faire apparaitre en haut du dropdown
 //2:Appliquer les function de tri dans chaque ecouter d' evenement adequat
 
@@ -252,10 +249,10 @@ orderChrono.addEventListener('click',
     function() {
         var parDate = theGoodMedia
             .sort(function(a, b) {
-                if (a.date > b.date) {
+                if (a.date < b.date) {
                     return 1;
                 }
-                if (a.date < b.date) {
+                if (a.date > b.date) {
                     return -1;
                 }
                 return 0;
@@ -409,7 +406,7 @@ function factoryMedia(media) {
     console.log(cloneMediaClick);
     lightboxAndTitle.appendChild(placeTitle);
     placeMedia.appendChild(cloneMediaClick);
-
+    //Fonctionnement des fleches directionnelles
     //navigation au clavier, fermer, suivant et precedent
     document.addEventListener('keyup', (e) => {
         if (e.key === 'ArrowRight') {
@@ -428,8 +425,8 @@ var closeMyLightbox = document.querySelector('.buttonClose');
 closeMyLightbox.addEventListener('click', function() {
     myLightbox.style.display = "none";
 });
-//Fonctionnement des fleches directionnelles
-//Next button pour une navigation au clavier
+
+//Next button pour une navigation 
 var suivant = document.querySelector('.buttonNext');
 suivant.addEventListener('click', toTheNext)
 
@@ -457,7 +454,7 @@ function toTheNext() {
         placeholder);
 }
 
-//Prev button pour une navigation au clavier
+//Prev button pour une navigation 
 var precedent = document.querySelector('.buttonPrev');
 precedent.addEventListener('click', toThePrev)
 
