@@ -1,3 +1,8 @@
+//variabes globales
+var mySection = document.getElementById('containerPhotographers');
+var myElement = document.querySelectorAll('.containerOne')
+var listTag = [];
+
 //Invisible sauf si interaction. 
 //Apparait quand l’utilisateur descend sur la page & Redirige vers le contenu de main. 
 //Etape 1: fixer l'élement au scroll
@@ -19,54 +24,45 @@ fetch('fisheyeData.json')
         return response.json();
     })
     .then(json => {
-        console.log(json.photographers);
+        sortByTag(json.photographers)
         gestionPhotographer(json.photographers);
-
+        showPhotographerByTag(json.photographers);
     })
     .catch(function() {
 
     })
+    //Methode pour trier les photographes selon les tags
+    //Recuperer la valeur des tags avec this.id dans les evntListener
+    //filtrer le tableau des tags des photographes et afficher les photographes souhaitaient.
+function sortByTag(photographers, tag) {
+    var navTags = document.getElementsByClassName('tag')
 
-//List de tags a selctionner
-// ajouter un eventListener pour chaque tag (et afficher uniquement les photographer qui ont ce tag dans leur données)
-var btnPortrait = document.getElementById('portrait');
-btnPortrait.addEventListener('click', function(event) {
-    filterByTag(btnPortrait);
-});
-var btnArt = document.getElementById('art');
-btnArt.addEventListener('click', function(event) {
-    filterByTag(btnArt);
-});
-var btnFashion = document.getElementById('fashion');
-btnFashion.addEventListener('click', function(event) {
-    filterByTag(btnFashion);
-});
-var btnArchitecture = document.getElementById('architecture');
-btnArchitecture.addEventListener('click', function(event) {
-    filterByTag(btnArchitecture);
-});
-var btnTravel = document.getElementById('travel');
-btnTravel.addEventListener('click', function(event) {
-    filterByTag(btnTravel);
-});
-var btnSport = document.getElementById('sport');
-btnSport.addEventListener('click', function(event) {
-    filterByTag(btnSport);
-});
-var btnAnimals = document.getElementById('animals');
-btnAnimals.addEventListener('click', function(event) {
-    filterByTag(btnAnimals);
-});
-var btnEvent = document.getElementById('event');
-btnEvent.addEventListener('click', function(event) {
-    filterByTag(btnEvent);
-});
+    for (let i = 0; i < navTags.length; i++) {
+        navTags[i].addEventListener('click', function(event) {
+
+            mySection.innerHTML = ' ';
+            var thisId = this.id;
+            photographers.filter((photographers) => {
+                for (let i = 0; i < photographers.tags.length; i++) {
+                    if (thisId === photographers.tags[i]) {
+                        console.log(photographers)
+                        addPhotographer(photographers)
+                    }
+                }
+            })
+        })
+    }
+}
+
+
+//var myFilteredPhotographer = photographers.filter((photographers) => thisId === photographers.tags)
+
+
 
 // Ajout d'un style à la selection d' un tag dans la barre de navigation
 function filterByTag(tag) {
     laDeselection();
     laSelection(tag);
-
 }
 
 function laSelection(tag) {
@@ -80,25 +76,24 @@ function laDeselection() {
     }
 };
 
+
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
     photographers.forEach(photograph => {
         addPhotographer(photograph);
-    });
-
+    })
 }
 
 //creer un modele photographe
 function addPhotographer(photographer) {
 
-    var myElement = document.createElement('div'); //container pour tous les elements
+    myElement = document.createElement('div'); //container pour tous les elements
     myElement.classList.add("containerOne")
 
     var mylinkPhotographer = document.createElement('a');
     mylinkPhotographer.classList.add("containerPortraitOne"); // lien
     mylinkPhotographer.setAttribute('href', 'photographer-page.html?id=' + photographer.id + photographer.name);
     mylinkPhotographer.setAttribute('id', photographer.id)
-    console.log(mylinkPhotographer)
 
     var myImage = document.createElement('img');
     myImage.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
@@ -124,7 +119,7 @@ function addPhotographer(photographer) {
     var myTagList = document.createElement('ul'); //tags
     myTagList.classList.add("tagsOne");
 
-    var listTag = photographer.tags;
+    listTag = photographer.tags;
     for (var i = 0; i < listTag.length; i++) {
         var tags = document.createElement('li');
         tags.innerHTML = "#" + listTag[i];
@@ -140,8 +135,5 @@ function addPhotographer(photographer) {
     myElement.appendChild(myPrice);
     myElement.appendChild(myTagList)
 
-    var mySection = document.getElementById('containerPhotographers');
     mySection.appendChild(myElement);
-    console.log(mySection);
-
 }
