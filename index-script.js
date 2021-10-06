@@ -38,8 +38,7 @@ function sortByTag(photographers, tag) {
     var navTags = document.getElementsByClassName('tag')
 
     for (let i = 0; i < navTags.length; i++) {
-        navTags[i].addEventListener('click', function(event) {
-
+        navTags[i].addEventListener('click', function() {
             mySection.innerHTML = ' ';
             var thisId = this.id;
             photographers.filter((photographers) => {

@@ -131,6 +131,7 @@ function showMedia(media, myPrenom) {
     myContainerMedia.classList.add("containerMedia");
 
     var myBoxMedia = document.createElement('div');
+    myBoxMedia.setAttribute("tabindex", "0")
     myBoxMedia.classList.add("boxMedia");
     myBoxMedia.addEventListener('click', factoryMedia);
     // photo'img' ou video'video'
@@ -140,7 +141,7 @@ function showMedia(media, myPrenom) {
         myMediaVideo.src = `./Sample-Photos/${myPrenom}/${media.video}`;
         myMediaVideo.setAttribute("alt", media.alt);
         myMediaVideo.setAttribute("id", media.id);
-        myMediaVideo.setAttribute("name", media.title)
+        myMediaVideo.setAttribute("name", media.title);
         myBoxMedia.appendChild(myMediaVideo);
     } else {
         var myMediaPhoto = document.createElement('img');
@@ -150,7 +151,7 @@ function showMedia(media, myPrenom) {
         myMediaPhoto.setAttribute("id", media.id);
         myMediaPhoto.setAttribute("name", media.title)
         myBoxMedia.appendChild(myMediaPhoto);
-    }
+    };
 
     var myBoxTextMedia = document.createElement('div');
     myBoxTextMedia.classList.add('boxTextMedia')
@@ -195,11 +196,11 @@ function showMedia(media, myPrenom) {
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
 var modale = document.getElementById('modale');
+var form = document.getElementsByClassName('containerForm')
 var btnOpen = document.getElementById('btnContactMe');
 btnOpen.addEventListener('click', function(event) {
     modale.style.display = 'block';
 });
-
 
 //Fermeture du formulaire avec un eventListener sur la croix 
 var btnClose = document.getElementById('close');
@@ -207,6 +208,12 @@ btnClose.addEventListener('click', function(event) {
     modale.style.display = 'none';
 })
 
+//Fermeture du formulaire avec la touche Escape
+document.addEventListener('keyup', function(e) {
+    if (e.key === 'Escape') {
+        modale.style.display = 'none';
+    }
+});
 //Gestion de l' envoi du formulaire, avec la function validate()
 function validate() {
     var prenom = document.getElementById("first").value;
@@ -231,6 +238,7 @@ function validate() {
 var newGallery = document.getElementById('mediaGallery')
     //2.1: Populaire
 var orderPopularite = document.getElementById('popularite');
+orderPopularite.setAttribute("tabindex", "0");
 orderPopularite.addEventListener('click',
     function() {
         var parPopularite = theGoodMedia
@@ -245,6 +253,7 @@ orderPopularite.addEventListener('click',
     });
 //2.2: Date
 var orderChrono = document.getElementById('date');
+orderChrono.setAttribute("tabindex", "0");
 orderChrono.addEventListener('click',
     function() {
         var parDate = theGoodMedia
@@ -268,6 +277,7 @@ orderChrono.addEventListener('click',
     });
 //2.3: Titre
 var orderAlphabetique = document.getElementById('titre');
+orderAlphabetique.setAttribute("tabindex", "0");
 orderAlphabetique.addEventListener('click', function() {
     var parTitre = theGoodMedia
         .sort(function(a, b) {
@@ -331,7 +341,8 @@ function totalLike(media) {
 //LIGHTBOX
 
 var myLightbox = document.getElementById('lightBoxContainer');
-var lightboxAndTitle = document.getElementById('lightbox')
+var lightboxAndTitle = document.getElementById('lightbox');
+var imageAndButton = document.querySelector('.imageNextPrev');
 var placeMedia = document.querySelector('.lightboxGallery');
 var placeTitle = document.createElement('h4');
 var placeholder = document.createElement('div'); //creation de l'element div pour contenir l'image mit en forme avaec la methode contenu dans la class Image/ class Video
@@ -376,7 +387,8 @@ class Video {
 function factoryMedia(media) {
     //vider l'espace de la lightbox pour afficher l image choisit
     placeMedia.innerHTML = ' ';
-    //Apparition de la lightbox
+    console.log(placeMedia)
+        //Apparition de la lightbox
     myLightbox.style.display = 'block';
 
     //Affichage du media cliqué grace au chemin de l image
@@ -406,6 +418,7 @@ function factoryMedia(media) {
     console.log(cloneMediaClick);
     lightboxAndTitle.appendChild(placeTitle);
     placeMedia.appendChild(cloneMediaClick);
+
     //Fonctionnement des fleches directionnelles
     //navigation au clavier, fermer, suivant et precedent
     document.addEventListener('keyup', (e) => {

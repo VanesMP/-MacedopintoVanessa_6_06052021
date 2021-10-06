@@ -59,9 +59,15 @@
     
     #logo {
         background: url('./Sample-Photos/logo.svg');
+        background: no-repeat;
         width: 200px;
         height: 50px;
         cursor: pointer;
+    }
+    
+    #linkIndex {
+        width: 200px;
+        height: 50px;
     }
     /* style partie 1 : le profil du photographe */
     
@@ -173,6 +179,108 @@
         border-radius: 50%;
         box-shadow: 0px 4px 12px $inner-border;
     }
+    /*STYLE TABLETTE 1ere partie : Profil*/
+    
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+        body {
+            min-height: 2785px;
+        }
+        header {
+            height: 107px;
+            margin-top: 25px;
+        }
+        #identity {
+            height: 240px;
+            padding-left: 10px;
+        }
+        #photoProfil,
+        .portraitOne {
+            width: 225px;
+            height: 225px;
+            margin: 0;
+        }
+        #photoProfil {
+            position: absolute;
+            left: 479px;
+            top: 194px;
+        }
+        #contactMe,
+        #btnContactMe {
+            width: 240px;
+            height: 62px;
+            position: fixed;
+            margin: 0;
+            left: 262px;
+            top: 917px;
+            font-size: 25px;
+            z-index: 16;
+        }
+    }
+    /*STYLE PORTABLE 1ere partie : Profil*/
+    
+    @media all and (max-width: 767px) {
+        header {
+            width: 50%;
+            height: 63px;
+            margin-top: 38px;
+        }
+        #linkIndex {
+            width: 100%;
+        }
+        #logo {
+            width: 100%;
+        }
+        #partOne {
+            background-color: $white;
+            height: 200px;
+        }
+        #identity {
+            height: 150px;
+            padding: 0;
+        }
+        .nameOne {
+            width: max-content;
+            font-size: 36px;
+            margin: 0;
+        }
+        .localisationOne {
+            width: max-content;
+            font-size: 17px;
+            margin: 0;
+        }
+        .sloganOne {
+            width: max-content;
+            font-size: 16px;
+            margin: 0;
+        }
+        .tagPersonnel {
+            width: max-content;
+            font-size: 13px;
+        }
+        #photoProfil,
+        .portraitOne {
+            width: 120px;
+            height: 120px;
+            margin: 0;
+        }
+        #photoProfil {
+            position: absolute;
+            left: 271px;
+            top: 110px;
+        }
+        .portraitOne {
+            box-shadow: 0px 0px 8px #c4c4c4;
+        }
+        #contactMe,
+        #btnContactMe {
+            width: 205px;
+            height: 40px;
+            position: fixed;
+            margin: 0;
+            left: 112px;
+            top: 659px;
+        }
+    }
     /* style du formulaire de contact */
     
     #modale {
@@ -272,11 +380,94 @@
         background-size: contain;
         cursor: pointer;
     }
+    /*STYLE TABLETTE 1ere partie : Formulaire*/
+    
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+        .containerForm {
+            top: 13%;
+            left: 16%;
+            width: 520px;
+            height: 677px;
+        }
+        .headerForm {
+            width: 90%;
+            margin-left: 22px;
+        }
+        .titleForm {
+            font-size: 50px;
+        }
+        .textForm {
+            font-size: 25px;
+            margin-left: 22px;
+        }
+        .formDataSimple,
+        .formDataDouble {
+            width: 450px;
+            height: 40px;
+            font-size: 24px;
+            margin-left: 22px;
+        }
+        .formDataDouble {
+            height: 100px;
+        }
+        #btnSubmit {
+            width: 160px;
+            height: 60px;
+            margin-left: 22px;
+            font-size: 23px;
+        }
+    }
+    /*STYLE PORTABLE 1ere partie : Formulaire*/
+    
+    @media all and (max-width: 767px) {
+        .containerForm {
+            width: 390px;
+            height: 590px;
+            left: 11px;
+            top: 43px;
+        }
+        .headerForm {
+            width: 100%;
+            align-items: flex-start;
+        }
+        .titleFormBox {
+            width: 83%;
+            margin-left: 15px;
+        }
+        .titleForm {
+            font-size: 35px;
+        }
+        #close {
+            width: 40px;
+            height: 40px;
+        }
+        .textForm {
+            font-size: 25px;
+            margin-left: 15px;
+        }
+        .formDataSimple,
+        .formDataDouble {
+            width: 350px;
+            height: 35px;
+            margin-left: 15px;
+            font-size: 22px;
+        }
+        .formDataDouble {
+            height: 100px;
+        }
+        #btnSubmit {
+            width: 150px;
+            height: 45px;
+            font-size: 19px;
+            margin-left: 15px;
+            margin-top: 13px;
+        }
+    }
     /* style barre de navigation déroulante */
     
     #navigationMedia {
         width: 100%;
-        height: 95px;
+        height: 110px;
         margin-top: 25px;
         display: flex;
         align-items: flex-start;
@@ -385,6 +576,20 @@
     .visibilityHover {
         display: none;
     }
+    /*STYLE TABLETTE 1ere partie : Barre de tri/navigation*/
+    
+    @media all and (min-width: 768px) and (max-width: 1330px) {
+        .dropdown {
+            margin-left: 15px;
+        }
+    }
+    /*STYLE PORTABLE 1ere partie : Barre de tri/navigation*/
+    
+    @media all and (max-width: 767px) {
+        #navigationMedia {
+            display: none;
+        }
+    }
     /* style partie deux : les medias */
     
     #partTwo {
@@ -402,20 +607,20 @@
     }
     
     .containerMedia {
-        width: 350px;
-        height: 370px;
+        width: 370px;
+        height: 390px;
     }
     
     .boxMedia {
-        width: 350px;
-        height: 300px;
+        width: 100%;
+        height: 340px;
         border-radius: 5px;
         cursor: pointer;
     }
     
     .mediaPhoto {
-        width: 350px;
-        height: 300px;
+        width: 100%;
+        height: 340px;
         border-radius: 5px;
         object-fit: cover;
         object-position: 62% 34%;
@@ -423,14 +628,14 @@
     
     .mediaVideo {
         display: block;
-        width: 350px;
-        height: 300px;
+        width: 100%;
+        height: 340px;
         border-radius: 5px;
         object-fit: cover;
     }
     
     .boxTextMedia {
-        width: 350px;
+        width: 100%;
         height: 31px;
         display: flex;
         flex-direction: row;
@@ -451,7 +656,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-around;
         cursor: pointer;
         &:hover .iconHeart {
             transform: scale(1.1);
@@ -459,7 +663,7 @@
     }
     
     .nbr {
-        width: 50%;
+        width: 60%;
         height: 28px;
         display: flex;
         justify-content: flex-end;
@@ -468,12 +672,48 @@
     }
     
     .iconHeart {
-        width: 45%;
+        width: 40%;
         height: 23px;
         background-image: url("./Sample-Photos/heart.svg");
         background-repeat: no-repeat;
         background-size: contain;
         color: #901C1C;
+    }
+    /*STYLE TABLETTE 2eme partie : Les Medias*/
+    
+    @media all and (min-width: 768px) and (max-width: 1330px) {
+        #mediaGallery {
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+        }
+        .containerMedia {
+            width: 339px;
+            height: 385px;
+        }
+    }
+    /*STYLE PORTABLE 2eme partie : Les Medias*/
+    
+    @media all and (max-width: 767px) {
+        #mediaGallery {
+            grid-template-columns: 1fr;
+            gap: 0%;
+        }
+        .containerMedia {
+            height: 255px;
+        }
+        .boxMedia,
+        .mediaPhoto,
+        .mediaVideo {
+            height: 200px;
+        }
+        .titreMedia,
+        .nbr {
+            font-size: 17px;
+        }
+        .iconHeart {
+            height: 26px;
+            background-size: 20px 20px;
+        }
     }
     /* style box de bas de page*/
     
@@ -526,6 +766,13 @@
     .heart {
         width: 25px;
         height: 30px;
+    }
+    /*STYLE PORTABLE & TABLETTE 2eme partie : Box bas de page*/
+    
+    @media all and (max-width: 1025px) {
+        #boxBasDePage {
+            display: none;
+        }
     }
     /* style LIGHTBOX */
     
@@ -629,4 +876,61 @@
         width: 88%;
         margin: auto;
         margin-top: 4px;
+    }
+    /*STYLE TABLETTE 2eme partie : La Lightbox*/
+    
+    @media all and (min-width: 768px) and (max-width: 1330px) {
+        #lightbox {
+            width: 95%;
+        }
+        .buttonClose {
+            width: 48px;
+        }
+    }
+    /*STYLE PORTABLE 2eme partie : La Lightbox*/
+    
+    @media all and (max-width: 767px) {
+        #lightbox {
+            width: 91%;
+            height: 57%;
+            margin-top: 30%;
+        }
+        .lightboxGallery,
+        .imageNextPrev {
+            width: 376px;
+            height: 383px;
+        }
+        .imageNextPrev {
+            display: block;
+            height: 428px;
+        }
+        .buttonClose {
+            width: 91%;
+            left: 18px;
+            top: 128px;
+            background-position: right;
+            background-size: 35px 35px;
+        }
+        .buttonPrev,
+        .buttonNext {
+            background-size: 30px 30px;
+            background-position: right;
+            width: 177px;
+            height: 45px;
+            position: relative;
+        }
+        .buttonPrev {
+            top: 468px;
+            left: 0px;
+        }
+        .buttonNext {
+            top: 40px;
+            left: 198px;
+        }
+        .lightboxTitleh4,
+        .lightboxTitle {
+            margin: 0;
+            width: 100%;
+            font-size: 18px;
+        }
     }

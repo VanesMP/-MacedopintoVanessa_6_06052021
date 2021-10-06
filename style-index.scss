@@ -27,8 +27,7 @@
     
     body {
         font-family: 'DM Sans', sans-serif;
-        position: relative;
-        width: auto;
+        width: 90%;
         min-height: 1104px;
         background: #FFFFFF;
         margin: 1% 5%;
@@ -70,7 +69,7 @@
     /* style du header */
     
     header {
-        width: 65%;
+        width: 73%;
         height: 157px;
         display: flex;
         flex-direction: row;
@@ -81,8 +80,14 @@
         float: left;
     }
     
+    .boxLogo {
+        width: 30%;
+        height: 50px;
+    }
+    
     #logo {
         background: url('./Sample-Photos/logo.svg');
+        background: no-repeat;
         width: 200px;
         height: 50px;
         cursor: pointer;
@@ -93,13 +98,14 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        width: 589px;
-        justify-content: space-evenly;
-        margin: 0px 30px;
+        width: 615px;
+        justify-content: space-between;
+        margin: auto;
     }
     
     .tag {
         width: fit-content;
+        height: 22px;
         padding: 0 8px;
         color: $primary-dark;
         border: 0.5px solid $inner-border;
@@ -121,24 +127,101 @@
         width: auto;
     }
     
-    h1 {
+    #title {
         width: 324px;
         height: 47px;
         float: right;
         font: normal 400 38px 'DM Sans';
-        line-height: 61px;
         color: $primary-dark;
         white-space: nowrap;
-        margin: 3% 0% 3% 4%;
+        margin-top: 51px;
         padding: 0;
     }
     
     #containerPhotographers {
         width: auto;
-        clear: both;
+        clear: left;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
+    }
+    /* STYLE TABLETTE 1ere partie*/
+    
+    @media all and (min-width: 768px) and (max-width: 1330px) {
+        body {
+            height: 1600px;
+        }
+        header {
+            width: 100%;
+            margin-top: 44px;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+        #title {
+            right: 36px;
+            top: 87px;
+            position: absolute;
+            float: none;
+            line-height: 0px;
+            margin: 0;
+        }
+        .barNav {
+            margin-top: 50px;
+        }
+    }
+    /* STYLE PORTABLE 1ere partie*/
+    
+    @media all and (max-width: 767px) {
+        body {
+            margin: 10% 5%;
+        }
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .boxLogo {
+            height: 75px;
+        }
+        #logo {
+            width: 160px;
+            height: 50px;
+        }
+        #title {
+            width: 155px;
+            position: absolute;
+            font: normal 400 18px "DM Sans";
+            left: 240px;
+            top: 54px;
+            margin: auto;
+        }
+        .barNav {
+            width: 100%;
+            height: 64px;
+        }
+        #navigationMain {
+            flex-wrap: wrap;
+            width: 323px;
+            height: 55px;
+            justify-content: space-evenly;
+            margin: auto;
+        }
+        .tag {
+            height: 22px;
+            margin-left: 5px;
+        }
+        #travel {
+            margin-left: 12px;
+        }
+        #event {
+            margin-right: 6px;
+        }
+        .btnContenu {
+            left: 29%;
+        }
     }
     /* style modele photographe */
     
@@ -152,6 +235,7 @@
     }
     
     .containerPortraitOne {
+        width: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -174,6 +258,7 @@
     }
     
     .localisationOne {
+        width: auto;
         font: normal normal 13px 'DM Sans';
         text-align: center;
         color: $primary-dark;
@@ -197,7 +282,7 @@
     
     .tagsOne {
         display: flex;
-        width: 356px;
+        width: auto;
         height: 22px;
         flex-direction: row;
         justify-content: center;
@@ -214,4 +299,27 @@
         font: 700 12px 'DM Sans';
         line-height: 20.62px;
         text-align: center;
+    }
+    /*STYLE TABLETTE 2eme partie*/
+    
+    @media (min-width: 768px) and (max-width: 1330px) {
+        #containerPhotographers {
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+    }
+    /* STYLE PORTABLE 2eme partie*/
+    
+    @media all and (max-width: 767px) {
+        #containerPhotographers {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+        .containerOne {
+            width: 100%;
+            height: 325px;
+        }
+        .tagsOne {
+            width: auto;
+        }
     }
