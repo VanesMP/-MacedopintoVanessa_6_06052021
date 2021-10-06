@@ -535,9 +535,13 @@ header {
 .textListBox {
   color: #FFFFFF;
   font: normal 700 18px "DM Sans";
-  margin-left: 20px;
-  text-align: start;
+  margin-left: -40px;
   width: 105px;
+}
+
+#valueDate,
+#valueTitre {
+  margin-left: -88px;
 }
 
 #arrow {
