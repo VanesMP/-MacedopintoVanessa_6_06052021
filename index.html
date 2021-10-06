@@ -13,8 +13,8 @@
 
 
 <body>
-    <!--- Invisible sauf si interaction. Apparait quand l’utilisateur descend sur la page. Redirige vers le contenu de main. Role: link --->
-    <div class="btnContenu" aria-label="bouton qui ramene vers le contenu de la page">
+    <!-- Invisible sauf si interaction. Apparait quand l’utilisateur descend sur la page. Redirige vers le contenu de main -->
+    <div class="btnContenu">
         <a href="#passerAuContenu" class="textBtnContenu">Passer au contenu</a>
     </div>
 
@@ -25,34 +25,27 @@
         </a>
 
         <nav aria-label="navigation-main" role="menu" class="barNav">
-
             <ul id="navigationMain" role="group">
-                <li class="tag" id="portrait" aria-label="link tag portrait" role="link" tabindex="0">#Portrait</li>
-                <li class="tag" id="art" aria-label="link tag art" role="link" tabindex="0">#Art</li>
-                <li class="tag" id="fashion" aria-label="link tag fashion" role="link" tabindex="0">#Fashion</li>
-                <li class="tag" id="architecture" aria-label="link tag architecture" role="link" tabindex="0">#Architecture</li>
-                <li class="tag" id="travel" aria-label="link tag travel" role="link" tabindex="0">#Travel</li>
-                <li class="tag" id="sport" aria-label="link tag sport" role="link" tabindex="0">#Sport</li>
-                <li class="tag" id="animals" aria-label="link tag animals" role="link" tabindex="0">#Animals</li>
-                <li class="tag" id="events" aria-label="link tag events" role="link">#Events</li>
+                <li class="tag" id="portrait" aria-label="link tag portrait" tabindex="0">#Portrait</li>
+                <li class="tag" id="art" aria-label="link tag art" tabindex="0">#Art</li>
+                <li class="tag" id="fashion" aria-label="link tag fashion" tabindex="0">#Fashion</li>
+                <li class="tag" id="architecture" aria-label="link tag architecture" tabindex="0">#Architecture</li>
+                <li class="tag" id="travel" aria-label="link tag travel" tabindex="0">#Travel</li>
+                <li class="tag" id="sport" aria-label="link tag sport" tabindex="0">#Sport</li>
+                <li class="tag" id="animals" aria-label="link tag animals" tabindex="0">#Animals</li>
+                <li class="tag" id="events" aria-label="link tag events">#Events</li>
             </ul>
         </nav>
-
 
     </header>
 
     <main>
 
         <h1 id="title">Nos photographes</h1>
-
-
         <section id="containerPhotographers">
-
-
         </section>
 
     </main>
-
 
     <script src="./index-script.js"></script>
 </body>
