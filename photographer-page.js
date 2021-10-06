@@ -2,6 +2,7 @@
 var theGoodMedia = [];
 var myPrenom = ' ';
 var resultTotalLike = 0;
+var myBoxMedia;
 var myLike = document.getElementsByClassName('like');
 
 function getPhotographName() {
@@ -26,7 +27,6 @@ function findPhotographer(photographers, pageId) {
 
     for (let i = 0; i < photographers.length; i++) {
         if (pageId === photographers[i].id) {
-            console.log(photographers[i].name);
             return photographers[i];
         }
     }
@@ -35,7 +35,6 @@ function findPhotographer(photographers, pageId) {
 function findMedia(media, pageId) {
     var mediaByPhotographer = media
         .filter((media) => media.photographerId === pageId)
-    console.log(mediaByPhotographer)
     return mediaByPhotographer;
 };
 
@@ -51,23 +50,19 @@ function onloadPhotographer(photographers, media) {
     //1
     var params = (new URL(window.location)).searchParams;
     pageId = parseInt(params.get('id'));
-    console.log(pageId)
-        //2
+    //2
     var theGoodOnePhotograph = findPhotographer(photographers, pageId);
     //3
     showProfil(theGoodOnePhotograph);
-    console.log(theGoodOnePhotograph);
     //3bis
     myPrenom = recupNom(theGoodOnePhotograph)
-    console.log(myPrenom);
-    //4
+        //4
     theGoodMedia = findMedia(media, pageId)
     theGoodMedia.forEach((media) => {
         showMedia(media, myPrenom)
     });
     //5
     resultTotalLike = totalLike(theGoodMedia);
-    console.log(resultTotalLike);
     showLikeAndPrice(resultTotalLike, theGoodOnePhotograph);
 
 
@@ -130,10 +125,15 @@ function showMedia(media, myPrenom) {
     var myContainerMedia = document.createElement('div');
     myContainerMedia.classList.add("containerMedia");
 
-    var myBoxMedia = document.createElement('div');
+    myBoxMedia = document.createElement('div');
     myBoxMedia.setAttribute("tabindex", "0")
     myBoxMedia.classList.add("boxMedia");
     myBoxMedia.addEventListener('click', factoryMedia);
+    myBoxMedia.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+            factoryMedia(media)
+        }
+    });
     // photo'img' ou video'video'
     if (media.image === undefined) {
         var myMediaVideo = document.createElement('video');
@@ -172,9 +172,6 @@ function showMedia(media, myPrenom) {
         myNbr.innerHTML = moreLike;
         var moreLikeTotal = resultTotalLike += 1;
         myLike.innerHTML = moreLikeTotal;
-        /*console.log(mediaLike)
-        console.log(moreLike)
-        console.log(moreLikeTotal)*/
     });
 
     var myIconHeart = document.createElement('div');
@@ -383,12 +380,17 @@ class Video {
     }
 
 }
+/*Overture de la lightbox au clavier 'Enter'
+function openLightboxKeyupEnter(e) {
+    if (e.key === 'Enter') {
+        factoryMedia()
+    }
+}*/
 //Fonctionnement de la lightbox
 function factoryMedia(media) {
     //vider l'espace de la lightbox pour afficher l image choisit
     placeMedia.innerHTML = ' ';
-    console.log(placeMedia)
-        //Apparition de la lightbox
+    //Apparition de la lightbox
     myLightbox.style.display = 'block';
 
     //Affichage du media cliqué grace au chemin de l image
@@ -398,24 +400,19 @@ function factoryMedia(media) {
         this.getElementsByClassName('mediaPhoto')[0] !== undefined) {
         mediaClick = this.getElementsByClassName('mediaPhoto')[0];
         mediaClick.setAttribute('type', 'jpeg')
-        console.log(mediaClick);
     } else {
         mediaClick = this.getElementsByClassName('mediaVideo')[0];
         mediaClick.setAttribute('type', 'video/mp4');
         mediaClick.setAttribute('controls', 'true');
-        console.log(mediaClick);
     }
-    console.log("photo : ", this.getElementsByClassName('mediaPhoto')[0]);
-    console.log("video : ", this.getElementsByClassName('mediaVideo')[0]);
+
     mediaClick.classList.add('mediaStyle');
-    //console.log(mediaClick)
 
     //utilisation d'un clone du media afin que l image apparaisse aussi dans la lightbox
     var cloneMediaClick = mediaClick.cloneNode(true);
     var titre = cloneMediaClick.getAttribute("name");
     placeTitle.innerHTML = titre;
     placeTitle.classList.add('lightboxTitleh4')
-    console.log(cloneMediaClick);
     lightboxAndTitle.appendChild(placeTitle);
     placeMedia.appendChild(cloneMediaClick);
 
@@ -429,7 +426,6 @@ function factoryMedia(media) {
         } else if (e.key === 'Escape') {
             myLightbox.style.display = "none"
         }
-
     })
 }
 
@@ -448,12 +444,10 @@ function toTheNext() {
     var lightboxGoodMedia = getTheGoodMedia(); //methode qui permet de retourner la valeur du tableau theGoodMedia
     var findIdMediaClick = getPlacemedia().getElementsByClassName("mediaStyle")[0].getAttribute('id'); //var qui contient l' id de l'image affiché
     var goodIndex = findexIndexWithId(lightboxGoodMedia, findIdMediaClick); //index de l'imgae affiché avant de passer à la suivante au click sur la fleche next
-    console.log("goodIndex : " + goodIndex);
 
     var newIndex = goodIndex + 1 < lightboxGoodMedia.length ? //index de la nouvelle image affiché apres un click sur la fleche next en utilisant l' index de limage affiché avant le click suivant
         goodIndex + 1 : //avec l'operateur ternaire raccourci de if...else. : condition ? si vrai executer ce code : si faux executer ce code
         0;
-    console.log(newIndex);
     var newMedia = lightboxGoodMedia[newIndex]; // contient l'image affiché grace a l'index situé dans le tableau des medias 
 
     //factory methode
@@ -461,7 +455,6 @@ function toTheNext() {
     inPlaceMedia.innerHTML = ' '; //commencer par vider cet element pour y placer la nouvelle image.
     var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName()); //contient la methode factory qui retourne un modele html defini pour l' affichage avec en parametre
     // la nouvelle image affiché et le nom de l'artiste
-    console.log()
     placeholder.innerHTML = selectionMedia.node;
     inPlaceMedia.appendChild(
         placeholder);
@@ -476,12 +469,10 @@ function toThePrev() {
     var lightboxGoodMedia = getTheGoodMedia();
     var findIdMediaClick = getPlacemedia().getElementsByClassName("mediaStyle")[0].getAttribute('id');
     var goodIndex = findexIndexWithId(lightboxGoodMedia, findIdMediaClick);
-    console.log("goodIndex : " + goodIndex);
 
     var newIndex = goodIndex - 1 >= 0 ?
         goodIndex - 1 :
         lightboxGoodMedia.length - 1;
-    console.log(newIndex);
     var newMedia = lightboxGoodMedia[newIndex];
     //factory methode
     var inPlaceMedia = getPlacemedia()

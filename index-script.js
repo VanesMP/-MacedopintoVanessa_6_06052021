@@ -34,11 +34,14 @@ fetch('fisheyeData.json')
     //Methode pour trier les photographes selon les tags
     //Recuperer la valeur des tags avec this.id dans les evntListener
     //filtrer le tableau des tags des photographes et afficher les photographes souhaitaient.
+    //Ajouter un style au click
+var navTags = document.getElementsByClassName('tag');
+//Methode pour trier les photographes au 'click'
 function sortByTag(photographers, tag) {
-    var navTags = document.getElementsByClassName('tag')
-
     for (let i = 0; i < navTags.length; i++) {
         navTags[i].addEventListener('click', function() {
+            laDeselection();
+            navTags[i].classList.add("tagSelect");
             mySection.innerHTML = ' ';
             var thisId = this.id;
             photographers.filter((photographers) => {
@@ -50,28 +53,30 @@ function sortByTag(photographers, tag) {
                 }
             })
         })
+        navTags[i].addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                laDeselection();
+                navTags[i].classList.add("tagSelect");
+                mySection.innerHTML = ' ';
+                var thisId = this.id;
+                photographers.filter((photographers) => {
+                    for (let i = 0; i < photographers.tags.length; i++) {
+                        if (thisId === photographers.tags[i]) {
+                            console.log(photographers)
+                            addPhotographer(photographers)
+                        }
+                    }
+                })
+            }
+        })
     }
 }
+//Methode pour trier les photographes avec 'keyup', enter
 
-
-//var myFilteredPhotographer = photographers.filter((photographers) => thisId === photographers.tags)
-
-
-
-// Ajout d'un style à la selection d' un tag dans la barre de navigation
-function filterByTag(tag) {
-    laDeselection();
-    laSelection(tag);
-}
-
-function laSelection(tag) {
-    tag.classList.add("tagSelect");
-}
-
+//Methode pour retirer le style sur tous les tags pour pouvoir replacer le style au changement de choix de tag de l' utilisateur
 function laDeselection() {
-    var tagsSelection = document.querySelectorAll('.tag');
-    for (let i = 0; i < tagsSelection.length; i++) {
-        tagsSelection[i].classList.remove("tagSelect")
+    for (let i = 0; i < navTags.length; i++) {
+        navTags[i].classList.remove("tagSelect")
     }
 };
 
