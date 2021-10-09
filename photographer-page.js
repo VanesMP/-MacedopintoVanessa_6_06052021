@@ -205,12 +205,12 @@ btnClose.addEventListener('click', function(event) {
     modale.style.display = 'none';
 })
 
-//Fermeture du formulaire avec la touche Escape
-/*document.addEventListener('keyup', function(e) {
-    if (e.key === 'Escape') {
+//Fermeture du formulaire avec la touche Escape au focus sur la croix
+btnClose.addEventListener('keyup', function(e) {
+    if (e.key === 'Escape' || e.key === 'Enter') {
         modale.style.display = 'none';
     }
-});*/
+});
 //Gestion de l' envoi du formulaire, avec la function validate()
 function validate() {
     event.preventDefault();
