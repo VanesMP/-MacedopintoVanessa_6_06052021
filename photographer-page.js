@@ -129,11 +129,11 @@ function showMedia(media, myPrenom) {
     myBoxMedia.setAttribute("tabindex", "0")
     myBoxMedia.classList.add("boxMedia");
     myBoxMedia.addEventListener('click', factoryMedia);
-    myBoxMedia.addEventListener('keyup', (e) => {
+    /*myBoxMedia.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
             factoryMedia(media)
         }
-    });
+    });*/
     // photo'img' ou video'video'
     if (media.image === undefined) {
         var myMediaVideo = document.createElement('video');
@@ -206,23 +206,28 @@ btnClose.addEventListener('click', function(event) {
 })
 
 //Fermeture du formulaire avec la touche Escape
-document.addEventListener('keyup', function(e) {
+/*document.addEventListener('keyup', function(e) {
     if (e.key === 'Escape') {
         modale.style.display = 'none';
     }
-});
+});*/
 //Gestion de l' envoi du formulaire, avec la function validate()
 function validate() {
+    event.preventDefault();
     var prenom = document.getElementById("first").value;
     var nom = document.getElementById("last").value;
     var mail = document.getElementById("email").value;
     var message = document.getElementById("message").value;
     if (prenom != "" && nom != "" && mail != "" && message != "") {
+        console.log("Prénom: ", prenom)
+        console.log("Nom: ", nom)
+        console.log("Adresse mail: ", mail)
+        console.log("Le message: ", message)
         alert('Message envoyé!')
         return true;
     } else {
-        event.preventDefault();
         alert("Tous les champs de saisie sont obligatoires!");
+
         return false;
     }
 }
@@ -235,7 +240,7 @@ function validate() {
 var newGallery = document.getElementById('mediaGallery')
     //2.1: Populaire
 var orderPopularite = document.getElementById('popularite');
-orderPopularite.setAttribute("tabindex", "0");
+
 orderPopularite.addEventListener('click',
     function() {
         var parPopularite = theGoodMedia
@@ -250,7 +255,7 @@ orderPopularite.addEventListener('click',
     });
 //2.2: Date
 var orderChrono = document.getElementById('date');
-orderChrono.setAttribute("tabindex", "0");
+
 orderChrono.addEventListener('click',
     function() {
         var parDate = theGoodMedia
@@ -274,7 +279,7 @@ orderChrono.addEventListener('click',
     });
 //2.3: Titre
 var orderAlphabetique = document.getElementById('titre');
-orderAlphabetique.setAttribute("tabindex", "0");
+
 orderAlphabetique.addEventListener('click', function() {
     var parTitre = theGoodMedia
         .sort(function(a, b) {
@@ -294,6 +299,8 @@ orderAlphabetique.addEventListener('click', function() {
     orderPopularite.classList.add('visibilityHover')
     orderChrono.classList.add('visibilityHover')
 });
+
+//Gestion de la dropdown au clavier
 
 
 //Box LIKE & PRICE
@@ -418,7 +425,7 @@ function factoryMedia(media) {
 
     //Fonctionnement des fleches directionnelles
     //navigation au clavier, fermer, suivant et precedent
-    document.addEventListener('keyup', (e) => {
+    /*document.addEventListener('keyup', (e) => {
         if (e.key === 'ArrowRight') {
             toTheNext();
         } else if (e.key === 'ArrowLeft') {
@@ -426,7 +433,7 @@ function factoryMedia(media) {
         } else if (e.key === 'Escape') {
             myLightbox.style.display = "none"
         }
-    })
+    })*/
 }
 
 //Fermeture de la lightbox au clavier

@@ -1,953 +1,953 @@
-    /* typographie de la page */
-    
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
-    /* couleurs utilisées pour la page */
-    
-    $primary-dark: #901C1C;
-    $primary-medium: #D3573C;
-    $white: #FFFFFF;
-    $black: #000000;
-    $secondary-lightgrey: #FAFAFA;
-    $secondary-grey: #525252;
-    $inner-border: #c4c4c4;
-    $color-price: #757575;
-    /* style general de la page */
-    
-    * {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        text-decoration: none;
-    }
-    
-    a {
-        cursor: default;
-    }
-    
-    input,
-    label,
-    textarea {
-        border: none;
-        background: none;
-    }
-    
-    input:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px white inset;
-        -webkit-box-shadow: 0 0 0px 1000px white inset;
-    }
-    
-    body {
-        font-family: 'DM Sans', sans-serif;
-        width: auto;
-        background: #FFFFFF;
-        margin: 1% 5%;
-    }
-    
-    main {
-        height: 2212px;
-    }
-    /* style du header */
-    
-    header {
-        width: 100%;
-        height: 157px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    #logo {
-        background: url('./Sample-Photos/logo.svg');
-        background: no-repeat;
-        width: 200px;
-        height: 50px;
-        cursor: pointer;
-    }
-    
-    #linkIndex {
-        width: 200px;
-        height: 50px;
-    }
-    /* style partie 1 : le profil du photographe */
-    
-    #partOne {
-        background-color: #FAFAFA;
-        width: 100%;
-        height: 350px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-        align-items: center;
-        flex-direction: row;
-    }
-    
-    #identity {
-        height: 280px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        padding-left: 38px;
-        white-space: nowrap;
-    }
-    
-    .portraitOne {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0px 4px 12px $inner-border;
-    }
-    
-    .nameOne {
-        font: normal normal 64px 'DM Sans';
-        color: $primary-medium;
-        margin-left: 9px;
-    }
-    
-    .localisationOne {
-        font: normal normal 24px 'DM Sans';
-        color: $primary-dark;
-        margin-left: 9px;
-    }
-    
-    .sloganOne {
-        width: max-content;
-        font: normal normal 18px 'DM Sans';
-        color: $secondary-grey;
-        margin-left: 9px;
-    }
-    
-    .tagsOne {
-        display: flex;
-        width: 356px;
-        height: 22px;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-    
-    .tagPersonnel {
-        width: fit-content;
-        padding: 0 8px;
-        margin: 0px 5px 0px 0px;
-        color: $primary-dark;
-        border: 0.5px solid $inner-border;
-        box-sizing: border-box;
-        border-radius: 11px;
-        font: 700 18px 'DM Sans';
-        line-height: 20.62px;
-        text-align: center;
-    }
-    /* style partie 1 : le bouton de contact */
-    
-    #btnContactMe {
-        height: 280px;
-    }
-    
-    #contactMe {
-        width: 170px;
-        height: 69px;
-        cursor: pointer;
-        margin-top: 29px;
-        margin-left: 30px;
-        font: normal bold 20px 'DM Sans';
-        color: $white;
-        background-color: $primary-dark;
-        border-radius: 5px;
-        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
-        &:hover {
-            background-color: $primary-medium;
-        }
-        &:active {
-            background-color: $primary-medium;
-            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
-        }
-    }
-    /* style partie 1 : la photo de profil */
-    
-    #photoProfil {
-        height: 250px;
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    .portraitOne {
-        width: 250px;
-        height: 250px;
-        margin-right: 50px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0px 4px 12px $inner-border;
-    }
-    /*STYLE TABLETTE 1ere partie : Profil*/
-    
-    @media all and (min-width: 768px) and (max-width: 1024px) {
-        body {
-            min-height: 2785px;
-        }
-        header {
-            height: 107px;
-            margin-top: 25px;
-        }
-        #identity {
-            height: 240px;
-            padding-left: 10px;
-        }
-        #photoProfil,
-        .portraitOne {
-            width: 225px;
-            height: 225px;
-            margin: 0;
-        }
-        #photoProfil {
-            position: absolute;
-            left: 479px;
-            top: 194px;
-        }
-        #contactMe,
-        #btnContactMe {
-            width: 240px;
-            height: 62px;
-            position: fixed;
-            margin: 0;
-            left: 262px;
-            top: 917px;
-            font-size: 25px;
-            z-index: 16;
-        }
-    }
-    /*STYLE PORTABLE 1ere partie : Profil*/
-    
-    @media all and (max-width: 767px) {
-        header {
-            width: 50%;
-            height: 63px;
-            margin-top: 38px;
-        }
-        #linkIndex {
-            width: 100%;
-        }
-        #logo {
-            width: 100%;
-        }
-        #partOne {
-            background-color: $white;
-            height: 200px;
-        }
-        #identity {
-            height: 150px;
-            padding: 0;
-        }
-        .nameOne {
-            width: max-content;
-            font-size: 36px;
-            margin: 0;
-        }
-        .localisationOne {
-            width: max-content;
-            font-size: 17px;
-            margin: 0;
-        }
-        .sloganOne {
-            width: max-content;
-            font-size: 16px;
-            margin: 0;
-        }
-        .tagPersonnel {
-            width: max-content;
-            font-size: 13px;
-        }
-        #photoProfil,
-        .portraitOne {
-            width: 120px;
-            height: 120px;
-            margin: 0;
-        }
-        #photoProfil {
-            position: absolute;
-            left: 271px;
-            top: 110px;
-        }
-        .portraitOne {
-            box-shadow: 0px 0px 8px #c4c4c4;
-        }
-        #contactMe,
-        #btnContactMe {
-            width: 205px;
-            height: 40px;
-            position: fixed;
-            margin: 0;
-            left: 112px;
-            top: 659px;
-        }
-    }
-    /* style du formulaire de contact */
-    
-    #modale {
-        display: none;
-        position: fixed;
-        z-index: 14;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgb(229, 229, 229, .4);
-    }
-    
-    .containerForm {
-        position: fixed;
-        z-index: 13;
-        display: flex;
-        left: 30%;
-        top: 4%;
-        width: 669px;
-        height: 880px;
-        border-radius: 5px;
-        background-color: #db8875;
-        box-shadow: 0 10px 25px rgb(17 17 17 / 50%);
-    }
-    
-    .formBody {
-        width: 589px;
-        margin: auto;
-    }
-    
-    .headerForm {
-        display: flex;
-        align-items: baseline;
-    }
-    
-    .titleFormBox {
-        padding-bottom: 22px;
-    }
-    
-    .titleForm {
-        font: normal 400 60px 'DM Sans';
-        color: $black;
-    }
-    
-    .formDataSimple {
-        width: 580px;
-        height: 50px;
-        border-radius: 5px;
-        background-color: $white;
-        color: $primary-dark;
-        font-size: 25px;
-        outline-style: none;
-        padding: 5px 5px;
-    }
-    
-    .formDataDouble {
-        width: 580px;
-        height: 170px;
-        border-radius: 5px;
-        background-color: $white;
-        color: $primary-dark;
-        font-size: 25px;
-        outline-style: none;
-        padding: 5px 5px;
-    }
-    
-    .textForm {
-        font: normal 400 30px 'DM Sans';
-        color: #1c1a1a;
-    }
-    
-    #btnSubmit {
-        width: 170px;
-        height: 69px;
-        margin-top: 18px;
-        border-radius: 5px;
-        background: $primary-dark;
-        font: normal 700 20px 'DM Sans';
-        color: #FFFFFF;
-        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
-        cursor: pointer;
-        &:hover {
-            background-color: $primary-medium;
-        }
-        &:active {
-            background-color: $primary-medium;
-            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
-        }
-    }
-    
-    #close {
-        width: 48px;
-        height: 48px;
-        background-image: url('./Sample-Photos/close_white_24dp.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
-    /*STYLE TABLETTE 1ere partie : Formulaire*/
-    
-    @media all and (min-width: 768px) and (max-width: 1024px) {
-        .containerForm {
-            top: 13%;
-            left: 16%;
-            width: 520px;
-            height: 677px;
-        }
-        .headerForm {
-            width: 90%;
-            margin-left: 22px;
-        }
-        .titleForm {
-            font-size: 50px;
-        }
-        .textForm {
-            font-size: 25px;
-            margin-left: 22px;
-        }
-        .formDataSimple,
-        .formDataDouble {
-            width: 450px;
-            height: 40px;
-            font-size: 24px;
-            margin-left: 22px;
-        }
-        .formDataDouble {
-            height: 100px;
-        }
-        #btnSubmit {
-            width: 160px;
-            height: 60px;
-            margin-left: 22px;
-            font-size: 23px;
-        }
-    }
-    /*STYLE PORTABLE 1ere partie : Formulaire*/
-    
-    @media all and (max-width: 767px) {
-        .containerForm {
-            width: 390px;
-            height: 590px;
-            left: 11px;
-            top: 43px;
-        }
-        .headerForm {
-            width: 100%;
-            align-items: flex-start;
-        }
-        .titleFormBox {
-            width: 83%;
-            margin-left: 15px;
-        }
-        .titleForm {
-            font-size: 35px;
-        }
-        #close {
-            width: 40px;
-            height: 40px;
-        }
-        .textForm {
-            font-size: 25px;
-            margin-left: 15px;
-        }
-        .formDataSimple,
-        .formDataDouble {
-            width: 350px;
-            height: 35px;
-            margin-left: 15px;
-            font-size: 22px;
-        }
-        .formDataDouble {
-            height: 100px;
-        }
-        #btnSubmit {
-            width: 150px;
-            height: 45px;
-            font-size: 19px;
-            margin-left: 15px;
-            margin-top: 13px;
-        }
-    }
-    /* style barre de navigation déroulante */
-    
-    #navigationMedia {
-        width: 100%;
-        height: 110px;
-        margin-top: 25px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: row;
-    }
-    
-    .trierPar {
-        width: 90px;
-        height: 23px;
-        font: normal 700 18px 'DM Sans';
-        color: $black;
-        margin-top: 20px;
-    }
-    
-    #popularite,
-    #date,
-    #titre {
-        border-radius: 5px;
-    }
-    
-    .dropdown {
-        width: 170px;
-        margin-left: 35px;
-        position: relative;
-        z-index: 11;
-        cursor: pointer;
-        &:hover .visibilityHover {
-            display: block;
-        }
-        &:hover .lineWhite {
-            display: block;
-        }
-        &:hover #arrow {
-            animation: turnUp 0.3s both;
-        }
-        &:hover #popularite {
-            border-radius: 5px 5px 0px 0px;
-        }
-        &:hover #titre {
-            border-radius: 0px 0px 5px 5px;
-        }
-        &:hover #date {
-            border-radius: 0px;
-        }
-    }
-    
-    .textListBox {
-        color: $white;
-        font: normal 700 18px 'DM Sans';
-        margin-left: -40px;
-        width: 105px;
-    }
-    
-    #valueDate,
-    #valueTitre {
-        margin-left: -88px;
-    }
-    
-    #arrow {
-        position: relative;
-        width: 33px;
-        height: 13px;
-        left: 125px;
-        top: 36px;
-        background: url(./Sample-Photos/arrow.svg) center center/100% 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        animation: turnDown 0.3s both;
-        z-index: 12;
-        cursor: pointer;
-    }
-    
-    .lineWhite {
-        height: 1px;
-        width: 135px;
-        right: 17px;
-        background-color: white;
-        position: absolute;
-        border: none;
-        display: none;
-    }
-    
-    .dropdownElement {
-        width: 170px;
-        height: 56px;
-        cursor: pointer;
-        background-color: #911c1c;
-        border: none;
-    }
-    
-    @keyframes turnDown {
-        from {
-            transform: rotate(180deg);
-        }
-        to {
-            transform: rotate(0deg);
-        }
-    }
-    
-    @keyframes turnUp {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(180deg);
-        }
-    }
-    
-    .visibilityHover {
-        display: none;
-    }
-    /*STYLE TABLETTE 1ere partie : Barre de tri/navigation*/
-    
-    @media all and (min-width: 768px) and (max-width: 1330px) {
-        .dropdown {
-            margin-left: 15px;
-        }
-    }
-    /*STYLE PORTABLE 1ere partie : Barre de tri/navigation*/
-    
-    @media all and (max-width: 767px) {
-        #navigationMedia {
-            display: none;
-        }
-    }
-    /* style partie deux : les medias */
-    
-    #partTwo {
-        width: 100%;
-    }
-    
-    #mediaGallery {
-        width: 100%;
-        height: 1742px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 5%;
-        justify-items: center;
-        z-index: 10;
-    }
-    
-    .containerMedia {
-        width: 370px;
-        height: 390px;
-    }
-    
-    .boxMedia {
-        width: 100%;
-        height: 340px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    .mediaPhoto {
-        width: 100%;
-        height: 340px;
-        border-radius: 5px;
-        object-fit: cover;
-        object-position: 62% 34%;
-    }
-    
-    .mediaVideo {
-        display: block;
-        width: 100%;
-        height: 340px;
-        border-radius: 5px;
-        object-fit: cover;
-    }
-    
-    .boxTextMedia {
-        width: 100%;
-        height: 31px;
-        display: flex;
-        flex-direction: row;
-        padding-top: 5px;
-    }
-    
-    .titreMedia {
-        width: 85%;
-        height: 31px;
-        font: normal 400 20px 'DM Sans';
-        color: $primary-dark;
-        white-space: nowrap;
-    }
-    
-    .nbrLike {
-        width: 18%;
-        height: 31px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        cursor: pointer;
-        &:hover .iconHeart {
-            transform: scale(1.1);
-        }
-    }
-    
-    .nbr {
-        width: 60%;
-        height: 28px;
-        display: flex;
-        justify-content: flex-end;
-        font: normal 500 20px "DM Sans";
-        color: #901C1C;
-    }
-    
-    .iconHeart {
-        width: 40%;
-        height: 23px;
-        background-image: url("./Sample-Photos/heart.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        color: #901C1C;
-    }
-    /*STYLE TABLETTE 2eme partie : Les Medias*/
-    
-    @media all and (min-width: 768px) and (max-width: 1330px) {
-        #mediaGallery {
-            grid-template-columns: 1fr 1fr;
-            gap: 2%;
-        }
-        .containerMedia {
-            width: 339px;
-            height: 385px;
-        }
-    }
-    /*STYLE PORTABLE 2eme partie : Les Medias*/
-    
-    @media all and (max-width: 767px) {
-        #mediaGallery {
-            grid-template-columns: 1fr;
-            gap: 0%;
-        }
-        .containerMedia {
-            height: 255px;
-        }
-        .boxMedia,
-        .mediaPhoto,
-        .mediaVideo {
-            height: 200px;
-        }
-        .titreMedia,
-        .nbr {
-            font-size: 17px;
-        }
-        .iconHeart {
-            height: 26px;
-            background-size: 20px 20px;
-        }
-    }
-    /* style box de bas de page*/
-    
-    #boxBasDePage {
-        position: fixed;
-        width: 361px;
-        height: 61px;
-        margin-top: 237px;
-        margin-left: 72%;
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: row;
-        z-index: 8;
-    }
-    
-    #boxLikeAndPrice {
-        position: fixed;
-        width: 361px;
-        height: 61px;
-        margin-right: 3%;
-        background-color: #DB8876;
-        border-radius: 5px 5px 0px 0px;
-    }
-    
-    .boxText {
-        width: 90%;
-        height: 60px;
-        font: normal 500 24px 'DM Sans';
-        color: $black;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .boxLike {
-        display: flex;
-        flex-direction: row;
-        width: 116px;
-    }
-    
-    .like {
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    .textPrice {
-        width: 138px;
-    }
-    
-    .heart {
-        width: 25px;
-        height: 30px;
-    }
-    /*STYLE PORTABLE & TABLETTE 2eme partie : Box bas de page*/
-    
-    @media all and (min-width: 1267px) and (max-width: 1410px) {
-        #boxLikeAndPrice {
-            margin-right: 6%;
-        }
-    }
-    
-    @media all and (min-width: 1121px) and (max-width: 1266px) {
-        #boxLikeAndPrice {
-            margin-right: 10%;
-        }
-    }
-    
-    @media all and (max-width: 1120px) {
-        #boxBasDePage {
-            display: none;
-        }
-    }
-    /* style LIGHTBOX */
-    
-    #lightBoxContainer {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        z-index: 16;
-        transition: opacity 0.3s;
-    }
-    
-    #lightbox {
-        z-index: 17;
-        width: 1010px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 80px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-start;
-    }
-    
-    .imageNextPrev {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    
-    .buttonClose {
-        position: fixed;
-        width: 66px;
-        height: 35px;
-        background: url(./Sample-Photos/close.svg) center center/42px 42px no-repeat;
-        z-index: 18;
-    }
-    
-    .buttonNext,
-    .buttonPrev {
-        background: url(./Sample-Photos/arrow_lightbox.svg) center center / 42px 42px no-repeat;
-        width: 66px;
-        height: auto;
-        top: 0;
-        right: 142px;
-        z-index: 17;
-    }
-    
-    .buttonPrev {
-        transform: rotate(180deg);
-    }
-    
-    .buttonNext,
-    .buttonPrev,
-    .buttonClose {
-        opacity: 0.7;
-        cursor: pointer;
-        transition: opacity 0.3s;
-    }
-    
-    .buttonNext:hover,
-    .buttonPrev:hover,
-    .buttonClose:hover {
-        opacity: 1;
-    }
-    
-    .lightboxGallery {
-        width: 905px;
-        height: 722px;
-        border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    }
-    
-    //style des images
-    .mediaStyle {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-    
-    .placeholderStyle {
-        width: 100%;
-        height: 100%;
-    }
-    
-    .lightboxTitle {
-        font: normal 400 24px 'DM Sans';
-        color: $primary-dark;
-    }
-    
-    .lightboxTitleh4 {
-        font: normal 400 24px 'DM Sans';
-        color: $primary-dark;
-        width: 905px;
-        margin: auto;
-        margin-top: 4px;
-    }
-    /*STYLE TABLETTE 2eme partie : La Lightbox*/
-    
-    @media all and (min-width: 768px) and (max-width: 1024px) {
-        #lightbox {
-            width: 95%;
-        }
-        .buttonClose {
-            width: 48px;
-        }
-    }
-    /*STYLE PORTABLE 2eme partie : La Lightbox*/
-    
-    @media all and (max-width: 767px) {
-        #lightbox {
-            width: 91%;
-            height: 57%;
-            margin-top: 30%;
-        }
-        .lightboxGallery,
-        .imageNextPrev {
-            width: 376px;
-            height: 383px;
-        }
-        .imageNextPrev {
-            display: block;
-            height: 428px;
-        }
-        .buttonClose {
-            width: 91%;
-            left: 18px;
-            top: 128px;
-            background-position: right;
-            background-size: 35px 35px;
-        }
-        .buttonPrev,
-        .buttonNext {
-            background-size: 30px 30px;
-            background-position: right;
-            width: 177px;
-            height: 45px;
-            position: relative;
-        }
-        .buttonPrev {
-            top: 468px;
-            left: 0px;
-        }
-        .buttonNext {
-            top: 40px;
-            left: 198px;
-        }
-        .lightboxTitleh4,
-        .lightboxTitle {
-            margin: 0;
-            width: 100%;
-            font-size: 18px;
-        }
-    }
+     /* typographie de la page */
+     
+     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+     /* couleurs utilisées pour la page */
+     
+     $primary-dark: #901C1C;
+     $primary-medium: #D3573C;
+     $white: #FFFFFF;
+     $black: #000000;
+     $secondary-lightgrey: #FAFAFA;
+     $secondary-grey: #525252;
+     $inner-border: #c4c4c4;
+     $color-price: #757575;
+     /* style general de la page */
+     
+     * {
+         width: 100%;
+         margin: 0;
+         padding: 0;
+         list-style-type: none;
+         text-decoration: none;
+     }
+     
+     a {
+         cursor: default;
+     }
+     
+     input,
+     label,
+     textarea {
+         border: none;
+         background: none;
+     }
+     
+     input:-webkit-autofill {
+         box-shadow: 0 0 0px 1000px white inset;
+         -webkit-box-shadow: 0 0 0px 1000px white inset;
+     }
+     
+     body {
+         font-family: 'DM Sans', sans-serif;
+         width: auto;
+         background: #FFFFFF;
+         margin: 1% 5%;
+     }
+     
+     main {
+         height: 2212px;
+     }
+     /* style du header */
+     
+     header {
+         width: 100%;
+         height: 157px;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+     }
+     
+     #logo {
+         background: url('./Sample-Photos/logo.svg');
+         background: no-repeat;
+         width: 200px;
+         height: 50px;
+         cursor: pointer;
+     }
+     
+     #linkIndex {
+         width: 200px;
+         height: 50px;
+     }
+     /* style partie 1 : le profil du photographe */
+     
+     #partOne {
+         background-color: #FAFAFA;
+         width: 100%;
+         height: 350px;
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         grid-gap: 10px;
+         align-items: center;
+         flex-direction: row;
+     }
+     
+     #identity {
+         height: 280px;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-evenly;
+         padding-left: 38px;
+         white-space: nowrap;
+     }
+     
+     .portraitOne {
+         width: 200px;
+         height: 200px;
+         object-fit: cover;
+         border-radius: 50%;
+         box-shadow: 0px 4px 12px $inner-border;
+     }
+     
+     .nameOne {
+         font: normal normal 64px 'DM Sans';
+         color: $primary-medium;
+         margin-left: 9px;
+     }
+     
+     .localisationOne {
+         font: normal normal 24px 'DM Sans';
+         color: $primary-dark;
+         margin-left: 9px;
+     }
+     
+     .sloganOne {
+         width: max-content;
+         font: normal normal 18px 'DM Sans';
+         color: $secondary-grey;
+         margin-left: 9px;
+     }
+     
+     .tagsOne {
+         display: flex;
+         width: 356px;
+         height: 22px;
+         flex-direction: row;
+         justify-content: flex-start;
+     }
+     
+     .tagPersonnel {
+         width: fit-content;
+         padding: 0 8px;
+         margin: 0px 5px 0px 0px;
+         color: $primary-dark;
+         border: 0.5px solid $inner-border;
+         box-sizing: border-box;
+         border-radius: 11px;
+         font: 700 18px 'DM Sans';
+         line-height: 20.62px;
+         text-align: center;
+     }
+     /* style partie 1 : le bouton de contact */
+     
+     #btnContactMe {
+         height: 280px;
+     }
+     
+     #contactMe {
+         width: 170px;
+         height: 69px;
+         cursor: pointer;
+         margin-top: 29px;
+         margin-left: 30px;
+         font: normal bold 20px 'DM Sans';
+         color: $white;
+         background-color: $primary-dark;
+         border-radius: 5px;
+         box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
+         &:hover {
+             background-color: $primary-medium;
+         }
+         &:active {
+             background-color: $primary-medium;
+             box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
+         }
+     }
+     /* style partie 1 : la photo de profil */
+     
+     #photoProfil {
+         height: 250px;
+         display: flex;
+         justify-content: flex-end;
+     }
+     
+     .portraitOne {
+         width: 250px;
+         height: 250px;
+         margin-right: 50px;
+         object-fit: cover;
+         border-radius: 50%;
+         box-shadow: 0px 4px 12px $inner-border;
+     }
+     /*STYLE TABLETTE 1ere partie : Profil*/
+     
+     @media all and (min-width: 768px) and (max-width: 1024px) {
+         body {
+             min-height: 2785px;
+         }
+         header {
+             height: 107px;
+             margin-top: 25px;
+         }
+         #identity {
+             height: 240px;
+             padding-left: 10px;
+         }
+         #photoProfil,
+         .portraitOne {
+             width: 225px;
+             height: 225px;
+             margin: 0;
+         }
+         #photoProfil {
+             position: absolute;
+             left: 479px;
+             top: 194px;
+         }
+         #contactMe,
+         #btnContactMe {
+             width: 240px;
+             height: 62px;
+             position: fixed;
+             margin: 0;
+             left: 262px;
+             top: 917px;
+             font-size: 25px;
+             z-index: 16;
+         }
+     }
+     /*STYLE PORTABLE 1ere partie : Profil*/
+     
+     @media all and (max-width: 767px) {
+         header {
+             width: 50%;
+             height: 63px;
+             margin-top: 38px;
+         }
+         #linkIndex {
+             width: 100%;
+         }
+         #logo {
+             width: 100%;
+         }
+         #partOne {
+             background-color: $white;
+             height: 200px;
+         }
+         #identity {
+             height: 150px;
+             padding: 0;
+         }
+         .nameOne {
+             width: max-content;
+             font-size: 36px;
+             margin: 0;
+         }
+         .localisationOne {
+             width: max-content;
+             font-size: 17px;
+             margin: 0;
+         }
+         .sloganOne {
+             width: max-content;
+             font-size: 16px;
+             margin: 0;
+         }
+         .tagPersonnel {
+             width: max-content;
+             font-size: 13px;
+         }
+         #photoProfil,
+         .portraitOne {
+             width: 120px;
+             height: 120px;
+             margin: 0;
+         }
+         #photoProfil {
+             position: absolute;
+             left: 271px;
+             top: 110px;
+         }
+         .portraitOne {
+             box-shadow: 0px 0px 8px #c4c4c4;
+         }
+         #contactMe,
+         #btnContactMe {
+             width: 205px;
+             height: 40px;
+             position: fixed;
+             margin: 0;
+             left: 112px;
+             top: 659px;
+         }
+     }
+     /* style du formulaire de contact */
+     
+     #modale {
+         display: none;
+         position: fixed;
+         z-index: 14;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         background-color: rgb(229, 229, 229, .4);
+     }
+     
+     .containerForm {
+         position: fixed;
+         z-index: 13;
+         display: flex;
+         left: 30%;
+         top: 4%;
+         width: 669px;
+         height: 880px;
+         border-radius: 5px;
+         background-color: #db8875;
+         box-shadow: 0 10px 25px rgb(17 17 17 / 50%);
+     }
+     
+     .formBody {
+         width: 589px;
+         margin: auto;
+     }
+     
+     .headerForm {
+         display: flex;
+         align-items: baseline;
+     }
+     
+     .titleFormBox {
+         padding-bottom: 22px;
+     }
+     
+     .titleForm {
+         font: normal 400 60px 'DM Sans';
+         color: $black;
+     }
+     
+     .formDataSimple {
+         width: 580px;
+         height: 50px;
+         border-radius: 5px;
+         background-color: $white;
+         color: $primary-dark;
+         font-size: 25px;
+         outline-style: none;
+         padding: 5px 5px;
+     }
+     
+     .formDataDouble {
+         width: 580px;
+         height: 170px;
+         border-radius: 5px;
+         background-color: $white;
+         color: $primary-dark;
+         font-size: 25px;
+         outline-style: none;
+         padding: 5px 5px;
+     }
+     
+     .textForm {
+         font: normal 400 30px 'DM Sans';
+         color: #1c1a1a;
+     }
+     
+     #btnSubmit {
+         width: 170px;
+         height: 69px;
+         margin-top: 18px;
+         border-radius: 5px;
+         background: $primary-dark;
+         font: normal 700 20px 'DM Sans';
+         color: #FFFFFF;
+         box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
+         cursor: pointer;
+         &:hover {
+             background-color: $primary-medium;
+         }
+         &:active {
+             background-color: $primary-medium;
+             box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
+         }
+     }
+     
+     #close {
+         width: 48px;
+         height: 48px;
+         background-image: url('./Sample-Photos/close_white_24dp.svg');
+         background-repeat: no-repeat;
+         background-size: contain;
+         cursor: pointer;
+     }
+     /*STYLE TABLETTE 1ere partie : Formulaire*/
+     
+     @media all and (min-width: 768px) and (max-width: 1024px) {
+         .containerForm {
+             top: 13%;
+             left: 16%;
+             width: 520px;
+             height: 677px;
+         }
+         .headerForm {
+             width: 90%;
+             margin-left: 22px;
+         }
+         .titleForm {
+             font-size: 50px;
+         }
+         .textForm {
+             font-size: 25px;
+             margin-left: 22px;
+         }
+         .formDataSimple,
+         .formDataDouble {
+             width: 450px;
+             height: 40px;
+             font-size: 24px;
+             margin-left: 22px;
+         }
+         .formDataDouble {
+             height: 100px;
+         }
+         #btnSubmit {
+             width: 160px;
+             height: 60px;
+             margin-left: 22px;
+             font-size: 23px;
+         }
+     }
+     /*STYLE PORTABLE 1ere partie : Formulaire*/
+     
+     @media all and (max-width: 767px) {
+         .containerForm {
+             width: 390px;
+             height: 590px;
+             left: 11px;
+             top: 43px;
+         }
+         .headerForm {
+             width: 100%;
+             align-items: flex-start;
+         }
+         .titleFormBox {
+             width: 83%;
+             margin-left: 15px;
+         }
+         .titleForm {
+             font-size: 35px;
+         }
+         #close {
+             width: 40px;
+             height: 40px;
+         }
+         .textForm {
+             font-size: 25px;
+             margin-left: 15px;
+         }
+         .formDataSimple,
+         .formDataDouble {
+             width: 350px;
+             height: 35px;
+             margin-left: 15px;
+             font-size: 22px;
+         }
+         .formDataDouble {
+             height: 100px;
+         }
+         #btnSubmit {
+             width: 150px;
+             height: 45px;
+             font-size: 19px;
+             margin-left: 15px;
+             margin-top: 13px;
+         }
+     }
+     /* style barre de navigation déroulante */
+     
+     #navigationMedia {
+         width: 100%;
+         height: 110px;
+         margin-top: 25px;
+         display: flex;
+         align-items: flex-start;
+         justify-content: flex-start;
+         flex-direction: row;
+     }
+     
+     .trierPar {
+         width: 90px;
+         height: 23px;
+         font: normal 700 18px 'DM Sans';
+         color: $black;
+         margin-top: 20px;
+     }
+     
+     #popularite,
+     #date,
+     #titre {
+         border-radius: 5px;
+     }
+     
+     .dropdown {
+         width: 170px;
+         margin-left: 35px;
+         position: relative;
+         z-index: 11;
+         cursor: pointer;
+         &:hover .visibilityHover {
+             display: block;
+         }
+         &:hover .lineWhite {
+             display: block;
+         }
+         &:hover #arrow {
+             animation: turnUp 0.3s both;
+         }
+         &:hover #popularite {
+             border-radius: 5px 5px 0px 0px;
+         }
+         &:hover #titre {
+             border-radius: 0px 0px 5px 5px;
+         }
+         &:hover #date {
+             border-radius: 0px;
+         }
+     }
+     
+     .textListBox {
+         color: $white;
+         font: normal 700 18px 'DM Sans';
+         margin-left: -40px;
+         width: 105px;
+     }
+     
+     #valueDate,
+     #valueTitre {
+         margin-left: -88px;
+     }
+     
+     #arrow {
+         position: relative;
+         width: 33px;
+         height: 13px;
+         left: 125px;
+         top: 36px;
+         background: url(./Sample-Photos/arrow.svg) center center/100% 100%;
+         background-repeat: no-repeat;
+         background-size: cover;
+         animation: turnDown 0.3s both;
+         z-index: 12;
+         cursor: pointer;
+     }
+     
+     .lineWhite {
+         height: 1px;
+         width: 135px;
+         right: 17px;
+         background-color: white;
+         position: absolute;
+         border: none;
+         display: none;
+     }
+     
+     .dropdownElement {
+         width: 170px;
+         height: 56px;
+         cursor: pointer;
+         background-color: #911c1c;
+         border: none;
+     }
+     
+     @keyframes turnDown {
+         from {
+             transform: rotate(180deg);
+         }
+         to {
+             transform: rotate(0deg);
+         }
+     }
+     
+     @keyframes turnUp {
+         from {
+             transform: rotate(0deg);
+         }
+         to {
+             transform: rotate(180deg);
+         }
+     }
+     
+     .visibilityHover {
+         display: none;
+     }
+     /*STYLE TABLETTE 1ere partie : Barre de tri/navigation*/
+     
+     @media all and (min-width: 768px) and (max-width: 1330px) {
+         .dropdown {
+             margin-left: 15px;
+         }
+     }
+     /*STYLE PORTABLE 1ere partie : Barre de tri/navigation*/
+     
+     @media all and (max-width: 767px) {
+         #navigationMedia {
+             display: none;
+         }
+     }
+     /* style partie deux : les medias */
+     
+     #partTwo {
+         width: 100%;
+     }
+     
+     #mediaGallery {
+         width: 100%;
+         height: 1742px;
+         display: grid;
+         grid-template-columns: 1fr 1fr 1fr;
+         gap: 5%;
+         justify-items: center;
+         z-index: 10;
+     }
+     
+     .containerMedia {
+         width: 370px;
+         height: 390px;
+     }
+     
+     .boxMedia {
+         width: 100%;
+         height: 340px;
+         border-radius: 5px;
+         cursor: pointer;
+     }
+     
+     .mediaPhoto {
+         width: 100%;
+         height: 340px;
+         border-radius: 5px;
+         object-fit: cover;
+         object-position: 62% 34%;
+     }
+     
+     .mediaVideo {
+         display: block;
+         width: 100%;
+         height: 340px;
+         border-radius: 5px;
+         object-fit: cover;
+     }
+     
+     .boxTextMedia {
+         width: 100%;
+         height: 31px;
+         display: flex;
+         flex-direction: row;
+         padding-top: 5px;
+     }
+     
+     .titreMedia {
+         width: 85%;
+         height: 31px;
+         font: normal 400 20px 'DM Sans';
+         color: $primary-dark;
+         white-space: nowrap;
+     }
+     
+     .nbrLike {
+         width: 18%;
+         height: 31px;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         cursor: pointer;
+         &:hover .iconHeart {
+             transform: scale(1.1);
+         }
+     }
+     
+     .nbr {
+         width: 60%;
+         height: 28px;
+         display: flex;
+         justify-content: flex-end;
+         font: normal 500 20px "DM Sans";
+         color: #901C1C;
+     }
+     
+     .iconHeart {
+         width: 40%;
+         height: 23px;
+         background-image: url("./Sample-Photos/heart.svg");
+         background-repeat: no-repeat;
+         background-size: contain;
+         color: #901C1C;
+     }
+     /*STYLE TABLETTE 2eme partie : Les Medias*/
+     
+     @media all and (min-width: 768px) and (max-width: 1330px) {
+         #mediaGallery {
+             grid-template-columns: 1fr 1fr;
+             gap: 2%;
+         }
+         .containerMedia {
+             width: 339px;
+             height: 385px;
+         }
+     }
+     /*STYLE PORTABLE 2eme partie : Les Medias*/
+     
+     @media all and (max-width: 767px) {
+         #mediaGallery {
+             grid-template-columns: 1fr;
+             gap: 0%;
+         }
+         .containerMedia {
+             height: 255px;
+         }
+         .boxMedia,
+         .mediaPhoto,
+         .mediaVideo {
+             height: 200px;
+         }
+         .titreMedia,
+         .nbr {
+             font-size: 17px;
+         }
+         .iconHeart {
+             height: 26px;
+             background-size: 20px 20px;
+         }
+     }
+     /* style box de bas de page*/
+     
+     #boxBasDePage {
+         position: fixed;
+         width: 361px;
+         height: 61px;
+         margin-top: 237px;
+         margin-left: 72%;
+         display: flex;
+         justify-content: flex-end;
+         flex-direction: row;
+         z-index: 8;
+     }
+     
+     #boxLikeAndPrice {
+         position: fixed;
+         width: 361px;
+         height: 61px;
+         margin-right: 3%;
+         background-color: #DB8876;
+         border-radius: 5px 5px 0px 0px;
+     }
+     
+     .boxText {
+         width: 90%;
+         height: 60px;
+         font: normal 500 24px 'DM Sans';
+         color: $black;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: center;
+     }
+     
+     .boxLike {
+         display: flex;
+         flex-direction: row;
+         width: 116px;
+     }
+     
+     .like {
+         display: flex;
+         justify-content: flex-end;
+     }
+     
+     .textPrice {
+         width: 138px;
+     }
+     
+     .heart {
+         width: 25px;
+         height: 30px;
+     }
+     /*STYLE PORTABLE & TABLETTE 2eme partie : Box bas de page*/
+     
+     @media all and (min-width: 1267px) and (max-width: 1410px) {
+         #boxLikeAndPrice {
+             margin-right: 6%;
+         }
+     }
+     
+     @media all and (min-width: 1121px) and (max-width: 1266px) {
+         #boxLikeAndPrice {
+             margin-right: 10%;
+         }
+     }
+     
+     @media all and (max-width: 1120px) {
+         #boxBasDePage {
+             display: none;
+         }
+     }
+     /* style LIGHTBOX */
+     
+     #lightBoxContainer {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: white;
+         z-index: 16;
+         transition: opacity 0.3s;
+     }
+     
+     #lightbox {
+         z-index: 17;
+         width: 1010px;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top: 80px;
+         display: flex;
+         flex-direction: column;
+         align-items: flex-end;
+         justify-content: flex-start;
+     }
+     
+     .imageNextPrev {
+         width: 100%;
+         height: 100%;
+         margin: auto;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-around;
+     }
+     
+     .buttonClose {
+         position: fixed;
+         width: 66px;
+         height: 35px;
+         background: url(./Sample-Photos/close.svg) center center/42px 42px no-repeat;
+         z-index: 18;
+     }
+     
+     .buttonNext,
+     .buttonPrev {
+         background: url(./Sample-Photos/arrow_lightbox.svg) center center / 42px 42px no-repeat;
+         width: 66px;
+         height: auto;
+         top: 0;
+         right: 142px;
+         z-index: 17;
+     }
+     
+     .buttonPrev {
+         transform: rotate(180deg);
+     }
+     
+     .buttonNext,
+     .buttonPrev,
+     .buttonClose {
+         opacity: 0.7;
+         cursor: pointer;
+         transition: opacity 0.3s;
+     }
+     
+     .buttonNext:hover,
+     .buttonPrev:hover,
+     .buttonClose:hover {
+         opacity: 1;
+     }
+     
+     .lightboxGallery {
+         width: 905px;
+         height: 722px;
+         border-radius: 5px;
+         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+     }
+     
+     //style des images
+     .mediaStyle {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 5px;
+     }
+     
+     .placeholderStyle {
+         width: 100%;
+         height: 100%;
+     }
+     
+     .lightboxTitle {
+         font: normal 400 24px 'DM Sans';
+         color: $primary-dark;
+     }
+     
+     .lightboxTitleh4 {
+         font: normal 400 24px 'DM Sans';
+         color: $primary-dark;
+         width: 905px;
+         margin: auto;
+         margin-top: 4px;
+     }
+     /*STYLE TABLETTE 2eme partie : La Lightbox*/
+     
+     @media all and (min-width: 768px) and (max-width: 1024px) {
+         #lightbox {
+             width: 95%;
+         }
+         .buttonClose {
+             width: 48px;
+         }
+     }
+     /*STYLE PORTABLE 2eme partie : La Lightbox*/
+     
+     @media all and (max-width: 767px) {
+         #lightbox {
+             width: 91%;
+             height: 57%;
+             margin-top: 30%;
+         }
+         .lightboxGallery,
+         .imageNextPrev {
+             width: 376px;
+             height: 383px;
+         }
+         .imageNextPrev {
+             display: block;
+             height: 428px;
+         }
+         .buttonClose {
+             width: 91%;
+             left: 18px;
+             top: 128px;
+             background-position: right;
+             background-size: 35px 35px;
+         }
+         .buttonPrev,
+         .buttonNext {
+             background-size: 30px 30px;
+             background-position: right;
+             width: 177px;
+             height: 45px;
+             position: relative;
+         }
+         .buttonPrev {
+             top: 468px;
+             left: 0px;
+         }
+         .buttonNext {
+             top: 40px;
+             left: 198px;
+         }
+         .lightboxTitleh4,
+         .lightboxTitle {
+             margin: 0;
+             width: 100%;
+             font-size: 18px;
+         }
+     }
