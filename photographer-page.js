@@ -4,6 +4,7 @@ var myPrenom = ' ';
 var resultTotalLike = 0;
 var myBoxMedia;
 var myLike = document.getElementsByClassName('like');
+var body = document.getElementById('body')
 
 function getPhotographName() {
     return this.myPrenom;
@@ -64,8 +65,6 @@ function onloadPhotographer(photographers, media) {
     //5
     resultTotalLike = totalLike(theGoodMedia);
     showLikeAndPrice(resultTotalLike, theGoodOnePhotograph);
-
-
 }
 
 //PROFIL
@@ -107,7 +106,6 @@ function showProfil(photographer) {
     photo.src = "./Sample-Photos/Photographers-ID-Photos/" + photographer.portrait; //portrait
 
     photo.classList.add("portraitOne");
-
     myphotoProfil.appendChild(photo);
 }
 
@@ -128,12 +126,15 @@ function showMedia(media, myPrenom) {
     myBoxMedia = document.createElement('div');
     myBoxMedia.setAttribute("tabindex", "0")
     myBoxMedia.classList.add("boxMedia");
-    myBoxMedia.addEventListener('click', factoryMedia);
-    /*myBoxMedia.addEventListener('keyup', (e) => {
+    myBoxMedia.addEventListener('click', () => {
+        factoryMedia(media.id);
+
+    });
+    myBoxMedia.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
-            factoryMedia(media)
+            factoryMedia(media.id);
         }
-    });*/
+    });
     // photo'img' ou video'video'
     if (media.image === undefined) {
         var myMediaVideo = document.createElement('video');
@@ -195,22 +196,35 @@ function showMedia(media, myPrenom) {
 var modale = document.getElementById('modale');
 var form = document.getElementsByClassName('containerForm')
 var btnOpen = document.getElementById('btnContactMe');
-btnOpen.addEventListener('click', function(event) {
-    modale.style.display = 'block';
-});
-
-//Fermeture du formulaire avec un eventListener sur la croix 
 var btnClose = document.getElementById('close');
-btnClose.addEventListener('click', function(event) {
+var focusFirst = document.getElementById('first')
+    //Ouverture de la modale
+btnOpen.addEventListener('click', openingModal)
+
+function openingModal() {
+    body.setAttribute('aria-hidden', 'true');
+    modale.setAttribute('aria-hidden', 'false');
+    body.classList.add('noScroll');
+    modale.style.display = 'block';
+    focusFirst.focus()
+}
+//Fermeture du formulaire avec un eventListener sur la croix 
+btnClose.addEventListener('click', closingModal)
+
+function closingModal() {
+    body.setAttribute('aria-hidden', 'false');
+    modale.setAttribute('aria-hidden', 'true');
+    body.classList.remove('noScroll');
     modale.style.display = 'none';
+    focusFirst.blur()
+}
+//Fermeture du formulaire avec la touche Escape au focus sur la croix
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closingModal()
+    }
 })
 
-//Fermeture du formulaire avec la touche Escape au focus sur la croix
-btnClose.addEventListener('keyup', function(e) {
-    if (e.key === 'Escape' || e.key === 'Enter') {
-        modale.style.display = 'none';
-    }
-});
 //Gestion de l' envoi du formulaire, avec la function validate()
 function validate() {
     event.preventDefault();
@@ -223,64 +237,83 @@ function validate() {
         console.log("Nom: ", nom)
         console.log("Adresse mail: ", mail)
         console.log("Le message: ", message)
-        alert('Message envoyé!')
+        closingModal()
+        alert('Message envoyé!');
         return true;
     } else {
         alert("Tous les champs de saisie sont obligatoires!");
-
         return false;
     }
 }
 
 //BARRE DE NAVIGATION DE TRI
 //1:Recuperer le choix de l' utilisateur pour le faire apparaitre en haut du dropdown
-//2:Appliquer les function de tri dans chaque ecouter d' evenement adequat
-
 //2 variable pour gerer la gallery media lors du tri
-var newGallery = document.getElementById('mediaGallery')
-    //2.1: Populaire
-var orderPopularite = document.getElementById('popularite');
+var newGallery = document.getElementById('mediaGallery');
 
-orderPopularite.addEventListener('click',
-    function() {
-        var parPopularite = theGoodMedia
-            .sort((a, b) => b.likes - a.likes);
-        newGallery.innerHTML = " ";
-        parPopularite.forEach((media) => {
-            showMedia(media, myPrenom)
-        });
-        orderPopularite.classList.remove('visibilityHover')
-        orderAlphabetique.classList.add('visibilityHover')
-        orderChrono.classList.add('visibilityHover')
+//2.1: Populaire
+var orderPopularite = document.getElementById('popularite');
+orderPopularite.addEventListener('click', sortByPopularite);
+orderPopularite.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        sortByPopularite()
+    }
+});
+
+function sortByPopularite() {
+    var parPopularite = theGoodMedia
+        .sort((a, b) => b.likes - a.likes);
+    newGallery.innerHTML = " ";
+    parPopularite.forEach((media) => {
+        showMedia(media, myPrenom)
     });
+    orderPopularite.classList.remove('visibilityHover')
+    orderAlphabetique.classList.add('visibilityHover')
+    orderChrono.classList.add('visibilityHover')
+    styleElementDropdown()
+};
+
 //2.2: Date
 var orderChrono = document.getElementById('date');
+orderChrono.addEventListener('click', soryByDate)
+orderChrono.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        soryByDate()
+    }
+});
 
-orderChrono.addEventListener('click',
-    function() {
-        var parDate = theGoodMedia
-            .sort(function(a, b) {
-                if (a.date < b.date) {
-                    return 1;
-                }
-                if (a.date > b.date) {
-                    return -1;
-                }
-                return 0;
-            });
-        newGallery.innerHTML = " ";
-        parDate = theGoodMedia
-            .forEach((media) => {
-                showMedia(media, myPrenom)
-            });
-        orderPopularite.classList.add('visibilityHover')
-        orderAlphabetique.classList.add('visibilityHover')
-        orderChrono.classList.remove('visibilityHover')
-    });
+function soryByDate() {
+    var parDate = theGoodMedia
+        .sort(function(a, b) {
+            if (a.date < b.date) {
+                return 1;
+            }
+            if (a.date > b.date) {
+                return -1;
+            }
+            return 0;
+        });
+    newGallery.innerHTML = " ";
+    parDate = theGoodMedia
+        .forEach((media) => {
+            showMedia(media, myPrenom)
+        });
+    orderPopularite.classList.add('visibilityHover')
+    orderAlphabetique.classList.add('visibilityHover')
+    orderChrono.classList.remove('visibilityHover')
+    styleElementDropdown()
+};
+
 //2.3: Titre
 var orderAlphabetique = document.getElementById('titre');
+orderAlphabetique.addEventListener('click', sortByTitre)
+orderAlphabetique.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        sortByTitre()
+    }
+});
 
-orderAlphabetique.addEventListener('click', function() {
+function sortByTitre() {
     var parTitre = theGoodMedia
         .sort(function(a, b) {
             if (a.title > b.title) {
@@ -298,10 +331,58 @@ orderAlphabetique.addEventListener('click', function() {
     orderAlphabetique.classList.remove('visibilityHover')
     orderPopularite.classList.add('visibilityHover')
     orderChrono.classList.add('visibilityHover')
-});
+    styleElementDropdown()
+};
+//Gestion de la barre de navigation au clavier
+//1:les variables globales
+var myDropdown = document.querySelector('.dropdown')
+console.log(myDropdown);
+var myDropdownElement = document.getElementsByClassName('dropdownElement');
+var dropdownVisibility = document.getElementsByClassName('visibilityHover')
+var separator = document.getElementsByClassName('lineWhite');
+//2:Ecouteur event por l ouverture
+//3:Methode pour ouvrir/faire apparaitre la barre de tri au focus
+myDropdown.addEventListener('keyup', dropdownClavier)
 
-//Gestion de la dropdown au clavier
+function dropdownClavier(e) {
+    console.log('gtf')
+    if (e.key === 'Enter') {
+        orderPopularite.focus()
+        orderPopularite.classList.remove('visibilityHover')
+        orderChrono.classList.remove('visibilityHover')
+        orderAlphabetique.classList.remove('visibilityHover')
+        for (var i = 0; i < separator.length; i++) {
+            separator[i].style.display = 'block'
+        }
+        orderPopularite.classList.add('populariteClavier')
+        orderPopularite.classList.remove('borderDropdown')
+        orderChrono.classList.add('dateClavier')
+        orderChrono.classList.remove('borderDropdown')
+        orderAlphabetique.classList.add('titreClavier')
+        orderAlphabetique.classList.remove('borderDropdown')
+    }
+    if (e.key === 'Echap') {
+        orderPopularite.blur();
+        orderPopulariteclassList.remove('visibilityHover')
+        orderChrono.classList.add('visibilityHover')
+        orderAlphabetique.classList.add('visibilityHover')
+        for (var i = 0; i < separator.length; i++) {
+            separator[i].style.display = 'none'
+        }
+        styleElementDropdown()
+    }
+};
 
+//function closingDropdown(e) {}
+
+function styleElementDropdown() {
+    orderPopularite.classList.remove('populariteClavier')
+    orderPopularite.classList.add('borderDropdown')
+    orderChrono.classList.remove('dateClavier')
+    orderChrono.classList.add('borderDropdown')
+    orderAlphabetique.classList.remove('titreClavier')
+    orderAlphabetique.classList.add('borderDropdown')
+}
 
 //Box LIKE & PRICE
 //Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
@@ -343,7 +424,6 @@ function totalLike(media) {
 };
 
 //LIGHTBOX
-
 var myLightbox = document.getElementById('lightBoxContainer');
 var lightboxAndTitle = document.getElementById('lightbox');
 var imageAndButton = document.querySelector('.imageNextPrev');
@@ -366,7 +446,6 @@ class MediaFactory {
 
             return new Video(media, photographName);
         }
-
     }
 }
 
@@ -383,38 +462,29 @@ class Video {
         <source src="./Sample-Photos/${photographName}/${media.video}" type="video/mp4">
         </video>
         <h4 class="lightboxTitle">${media.title}</h4>`;
-
     }
-
 }
-/*Overture de la lightbox au clavier 'Enter'
-function openLightboxKeyupEnter(e) {
-    if (e.key === 'Enter') {
-        factoryMedia()
-    }
-}*/
+
 //Fonctionnement de la lightbox
-function factoryMedia(media) {
+function factoryMedia(mediaID) {
     //vider l'espace de la lightbox pour afficher l image choisit
     placeMedia.innerHTML = ' ';
     //Apparition de la lightbox
     myLightbox.style.display = 'block';
-
     //Affichage du media cliqué grace au chemin de l image
     //Chemin de l image
-    mediaClick;
-    if (this.getElementsByClassName('mediaPhoto') !== undefined &&
-        this.getElementsByClassName('mediaPhoto')[0] !== undefined) {
-        mediaClick = this.getElementsByClassName('mediaPhoto')[0];
+    mediaClick = document.getElementById(mediaID);
+    console.log(this)
+    console.log(mediaID)
+    if (mediaClick.getAttribute('image') !== undefined) {
+        // mediaClick = this.getElementsByClassName('mediaPhoto')[0];
         mediaClick.setAttribute('type', 'jpeg')
     } else {
-        mediaClick = this.getElementsByClassName('mediaVideo')[0];
+        //mediaClick = this.getElementsByClassName('mediaVideo')[0];
         mediaClick.setAttribute('type', 'video/mp4');
         mediaClick.setAttribute('controls', 'true');
     }
-
     mediaClick.classList.add('mediaStyle');
-
     //utilisation d'un clone du media afin que l image apparaisse aussi dans la lightbox
     var cloneMediaClick = mediaClick.cloneNode(true);
     var titre = cloneMediaClick.getAttribute("name");
@@ -423,9 +493,9 @@ function factoryMedia(media) {
     lightboxAndTitle.appendChild(placeTitle);
     placeMedia.appendChild(cloneMediaClick);
 
-    //Fonctionnement des fleches directionnelles
-    //navigation au clavier, fermer, suivant et precedent
-    /*document.addEventListener('keyup', (e) => {
+    //Fonctionnement de la lightbox au clavier
+    //navigation au clavier, fermer avec escape, suivant et precedent avec les fleches directionnelles
+    document.addEventListener('keyup', (e) => {
         if (e.key === 'ArrowRight') {
             toTheNext();
         } else if (e.key === 'ArrowLeft') {
@@ -433,7 +503,7 @@ function factoryMedia(media) {
         } else if (e.key === 'Escape') {
             myLightbox.style.display = "none"
         }
-    })*/
+    })
 }
 
 //Fermeture de la lightbox au clavier
@@ -500,5 +570,4 @@ function findexIndexWithId(medias, id) {
 //methode pour recupere la valeur de la var theGoodMedia
 function getTheGoodMedia() {
     return this.theGoodMedia
-
 }

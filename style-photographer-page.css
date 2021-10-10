@@ -38,6 +38,10 @@ main {
   height: 2212px;
 }
 
+.noScroll {
+  overflow: hidden;
+}
+
 /* style du header */
 header {
   width: 100%;
@@ -236,7 +240,7 @@ header {
     left: 39%;
     top: 860px;
     font-size: 19px;
-    z-index: 16;
+    z-index: 14;
   }
 }
 @media all and (min-width: 768px) and (max-width: 860px) {
@@ -532,10 +536,20 @@ header {
   margin-top: 20px;
 }
 
-#popularite,
-#date,
-#titre {
+.borderDropdown {
   border-radius: 5px;
+}
+
+.populariteClavier {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.dateClavier {
+  border-radius: 0px;
+}
+
+.titreClavier {
+  border-radius: 0px 0px 5px 5px;
 }
 
 .dropdown {
@@ -580,8 +594,8 @@ header {
   position: relative;
   width: 33px;
   height: 13px;
-  left: 125px;
-  top: 36px;
+  left: 174px;
+  top: 23px;
   background: url(./Sample-Photos/arrow.svg) center center/100% 100%;
   background-repeat: no-repeat;
   background-size: cover;

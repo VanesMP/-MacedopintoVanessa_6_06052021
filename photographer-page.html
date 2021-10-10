@@ -12,7 +12,7 @@
 </head>
 
 
-<body>
+<body id="body" aria-hidden="false">
     <header>
         <a href="./index.html" id="linkIndex">
             <img id="logo" src="./Sample-Photos/logo.svg" alt="Fisheye Home page">
@@ -31,53 +31,16 @@
             <div id="photoProfil"></div>
         </section>
 
-        <!-- Le formulaire à compléter pour contacter le photographe -->
-        <div id="modale">
-            <div class="containerForm">
-                <div class="formBody">
-                    <div class="headerForm">
-                        <div class="titleFormBox">
-                            <h1 class="titleForm">Contactez-moi</h1>
-                            <p class="titleForm">Mimi Keel</p>
-                        </div>
-                        <div id="close" tabindex="0">
-                        </div>
-                    </div>
-                    <form class="form" name="contactForm" action="./photographer-page.html" method="get" onsubmit="validate()">
-                        <div>
-                            <label class="textForm" for="first">Prénom</label>
-                            <input class="formDataSimple" type="text" id="first" name="first" />
-                        </div>
-                        <div>
-                            <label class="textForm" for="last">Nom</label>
-                            <input class="formDataSimple" type="text" id="last" name="last" />
-                        </div>
-                        <div>
-                            <label class="textForm" for="email">Email</label>
-                            <input class="formDataSimple" type="email" id="email" name="email" />
-                        </div>
-                        <div>
-                            <label class="textForm" for="message">Votre message</label>
-                            <textarea class="formDataDouble" rows="5" cols="33" id="message" name="message"></textarea>
-                        </div>
-
-                        <!-- Le bouton Submit -->
-                        <input id="btnSubmit" type="submit" value="Envoyer" accesskey="s" />
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <!-- La navigation pour trier -->
         <nav id="navigationMedia" role="menu">
             <div class="trierPar">Trier par</div>
-            <div class="dropdown" aria-haspopup="listbox">
-                <div id="arrow"></div>
-                <button class="dropdownElement" id="popularite" aria-label="Trier par populrité" tabindex="0"><span class="textListBox" id="valuePopularite">Popularité</span></button>
+            <div id="arrow"></div>
+            <div class="dropdown" aria-haspopup="listbox" aria-hidden="false" role="dialog" tabindex="0">
+                <button class="dropdownElement borderDropdown" id="popularite" aria-label="Trier par populrité" tabindex="1"><span class="textListBox" id="valuePopularite">Popularité</span></button>
                 <div class="lineWhite"></div>
-                <button class="dropdownElement visibilityHover" id="date" aria-label="Trier par date" tabindex="0"><span class="textListBox" id="valueDate">Date</span></button>
+                <button class="dropdownElement visibilityHover borderDropdown" id="date" aria-label="Trier par date" tabindex="2"><span class="textListBox" id="valueDate">Date</span></button>
                 <div class="lineWhite"></div>
-                <button class="dropdownElement visibilityHover" id="titre" aria-label="Trier par titre" tabindex="0"><span class="textListBox" id="valueTitre">Titre</span></button>
+                <button class="dropdownElement visibilityHover borderDropdown" id="titre" aria-label="Trier par titre" tabindex="3"><span class="textListBox" id="valueTitre">Titre</span></button>
             </div>
         </nav>
 
@@ -91,7 +54,7 @@
 
             <div id="mediaGallery"></div>
 
-            <div id="lightBoxContainer" aria-label="image closeup view" role="dialog">
+            <div id="lightBoxContainer" aria-label="image closeup view" role="dialog" aria-hidden="false">
                 <div id="lightbox">
                     <div class="buttonClose" aria-label="Close dialogue" role="button"></div>
                     <div class="imageNextPrev">
@@ -105,7 +68,42 @@
 
         </section>
     </main>
+    <!-- Le formulaire à compléter pour contacter le photographe -->
+    <div id="modale" aria-hidden="true" role="dialog" aria-describedby="formContactPhotographer">
+        <div class="containerForm">
+            <div class="formBody">
+                <div class="headerForm">
+                    <div class="titleFormBox">
+                        <h1 class="titleForm">Contactez-moi</h1>
+                        <p class="titleForm">Mimi Keel</p>
+                    </div>
+                    <div id="close" tabindex="0">
+                    </div>
+                </div>
+                <form class="form" role="form" name="contactForm" action="./photographer-page.html" method="get" onsubmit="validate()">
+                    <div>
+                        <label class="textForm" for="first">Prénom</label>
+                        <input class="formDataSimple" type="text" id="first" name="first" />
+                    </div>
+                    <div>
+                        <label class="textForm" for="last">Nom</label>
+                        <input class="formDataSimple" type="text" id="last" name="last" />
+                    </div>
+                    <div>
+                        <label class="textForm" for="email">Email</label>
+                        <input class="formDataSimple" type="email" id="email" name="email" />
+                    </div>
+                    <div>
+                        <label class="textForm" for="message">Votre message</label>
+                        <textarea class="formDataDouble" rows="5" cols="33" id="message" name="message"></textarea>
+                    </div>
 
+                    <!-- Le bouton Submit -->
+                    <input id="btnSubmit" type="submit" value="Envoyer" />
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="./photographer-page.js" defer></script>
 </body>
 
