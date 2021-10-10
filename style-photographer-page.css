@@ -558,15 +558,15 @@ header {
   position: relative;
   z-index: 11;
   cursor: pointer;
+  /*&:hover #arrow {
+      animation: turnUp 0.3s both;
+  }*/
 }
 .dropdown:hover .visibilityHover {
   display: block;
 }
 .dropdown:hover .lineWhite {
   display: block;
-}
-.dropdown:hover #arrow {
-  animation: turnUp 0.3s both;
 }
 .dropdown:hover #popularite {
   border-radius: 5px 5px 0px 0px;
@@ -599,7 +599,6 @@ header {
   background: url(./Sample-Photos/arrow.svg) center center/100% 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  animation: turnDown 0.3s both;
   z-index: 12;
   cursor: pointer;
 }
@@ -622,22 +621,23 @@ header {
   border: none;
 }
 
-@keyframes turnDown {
-  from {
-    transform: rotate(180deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
+/*@keyframes turnDown {
+    from {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
+
 @keyframes turnUp {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
-}
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}*/
 .visibilityHover {
   display: none;
 }

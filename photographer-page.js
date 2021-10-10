@@ -298,10 +298,10 @@ function soryByDate() {
         .forEach((media) => {
             showMedia(media, myPrenom)
         });
+    styleElementDropdown()
     orderPopularite.classList.add('visibilityHover')
     orderAlphabetique.classList.add('visibilityHover')
     orderChrono.classList.remove('visibilityHover')
-    styleElementDropdown()
 };
 
 //2.3: Titre
@@ -336,7 +336,6 @@ function sortByTitre() {
 //Gestion de la barre de navigation au clavier
 //1:les variables globales
 var myDropdown = document.querySelector('.dropdown')
-console.log(myDropdown);
 var myDropdownElement = document.getElementsByClassName('dropdownElement');
 var dropdownVisibility = document.getElementsByClassName('visibilityHover')
 var separator = document.getElementsByClassName('lineWhite');
@@ -345,8 +344,8 @@ var separator = document.getElementsByClassName('lineWhite');
 myDropdown.addEventListener('keyup', dropdownClavier)
 
 function dropdownClavier(e) {
-    console.log('gtf')
     if (e.key === 'Enter') {
+        //e.stopPropagation()
         orderPopularite.focus()
         orderPopularite.classList.remove('visibilityHover')
         orderChrono.classList.remove('visibilityHover')
@@ -361,7 +360,12 @@ function dropdownClavier(e) {
         orderAlphabetique.classList.add('titreClavier')
         orderAlphabetique.classList.remove('borderDropdown')
     }
-    if (e.key === 'Echap') {
+};
+//Fermeture dropdown avec escape??barre espace sur mon clavier !! 
+myDropdown.addEventListener('keyup', closingDropdown)
+
+function closingDropdown(e) {
+    if (e.key === 'escape') {
         orderPopularite.blur();
         orderPopulariteclassList.remove('visibilityHover')
         orderChrono.classList.add('visibilityHover')
@@ -371,9 +375,8 @@ function dropdownClavier(e) {
         }
         styleElementDropdown()
     }
-};
 
-//function closingDropdown(e) {}
+}
 
 function styleElementDropdown() {
     orderPopularite.classList.remove('populariteClavier')
