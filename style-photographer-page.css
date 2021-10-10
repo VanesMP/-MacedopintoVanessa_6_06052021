@@ -114,7 +114,7 @@ header {
 
 .tagsOne {
   display: flex;
-  width: 356px;
+  width: max-content;
   height: 22px;
   flex-direction: row;
   justify-content: flex-start;
@@ -236,9 +236,9 @@ header {
     width: 216px;
     height: 45px;
     position: fixed;
-    margin: 0;
-    left: 39%;
-    top: 860px;
+    margin: auto;
+    left: 36%;
+    top: 888px;
     font-size: 19px;
     z-index: 14;
   }
@@ -251,13 +251,13 @@ header {
 /*STYLE PORTABLE 1ere partie : Profil*/
 @media all and (max-width: 767px) {
   header {
-    width: 50%;
+    width: 100%;
     height: 63px;
     margin-top: 38px;
   }
 
   #linkIndex {
-    width: 100%;
+    width: 50%;
   }
 
   #logo {
@@ -276,7 +276,7 @@ header {
 
   .nameOne {
     width: max-content;
-    font-size: 36px;
+    font-size: 28px;
     margin: 0;
   }
 
@@ -288,7 +288,7 @@ header {
 
   .sloganOne {
     width: max-content;
-    font-size: 16px;
+    font-size: 13px;
     margin: 0;
   }
 
@@ -318,8 +318,8 @@ header {
     width: 205px;
     height: 40px;
     position: fixed;
-    margin: 0;
-    left: 33%;
+    margin: auto;
+    left: 25%;
     top: 659px;
   }
 }
@@ -520,10 +520,10 @@ header {
 /* style barre de navigation déroulante */
 #navigationMedia {
   width: 100%;
-  height: 110px;
-  margin-top: 25px;
+  height: 100px;
+  margin-top: 28px;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: flex-start;
   flex-direction: row;
 }
@@ -533,7 +533,6 @@ header {
   height: 23px;
   font: normal 700 18px "DM Sans";
   color: #000000;
-  margin-top: 20px;
 }
 
 .borderDropdown {
@@ -554,7 +553,6 @@ header {
 
 .dropdown {
   width: 170px;
-  margin-left: 35px;
   position: relative;
   z-index: 11;
   cursor: pointer;
@@ -594,7 +592,7 @@ header {
   position: relative;
   width: 33px;
   height: 13px;
-  left: 174px;
+  left: 160px;
   top: 23px;
   background: url(./Sample-Photos/arrow.svg) center center/100% 100%;
   background-repeat: no-repeat;
@@ -642,12 +640,6 @@ header {
   display: none;
 }
 
-/*STYLE TABLETTE 1ere partie : Barre de tri/navigation*/
-@media all and (min-width: 768px) and (max-width: 1330px) {
-  .dropdown {
-    margin-left: 15px;
-  }
-}
 /*STYLE PORTABLE 1ere partie : Barre de tri/navigation*/
 @media all and (max-width: 767px) {
   #navigationMedia {
