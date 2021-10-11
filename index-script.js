@@ -40,19 +40,20 @@ var navTags = document.getElementsByClassName('tag');
 function sortByTag(photographers, tag) {
     for (let i = 0; i < navTags.length; i++) {
         navTags[i].addEventListener('click', function() {
-            laDeselection();
-            navTags[i].classList.add("tagSelect");
-            mySection.innerHTML = ' ';
-            var thisId = this.id;
-            photographers.filter((photographers) => {
-                for (let i = 0; i < photographers.tags.length; i++) {
-                    if (thisId === photographers.tags[i]) {
-                        console.log(photographers)
-                        addPhotographer(photographers)
+                laDeselection();
+                navTags[i].classList.add("tagSelect");
+                mySection.innerHTML = ' ';
+                var thisId = this.id;
+                photographers.filter((photographers) => {
+                    for (let i = 0; i < photographers.tags.length; i++) {
+                        if (thisId === photographers.tags[i]) {
+                            console.log(photographers)
+                            addPhotographer(photographers)
+                        }
                     }
-                }
+                })
             })
-        })
+            //Methode pour trier les photographes avec 'keyup', enter
         navTags[i].addEventListener('keyup', function(e) {
             if (e.key === 'Enter') {
                 laDeselection();
@@ -71,7 +72,6 @@ function sortByTag(photographers, tag) {
         })
     }
 }
-//Methode pour trier les photographes avec 'keyup', enter
 
 //Methode pour retirer le style sur tous les tags pour pouvoir replacer le style au changement de choix de tag de l' utilisateur
 function laDeselection() {
