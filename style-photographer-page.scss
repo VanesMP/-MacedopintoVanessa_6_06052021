@@ -869,6 +869,7 @@
          height: 35px;
          background: url(./Sample-Photos/close.svg) center center/42px 42px no-repeat;
          z-index: 18;
+         text-indent: 3000px;
      }
      
      .buttonNext,
@@ -879,6 +880,7 @@
          top: 0;
          right: 142px;
          z-index: 17;
+         text-indent: 3000px;
      }
      
      .buttonPrev {
@@ -936,6 +938,7 @@
      @media all and (min-width: 768px) and (max-width: 1024px) {
          #lightbox {
              width: 95%;
+             margin-top: 120px;
          }
          .buttonClose {
              width: 48px;
@@ -950,7 +953,7 @@
          #lightbox {
              width: 91%;
              height: 57%;
-             margin-top: 30%;
+             margin-top: 100px;
          }
          .lightboxGallery,
          .imageNextPrev {
@@ -964,7 +967,7 @@
          .buttonClose {
              width: 91%;
              left: 18px;
-             top: 128px;
+             top: 110px;
              background-position: right;
              background-size: 35px 35px;
          }
@@ -977,11 +980,11 @@
              position: relative;
          }
          .buttonPrev {
-             top: 468px;
+             top: 454px;
              left: 0px;
          }
          .buttonNext {
-             top: 40px;
+             top: 25px;
              left: 198px;
          }
          .lightboxTitleh4,
