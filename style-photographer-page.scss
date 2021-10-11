@@ -535,6 +535,7 @@
      
      .dropdown {
          width: 170px;
+         height: min-content;
          position: relative;
          z-index: 11;
          cursor: pointer;
@@ -938,6 +939,9 @@
          }
          .buttonClose {
              width: 48px;
+         }
+         .lightboxTitleh4 {
+             width: 630px;
          }
      }
      /*STYLE PORTABLE 2eme partie : La Lightbox*/

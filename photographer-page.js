@@ -307,11 +307,11 @@ function soryByDate() {
 //2.3: Titre
 var orderAlphabetique = document.getElementById('titre');
 orderAlphabetique.addEventListener('click', sortByTitre)
-orderAlphabetique.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-        sortByTitre()
-    }
-});
+    /*orderAlphabetique.addEventListener('keydown ', (e) => {
+        if (e.key === 'Enter') {
+            sortByTitre()
+        }
+    });*/
 
 function sortByTitre() {
     var parTitre = theGoodMedia
@@ -334,6 +334,14 @@ function sortByTitre() {
     styleElementDropdown()
 };
 //Gestion de la barre de navigation au clavier
+function sortByKeyup() {
+    orderAlphabetique.addEventListener('keydown ', (e) => {
+        if (e.key === 'Enter') {
+
+            sortByTitre()
+        }
+    });
+}
 //1:les variables globales
 var myDropdown = document.querySelector('.dropdown')
 var myDropdownElement = document.getElementsByClassName('dropdownElement');
@@ -345,7 +353,7 @@ myDropdown.addEventListener('keyup', dropdownClavier)
 
 function dropdownClavier(e) {
     if (e.key === 'Enter') {
-        //e.stopPropagation()
+        event.preventDefault()
         orderPopularite.focus()
         orderPopularite.classList.remove('visibilityHover')
         orderChrono.classList.remove('visibilityHover')
@@ -362,8 +370,11 @@ function dropdownClavier(e) {
     }
 };
 //Fermeture dropdown avec escape??barre espace sur mon clavier !! 
+/*for (let i = 0; i < myDropdownElement.length; i++) {
+    myDropdownElement[i].addEventListener('keyup', closingDropdown)
+}*/
 myDropdown.addEventListener('keyup', closingDropdown)
-
+    //Methode pour fermer la dropdown avec la touche escape
 function closingDropdown(e) {
     if (e.key === 'escape') {
         orderPopularite.blur();
@@ -375,9 +386,8 @@ function closingDropdown(e) {
         }
         styleElementDropdown()
     }
-
 }
-
+//Methode pour avoir le meme style sur les elements qu au hover avec la souris
 function styleElementDropdown() {
     orderPopularite.classList.remove('populariteClavier')
     orderPopularite.classList.add('borderDropdown')
