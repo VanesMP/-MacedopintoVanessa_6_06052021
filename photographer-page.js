@@ -103,6 +103,7 @@ function showProfil(photographer) {
 
     var myphotoProfil = document.getElementById('photoProfil');
     var photo = document.createElement('img');
+    photo.setAttribute('alt', photographer.alt);
     photo.src = './Sample-Photos/Photographers-ID-Photos/' + photographer.portrait; //portrait
 
     photo.classList.add('portraitOne');
@@ -128,7 +129,6 @@ function showMedia(media, myPrenom) {
     myBoxMedia.classList.add('boxMedia');
     myBoxMedia.addEventListener('click', () => {
         factoryMedia(media.id);
-
     });
     myBoxMedia.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
@@ -138,11 +138,16 @@ function showMedia(media, myPrenom) {
     // photo'img' ou video'video'
     if (media.image === undefined) {
         var myMediaVideo = document.createElement('video');
+        var mySourceVideo = document.createElement('source');
         myMediaVideo.classList.add('mediaVideo');
-        myMediaVideo.src = `./Sample-Photos/${myPrenom}/${media.video}`;
-        myMediaVideo.setAttribute('alt', media.alt);
+        mySourceVideo.src = `./Sample-Photos/${myPrenom}/${media.video}`;
+        mySourceVideo.setAttribute('type', 'video/mp4');
+        mySourceVideo.classList.add('mediaVideo');
+        mySourceVideo.setAttribute('alt', media.alt);
         myMediaVideo.setAttribute('id', media.id);
         myMediaVideo.setAttribute('name', media.title);
+        //myMediaVideo.setAttribute('controls', 'true');
+        myMediaVideo.appendChild(mySourceVideo);
         myBoxMedia.appendChild(myMediaVideo);
     } else {
         var myMediaPhoto = document.createElement('img');
@@ -151,8 +156,11 @@ function showMedia(media, myPrenom) {
         myMediaPhoto.setAttribute('alt', media.alt);
         myMediaPhoto.setAttribute('id', media.id);
         myMediaPhoto.setAttribute('name', media.title);
+        myMediaPhoto.setAttribute('type', 'jpeg');
         myBoxMedia.appendChild(myMediaPhoto);
     }
+    console.log(myMediaVideo)
+    console.log(myBoxMedia)
 
     var myBoxTextMedia = document.createElement('div');
     myBoxTextMedia.classList.add('boxTextMedia');
@@ -163,7 +171,7 @@ function showMedia(media, myPrenom) {
 
     var myNbrLike = document.createElement('div');
     myNbrLike.classList.add('nbrLike');
-    myNbrLike.setAttribute('arial-label', 'likes');
+    myNbrLike.setAttribute('aria-label', 'likes');
     var myNbr = document.createElement('p');
     myNbr.innerHTML = media.likes;
     myNbr.classList.add('nbr');
@@ -175,8 +183,9 @@ function showMedia(media, myPrenom) {
         myLike.innerHTML = moreLikeTotal;
     });
 
-    var myIconHeart = document.createElement('div');
+    var myIconHeart = document.createElement('img');
     myIconHeart.src = './Sample-Photos/heart.svg';
+    myIconHeart.setAttribute('alt', 'likes');
     myIconHeart.classList.add('iconHeart');
 
     myNbrLike.appendChild(myNbr);
@@ -442,15 +451,16 @@ function getPlacemedia() {
     return this.placeMedia;
 }
 
-/*FactoryMethod
+//FactoryMethod
 class Image {
     constructor(media, photographName) {
         this.media = media;
+
         this.photographName = photographName;
     }
-    showImage(){  
-        return `<img id=${media.id} src="./Sample-Photos/${photographName}/${media.image}" alt="${media.alt}" class="mediaStyle">
-        <h4 class="lightboxTitle">${media.title}</h4>`;
+    createHtml() {
+        return `<img id=${this.media.id} src="./Sample-Photos/${this.photographName}/${this.media.image}" alt="${this.media.alt}" class="mediaStyle">
+        <h4 class="lightboxTitle">${this.media.title}</h4>`;
     }
 }
 
@@ -459,24 +469,23 @@ class Video {
         this.media = media;
         this.photographName = photographName;
     }
-    showVideo(){  
-        return `<video id=${media.id} controls="" class="mediaStyle">
-        <source src="./Sample-Photos/${photographName}/${media.video}" type="video/mp4">
+    createHtml() {
+        return `<video id=${this.media.id} controls="" class="mediaStyle">
+        <source src="./Sample-Photos/${this.photographName}/${this.media.video}" type="video/mp4">
         </video>
-        <h4 class="lightboxTitle">${media.title}</h4>`;
+        <h4 class="lightboxTitle">${this.media.title}</h4>`;
     }
 }
 class MediaFactory {
     static createMedia(media, photographName) {
-
         if (media.image) {
-            return new Image;
+            return new Image(media, photographName);
         } else {
-           return new Video;
+            return new Video(media, photographName);
         }
     }
 }
-*/
+/*
 class MediaFactory {
     static createMedia(media, photographName) {
 
@@ -491,20 +500,20 @@ class MediaFactory {
 
 class Image {
     constructor(media, photographName) {
-        this.node = `<img id=${media.id} src="./Sample-Photos/${photographName}/${media.image}" alt="${media.alt}" class="mediaStyle">
+        this.node = `<img id=${media.id} src="./Sample-Photos/${photographName}/${media.image}" alt="${media.alt}" type="jpeg" class="mediaStyle">
         <h4 class="lightboxTitle">${media.title}</h4>`;
     }
 }
 
 class Video {
     constructor(media, photographName) {
-        this.node = `<video id=${media.id} controls="" class="mediaStyle">
+        this.node = `<video id=${media.id} controls="" class="mediaStyle" alt="${media.alt}">
         <source src="./Sample-Photos/${photographName}/${media.video}" type="video/mp4">
         </video>
         <h4 class="lightboxTitle">${media.title}</h4>`;
     }
 }
-
+*/
 //Fonctionnement de la lightbox
 function factoryMedia(mediaID) {
     //vider l'espace de la lightbox pour afficher l image choisit
@@ -517,7 +526,7 @@ function factoryMedia(mediaID) {
     console.log(this);
     console.log(mediaID);
     if (mediaClick.getAttribute('image') !== undefined) {
-        // mediaClick = this.getElementsByClassName('mediaPhoto')[0];
+        //mediaClick = this.getElementsByClassName('mediaPhoto')[0];
         mediaClick.setAttribute('type', 'jpeg');
     } else {
         //mediaClick = this.getElementsByClassName('mediaVideo')[0];
@@ -557,6 +566,7 @@ var suivant = document.querySelector('.buttonNext');
 suivant.addEventListener('click', toTheNext);
 
 function toTheNext() {
+    console.log(placeMedia)
     placeTitle.innerHTML = ' ';
     var lightboxGoodMedia = getTheGoodMedia(); //methode qui permet de retourner la valeur du tableau theGoodMedia
     var findIdMediaClick = getPlacemedia().getElementsByClassName('mediaStyle')[0].getAttribute('id'); //var qui contient l' id de l'image affiché
@@ -572,7 +582,7 @@ function toTheNext() {
     inPlaceMedia.innerHTML = ' '; //commencer par vider cet element pour y placer la nouvelle image.
     var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName()); //contient la methode factory qui retourne un modele html defini pour l' affichage avec en parametre
     // la nouvelle image affiché et le nom de l'artiste
-    placeholder.innerHTML = selectionMedia.node;
+    placeholder.innerHTML = selectionMedia.createHtml();
     inPlaceMedia.appendChild(
         placeholder);
 }
@@ -596,7 +606,7 @@ function toThePrev() {
     inPlaceMedia.innerHTML = ' ';
     var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName());
 
-    placeholder.innerHTML = selectionMedia.node;
+    placeholder.innerHTML = selectionMedia.createHtml();
     inPlaceMedia.appendChild(placeholder);
 }
 //methode pour récuperer l id dans le tableau des medias affichés

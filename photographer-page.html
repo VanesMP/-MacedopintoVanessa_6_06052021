@@ -23,24 +23,22 @@
         <section id="partOne">
             <div id="identity"></div>
             <!-- Le bouton de contact -->
-            <form id="btnContactMe" action="formContact" method="post">
-                <label for="contactMe"></label>
-                <input id="contactMe" type="button" value="Contactez-moi" name="formContactPhotographer" tabindex="0" />
-            </form>
-
+            <div id="btnContactMe" action="formContact" aria-label="bouton pour contactez la photographe" method="post">
+                <button id="contactMe" type="button" name="formContactPhotographer" tabindex="0" aria-label="bouton pour contactez la photographe"><p>Contactez-moi</p></button>
+            </div>
             <div id="photoProfil"></div>
         </section>
 
         <!-- La navigation pour trier -->
         <nav id="navigationMedia" role="menu">
-            <div class="trierPar">Trier par</div>
+            <div class="trierPar" aria-label="trier par">Trier par</div>
             <div id="arrow"></div>
-            <div class="dropdown" aria-haspopup="listbox" aria-hidden="false" role="dialog" tabindex="0">
-                <button class="dropdownElement borderDropdown" id="popularite" aria-label="Trier par populrité" tabindex="1"><span class="textListBox" id="valuePopularite">Popularité</span></button>
+            <div class="dropdown" aria-haspopup="listbox" aria-hidden="false" role="dialog" aria-label="menu pour trier les medias" tabindex="0">
+                <button class="dropdownElement borderDropdown" id="popularite" aria-label="Trier par populrité" tabindex="1" aria-label="popularité"><span class="textListBox" id="valuePopularite">Popularité</span></button>
                 <div class="lineWhite"></div>
-                <button class="dropdownElement visibilityHover borderDropdown" id="date" aria-label="Trier par date" tabindex="2"><span class="textListBox" id="valueDate">Date</span></button>
+                <button class="dropdownElement visibilityHover borderDropdown" id="date" aria-label="Trier par date" tabindex="2" aria-label="date"><span class="textListBox" id="valueDate">Date</span></button>
                 <div class="lineWhite"></div>
-                <button class="dropdownElement visibilityHover borderDropdown" id="titre" aria-label="Trier par titre" tabindex="3"><span class="textListBox" id="valueTitre">Titre</span></button>
+                <button class="dropdownElement visibilityHover borderDropdown" id="titre" aria-label="Trier par titre" tabindex="3" aria-label="titre"><span class="textListBox" id="valueTitre">Titre</span></button>
             </div>
         </nav>
 
@@ -69,7 +67,7 @@
         </section>
     </main>
     <!-- Le formulaire à compléter pour contacter le photographe -->
-    <div id="modale" aria-hidden="true" role="dialog" aria-describedby="formContactPhotographer">
+    <div id="modale" aria-hidden="true" role="dialog" aria-label="formulaire de contact" aria-describedby="formContactPhotographer">
         <div class="containerForm">
             <div class="formBody">
                 <div class="headerForm">
