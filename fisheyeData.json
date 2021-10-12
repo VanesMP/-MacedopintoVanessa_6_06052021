@@ -8,7 +8,7 @@
             "tagline": "Voir le beau dans le quotidien",
             "price": 400,
             "portrait": "MimiKeel.jpg",
-            "alt": "portait de la photographe"
+            "alt": "portait de la photographe Mimi Keel"
         },
         {
             "name": "Ellie-Rose Wilkens",
@@ -19,7 +19,7 @@
             "tagline": "Capturer des compositions complexes",
             "price": 250,
             "portrait": "EllieRoseWilkens.jpg",
-            "alt": "portait de la jeune photographe au cheveux multicolor"
+            "alt": "portait de la photographe Ellie-Rose Wilkens"
         },
         {
             "name": "Tracy Galindo",
@@ -30,7 +30,7 @@
             "tagline": "Photographe freelance",
             "price": 500,
             "portrait": "TracyGalindo.jpg",
-            "alt": "portait du photographe de profil"
+            "alt": "portait du photographe Tracy Galindo"
         },
         {
             "name": "Nabeel Bradford",
@@ -41,7 +41,7 @@
             "tagline": "Toujours aller de l'avant",
             "price": 350,
             "portrait": "NabeelBradford.jpg",
-            "alt": "le photographe devant son appareil photo au coucher du soleil"
+            "alt": "portait du photographe Nabeel Bradford"
         },
         {
             "name": "Rhode Dubois",
@@ -52,7 +52,7 @@
             "tagline": "Je crée des souvenirs",
             "price": 275,
             "portrait": "RhodeDubois.jpg",
-            "alt": "portait de la photographe"
+            "alt": "portait de la photographe Rhode Dubois"
         },
         {
             "name": "Marcel Nikolic",
@@ -63,7 +63,7 @@
             "tagline": "Toujours à la recherche de LA photo",
             "price": 300,
             "portrait": "MarcelNikolic.jpg",
-            "alt": "portait du photographe tenant son appareil photo"
+            "alt": "portait du photographe Marcel Nikolic"
         }
     ],
     "media": [{
