@@ -1,0 +1,23 @@
+{
+    "name": "projet_6",
+    "version": "1.0.0",
+    "description": "Fisheye project",
+    "main": "index-script.js",
+    "dependencies": {},
+    "devDependencies": {
+        "eslint": "^8.0.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VanesMP/MacedopintoVanessa_6_06052021.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/VanesMP/MacedopintoVanessa_6_06052021/issues"
+    },
+    "homepage": "https://github.com/VanesMP/MacedopintoVanessa_6_06052021#readme"
+}
