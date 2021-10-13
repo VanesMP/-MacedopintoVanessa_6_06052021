@@ -159,9 +159,6 @@ function showMedia(media, myPrenom) {
         myMediaPhoto.setAttribute('type', 'jpeg');
         myBoxMedia.appendChild(myMediaPhoto);
     }
-    console.log(myMediaVideo)
-    console.log(myBoxMedia)
-
     var myBoxTextMedia = document.createElement('div');
     myBoxTextMedia.classList.add('boxTextMedia');
 
@@ -518,22 +515,31 @@ class Video {
 function factoryMedia(mediaID) {
     //vider l'espace de la lightbox pour afficher l image choisit
     placeMedia.innerHTML = ' ';
-    //Apparition de la lightbox
+    console.log(placeMedia)
+        //Apparition de la lightbox
     myLightbox.style.display = 'block';
     //Affichage du media cliqué grace au chemin de l image
     //Chemin de l image
     mediaClick = document.getElementById(mediaID);
-    console.log(this);
+    console.log(this.mediaClick);
     console.log(mediaID);
     if (mediaClick.getAttribute('image') !== undefined) {
-        //mediaClick = this.getElementsByClassName('mediaPhoto')[0];
-        mediaClick.setAttribute('type', 'jpeg');
-    } else {
         //mediaClick = this.getElementsByClassName('mediaVideo')[0];
+        //mediaClick = MediaFactory.createMedia(mediaID, getPhotographName());
+        //placeholder.innerHTML = mediaClick.createHtml();
         mediaClick.setAttribute('type', 'video/mp4');
         mediaClick.setAttribute('controls', 'true');
+        //console.log(mediaClick)
+    } else {
+        //this.mediaClick = document.getElementsByClassName('mediaPhoto')[0];
+        //mediaClick = MediaFactory.createMedia(mediaID, getPhotographName());
+        //placeholder.innerHTML = mediaClick.createHtml();
+        mediaClick.setAttribute('type', 'jpeg');
+        console.log(mediaClick)
+        console.log(this.mediaClick);
     }
     mediaClick.classList.add('mediaStyle');
+    //console.log(mediaClick)
     //utilisation d'un clone du media afin que l image apparaisse aussi dans la lightbox
     var cloneMediaClick = mediaClick.cloneNode(true);
     var titre = cloneMediaClick.getAttribute('name');
@@ -581,7 +587,8 @@ function toTheNext() {
     var inPlaceMedia = getPlacemedia(); //contient la methode qui retourne la valeur suivante: element html qui contient la class="lightboxGalllery"
     inPlaceMedia.innerHTML = ' '; //commencer par vider cet element pour y placer la nouvelle image.
     var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName()); //contient la methode factory qui retourne un modele html defini pour l' affichage avec en parametre
-    // la nouvelle image affiché et le nom de l'artiste
+    console.log(selectionMedia)
+        // la nouvelle image affiché et le nom de l'artiste
     placeholder.innerHTML = selectionMedia.createHtml();
     inPlaceMedia.appendChild(
         placeholder);
