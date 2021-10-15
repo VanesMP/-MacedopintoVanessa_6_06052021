@@ -158,13 +158,12 @@
          color: $white;
          background-color: $primary-dark;
          border-radius: 5px;
-         box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
+         border: none;
          &:hover {
              background-color: $primary-medium;
          }
-         &:active {
+         &:focus-visible {
              background-color: $primary-medium;
-             box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
          }
      }
      /* style partie 1 : la photo de profil */
@@ -554,9 +553,6 @@
          &:hover #date {
              border-radius: 0px;
          }
-         /*&:hover #arrow {
-             animation: turnUp 0.3s both;
-         }*/
      }
      
      .textListBox {
@@ -601,6 +597,12 @@
          cursor: pointer;
          background-color: #911c1c;
          border: none;
+         &:focus {
+             background-color: $primary-medium;
+         }
+         &:hover {
+             background-color: $primary-medium;
+         }
      }
      /*@keyframes turnDown {
          from {

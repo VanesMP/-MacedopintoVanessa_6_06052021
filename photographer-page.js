@@ -2,6 +2,7 @@
 var theGoodMedia = [];
 var myPrenom = ' ';
 var resultTotalLike = 0;
+var dataSetTotalLikes;
 var myBoxMedia;
 var myLike = document.getElementsByClassName('like');
 var body = document.getElementById('body');
@@ -128,11 +129,11 @@ function showMedia(media, myPrenom) {
     myBoxMedia.setAttribute('tabindex', '0');
     myBoxMedia.classList.add('boxMedia');
     myBoxMedia.addEventListener('click', () => {
-        factoryMedia(media.id);
+        createLightbox(media.id);
     });
     myBoxMedia.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
-            factoryMedia(media.id);
+            createLightbox(media.id);
         }
     });
     // photo'img' ou video'video'
@@ -146,7 +147,6 @@ function showMedia(media, myPrenom) {
         mySourceVideo.setAttribute('alt', media.alt);
         myMediaVideo.setAttribute('id', media.id);
         myMediaVideo.setAttribute('name', media.title);
-        //myMediaVideo.setAttribute('controls', 'true');
         myMediaVideo.appendChild(mySourceVideo);
         myBoxMedia.appendChild(myMediaVideo);
     } else {
@@ -170,14 +170,23 @@ function showMedia(media, myPrenom) {
     myNbrLike.classList.add('nbrLike');
     myNbrLike.setAttribute('aria-label', 'likes');
     var myNbr = document.createElement('p');
-    myNbr.innerHTML = media.likes;
     myNbr.classList.add('nbr');
-    myNbrLike.addEventListener('click', () => { //+1 au click
-        //var mediaLike = media.likes;
-        var moreLike = media.likes + 1;
-        myNbr.innerHTML = moreLike;
-        var moreLikeTotal = resultTotalLike += 1;
-        myLike.innerHTML = moreLikeTotal;
+    myNbr.setAttribute('data-likes', media.likes);
+    var dataSetLikes = myNbr.dataset.likes;
+    myNbr.innerHTML = media.likes;
+    var moreLike = media.likes + 1;
+    //au click sur le like incremeneter ou décrémenter le like sous photo et le total de like des photos
+    myNbrLike.addEventListener('click', () => {
+        if (dataSetLikes === myNbr.innerHTML) {
+            myNbr.innerHTML = moreLike;
+            var totalAfterClick = resultTotalLike += 1;
+            myLike.innerHTML = totalAfterClick;
+            console.log(myLike)
+        } else {
+            myNbr.innerHTML = media.likes;
+            totalAfterClick = resultTotalLike -= 1;
+            myLike.innerHTML = totalAfterClick;
+        }
     });
 
     var myIconHeart = document.createElement('img');
@@ -200,7 +209,7 @@ function showMedia(media, myPrenom) {
 //FORMULAIRE
 //Ouverture du formulaire avec un eventListener au click du bouton contactez moi 
 var modale = document.getElementById('modale');
-var btnOpen = document.getElementById('btnContactMe');
+var btnOpen = document.getElementById('contactMe');
 var btnClose = document.getElementById('close');
 var focusFirst = document.getElementById('first');
 //Ouverture de la modale
@@ -260,11 +269,6 @@ var newGallery = document.getElementById('mediaGallery');
 //2.1: Populaire
 var orderPopularite = document.getElementById('popularite');
 orderPopularite.addEventListener('click', sortByPopularite);
-orderPopularite.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-        sortByPopularite();
-    }
-});
 
 function sortByPopularite() {
     var parPopularite = theGoodMedia
@@ -282,11 +286,6 @@ function sortByPopularite() {
 //2.2: Date
 var orderChrono = document.getElementById('date');
 orderChrono.addEventListener('click', soryByDate);
-orderChrono.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-        soryByDate();
-    }
-});
 
 function soryByDate() {
     var parDate = theGoodMedia
@@ -312,11 +311,6 @@ function soryByDate() {
 //2.3: Titre
 var orderAlphabetique = document.getElementById('titre');
 orderAlphabetique.addEventListener('click', sortByTitre);
-/*orderAlphabetique.addEventListener('keydown ', (e) => {
-        if (e.key === 'Enter') {
-            sortByTitre()
-        }
-    });*/
 
 function sortByTitre() {
     var parTitre = theGoodMedia
@@ -339,18 +333,11 @@ function sortByTitre() {
     styleElementDropdown();
 }
 //Gestion de la barre de navigation au clavier
-orderAlphabetique.addEventListener('keydown ', (e) => {
-    if (e.key === 'Enter') {
-
-        sortByTitre();
-    }
-});
-
 //1:les variables globales
 var myDropdown = document.querySelector('.dropdown');
 var separator = document.getElementsByClassName('lineWhite');
 //2:Ecouteur event por l ouverture
-//3:Methode pour ouvrir/faire apparaitre la barre de tri au focus
+//3:Methode pour ouvrir/faire apparaitre la barre de tri avec la touche entrée
 myDropdown.addEventListener('keyup', dropdownClavier);
 
 function dropdownClavier(e) {
@@ -371,7 +358,7 @@ function dropdownClavier(e) {
         orderAlphabetique.classList.remove('borderDropdown');
     }
 }
-//Fermeture dropdown avec escape??barre espace sur mon clavier !! 
+//Fermeture dropdown avec escape barre espace sur mon clavier
 myDropdown.addEventListener('keyup', closingDropdown);
 //Methode pour fermer la dropdown avec la touche escape
 function closingDropdown(e) {
@@ -386,7 +373,7 @@ function closingDropdown(e) {
         styleElementDropdown();
     }
 }
-//Methode pour avoir le meme style sur les elements qu au hover avec la souris
+//Methode pour avoir le meme style sur les elements qu' avec le hover 
 function styleElementDropdown() {
     orderPopularite.classList.remove('populariteClavier');
     orderPopularite.classList.add('borderDropdown');
@@ -397,7 +384,7 @@ function styleElementDropdown() {
 }
 
 //Box LIKE & PRICE
-//Création de la box de bas de page statique qui contient le nombre de like et le tarif des photographes
+//Création html de la box de bas de page fixe qui contient le total de likes et le tarif des photographes
 function showLikeAndPrice(resultTotalLike, photographer) {
 
     var boxTextLikeAndPrice = document.createElement('div');
@@ -406,8 +393,13 @@ function showLikeAndPrice(resultTotalLike, photographer) {
     boxLike.classList.add('boxLike');
 
     myLike = document.createElement('p');
-    myLike.innerHTML = resultTotalLike;
     myLike.classList.add('like');
+    myLike.setAttribute('data-sumlikes', resultTotalLike);
+    dataSetTotalLikes = myLike.dataset.sumlikes;
+    myLike.innerHTML = resultTotalLike;
+    console.log('element html', myLike);
+    console.log(resultTotalLike)
+    console.log(dataSetTotalLikes)
 
     var heart = document.createElement('img');
     heart.src = './Sample-Photos/heartBlack.svg';
@@ -426,7 +418,7 @@ function showLikeAndPrice(resultTotalLike, photographer) {
     boxLikeAndPrice.appendChild(boxTextLikeAndPrice);
 
 }
-//création de la méthode pour calculer le nombre de like total 
+//Méthode pour calculer le nombre de like total 
 function totalLike(media) {
     var resultLike = 0;
     media.forEach(media => {
@@ -512,34 +504,31 @@ class Video {
 }
 */
 //Fonctionnement de la lightbox
-function factoryMedia(mediaID) {
+function createLightbox(mediaID /*, media*/ ) {
     //vider l'espace de la lightbox pour afficher l image choisit
     placeMedia.innerHTML = ' ';
-    console.log(placeMedia)
-        //Apparition de la lightbox
+    //Apparition de la lightbox
+    body.setAttribute('aria-hidden', 'true');
+    myLightbox.setAttribute('aria-hidden', 'false');
+    body.classList.add('noScroll');
     myLightbox.style.display = 'block';
     //Affichage du media cliqué grace au chemin de l image
     //Chemin de l image
     mediaClick = document.getElementById(mediaID);
-    console.log(this.mediaClick);
-    console.log(mediaID);
+    console.log(mediaClick)
+        /*mediaClick = MediaFactory.createMedia(media.image, getPhotographName());
+        placeMedia.innerHTML = mediaClick.createHtml();
+        console.log(mediaClick);*/
     if (mediaClick.getAttribute('image') !== undefined) {
-        //mediaClick = this.getElementsByClassName('mediaVideo')[0];
-        //mediaClick = MediaFactory.createMedia(mediaID, getPhotographName());
-        //placeholder.innerHTML = mediaClick.createHtml();
+        //mediaClick = this.getElementsByClassName('mediaVideo')[0];       
         mediaClick.setAttribute('type', 'video/mp4');
         mediaClick.setAttribute('controls', 'true');
-        //console.log(mediaClick)
     } else {
-        //this.mediaClick = document.getElementsByClassName('mediaPhoto')[0];
-        //mediaClick = MediaFactory.createMedia(mediaID, getPhotographName());
-        //placeholder.innerHTML = mediaClick.createHtml();
         mediaClick.setAttribute('type', 'jpeg');
-        console.log(mediaClick)
-        console.log(this.mediaClick);
+        console.log(mediaClick);
+        console.log(placeMedia);
     }
     mediaClick.classList.add('mediaStyle');
-    //console.log(mediaClick)
     //utilisation d'un clone du media afin que l image apparaisse aussi dans la lightbox
     var cloneMediaClick = mediaClick.cloneNode(true);
     var titre = cloneMediaClick.getAttribute('name');
@@ -547,51 +536,53 @@ function factoryMedia(mediaID) {
     placeTitle.classList.add('lightboxTitleh4');
     lightboxAndTitle.appendChild(placeTitle);
     placeMedia.appendChild(cloneMediaClick);
-
-    //Fonctionnement de la lightbox au clavier
-    //navigation au clavier, fermer avec escape, suivant et precedent avec les fleches directionnelles
-    document.addEventListener('keyup', (e) => {
-        if (e.key === 'ArrowRight') {
-            toTheNext();
-        } else if (e.key === 'ArrowLeft') {
-            toThePrev();
-        } else if (e.key === 'Escape') {
-            myLightbox.style.display = 'none';
-        }
-    });
 }
 
+//Fonctionnement de la lightbox au clavier 
 //Fermeture de la lightbox au clavier
 var closeMyLightbox = document.querySelector('.buttonClose');
 closeMyLightbox.addEventListener('click', function() {
+    body.setAttribute('aria-hidden', 'false');
+    myLightbox.setAttribute('aria-hidden', 'true');
+    body.classList.remove('noScroll');
     myLightbox.style.display = 'none';
 });
 
+document.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowRight') {
+        toTheNext();
+    } else if (e.key === 'ArrowLeft') {
+        toThePrev();
+    } else if (e.key === 'Escape') {
+        myLightbox.style.display = 'none';
+    }
+});
 //Next button pour une navigation 
 var suivant = document.querySelector('.buttonNext');
 suivant.addEventListener('click', toTheNext);
 
 function toTheNext() {
-    console.log(placeMedia)
     placeTitle.innerHTML = ' ';
     var lightboxGoodMedia = getTheGoodMedia(); //methode qui permet de retourner la valeur du tableau theGoodMedia
+    console.log(lightboxGoodMedia)
     var findIdMediaClick = getPlacemedia().getElementsByClassName('mediaStyle')[0].getAttribute('id'); //var qui contient l' id de l'image affiché
+    console.log(findIdMediaClick)
     var goodIndex = findexIndexWithId(lightboxGoodMedia, findIdMediaClick); //index de l'imgae affiché avant de passer à la suivante au click sur la fleche next
-
+    console.log(goodIndex)
     var newIndex = goodIndex + 1 < lightboxGoodMedia.length ? //index de la nouvelle image affiché apres un click sur la fleche next en utilisant l' index de limage affiché avant le click suivant
         goodIndex + 1 : //avec l'operateur ternaire raccourci de if...else. : condition ? si vrai executer ce code : si faux executer ce code
         0;
-    var newMedia = lightboxGoodMedia[newIndex]; // contient l'image affiché grace a l'index situé dans le tableau des medias 
 
+    var newMedia = lightboxGoodMedia[newIndex]; // contient l'image affiché grace a l'index situé dans le tableau des medias 
     //factory methode
     var inPlaceMedia = getPlacemedia(); //contient la methode qui retourne la valeur suivante: element html qui contient la class="lightboxGalllery"
+    console.log(inPlaceMedia)
     inPlaceMedia.innerHTML = ' '; //commencer par vider cet element pour y placer la nouvelle image.
     var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName()); //contient la methode factory qui retourne un modele html defini pour l' affichage avec en parametre
     console.log(selectionMedia)
         // la nouvelle image affiché et le nom de l'artiste
     placeholder.innerHTML = selectionMedia.createHtml();
-    inPlaceMedia.appendChild(
-        placeholder);
+    inPlaceMedia.appendChild(placeholder);
 }
 
 //Prev button pour une navigation 
@@ -612,7 +603,6 @@ function toThePrev() {
     var inPlaceMedia = getPlacemedia();
     inPlaceMedia.innerHTML = ' ';
     var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName());
-
     placeholder.innerHTML = selectionMedia.createHtml();
     inPlaceMedia.appendChild(placeholder);
 }

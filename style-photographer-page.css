@@ -148,14 +148,13 @@ header {
   color: #FFFFFF;
   background-color: #901C1C;
   border-radius: 5px;
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+  border: none;
 }
 #contactMe:hover {
   background-color: #D3573C;
 }
-#contactMe:active {
+#contactMe:focus-visible {
   background-color: #D3573C;
-  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* style partie 1 : la photo de profil */
@@ -557,9 +556,6 @@ header {
   position: relative;
   z-index: 11;
   cursor: pointer;
-  /*&:hover #arrow {
-      animation: turnUp 0.3s both;
-  }*/
 }
 .dropdown:hover .visibilityHover {
   display: block;
@@ -618,6 +614,12 @@ header {
   cursor: pointer;
   background-color: #911c1c;
   border: none;
+}
+.dropdownElement:focus {
+  background-color: #D3573C;
+}
+.dropdownElement:hover {
+  background-color: #D3573C;
 }
 
 /*@keyframes turnDown {
