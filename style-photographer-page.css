@@ -15,6 +15,11 @@ a {
   cursor: default;
 }
 
+fieldset,
+button {
+  border: none;
+}
+
 input,
 label,
 textarea {
@@ -35,7 +40,7 @@ body {
 }
 
 main {
-  height: 2212px;
+  height: auto;
 }
 
 .noScroll {
@@ -52,10 +57,7 @@ header {
 }
 
 #logo {
-  background: url("./Sample-Photos/logo.svg");
-  background: no-repeat;
-  width: 200px;
-  height: 50px;
+  background: center/contain no-repeat url(./Sample-Photos/logo.svg);
   cursor: pointer;
 }
 
@@ -260,7 +262,7 @@ header {
   }
 
   #logo {
-    width: 100%;
+    width: 85%;
   }
 
   #partOne {
@@ -292,8 +294,8 @@ header {
   }
 
   .tagPersonnel {
-    width: max-content;
-    font-size: 13px;
+    font-size: 11px;
+    padding: 0 3px;
   }
 
   #photoProfil,
@@ -401,7 +403,6 @@ header {
   background: #901C1C;
   font: normal 700 20px "DM Sans";
   color: #FFFFFF;
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
   cursor: pointer;
 }
 #btnSubmit:hover {
@@ -409,15 +410,12 @@ header {
 }
 #btnSubmit:active {
   background-color: #D3573C;
-  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
 #close {
   width: 48px;
   height: 48px;
-  background-image: url("./Sample-Photos/close_white_24dp.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
+  background: center/contain no-repeat url("./Sample-Photos/close_white_24dp.svg");
   cursor: pointer;
 }
 
@@ -650,16 +648,12 @@ header {
   }
 }
 /* style partie deux : les medias */
-#partTwo {
-  width: 100%;
-}
-
 #mediaGallery {
   width: 100%;
-  height: 1742px;
+  height: 1300px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 5%;
+  gap: 0% 5%;
   justify-items: center;
   z-index: 10;
 }
@@ -958,10 +952,6 @@ header {
     margin-top: 120px;
   }
 
-  .buttonClose {
-    width: 48px;
-  }
-
   .lightboxTitleh4 {
     width: 630px;
   }
@@ -969,53 +959,34 @@ header {
 /*STYLE PORTABLE 2eme partie : La Lightbox*/
 @media all and (max-width: 767px) {
   #lightbox {
-    width: 91%;
+    width: 95%;
     height: 57%;
-    margin-top: 100px;
+    margin-top: 130px;
   }
 
   .lightboxGallery,
 .imageNextPrev {
-    width: 376px;
+    width: 100%;
     height: 383px;
-  }
-
-  .imageNextPrev {
-    display: block;
-    height: 428px;
+    margin: 0;
   }
 
   .buttonClose {
-    width: 91%;
-    left: 18px;
-    top: 110px;
-    background-position: right;
+    width: 33px;
     background-size: 35px 35px;
   }
 
   .buttonPrev,
 .buttonNext {
-    background-size: 30px 30px;
+    width: 33px;
     background-position: right;
-    width: 177px;
-    height: 45px;
-    position: relative;
-  }
-
-  .buttonPrev {
-    top: 454px;
-    left: 0px;
-  }
-
-  .buttonNext {
-    top: 25px;
-    left: 198px;
+    background-size: 30px 30px;
   }
 
   .lightboxTitleh4,
 .lightboxTitle {
     margin: 0;
-    width: 100%;
+    width: 92%;
     font-size: 18px;
   }
 }

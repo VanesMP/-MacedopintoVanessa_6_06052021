@@ -46,13 +46,12 @@ function sortByTag(photographers) {
             photographers.filter((photographers) => {
                 for (let i = 0; i < photographers.tags.length; i++) {
                     if (thisId === photographers.tags[i]) {
-                        console.log(photographers);
                         addPhotographer(photographers);
                     }
                 }
             });
         });
-        //Methode pour trier les photographes avec 'keyup', enter
+        //Methode pour trier les photographes avec 'keyup'= enter & 'keyup' = echap pour revenir sur tous les photographes
         navTags[i].addEventListener('keyup', function(e) {
             if (e.key === 'Enter') {
                 laDeselection();
@@ -62,11 +61,13 @@ function sortByTag(photographers) {
                 photographers.filter((photographers) => {
                     for (let i = 0; i < photographers.tags.length; i++) {
                         if (thisId === photographers.tags[i]) {
-                            console.log(photographers);
                             addPhotographer(photographers);
                         }
                     }
                 });
+            } else if (e.key === 'Escape') {
+                laDeselection();
+                gestionPhotographer(photographers);
             }
         });
     }
@@ -78,7 +79,6 @@ function laDeselection() {
         navTags[i].classList.remove('tagSelect');
     }
 }
-
 
 //afficher tous les photographes selon le modele
 function gestionPhotographer(photographers) {
