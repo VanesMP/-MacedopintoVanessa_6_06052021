@@ -171,6 +171,7 @@ function showMedia(media, myPrenom) {
     myNbrLike.setAttribute("aria-label", "likes");
     var myNbr = document.createElement("p");
     myNbr.classList.add("nbr");
+    myNbr.setAttribute("tabindex", "0");
     myNbr.setAttribute("data-likes", media.likes);
     var dataSetLikes = myNbr.dataset.likes;
     myNbr.innerHTML = media.likes;
@@ -187,7 +188,20 @@ function showMedia(media, myPrenom) {
             myLike.innerHTML = totalAfterClick;
         }
     });
-
+    //avec la touche Entrée sur le like incremeneter ou décrémenter le like sous photo et le total de like des photos
+    myNbrLike.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            if (dataSetLikes === myNbr.innerHTML) {
+                myNbr.innerHTML = moreLike;
+                var totalAfterClick = resultTotalLike += 1;
+                myLike.innerHTML = totalAfterClick;
+            } else {
+                myNbr.innerHTML = media.likes;
+                totalAfterClick = resultTotalLike -= 1;
+                myLike.innerHTML = totalAfterClick;
+            }
+        }
+    });
     var myIconHeart = document.createElement("img");
     myIconHeart.src = "./Sample-Photos/heart.svg";
     myIconHeart.setAttribute("alt", "likes");
