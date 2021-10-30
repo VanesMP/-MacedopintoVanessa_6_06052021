@@ -6,7 +6,7 @@ var dataSetTotalLikes;
 var myBoxMedia;
 var myLike = document.getElementsByClassName("like");
 var body = document.getElementById("body");
-
+//Methode pour recuperer la valeur de la variable prenom
 function getPhotographName() {
     return this.myPrenom;
 }
@@ -47,7 +47,6 @@ function findMedia(media, pageId) {
 //3 bis: decouper le nom du photographe avec le photographe trouvé 
 // 4: cherche dans les medias tous les medias du photographe et faire apparaitre les infos contenus en utilisant la variable prenom pour retrouver le chemin du dossier
 //5: afficher la box fixe avec le total de like et le tarif 
-//6: recuperer le retour des fonctions pour trier par Popularité, Date, Titre
 function onloadPhotographer(photographers, media) {
     //1
     var params = (new URL(window.location)).searchParams;
@@ -446,7 +445,7 @@ var placeholder = document.createElement("div"); //creation de l'element div pou
 placeholder.classList.add("placeholderStyle");
 var suivant = document.querySelector(".buttonNext");
 var mediaClick;
-
+//methode pour recupere la valeur de la var placeMedia
 function getPlacemedia() {
     return this.placeMedia;
 }
@@ -536,11 +535,12 @@ function toTheNext() {
         goodIndex + 1 : //avec l'operateur ternaire raccourci de if...else. : condition ? si vrai executer ce code : si faux executer ce code
         0;
     var newMedia = lightboxGoodMedia[newIndex]; // contient l'image affiché grace a l'index situé dans le tableau des medias 
-    //factory methode
+    console.log(newMedia)
+        //factory methode
     var inPlaceMedia = getPlacemedia(); //contient la methode qui retourne la valeur suivante: element html qui contient la class="lightboxGalllery"
     inPlaceMedia.innerHTML = " "; //commencer par vider cet element pour y placer la nouvelle image.
     var type = newMedia.image !== undefined ? "image" : "video/mp4";
-    var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName(), type); //contient la methode factory qui retourne un modele html defini pour l' affichage avec en parametre
+    var selectionMedia = MediaFactory.createMedia(newMedia, getPhotographName(), type); //contient la methode factory qui retourne un modele html defini pour l' affichage
     // la nouvelle image affiché et le nom de l'artiste
     placeholder.innerHTML = selectionMedia;
     inPlaceMedia.appendChild(placeholder);

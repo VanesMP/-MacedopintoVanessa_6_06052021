@@ -51,7 +51,7 @@ function sortByTag(photographers) {
                 }
             });
         });
-        //Methode pour trier les photographes avec 'keyup'= enter & 'keyup' = echap pour revenir sur tous les photographes
+        //Methode pour trier les photographes avec 'keyup'= enter 
         navTags[i].addEventListener("keyup", function(e) {
             if (e.key === "Enter") {
                 laDeselection();
@@ -65,9 +65,6 @@ function sortByTag(photographers) {
                         }
                     }
                 });
-            } else if (e.key === "Escape") {
-                laDeselection();
-                gestionPhotographer(photographers);
             }
         });
     }
