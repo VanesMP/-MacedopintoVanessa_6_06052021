@@ -252,7 +252,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 //Gestion de l' envoi du formulaire, avec la function validate()
-// eslint-disable-next-line no-unused-vars -- methode appelé dans le html
 function validate() {
     event.preventDefault();
     var prenom = document.getElementById("first").value;
@@ -535,8 +534,7 @@ function toTheNext() {
         goodIndex + 1 : //avec l'operateur ternaire raccourci de if...else. : condition ? si vrai executer ce code : si faux executer ce code
         0;
     var newMedia = lightboxGoodMedia[newIndex]; // contient l'image affiché grace a l'index situé dans le tableau des medias 
-    console.log(newMedia)
-        //factory methode
+    //factory methode
     var inPlaceMedia = getPlacemedia(); //contient la methode qui retourne la valeur suivante: element html qui contient la class="lightboxGalllery"
     inPlaceMedia.innerHTML = " "; //commencer par vider cet element pour y placer la nouvelle image.
     var type = newMedia.image !== undefined ? "image" : "video/mp4";
